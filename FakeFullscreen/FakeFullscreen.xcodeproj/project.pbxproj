@@ -16,6 +16,8 @@
 		88883B2B1DCD18C60005E4C1 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88883B2A1DCD18C60005E4C1 /* ContentViewController.swift */; };
 		88883B2D1DCD1C370005E4C1 /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88883B2C1DCD1C370005E4C1 /* WindowManager.swift */; };
 		88883B2F1DCD1D470005E4C1 /* ScreenLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88883B2E1DCD1D470005E4C1 /* ScreenLayout.swift */; };
+		88CA6E6B1DD110F9008F8582 /* ConnectionCenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88CA6E6A1DD110F9008F8582 /* ConnectionCenter.xib */; };
+		88CA6E6D1DD113EA008F8582 /* ConnectionCenterWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CA6E6C1DD113EA008F8582 /* ConnectionCenterWindowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		88883B2A1DCD18C60005E4C1 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		88883B2C1DCD1C370005E4C1 /* WindowManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
 		88883B2E1DCD1D470005E4C1 /* ScreenLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenLayout.swift; sourceTree = "<group>"; };
+		88CA6E6A1DD110F9008F8582 /* ConnectionCenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectionCenter.xib; sourceTree = "<group>"; };
+		88CA6E6C1DD113EA008F8582 /* ConnectionCenterWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionCenterWindowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 				88883B2A1DCD18C60005E4C1 /* ContentViewController.swift */,
 				88883B2C1DCD1C370005E4C1 /* WindowManager.swift */,
 				88883B2E1DCD1D470005E4C1 /* ScreenLayout.swift */,
+				88CA6E6A1DD110F9008F8582 /* ConnectionCenter.xib */,
+				88CA6E6C1DD113EA008F8582 /* ConnectionCenterWindowController.swift */,
 			);
 			path = FakeFullscreen;
 			sourceTree = "<group>";
@@ -137,6 +143,7 @@
 			files = (
 				88883B181DCD183E0005E4C1 /* Assets.xcassets in Resources */,
 				88883B231DCD18600005E4C1 /* FakeFullscreenWindow.xib in Resources */,
+				88CA6E6B1DD110F9008F8582 /* ConnectionCenter.xib in Resources */,
 				88883B1B1DCD183E0005E4C1 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,6 +157,7 @@
 			files = (
 				88883B161DCD183E0005E4C1 /* AppDelegate.swift in Sources */,
 				88883B271DCD187D0005E4C1 /* FakeFullscreenWindowController.swift in Sources */,
+				88CA6E6D1DD113EA008F8582 /* ConnectionCenterWindowController.swift in Sources */,
 				88883B2B1DCD18C60005E4C1 /* ContentViewController.swift in Sources */,
 				88883B251DCD18710005E4C1 /* FakeFullscreenWindow.swift in Sources */,
 				88883B2D1DCD1C370005E4C1 /* WindowManager.swift in Sources */,
@@ -306,6 +314,7 @@
 				88883B211DCD183E0005E4C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

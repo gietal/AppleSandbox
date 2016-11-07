@@ -14,8 +14,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var window: NSWindow!
 
     let winManager = WindowManager()
-    
+    let connCenter = ConnectionCenterWindowController()
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        
+        connCenter.showWindow(self)
+        connCenter.window?.makeKeyAndOrderFront(self)
         
         // hardcode my screen layout for testing
         // this is in cocoa coordinate which means

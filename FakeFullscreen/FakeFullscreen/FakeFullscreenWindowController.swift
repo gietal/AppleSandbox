@@ -15,6 +15,9 @@ class FakeFullscreenWindowController: NSWindowController {
         self.init(windowNibName: "FakeFullscreenWindow")
     }
     
+    override func windowDidLoad() {
+        window?.delegate = self
+    }
     public func showAndKey() {
         showWindow(self)
         window?.makeKeyAndOrderFront(self)
@@ -37,13 +40,13 @@ class FakeFullscreenWindowController: NSWindowController {
                 window?.styleMask.insert([.fullSizeContentView, .borderless])
                 window?.styleMask.remove([.resizable])
                 hideTitleBar()
-                NSApplication.shared().presentationOptions.insert([.hideDock, .autoHideMenuBar])
+                hideMenuBar()
                
             } else {
                 window?.styleMask.remove([.fullSizeContentView, .borderless])
                 window?.styleMask.insert([.resizable])
                 showTitleBar()
-                NSApplication.shared().presentationOptions.remove([.hideDock, .autoHideMenuBar])
+                showMenuBar()
             }
         }
     }
@@ -69,4 +72,44 @@ class FakeFullscreenWindowController: NSWindowController {
         window?.standardWindowButton(.miniaturizeButton)?.isHidden = false
         window?.standardWindowButton(.zoomButton)?.isHidden = false
     }
+    
+    fileprivate func showMenuBar() {
+        NSApplication.shared().presentationOptions.remove([.hideDock, .autoHideMenuBar])
+    }
+    
+    fileprivate func hideMenuBar() {
+        NSApplication.shared().presentationOptions.insert([.hideDock, .autoHideMenuBar])
+    }
 }
+
+extension FakeFullscreenWindowController: NSWindowDelegate {
+    
+    func windowDidBecomeKey(_ notification: Notification) {
+        if fullscreen {
+            hideTitleBar()
+            hideMenuBar()
+        } else {
+            showTitleBar()
+            showMenuBar()
+        }
+    }
+    
+    func windowDidResignKey(_ notification: Notification) {
+        if fullscreen {
+            showTitleBar()
+            showMenuBar()
+        }
+    }
+    
+    func windowDidBecomeMain(_ notification: Notification) {
+        
+    }
+}
+
+
+
+
+
+
+
+
