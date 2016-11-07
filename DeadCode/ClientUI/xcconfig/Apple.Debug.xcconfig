@@ -1,0 +1,25 @@
+// Copyright © Microsoft Corporation 2015
+
+#include "Apple.Common.xcconfig"
+
+//MARK: Architecture
+ONLY_ACTIVE_ARCH = YES
+
+//MARK: Build Options
+DEBUG_INFORMATION_FORMAT = dwarf
+
+//MARK: Deployment
+COPY_PHASE_STRIP = NO
+
+//MARK: Apple LLVM 7.0 - Code Generation
+GCC_DYNAMIC_NO_PIC = NO
+GCC_OPTIMIZATION_LEVEL = 0
+GCC_SYMBOLS_PRIVATE_EXTERN = NO
+
+//MARK: Swift Compiler - Code Generation
+SWIFT_OPTIMIZATION_LEVEL = -Onone
+
+//MARK: User-Defined
+MTL_ENABLE_DEBUG_INFO = YES
+APPLE_DEBUG_GCC_PREPROCESSOR_DEFINITIONS = $(inherited) DEBUG=1
+APPLE_DEBUG_OTHER_SWIFT_FLAGS = $(inherited) -D DEBUG

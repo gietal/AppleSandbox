@@ -1,0 +1,19 @@
+// Copyright © Microsoft Corporation 2015
+
+//MARK: Build Options
+EMBEDDED_CONTENT_CONTAINS_SWIFT = YES
+
+//MARK: Packaging
+PRODUCT_MODULE_NAME = ClientTests
+
+//MARK: Deployment
+COMBINE_HIDPI_IMAGES = YES
+SKIP_INSTALL = YES
+
+//MARK: Search Paths
+SWIFT_OBJC_BRIDGING_HEADER = ../source/ui/macos/Tests/ClientTests-Bridging-Header.h
+
+//MARK: User Defined
+CLIENTTESTS_MAC_COMMON_HEADER_SEARCH_PATHS = $(inherited) ../externals/ext-gtest-mac-10.8/include ../externals/ext-boost/boost ../externals/rdcore-api/publicinc ../source/platform/publicinc/ ../source/platform/tests/publicinc
+CLIENTTESTS_MAC_COMMON_FRAMEWORK_SEARCH_PATHS = $(inherited) ../Carthage/Build/Mac ../externals/ext-aria-mac-10.8/frameworks
+CLIENTTESTS_MAC_COMMON_LIBRARY_SEARCH_PATHS = $(inherited) ../externals/ext-gtest-mac-10.8/lib ../externals/ext-boost-mac-10.8/lib ../externals/rdcore-stack/libtermsrv/rdp/Mac/iOS/Security/x86_64/Ship ../externals/rdcore-stack/libtermsrv/rdp/Mac/Common/gssapi/bin/mac-10.8

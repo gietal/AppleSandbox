@@ -1,0 +1,14 @@
+// Copyright © Microsoft Corporation 2015
+
+//MARK: Packaging
+INFOPLIST_FILE = ../source/ui/macos/Tests/ClientBetaTests.plist
+PRODUCT_NAME = ClientBetaTests
+PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.rdc.osx.beta.tests
+
+//MARK: Testing
+TEST_HOST = $(BUILT_PRODUCTS_DIR)/Microsoft Remote Desktop Beta.app/Contents/MacOS/Microsoft Remote Desktop Beta
+
+//MARK: User Defined
+CLIENTBETATESTS_MAC_COMMON_FRAMEWORK_SEARCH_PATHS = $(inherited) 
+CLIENTBETATESTS_MAC_COMMON_GCC_PREPROCESSOR_DEFINITIONS = $(inherited) BETA=1
+CLIENTBETATESTS_MAC_COMMON_OTHER_SWIFT_FLAGS = $(inherited) -D BETA

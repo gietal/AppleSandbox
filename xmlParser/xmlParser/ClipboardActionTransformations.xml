@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- layout specific -->
+<layouts>
+    <layout name="com.apple.keylayout.Dvorak">
+        <transformations>
+            <!-- Command+X to Control+X -->
+            <transform>
+                <from command="1" key="B" />
+                <to control="1" key="B" />
+            </transform>
+            <!-- Command+C to Control+C -->
+            <transform>
+                <from command="1" key="I" />
+                <to control="1" key="I" />
+            </transform>
+            <!-- Command+V to Control+V -->
+            <transform>
+                <from command="1" key="Period" />
+                <to control="1" key="Period" />
+            </transform>
+        </transformations>
+    </layout>
+    <layout name="default">
+        <transformations>
+            <!-- Command+X to Control+X -->
+            <transform>
+                <from command="1" key="X" />
+                <to control="1" key="X" />
+            </transform>
+            <!-- Command+C to Control+C -->
+            <transform>
+                <from command="1" key="C" />
+                <to control="1" key="C" />
+            </transform>
+            <!-- Command+V to Control+V -->
+            <transform>
+                <from command="1" key="V" />
+                <to control="1" key="V" />
+            </transform>
+        </transformations>
+    </layout>
+</layouts>

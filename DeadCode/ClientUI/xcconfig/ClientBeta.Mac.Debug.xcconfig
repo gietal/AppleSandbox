@@ -1,0 +1,17 @@
+// Copyright © Microsoft Corporation 2015
+
+#include "Apple.Debug.xcconfig"
+#include "Mac.Debug.xcconfig"
+#include "Client.Mac.Debug.xcconfig"
+#include "ClientBeta.Mac.Common.xcconfig"
+
+//MARK: Apple LLVM 7.0 - Preprocessing
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) $(APPLE_DEBUG_GCC_PREPROCESSOR_DEFINITIONS) $(CLIENTBETA_MAC_COMMON_GCC_PREPROCESSOR_DEFINITIONS)
+
+//MARK: Search Paths
+HEADER_SEARCH_PATHS = $(inherited) $(CLIENT_MAC_COMMON_HEADER_SEARCH_PATHS)
+FRAMEWORK_SEARCH_PATHS = $(inherited) $(CLIENT_MAC_COMMON_FRAMEWORK_SEARCH_PATHS) $(CLIENTBETA_MAC_COMMON_FRAMEWORK_SEARCH_PATHS)
+LIBRARY_SEARCH_PATHS = $(inherited) $(CLIENT_MAC_COMMON_LIBRARY_SEARCH_PATHS)
+
+//MARK: Swift Compiler - Custom Flags
+OTHER_SWIFT_FLAGS = $(inherited) $(APPLE_DEBUG_OTHER_SWIFT_FLAGS) $(CLIENTBETA_MAC_COMMON_OTHER_SWIFT_FLAGS) -enable-testing

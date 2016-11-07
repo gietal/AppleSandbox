@@ -1,0 +1,26 @@
+// Copyright © Microsoft Corporation 2015
+
+//MARK: Build Options
+EMBEDDED_CONTENT_CONTAINS_SWIFT = YES
+
+//MARK: Linking
+DEAD_CODE_STRIPPING = YES
+
+//MARK: Packaging
+PRODUCT_MODULE_NAME = Client
+
+//MARK: Deployment
+COMBINE_HIDPI_IMAGES = YES
+SKIP_INSTALL = NO
+
+//MARK: Search Paths
+SWIFT_OBJC_BRIDGING_HEADER = ../source/ui/macos/Client-Bridging-Header.h
+
+//MARK: Apple LLVM 7.0 - Warnings - All languages
+//TODO: Enable GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS once Localytics is moved to external.
+GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = NO
+
+//MARK: User Defined
+CLIENT_MAC_COMMON_HEADER_SEARCH_PATHS = $(inherited) ../source/platform/publicinc ../source/platform/tests/publicinc ../externals/ext-boost/boost
+CLIENT_MAC_COMMON_FRAMEWORK_SEARCH_PATHS = $(inherited) ../Carthage/Build/Mac ../externals/ext-aria-mac-10.8/frameworks
+CLIENT_MAC_COMMON_LIBRARY_SEARCH_PATHS = $(inherited) ../externals/ext-boost-mac-10.8/lib ../externals/rdcore-stack/libtermsrv/rdp/Mac/iOS/Security/mac-10.8 ../externals/rdcore-stack/libtermsrv/rdp/Mac/Common/gssapi/bin/mac-10.8

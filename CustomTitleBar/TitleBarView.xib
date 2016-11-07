@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="TitleBarViewController" customModule="CustomTitleBar" customModuleProvider="target">
+            <connections>
+                <outlet property="buttonCell" destination="GSw-Gh-FLD" id="WMG-PM-6sD"/>
+                <outlet property="closeButtonShadowView" destination="47b-na-sen" id="7u0-MS-Xh8"/>
+                <outlet property="view" destination="c22-O7-iKe" id="hFe-Qv-cyT"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="wkc-dY-Yui" userLabel="HeaderView" customClass="ColorView" customModule="CustomTitleBar" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="181" width="480" height="91"/>
+                    <subviews>
+                        <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="47b-na-sen" customClass="TrafficLightShadowView" customModule="CustomTitleBar" customModuleProvider="target">
+                            <rect key="frame" x="81" y="60" width="20" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        </customView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="91" id="s53-XV-TyU"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                            <color key="value" red="1" green="0.66793370246887207" blue="0.33181703090667725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </customView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6bb-bi-Hrf">
+                    <rect key="frame" x="209" y="140" width="103" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Title Bar View" id="qQR-pc-JCm">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oz0-jm-lah">
+                    <rect key="frame" x="215" y="111" width="50" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="square" title="＋" bezelStyle="shadowlessSquare" imagePosition="overlaps" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="2Wc-UX-weB" customClass="RoundButtonCell" customModule="CustomTitleBar" customModuleProvider="target">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="systemHeavy" size="40"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="buttonColor">
+                                <color key="value" red="1" green="0.66793370249999995" blue="0.33181703089999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="outlineColor">
+                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="outlineWidth">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </buttonCell>
+                    <connections>
+                        <action selector="buttonPressed:" target="-2" id="HVn-oX-A20"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E4B-6a-wE3" userLabel="square">
+                    <rect key="frame" x="230" y="49" width="50" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="overlaps" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="axesIndependently" inset="2" id="cW6-Kz-dG2">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system" size="50"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="buttonPressed:" target="-2" id="oQp-nr-iol"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jd7-Gb-t9a">
+                    <rect key="frame" x="230" y="49" width="50" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="square" title="－" bezelStyle="shadowlessSquare" imagePosition="overlaps" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="GSw-Gh-FLD" customClass="RoundButtonCell" customModule="CustomTitleBar" customModuleProvider="target">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="systemHeavy" size="40"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="buttonColor">
+                                <color key="value" red="1" green="0.66793370246887207" blue="0.33181703090667725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="outlineColor">
+                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="outlineWidth">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </buttonCell>
+                    <connections>
+                        <action selector="buttonPressed:" target="-2" id="f1N-oP-klV"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3S6-rQ-Mdv">
+                    <rect key="frame" x="302" y="111" width="50" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="square" title="╳" bezelStyle="shadowlessSquare" imagePosition="overlaps" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="Yxa-IL-Tea" customClass="RoundButtonCell" customModule="CustomTitleBar" customModuleProvider="target">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="systemBold" size="40"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="buttonColor">
+                                <color key="value" red="1" green="0.66793370249999995" blue="0.33181703089999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="outlineColor">
+                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="outlineWidth">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </buttonCell>
+                    <connections>
+                        <action selector="buttonPressed:" target="-2" id="JMR-de-hir"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q82-cG-yvo">
+                    <rect key="frame" x="215" y="111" width="50" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="square" title="＋" bezelStyle="shadowlessSquare" imagePosition="overlaps" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="T6J-WR-Wfs" customClass="RoundButtonCell" customModule="CustomTitleBar" customModuleProvider="target">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="systemHeavy" size="40"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="buttonColor">
+                                <color key="value" red="1" green="0.66793370249999995" blue="0.33181703089999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="outlineColor">
+                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="outlineWidth">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </buttonCell>
+                    <connections>
+                        <action selector="buttonPressed:" target="-2" id="y4f-zf-qRo"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EY9-o2-2qd">
+                    <rect key="frame" x="122" y="87" width="81" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ygL-kH-jND" customClass="ThemedButtonCell" customModule="CustomTitleBar" customModuleProvider="target">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="buttonColor">
+                                <color key="value" red="1" green="0.74265998601913452" blue="0.75672578811645508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </buttonCell>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="wkc-dY-Yui" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="Qff-DN-Ivx"/>
+                <constraint firstItem="wkc-dY-Yui" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="iQM-tS-cDJ"/>
+                <constraint firstAttribute="trailing" secondItem="wkc-dY-Yui" secondAttribute="trailing" id="oEH-FE-TAX"/>
+            </constraints>
+        </customView>
+    </objects>
+</document>

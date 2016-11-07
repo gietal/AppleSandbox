@@ -1,0 +1,391 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		886ED35C1D5170EF00F70BEA /* ViewWithMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886ED35B1D5170EF00F70BEA /* ViewWithMenuController.swift */; };
+		886ED35E1D51742400F70BEA /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 886ED35D1D51742400F70BEA /* MainView.xib */; };
+		886ED3601D5195D900F70BEA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886ED35F1D5195D900F70BEA /* MainViewController.swift */; };
+		888C13F61D512A350044BC57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888C13F51D512A350044BC57 /* AppDelegate.swift */; };
+		888C13F81D512A350044BC57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888C13F71D512A350044BC57 /* ViewController.swift */; };
+		888C13FA1D512A350044BC57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 888C13F91D512A350044BC57 /* Assets.xcassets */; };
+		888C13FD1D512A350044BC57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 888C13FB1D512A350044BC57 /* Main.storyboard */; };
+		888C140A1D512C740044BC57 /* SheetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 888C14091D512C740044BC57 /* SheetView.xib */; };
+		888C140C1D512CAA0044BC57 /* SheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888C140B1D512CAA0044BC57 /* SheetViewController.swift */; };
+		888C140E1D512D370044BC57 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 888C140D1D512D370044BC57 /* Cartfile */; };
+		888C14101D512DAF0044BC57 /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 888C140F1D512DAF0044BC57 /* CocoaLumberjack.framework */; };
+		888C14111D512DAF0044BC57 /* CocoaLumberjack.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 888C140F1D512DAF0044BC57 /* CocoaLumberjack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		888C14141D512DE30044BC57 /* CocoaLumberjackSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 888C14131D512DE30044BC57 /* CocoaLumberjackSwift.framework */; };
+		888C14151D512DE30044BC57 /* CocoaLumberjackSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 888C14131D512DE30044BC57 /* CocoaLumberjackSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		888C14191D512DF80044BC57 /* CocoaLumberjack.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 888C14171D512DF80044BC57 /* CocoaLumberjack.framework.dSYM */; };
+		888C141A1D512DF80044BC57 /* CocoaLumberjackSwift.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 888C14181D512DF80044BC57 /* CocoaLumberjackSwift.framework.dSYM */; };
+		888C141C1D512EDF0044BC57 /* DDLogHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888C141B1D512EDF0044BC57 /* DDLogHelper.swift */; };
+		888C14201D5141670044BC57 /* ViewWithMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 888C141F1D5141670044BC57 /* ViewWithMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		888C14121D512DAF0044BC57 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				888C14151D512DE30044BC57 /* CocoaLumberjackSwift.framework in Embed Frameworks */,
+				888C14111D512DAF0044BC57 /* CocoaLumberjack.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		888C14161D512DEE0044BC57 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				888C14191D512DF80044BC57 /* CocoaLumberjack.framework.dSYM in CopyFiles */,
+				888C141A1D512DF80044BC57 /* CocoaLumberjackSwift.framework.dSYM in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		886ED35B1D5170EF00F70BEA /* ViewWithMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewWithMenuController.swift; sourceTree = "<group>"; };
+		886ED35D1D51742400F70BEA /* MainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
+		886ED35F1D5195D900F70BEA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		888C13F21D512A350044BC57 /* ModalSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ModalSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		888C13F51D512A350044BC57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		888C13F71D512A350044BC57 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		888C13F91D512A350044BC57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		888C13FC1D512A350044BC57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		888C13FE1D512A350044BC57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		888C14091D512C740044BC57 /* SheetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SheetView.xib; sourceTree = "<group>"; };
+		888C140B1D512CAA0044BC57 /* SheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetViewController.swift; sourceTree = "<group>"; };
+		888C140D1D512D370044BC57 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		888C140F1D512DAF0044BC57 /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjack.framework; path = Carthage/Build/Mac/CocoaLumberjack.framework; sourceTree = "<group>"; };
+		888C14131D512DE30044BC57 /* CocoaLumberjackSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjackSwift.framework; path = Carthage/Build/Mac/CocoaLumberjackSwift.framework; sourceTree = "<group>"; };
+		888C14171D512DF80044BC57 /* CocoaLumberjack.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = CocoaLumberjack.framework.dSYM; path = Carthage/Build/Mac/CocoaLumberjack.framework.dSYM; sourceTree = "<group>"; };
+		888C14181D512DF80044BC57 /* CocoaLumberjackSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = CocoaLumberjackSwift.framework.dSYM; path = Carthage/Build/Mac/CocoaLumberjackSwift.framework.dSYM; sourceTree = "<group>"; };
+		888C141B1D512EDF0044BC57 /* DDLogHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLogHelper.swift; sourceTree = "<group>"; };
+		888C141F1D5141670044BC57 /* ViewWithMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewWithMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		888C13EF1D512A350044BC57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				888C14141D512DE30044BC57 /* CocoaLumberjackSwift.framework in Frameworks */,
+				888C14101D512DAF0044BC57 /* CocoaLumberjack.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		888C13E91D512A350044BC57 = {
+			isa = PBXGroup;
+			children = (
+				888C14171D512DF80044BC57 /* CocoaLumberjack.framework.dSYM */,
+				888C14181D512DF80044BC57 /* CocoaLumberjackSwift.framework.dSYM */,
+				888C14131D512DE30044BC57 /* CocoaLumberjackSwift.framework */,
+				888C140F1D512DAF0044BC57 /* CocoaLumberjack.framework */,
+				888C140D1D512D370044BC57 /* Cartfile */,
+				888C13F41D512A350044BC57 /* ModalSheet */,
+				888C13F31D512A350044BC57 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		888C13F31D512A350044BC57 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				888C13F21D512A350044BC57 /* ModalSheet.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		888C13F41D512A350044BC57 /* ModalSheet */ = {
+			isa = PBXGroup;
+			children = (
+				888C14061D512A960044BC57 /* sources */,
+				888C14041D512A820044BC57 /* resources */,
+				888C14051D512A8D0044BC57 /* storyboard */,
+			);
+			path = ModalSheet;
+			sourceTree = "<group>";
+		};
+		888C14041D512A820044BC57 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				888C13F91D512A350044BC57 /* Assets.xcassets */,
+				888C13FE1D512A350044BC57 /* Info.plist */,
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
+		888C14051D512A8D0044BC57 /* storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				888C13FB1D512A350044BC57 /* Main.storyboard */,
+				886ED35D1D51742400F70BEA /* MainView.xib */,
+				888C14091D512C740044BC57 /* SheetView.xib */,
+				888C141F1D5141670044BC57 /* ViewWithMenu.xib */,
+			);
+			name = storyboard;
+			sourceTree = "<group>";
+		};
+		888C14061D512A960044BC57 /* sources */ = {
+			isa = PBXGroup;
+			children = (
+				888C13F51D512A350044BC57 /* AppDelegate.swift */,
+				888C13F71D512A350044BC57 /* ViewController.swift */,
+				886ED35F1D5195D900F70BEA /* MainViewController.swift */,
+				888C140B1D512CAA0044BC57 /* SheetViewController.swift */,
+				886ED35B1D5170EF00F70BEA /* ViewWithMenuController.swift */,
+				888C141B1D512EDF0044BC57 /* DDLogHelper.swift */,
+			);
+			name = sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		888C13F11D512A350044BC57 /* ModalSheet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 888C14011D512A350044BC57 /* Build configuration list for PBXNativeTarget "ModalSheet" */;
+			buildPhases = (
+				888C13EE1D512A350044BC57 /* Sources */,
+				888C13EF1D512A350044BC57 /* Frameworks */,
+				888C13F01D512A350044BC57 /* Resources */,
+				888C14121D512DAF0044BC57 /* Embed Frameworks */,
+				888C14161D512DEE0044BC57 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ModalSheet;
+			productName = ModalSheet;
+			productReference = 888C13F21D512A350044BC57 /* ModalSheet.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		888C13EA1D512A350044BC57 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = gietal;
+				TargetAttributes = {
+					888C13F11D512A350044BC57 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 888C13ED1D512A350044BC57 /* Build configuration list for PBXProject "ModalSheet" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 888C13E91D512A350044BC57;
+			productRefGroup = 888C13F31D512A350044BC57 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				888C13F11D512A350044BC57 /* ModalSheet */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		888C13F01D512A350044BC57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				888C13FA1D512A350044BC57 /* Assets.xcassets in Resources */,
+				888C13FD1D512A350044BC57 /* Main.storyboard in Resources */,
+				888C14201D5141670044BC57 /* ViewWithMenu.xib in Resources */,
+				886ED35E1D51742400F70BEA /* MainView.xib in Resources */,
+				888C140E1D512D370044BC57 /* Cartfile in Resources */,
+				888C140A1D512C740044BC57 /* SheetView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		888C13EE1D512A350044BC57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				888C140C1D512CAA0044BC57 /* SheetViewController.swift in Sources */,
+				888C13F81D512A350044BC57 /* ViewController.swift in Sources */,
+				886ED35C1D5170EF00F70BEA /* ViewWithMenuController.swift in Sources */,
+				886ED3601D5195D900F70BEA /* MainViewController.swift in Sources */,
+				888C141C1D512EDF0044BC57 /* DDLogHelper.swift in Sources */,
+				888C13F61D512A350044BC57 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		888C13FB1D512A350044BC57 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				888C13FC1D512A350044BC57 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		888C13FF1D512A350044BC57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		888C14001D512A350044BC57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		888C14021D512A350044BC57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = ModalSheet/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.gietal.sandbox.ModalSheet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		888C14031D512A350044BC57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = ModalSheet/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.gietal.sandbox.ModalSheet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		888C13ED1D512A350044BC57 /* Build configuration list for PBXProject "ModalSheet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				888C13FF1D512A350044BC57 /* Debug */,
+				888C14001D512A350044BC57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		888C14011D512A350044BC57 /* Build configuration list for PBXNativeTarget "ModalSheet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				888C14021D512A350044BC57 /* Debug */,
+				888C14031D512A350044BC57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 888C13EA1D512A350044BC57 /* Project object */;
+}

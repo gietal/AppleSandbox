@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<transformations include="DefaultTransformations.xml">
+<![CDATA[
+    <!-- Swap characters @ and " -->
+    <transform>
+        <from shift="1" key="Num2" />
+        <to shift="1" key="Quote" />
+    </transform>
+    <transform>
+        <from shift="1" key="Quote" />
+        <to shift="1" key="Num2" />
+    </transform>
+]]>
+</transformations>

@@ -1,0 +1,501 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		883E816E1D9C323C00510848 /* wchar_crt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 883E816D1D9C323C00510848 /* wchar_crt.cpp */; };
+		885BE74A1D9E0679006214B6 /* wstrunsafe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 885BE7481D9E0679006214B6 /* wstrunsafe.cpp */; };
+		885BE74D1D9E0B5D006214B6 /* RdpMacTrace.mm in Sources */ = {isa = PBXBuildFile; fileRef = 885BE74C1D9E0B5D006214B6 /* RdpMacTrace.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		883E81691D9C31FB00510848 /* libtermsrv-mac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libtermsrv-mac.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		883E816D1D9C323C00510848 /* wchar_crt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = wchar_crt.cpp; sourceTree = "<group>"; };
+		885BE7481D9E0679006214B6 /* wstrunsafe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = wstrunsafe.cpp; sourceTree = "<group>"; };
+		885BE7491D9E0679006214B6 /* wstrunsafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wstrunsafe.h; sourceTree = "<group>"; };
+		885BE74C1D9E0B5D006214B6 /* RdpMacTrace.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RdpMacTrace.mm; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		883E81551D9C31CA00510848 = {
+			isa = PBXGroup;
+			children = (
+				885BE74C1D9E0B5D006214B6 /* RdpMacTrace.mm */,
+				885BE7481D9E0679006214B6 /* wstrunsafe.cpp */,
+				885BE7491D9E0679006214B6 /* wstrunsafe.h */,
+				883E816D1D9C323C00510848 /* wchar_crt.cpp */,
+				883E815F1D9C31CB00510848 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		883E815F1D9C31CB00510848 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				883E81691D9C31FB00510848 /* libtermsrv-mac.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		883E81681D9C31FB00510848 /* libtermsrv-mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 883E816A1D9C31FB00510848 /* Build configuration list for PBXNativeTarget "libtermsrv-mac" */;
+			buildPhases = (
+				883E81651D9C31FB00510848 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "libtermsrv-mac";
+			productName = "libtermsrv-mac";
+			productReference = 883E81691D9C31FB00510848 /* libtermsrv-mac.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		883E81561D9C31CA00510848 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = gietal;
+				TargetAttributes = {
+					883E81681D9C31FB00510848 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 883E81591D9C31CA00510848 /* Build configuration list for PBXProject "RdCore-OSX" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 883E81551D9C31CA00510848;
+			productRefGroup = 883E815F1D9C31CB00510848 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				883E81681D9C31FB00510848 /* libtermsrv-mac */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		883E81651D9C31FB00510848 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				883E816E1D9C323C00510848 /* wchar_crt.cpp in Sources */,
+				885BE74A1D9E0679006214B6 /* wstrunsafe.cpp in Sources */,
+				885BE74D1D9E0B5D006214B6 /* RdpMacTrace.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		883E81601D9C31CB00510848 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					"'RDPX_COMPILER_TYPE_MSVC=1'",
+					"'RDPX_COMPILER_TYPE_XCODE=2'",
+					"'RDPX_COMPILER_TYPE_ANDROID=3'",
+					"'RDPX_COMPILER_TYPE=2'",
+					TSC_COMP_ENABLE_RDPDR,
+					ENABLE_RAIL,
+					VM_RELATIVE_MOUSE_MODE,
+					TSC_PROXY,
+					ENABLE_WND,
+					ENABLE_COMPDESK,
+					ENABLE_SFM,
+					ENABLE_XPS_PRINTING,
+					TSC_COMP_ENABLE_CLIPBOARD,
+					PORTAL_LAUNCH,
+					ENABLE_MM,
+					DRAW_NINEGRID,
+					ENABLE_ETW_EVENTING,
+					DEFINE_EVENT_DESCRIPTOR,
+					ENABLE_WORKSPACES,
+					ENABLE_CARDP,
+					ENABLE_SQM,
+					USE_CREDSSP,
+					ENABLE_DYN_VC,
+					ENABLE_SND,
+					USE_LICENSE,
+					ENFORCE_LICENSE,
+					"'TSC_CONTROL_NAME=mstscax'",
+					__ALLOW_LEGACY_TRACING__,
+					RDP_PI_CODE,
+					RDP_LEGACYXPLAT_MODE,
+					BUILD_UCORE,
+					"'TRC_CL=2'",
+					DISABLE_ASIMOV_TELEMETRY,
+					RDCORE_ENABLE_PROTOTYPE_CODE,
+					USE_NOOP_TRACING,
+					RDPCORE_DISABLE_PRIVATE_API_CALLS,
+					D3D10_ARBITRARY_HEADER_ORDERING,
+					RENDER_A3MAC,
+					USE_MACOSX,
+					USE_SECURITY,
+					USE_ARM,
+					USE_CF_NETWORK,
+					MS_TARGET_IOS,
+					SHIP,
+					NS_BLOCK_ASSERTIONS,
+					MS_TARGET_APPLE,
+					UNICODE,
+					"'BOOST_PP_VARIADICS=1'",
+					"'__ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES=0'",
+					"'RENDER_A3MAC=1'",
+					BOOST_LITTLE_ENDIAN,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		883E81611D9C31CB00510848 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		883E816B1D9C31FB00510848 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = NO;
+				CLANG_WARN_CONSTANT_CONVERSION = NO;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CLANG_WARN_EMPTY_BODY = NO;
+				CLANG_WARN_ENUM_CONVERSION = NO;
+				CLANG_WARN_INFINITE_RECURSION = NO;
+				CLANG_WARN_INT_CONVERSION = NO;
+				CLANG_WARN_UNREACHABLE_CODE = NO;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = NO;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_TESTABILITY = NO;
+				EXECUTABLE_PREFIX = "";
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
+				GCC_NO_COMMON_BLOCKS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = NO;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				OTHER_CFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-Wno-extra-tokens",
+					"-Wno-trigraphs",
+					"-fpascal-strings",
+					"-fshort-wchar",
+					"-fmacro-backtrace-limit=0",
+					"-DRENDER_A3MAC",
+					"-DHAS_PRAGMA_MS_STRUCT=1",
+					"-frandom-seed=0",
+					"-fpch-preprocess",
+					"-fstack-protector",
+					"-D_FORTIFY_SOURCE=2",
+					"-fno-strict-overflow",
+					"-Werror",
+					"-Wno-overloaded-virtual",
+					"-Winvalid-pch",
+					"-Wno-trigraphs",
+					"-Wno-missing-field-initializers",
+					"-Wno-missing-prototypes",
+					"-Wno-non-virtual-dtor",
+					"-Wno-exit-time-destructors",
+					"-Wno-missing-braces",
+					"-Wparentheses",
+					"-Wno-switch",
+					"-Wno-unused-function",
+					"-Wno-unused-label",
+					"-Wunused-variable",
+					"-Wno-unused-value",
+					"-Wno-empty-body",
+					"-Wno-uninitialized",
+					"-Wno-unknown-pragmas",
+					"-Wshadow",
+					"-Wno-four-char-constants",
+					"-Wno-conversion",
+					"-Wno-constant-conversion",
+					"-Wno-int-conversion",
+					"-Wno-bool-conversion",
+					"-Wno-enum-conversion",
+					"-Wsign-compare",
+					"-Wno-shorten-64-to-32",
+					"-Wnewline-eof",
+					"-Wno-c++11-extensions",
+					"-Wno-deprecated-declarations",
+					"-Wno-invalid-offsetof",
+					"-g",
+					"-fvisibility-inlines-hidden",
+					"-Wno-sign-conversion",
+					"-Winvalid-pch",
+					"-fno-strict-overflow",
+					"-Wno-varargs",
+					"-Wno-delete-non-virtual-dtor",
+					"-Wno-deprecated-register",
+					"-Wno-unused-const-variable",
+					"-Wno-ignored-attributes",
+					"-Wno-newline-eof",
+					"-Wno-logical-not-parentheses",
+					"-Wno-tautological-undefined-compare",
+					"-Wno-shadow",
+					"-Wno-reorder",
+					"-Wno-unused-private-field",
+					"-Wno-write-strings",
+					"-Wno-self-assign",
+					"-Wno-mismatched-tags",
+					"-Wno-macro-redefined",
+					"-Wno-unused-variable",
+					"-Wno-unused-parameter",
+					"-Wno-unused-local-typedefs",
+					"-Wno-inconsistent-missing-override",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Debug;
+		};
+		883E816C1D9C31FB00510848 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = NO;
+				CLANG_WARN_CONSTANT_CONVERSION = NO;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CLANG_WARN_EMPTY_BODY = NO;
+				CLANG_WARN_ENUM_CONVERSION = NO;
+				CLANG_WARN_INFINITE_RECURSION = NO;
+				CLANG_WARN_INT_CONVERSION = NO;
+				CLANG_WARN_UNREACHABLE_CODE = NO;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = NO;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = NO;
+				EXECUTABLE_PREFIX = "";
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
+				GCC_NO_COMMON_BLOCKS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = NO;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				OTHER_CFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-Wno-extra-tokens",
+					"-Wno-trigraphs",
+					"-fpascal-strings",
+					"-fshort-wchar",
+					"-fmacro-backtrace-limit=0",
+					"-DRENDER_A3MAC",
+					"-DHAS_PRAGMA_MS_STRUCT=1",
+					"-frandom-seed=0",
+					"-fpch-preprocess",
+					"-fstack-protector",
+					"-D_FORTIFY_SOURCE=2",
+					"-fno-strict-overflow",
+					"-Werror",
+					"-Wno-overloaded-virtual",
+					"-Winvalid-pch",
+					"-Wno-trigraphs",
+					"-Wno-missing-field-initializers",
+					"-Wno-missing-prototypes",
+					"-Wno-non-virtual-dtor",
+					"-Wno-exit-time-destructors",
+					"-Wno-missing-braces",
+					"-Wparentheses",
+					"-Wno-switch",
+					"-Wno-unused-function",
+					"-Wno-unused-label",
+					"-Wunused-variable",
+					"-Wno-unused-value",
+					"-Wno-empty-body",
+					"-Wno-uninitialized",
+					"-Wno-unknown-pragmas",
+					"-Wshadow",
+					"-Wno-four-char-constants",
+					"-Wno-conversion",
+					"-Wno-constant-conversion",
+					"-Wno-int-conversion",
+					"-Wno-bool-conversion",
+					"-Wno-enum-conversion",
+					"-Wsign-compare",
+					"-Wno-shorten-64-to-32",
+					"-Wnewline-eof",
+					"-Wno-c++11-extensions",
+					"-Wno-deprecated-declarations",
+					"-Wno-invalid-offsetof",
+					"-g",
+					"-fvisibility-inlines-hidden",
+					"-Wno-sign-conversion",
+					"-Winvalid-pch",
+					"-fno-strict-overflow",
+					"-Wno-varargs",
+					"-Wno-delete-non-virtual-dtor",
+					"-Wno-deprecated-register",
+					"-Wno-unused-const-variable",
+					"-Wno-ignored-attributes",
+					"-Wno-newline-eof",
+					"-Wno-logical-not-parentheses",
+					"-Wno-tautological-undefined-compare",
+					"-Wno-shadow",
+					"-Wno-reorder",
+					"-Wno-unused-private-field",
+					"-Wno-write-strings",
+					"-Wno-self-assign",
+					"-Wno-mismatched-tags",
+					"-Wno-macro-redefined",
+					"-Wno-unused-variable",
+					"-Wno-unused-parameter",
+					"-Wno-unused-local-typedefs",
+					"-Wno-inconsistent-missing-override",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		883E81591D9C31CA00510848 /* Build configuration list for PBXProject "RdCore-OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				883E81601D9C31CB00510848 /* Debug */,
+				883E81611D9C31CB00510848 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		883E816A1D9C31FB00510848 /* Build configuration list for PBXNativeTarget "libtermsrv-mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				883E816B1D9C31FB00510848 /* Debug */,
+				883E816C1D9C31FB00510848 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 883E81561D9C31CA00510848 /* Project object */;
+}

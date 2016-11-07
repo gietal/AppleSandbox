@@ -1,0 +1,10 @@
+// Copyright © Microsoft Corporation 2015
+
+//MARK: Archictecture
+SDKROOT = macosx10.12
+
+//MARK: Deployment
+MACOSX_DEPLOYMENT_TARGET = 10.10
+
+//MARK: Search Paths
+LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/../Frameworks @loader_path/../Frameworks

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Do not include defaults, as Dvorak X C V are not on same physical position as on US keyboard. -->
+<transformations>
+    <!-- Command+X to Control+X -->
+    <transform>
+        <from command="1"key="B" />
+        <to control="1" key="B" />
+    </transform>
+    <!-- Command+C to Control+C -->
+    <transform>
+        <from command="1" key="I" />
+        <to control="1" key="I" />
+    </transform>
+    <!-- Command+V to Control+V -->
+    <transform>
+        <from command="1" key="Period" />
+        <to control="1" key="Period" />
+    </transform>
+</transformations>

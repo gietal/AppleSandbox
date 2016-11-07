@@ -1,0 +1,412 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8875C4FD1D415EEF007344E4 /* ViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8875C4FC1D415EEF007344E4 /* ViewDelegate.swift */; };
+		8875C4FF1D4160B3007344E4 /* TrackpadTestViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8875C4FE1D4160B3007344E4 /* TrackpadTestViewDelegate.swift */; };
+		8875C5011D418AEF007344E4 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 8875C5001D418AEF007344E4 /* Cartfile */; };
+		8875C50B1D418E6F007344E4 /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8875C50A1D418E6F007344E4 /* CocoaLumberjack.framework */; };
+		8875C50C1D418E6F007344E4 /* CocoaLumberjack.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8875C50A1D418E6F007344E4 /* CocoaLumberjack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8875C50F1D418E7F007344E4 /* CocoaLumberjackSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8875C50E1D418E7F007344E4 /* CocoaLumberjackSwift.framework */; };
+		8875C5101D418E7F007344E4 /* CocoaLumberjackSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8875C50E1D418E7F007344E4 /* CocoaLumberjackSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8875C5141D418EC6007344E4 /* CocoaLumberjack.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8875C5121D418EC6007344E4 /* CocoaLumberjack.framework.dSYM */; };
+		8875C5151D418EC6007344E4 /* CocoaLumberjackSwift.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8875C5131D418EC6007344E4 /* CocoaLumberjackSwift.framework.dSYM */; };
+		8875C5171D419944007344E4 /* DDLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8875C5161D419944007344E4 /* DDLogFormatter.swift */; };
+		8875C5201D41A178007344E4 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8875C51F1D41A178007344E4 /* DictionaryExtension.swift */; };
+		8875C5371D4347FC007344E4 /* ConcreteFingerTapDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8875C5331D4347FC007344E4 /* ConcreteFingerTapDetector.swift */; };
+		8875C5381D4347FC007344E4 /* FingerTapDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8875C5341D4347FC007344E4 /* FingerTapDetector.swift */; };
+		8875C5391D4347FC007344E4 /* TrackpadGestureDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8875C5351D4347FC007344E4 /* TrackpadGestureDetector.swift */; };
+		8875C53A1D4347FC007344E4 /* TrackpadPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8875C5361D4347FC007344E4 /* TrackpadPreference.swift */; };
+		88A1D4131D40091F00F8E31E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A1D4121D40091F00F8E31E /* AppDelegate.swift */; };
+		88A1D4151D40091F00F8E31E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A1D4141D40091F00F8E31E /* ViewController.swift */; };
+		88A1D4181D40091F00F8E31E /* GestureRecognizer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 88A1D4161D40091F00F8E31E /* GestureRecognizer.xcdatamodeld */; };
+		88A1D41A1D40091F00F8E31E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88A1D4191D40091F00F8E31E /* Assets.xcassets */; };
+		88A1D41D1D40091F00F8E31E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88A1D41B1D40091F00F8E31E /* Main.storyboard */; };
+		88A1D4251D400C4D00F8E31E /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A1D4241D400C4D00F8E31E /* View.swift */; };
+		88A1D4271D40131E00F8E31E /* TapGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A1D4261D40131E00F8E31E /* TapGestureRecognizer.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8875C50D1D418E6F007344E4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8875C5101D418E7F007344E4 /* CocoaLumberjackSwift.framework in Embed Frameworks */,
+				8875C50C1D418E6F007344E4 /* CocoaLumberjack.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8875C5111D418EA6007344E4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				8875C5141D418EC6007344E4 /* CocoaLumberjack.framework.dSYM in CopyFiles */,
+				8875C5151D418EC6007344E4 /* CocoaLumberjackSwift.framework.dSYM in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		8875C4FC1D415EEF007344E4 /* ViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDelegate.swift; sourceTree = "<group>"; };
+		8875C4FE1D4160B3007344E4 /* TrackpadTestViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackpadTestViewDelegate.swift; sourceTree = "<group>"; };
+		8875C5001D418AEF007344E4 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		8875C50A1D418E6F007344E4 /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjack.framework; path = Carthage/Build/Mac/CocoaLumberjack.framework; sourceTree = "<group>"; };
+		8875C50E1D418E7F007344E4 /* CocoaLumberjackSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjackSwift.framework; path = Carthage/Build/Mac/CocoaLumberjackSwift.framework; sourceTree = "<group>"; };
+		8875C5121D418EC6007344E4 /* CocoaLumberjack.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = CocoaLumberjack.framework.dSYM; path = Carthage/Build/Mac/CocoaLumberjack.framework.dSYM; sourceTree = "<group>"; };
+		8875C5131D418EC6007344E4 /* CocoaLumberjackSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = CocoaLumberjackSwift.framework.dSYM; path = Carthage/Build/Mac/CocoaLumberjackSwift.framework.dSYM; sourceTree = "<group>"; };
+		8875C5161D419944007344E4 /* DDLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLogFormatter.swift; sourceTree = "<group>"; };
+		8875C51F1D41A178007344E4 /* DictionaryExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
+		8875C5331D4347FC007344E4 /* ConcreteFingerTapDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConcreteFingerTapDetector.swift; path = "../../../git/cleanrepo/rd-apple/source/mac/View/Session/Input/Trackpad/ConcreteFingerTapDetector.swift"; sourceTree = "<group>"; };
+		8875C5341D4347FC007344E4 /* FingerTapDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FingerTapDetector.swift; path = "../../../git/cleanrepo/rd-apple/source/mac/View/Session/Input/Trackpad/FingerTapDetector.swift"; sourceTree = "<group>"; };
+		8875C5351D4347FC007344E4 /* TrackpadGestureDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TrackpadGestureDetector.swift; path = "../../../git/cleanrepo/rd-apple/source/mac/View/Session/Input/Trackpad/TrackpadGestureDetector.swift"; sourceTree = "<group>"; };
+		8875C5361D4347FC007344E4 /* TrackpadPreference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TrackpadPreference.swift; path = "../../../git/cleanrepo/rd-apple/source/mac/View/Session/Input/Trackpad/TrackpadPreference.swift"; sourceTree = "<group>"; };
+		88A1D40F1D40091F00F8E31E /* GestureRecognizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GestureRecognizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		88A1D4121D40091F00F8E31E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		88A1D4141D40091F00F8E31E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		88A1D4171D40091F00F8E31E /* GestureRecognizer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GestureRecognizer.xcdatamodel; sourceTree = "<group>"; };
+		88A1D4191D40091F00F8E31E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		88A1D41C1D40091F00F8E31E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		88A1D41E1D40091F00F8E31E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88A1D4241D400C4D00F8E31E /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		88A1D4261D40131E00F8E31E /* TapGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapGestureRecognizer.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		88A1D40C1D40091F00F8E31E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8875C50F1D418E7F007344E4 /* CocoaLumberjackSwift.framework in Frameworks */,
+				8875C50B1D418E6F007344E4 /* CocoaLumberjack.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8875C51C1D41A00D007344E4 /* Trackpad */ = {
+			isa = PBXGroup;
+			children = (
+				8875C5331D4347FC007344E4 /* ConcreteFingerTapDetector.swift */,
+				8875C5341D4347FC007344E4 /* FingerTapDetector.swift */,
+				8875C5351D4347FC007344E4 /* TrackpadGestureDetector.swift */,
+				8875C5361D4347FC007344E4 /* TrackpadPreference.swift */,
+			);
+			name = Trackpad;
+			sourceTree = "<group>";
+		};
+		8875C5261D42D4EF007344E4 /* ViewDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				8875C4FC1D415EEF007344E4 /* ViewDelegate.swift */,
+				8875C4FE1D4160B3007344E4 /* TrackpadTestViewDelegate.swift */,
+			);
+			name = ViewDelegate;
+			sourceTree = "<group>";
+		};
+		88A1D4061D40091F00F8E31E = {
+			isa = PBXGroup;
+			children = (
+				8875C5121D418EC6007344E4 /* CocoaLumberjack.framework.dSYM */,
+				8875C5131D418EC6007344E4 /* CocoaLumberjackSwift.framework.dSYM */,
+				8875C50E1D418E7F007344E4 /* CocoaLumberjackSwift.framework */,
+				8875C50A1D418E6F007344E4 /* CocoaLumberjack.framework */,
+				8875C5001D418AEF007344E4 /* Cartfile */,
+				88A1D4111D40091F00F8E31E /* GestureRecognizer */,
+				88A1D4101D40091F00F8E31E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		88A1D4101D40091F00F8E31E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				88A1D40F1D40091F00F8E31E /* GestureRecognizer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		88A1D4111D40091F00F8E31E /* GestureRecognizer */ = {
+			isa = PBXGroup;
+			children = (
+				8875C5261D42D4EF007344E4 /* ViewDelegate */,
+				8875C51C1D41A00D007344E4 /* Trackpad */,
+				88A1D4121D40091F00F8E31E /* AppDelegate.swift */,
+				88A1D4141D40091F00F8E31E /* ViewController.swift */,
+				88A1D4191D40091F00F8E31E /* Assets.xcassets */,
+				88A1D41B1D40091F00F8E31E /* Main.storyboard */,
+				88A1D41E1D40091F00F8E31E /* Info.plist */,
+				88A1D4161D40091F00F8E31E /* GestureRecognizer.xcdatamodeld */,
+				88A1D4241D400C4D00F8E31E /* View.swift */,
+				88A1D4261D40131E00F8E31E /* TapGestureRecognizer.swift */,
+				8875C5161D419944007344E4 /* DDLogFormatter.swift */,
+				8875C51F1D41A178007344E4 /* DictionaryExtension.swift */,
+			);
+			path = GestureRecognizer;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		88A1D40E1D40091F00F8E31E /* GestureRecognizer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88A1D4211D40091F00F8E31E /* Build configuration list for PBXNativeTarget "GestureRecognizer" */;
+			buildPhases = (
+				88A1D40B1D40091F00F8E31E /* Sources */,
+				88A1D40C1D40091F00F8E31E /* Frameworks */,
+				88A1D40D1D40091F00F8E31E /* Resources */,
+				8875C50D1D418E6F007344E4 /* Embed Frameworks */,
+				8875C5111D418EA6007344E4 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GestureRecognizer;
+			productName = GestureRecognizer;
+			productReference = 88A1D40F1D40091F00F8E31E /* GestureRecognizer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		88A1D4071D40091F00F8E31E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = gietal;
+				TargetAttributes = {
+					88A1D40E1D40091F00F8E31E = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 88A1D40A1D40091F00F8E31E /* Build configuration list for PBXProject "GestureRecognizer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 88A1D4061D40091F00F8E31E;
+			productRefGroup = 88A1D4101D40091F00F8E31E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				88A1D40E1D40091F00F8E31E /* GestureRecognizer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		88A1D40D1D40091F00F8E31E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8875C5011D418AEF007344E4 /* Cartfile in Resources */,
+				88A1D41A1D40091F00F8E31E /* Assets.xcassets in Resources */,
+				88A1D41D1D40091F00F8E31E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		88A1D40B1D40091F00F8E31E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88A1D4251D400C4D00F8E31E /* View.swift in Sources */,
+				88A1D4151D40091F00F8E31E /* ViewController.swift in Sources */,
+				8875C5201D41A178007344E4 /* DictionaryExtension.swift in Sources */,
+				88A1D4271D40131E00F8E31E /* TapGestureRecognizer.swift in Sources */,
+				88A1D4181D40091F00F8E31E /* GestureRecognizer.xcdatamodeld in Sources */,
+				88A1D4131D40091F00F8E31E /* AppDelegate.swift in Sources */,
+				8875C5371D4347FC007344E4 /* ConcreteFingerTapDetector.swift in Sources */,
+				8875C5171D419944007344E4 /* DDLogFormatter.swift in Sources */,
+				8875C5391D4347FC007344E4 /* TrackpadGestureDetector.swift in Sources */,
+				8875C5381D4347FC007344E4 /* FingerTapDetector.swift in Sources */,
+				8875C4FF1D4160B3007344E4 /* TrackpadTestViewDelegate.swift in Sources */,
+				8875C4FD1D415EEF007344E4 /* ViewDelegate.swift in Sources */,
+				8875C53A1D4347FC007344E4 /* TrackpadPreference.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		88A1D41B1D40091F00F8E31E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88A1D41C1D40091F00F8E31E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		88A1D41F1D40091F00F8E31E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		88A1D4201D40091F00F8E31E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		88A1D4221D40091F00F8E31E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = GestureRecognizer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.gietal.sandbox.GestureRecognizer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		88A1D4231D40091F00F8E31E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = GestureRecognizer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.gietal.sandbox.GestureRecognizer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		88A1D40A1D40091F00F8E31E /* Build configuration list for PBXProject "GestureRecognizer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88A1D41F1D40091F00F8E31E /* Debug */,
+				88A1D4201D40091F00F8E31E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88A1D4211D40091F00F8E31E /* Build configuration list for PBXNativeTarget "GestureRecognizer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88A1D4221D40091F00F8E31E /* Debug */,
+				88A1D4231D40091F00F8E31E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		88A1D4161D40091F00F8E31E /* GestureRecognizer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				88A1D4171D40091F00F8E31E /* GestureRecognizer.xcdatamodel */,
+			);
+			currentVersion = 88A1D4171D40091F00F8E31E /* GestureRecognizer.xcdatamodel */;
+			path = GestureRecognizer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 88A1D4071D40091F00F8E31E /* Project object */;
+}

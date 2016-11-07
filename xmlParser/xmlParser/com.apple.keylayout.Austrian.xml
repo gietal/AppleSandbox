@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<transformations include="DefaultTransformations.xml">
+<![CDATA[
+    <!-- [ -->
+    <transform>
+        <from option="1" key="Num5" />
+        <to option="right" key="Num8" />
+    </transform>
+    <!-- ] -->
+    <transform>
+        <from option="1" key="Num6" />
+        <to option="right" key="Num9" />
+    </transform>
+    <!-- | -->
+    <transform>
+        <from option="1" key="Num7" />
+        <to option="right" key="ISO_Section" />
+    </transform>
+    <!-- | -->
+    <transform>
+        <from shift="1" option="1" key="Num7" />
+        <to control="1" option="1" key="ISO_Section" />
+    </transform>
+    <!-- { -->
+    <transform>
+        <from option="1" key="Num8" />
+        <to option="right" key="Num7" />
+    </transform>
+    <!-- } -->
+    <transform>
+        <from option="1" key="Num9" />
+        <to option="right" key="Num0" />
+    </transform>
+    <!-- @ -->
+    <transform>
+        <from option="1" key="L" />
+        <to control="1" option="1" key="Q" />
+    </transform>
+]]>
+</transformations>
