@@ -647,12 +647,12 @@
                             </menuItem>
                             <menuItem title="Full Screen" keyEquivalent="1" id="jei-dm-jnm" userLabel="Full Screen">
                                 <connections>
-                                    <action selector="goFullscreen:" target="Voe-Tx-rLC" id="uJl-2r-LVf"/>
+                                    <action selector="goFullscreen:" target="-1" id="ns3-to-kmx"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="Windowed" keyEquivalent="2" id="Nh4-ZT-lxO">
                                 <connections>
-                                    <action selector="goWindowed:" target="Voe-Tx-rLC" id="rfX-fg-5rG"/>
+                                    <action selector="goWindowed:" target="-1" id="6Ft-io-mdL"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="Zoom" id="R4o-n2-Eq4">

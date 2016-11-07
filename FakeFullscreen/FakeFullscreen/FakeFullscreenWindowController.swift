@@ -9,15 +9,31 @@
 import Foundation
 import Cocoa
 
+public protocol FakeFullscreenWindowControllerDelegate: class {
+    func windowRequestedFullscreen()
+    
+    func windowRequestedWindowed()
+}
+
 class FakeFullscreenWindowController: NSWindowController {
+    
+    public var delegate: FakeFullscreenWindowControllerDelegate?
+    
+    fileprivate var cachedWindowedFrame = CGRect()
     
     public convenience init() {
         self.init(windowNibName: "FakeFullscreenWindow")
     }
     
+    public func cacheWindowFrame() {
+        cachedWindowedFrame = window?.frame ?? cachedWindowedFrame
+    }
     override func windowDidLoad() {
         window?.delegate = self
+        window?.makeFirstResponder(self)
+        cacheWindowFrame()
     }
+    
     public func showAndKey() {
         showWindow(self)
         window?.makeKeyAndOrderFront(self)
@@ -25,28 +41,41 @@ class FakeFullscreenWindowController: NSWindowController {
     
     public var layout = ScreenLayout() {
         didSet {
-            reframe()
+            reframe(useCache: false)
         }
     }
     
-    public func reframe() {
-        window?.setFrame(layout.bounds, display: true)
-        window?.setContentSize(layout.bounds.size)
+    fileprivate func reframe(useCache: Bool) {
+        if useCache {
+            window?.setFrame(cachedWindowedFrame, display: true)
+            window?.setContentSize(cachedWindowedFrame.size)
+        } else {
+            window?.setFrame(layout.bounds, display: true)
+            window?.setContentSize(layout.bounds.size)
+        }
+        
     }
     
     public var fullscreen: Bool = false {
         didSet {
+            // if not changed, do nothing
+            if fullscreen == oldValue {
+                return
+            }
+            
             if fullscreen {
                 window?.styleMask.insert([.fullSizeContentView, .borderless])
                 window?.styleMask.remove([.resizable])
                 hideTitleBar()
                 hideMenuBar()
-               
+                cacheWindowFrame()
+                reframe(useCache: false) // reframe to screen layout
             } else {
                 window?.styleMask.remove([.fullSizeContentView, .borderless])
                 window?.styleMask.insert([.resizable])
                 showTitleBar()
                 showMenuBar()
+                reframe(useCache: true) // reframe to cache
             }
         }
     }
@@ -82,6 +111,16 @@ class FakeFullscreenWindowController: NSWindowController {
     }
 }
 
+// first responder for the window
+extension FakeFullscreenWindowController {
+    @IBAction func goFullscreen(_ sender: Any?) {
+        delegate?.windowRequestedFullscreen()
+    }
+    
+    @IBAction func goWindowed(_ sender: Any?) {
+        delegate?.windowRequestedWindowed()
+    }
+}
 extension FakeFullscreenWindowController: NSWindowDelegate {
     
     func windowDidBecomeKey(_ notification: Notification) {

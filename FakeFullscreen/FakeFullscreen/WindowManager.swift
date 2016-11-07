@@ -9,13 +9,14 @@
 import Foundation
 import Cocoa
 
+// 1 for each session
 class WindowManager {
+    
     
     public func goFullScreen() {
         //NSMenu.setMenuBarVisible(false)
         applyToWinControllers {
             $0.fullscreen = true
-            $0.reframe()
         }
     }
     
@@ -23,7 +24,6 @@ class WindowManager {
         NSMenu.setMenuBarVisible(true)
         applyToWinControllers {
             $0.fullscreen = false
-            $0.reframe()
         }
     }
     
@@ -33,6 +33,7 @@ class WindowManager {
             for s in screens {
                 let winController = FakeFullscreenWindowController()
                 winController.layout = s
+                winController.delegate = self
                 windowControllers[s.layoutId] = winController
             }
         }
@@ -52,4 +53,14 @@ class WindowManager {
     
     var windowControllers = [Int: FakeFullscreenWindowController]()
     
+}
+
+extension WindowManager: FakeFullscreenWindowControllerDelegate {
+    func windowRequestedFullscreen() {
+        goFullScreen()
+    }
+    
+    func windowRequestedWindowed() {
+        goWindowed()
+    }
 }

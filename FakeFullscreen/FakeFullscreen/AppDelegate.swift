@@ -14,6 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var window: NSWindow!
 
     let winManager = WindowManager()
+    let winManager2 = WindowManager()
     let connCenter = ConnectionCenterWindowController()
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         
@@ -35,19 +36,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         s2.bounds = CGRect(x: -1920, y: -128, width: 1920, height: 1200)
         
         winManager.screens = [s1]
-        
         winManager.showAllWindows()
+        
+        winManager2.screens = [s1]
+        winManager2.showAllWindows()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
     }
 
 
-    @IBAction func goFullscreen(_ sender: NSMenuItem) {
-        winManager.goFullScreen()
-    }
-    @IBAction func goWindowed(_ sender: NSMenuItem) {
-        winManager.goWindowed()
-    }
 }
 
