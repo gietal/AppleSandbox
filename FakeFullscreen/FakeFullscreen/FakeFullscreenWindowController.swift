@@ -64,16 +64,17 @@ class FakeFullscreenWindowController: NSWindowController {
             }
             
             if fullscreen {
-                window?.styleMask.insert([.fullSizeContentView, .borderless])
-                window?.styleMask.remove([.resizable])
-                hideTitleBar()
-                hideMenuBar()
                 cacheWindowFrame()
+                
+                window?.styleMask.insert([.fullScreen])
+                window?.styleMask.remove([.resizable])
+                window?.hasShadow = false
+                hideMenuBar()
                 reframe(useCache: false) // reframe to screen layout
             } else {
-                window?.styleMask.remove([.fullSizeContentView, .borderless])
+                window?.styleMask.remove([.fullScreen])
                 window?.styleMask.insert([.resizable])
-                showTitleBar()
+                window?.hasShadow = true
                 showMenuBar()
                 reframe(useCache: true) // reframe to cache
             }
@@ -82,8 +83,8 @@ class FakeFullscreenWindowController: NSWindowController {
     
     fileprivate func hideTitleBar() {
         //window?.styleMask.remove([.titled])
-        //return;
-            
+        return;
+        
         window?.titleVisibility = .hidden
         window?.titlebarAppearsTransparent = true
         window?.standardWindowButton(.closeButton)?.isHidden = true
@@ -93,7 +94,7 @@ class FakeFullscreenWindowController: NSWindowController {
 
     fileprivate func showTitleBar() {
         //window?.styleMask.insert([.titled])
-        //return;
+        return;
         
         window?.titleVisibility = .visible
         window?.titlebarAppearsTransparent = false
@@ -120,22 +121,24 @@ extension FakeFullscreenWindowController {
     @IBAction func goWindowed(_ sender: Any?) {
         delegate?.windowRequestedWindowed()
     }
+    
+    @IBAction func close(_ sender: Any?) {
+        close()
+    }
 }
+
 extension FakeFullscreenWindowController: NSWindowDelegate {
     
     func windowDidBecomeKey(_ notification: Notification) {
         if fullscreen {
-            hideTitleBar()
             hideMenuBar()
         } else {
-            showTitleBar()
             showMenuBar()
         }
     }
     
     func windowDidResignKey(_ notification: Notification) {
         if fullscreen {
-            showTitleBar()
             showMenuBar()
         }
     }

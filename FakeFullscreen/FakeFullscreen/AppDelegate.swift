@@ -35,11 +35,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         s2.isPrimary = false
         s2.bounds = CGRect(x: -1920, y: -128, width: 1920, height: 1200)
         
-        winManager.screens = [s1]
+        winManager.screens = [s1, s2]
         winManager.showAllWindows()
         
-        winManager2.screens = [s1]
-        winManager2.showAllWindows()
+        //winManager2.screens = [s1]
+        //winManager2.showAllWindows()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
