@@ -21,8 +21,11 @@ class FakeFullscreenWindowController: NSWindowController {
     
     fileprivate var cachedWindowedFrame = CGRect()
     
+    fileprivate var trafficLights: [NSButton] = []
     public convenience init() {
         self.init(windowNibName: "FakeFullscreenWindow")
+        
+        trafficLights.append(NSWindow.standardWindowButton(.closeButton, for: fullscreenStyleMask)!)
     }
     
     public func cacheWindowFrame() {
@@ -49,12 +52,28 @@ class FakeFullscreenWindowController: NSWindowController {
         if useCache {
             window?.setFrame(cachedWindowedFrame, display: true)
             window?.setContentSize(cachedWindowedFrame.size)
-        } else {
+            return
+        }
+        
+        let multimon = false
+        
+        if multimon {
+            // multimon, use the window's composite bounds
             window?.setFrame(layout.bounds, display: true)
             window?.setContentSize(layout.bounds.size)
+        } else {
+            // single mon, use current monitor as frame
+            if let screenFrame = window?.screen?.frame {
+                window?.setFrame(screenFrame, display: true)
+                window?.setContentSize(screenFrame.size)
+            }
         }
         
     }
+    
+    fileprivate let fullscreenStyleMask: NSWindowStyleMask = [.borderless, .fullSizeContentView, .closable /*.fullScreen*/]
+    fileprivate let windowedStyleMask: NSWindowStyleMask = [.resizable, .titled]
+
     
     public var fullscreen: Bool = false {
         didSet {
@@ -65,16 +84,20 @@ class FakeFullscreenWindowController: NSWindowController {
             
             if fullscreen {
                 cacheWindowFrame()
-                
-                window?.styleMask.insert([.fullScreen])
-                window?.styleMask.remove([.resizable])
-                window?.hasShadow = false
-                hideMenuBar()
                 reframe(useCache: false) // reframe to screen layout
+                window?.styleMask.insert(fullscreenStyleMask)
+                window?.styleMask.remove(windowedStyleMask)
+                window?.hasShadow = false
+                hideTitleBar()
+                hideMenuBar()
+                window?.debugPrintWindowStyle()
+                reframe(useCache: false) // reframe to screen layout
+                
             } else {
-                window?.styleMask.remove([.fullScreen])
-                window?.styleMask.insert([.resizable])
+                window?.styleMask.remove(fullscreenStyleMask)
+                window?.styleMask.insert(windowedStyleMask)
                 window?.hasShadow = true
+                showTitleBar()
                 showMenuBar()
                 reframe(useCache: true) // reframe to cache
             }
@@ -83,24 +106,37 @@ class FakeFullscreenWindowController: NSWindowController {
     
     fileprivate func hideTitleBar() {
         //window?.styleMask.remove([.titled])
-        return;
+        //return;
         
         window?.titleVisibility = .hidden
         window?.titlebarAppearsTransparent = true
+        window?.isMovable = false
+        window?.isMovableByWindowBackground = false
         window?.standardWindowButton(.closeButton)?.isHidden = true
         window?.standardWindowButton(.miniaturizeButton)?.isHidden = true
         window?.standardWindowButton(.zoomButton)?.isHidden = true
+        
+        // attach traffic lights
+        for b in trafficLights {
+            //window?.contentView?.addSubview(b)
+        }
     }
 
     fileprivate func showTitleBar() {
         //window?.styleMask.insert([.titled])
-        return;
+        //return;
         
         window?.titleVisibility = .visible
         window?.titlebarAppearsTransparent = false
+        window?.isMovable = true
         window?.standardWindowButton(.closeButton)?.isHidden = false
         window?.standardWindowButton(.miniaturizeButton)?.isHidden = false
         window?.standardWindowButton(.zoomButton)?.isHidden = false
+        
+        // remove traffic light
+        for b in trafficLights {
+            //b.removeFromSuperview()
+        }
     }
     
     fileprivate func showMenuBar() {

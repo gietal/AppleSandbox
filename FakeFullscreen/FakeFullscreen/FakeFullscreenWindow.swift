@@ -13,4 +13,12 @@ class FakeFullscreenWindow: NSWindow {
     override var canBecomeKey: Bool {
         return true
     }
+    
+    override func performDrag(with event: NSEvent) {
+        
+    }
+    
+    override func mouseDragged(with event: NSEvent) {
+        
+    }
 }

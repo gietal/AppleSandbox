@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88341DBF1DD5627000A4D8E1 /* NSWindow+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88341DBE1DD5627000A4D8E1 /* NSWindow+Extensions.swift */; };
 		88883B161DCD183E0005E4C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88883B151DCD183E0005E4C1 /* AppDelegate.swift */; };
 		88883B181DCD183E0005E4C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88883B171DCD183E0005E4C1 /* Assets.xcassets */; };
 		88883B1B1DCD183E0005E4C1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88883B191DCD183E0005E4C1 /* MainMenu.xib */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		88341DBE1DD5627000A4D8E1 /* NSWindow+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSWindow+Extensions.swift"; sourceTree = "<group>"; };
 		88883B121DCD183E0005E4C1 /* FakeFullscreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FakeFullscreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88883B151DCD183E0005E4C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88883B171DCD183E0005E4C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				88883B2E1DCD1D470005E4C1 /* ScreenLayout.swift */,
 				88CA6E6A1DD110F9008F8582 /* ConnectionCenter.xib */,
 				88CA6E6C1DD113EA008F8582 /* ConnectionCenterWindowController.swift */,
+				88341DBE1DD5627000A4D8E1 /* NSWindow+Extensions.swift */,
 			);
 			path = FakeFullscreen;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88341DBF1DD5627000A4D8E1 /* NSWindow+Extensions.swift in Sources */,
 				88883B161DCD183E0005E4C1 /* AppDelegate.swift in Sources */,
 				88883B271DCD187D0005E4C1 /* FakeFullscreenWindowController.swift in Sources */,
 				88CA6E6D1DD113EA008F8582 /* ConnectionCenterWindowController.swift in Sources */,

@@ -35,11 +35,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         s2.isPrimary = false
         s2.bounds = CGRect(x: -1920, y: -128, width: 1920, height: 1200)
         
-        winManager.screens = [s1, s2]
+        winManager.screens = [s1]
         winManager.showAllWindows()
         
+        //winManager.screens.contains(where: {$0.layoutId == 0})
         //winManager2.screens = [s1]
         //winManager2.showAllWindows()
+        
+//        NotificationCenter.default.addObserver(
+//            forName: NSNotification.Name.NSMenuDidBeginTracking,
+//            object: <#T##Any?#>, queue: <#T##OperationQueue?#>, using: <#T##(Notification) -> Void#>)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -48,3 +53,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 }
 
+extension AppDelegate: NSMenuDelegate {
+    
+    func menuWillOpen(_ menu: NSMenu) {
+        print("menu will open")
+    }
+    
+    func confinementRect(for menu: NSMenu, on screen: NSScreen?) -> NSRect {
+        print("confinement rect")
+        return NSRect.zero
+    }
+}
