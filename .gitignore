@@ -1,2 +1,21 @@
-Build/
+# Build generated
+build/
+DerivedData
+
+# Xcode
 xcuserdata/
+*.xccheckout
+*.xcscmblueprint
+*.xcuserstate
+
+## Obj-C/Swift specific
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Misc
+.DS_Store
+
+# Carthage
+Carthage

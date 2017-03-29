@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -642,7 +641,7 @@
                         <items>
                             <menuItem title="Full Screen" keyEquivalent="1" id="jei-dm-jnm" userLabel="Full Screen">
                                 <connections>
-                                    <action selector="goFullscreen:" target="-1" id="ns3-to-kmx"/>
+                                    <action selector="toggleFullScreen:" target="-1" id="N31-AK-7Ik"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="Windowed" keyEquivalent="2" id="Nh4-ZT-lxO">

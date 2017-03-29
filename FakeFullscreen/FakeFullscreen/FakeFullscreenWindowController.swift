@@ -44,36 +44,50 @@ class FakeFullscreenWindowController: NSWindowController {
     
     public var layout = ScreenLayout() {
         didSet {
-            reframe(useCache: false)
+            //reframeWindow(withCachedFrame: false)
         }
     }
     
-    fileprivate func reframe(useCache: Bool) {
-        if useCache {
+    fileprivate func reframeWindow(withCachedFrame: Bool) {
+        if withCachedFrame {
             window?.setFrame(cachedWindowedFrame, display: true)
-            window?.setContentSize(cachedWindowedFrame.size)
             return
         }
         
-        let multimon = false
-        
-        if multimon {
+        if !isSingleMon {
             // multimon, use the window's composite bounds
             window?.setFrame(layout.bounds, display: true)
-            window?.setContentSize(layout.bounds.size)
-        } else {
+            
+        } else if isSingleMon {
             // single mon, use current monitor as frame
             if let screenFrame = window?.screen?.frame {
                 window?.setFrame(screenFrame, display: true)
-                window?.setContentSize(screenFrame.size)
             }
         }
-        
     }
     
-    fileprivate let fullscreenStyleMask: NSWindowStyleMask = [.borderless, .fullSizeContentView, .closable /*.fullScreen*/]
-    fileprivate let windowedStyleMask: NSWindowStyleMask = [.resizable, .titled]
-
+    fileprivate let singlemonFullscreenStyleMask: NSWindowStyleMask = [.fullScreen]
+    fileprivate let singlemonWindowedStyleMask: NSWindowStyleMask = [.resizable]
+    fileprivate let multimonFullscreenStyleMask: NSWindowStyleMask = [.borderless, .fullSizeContentView, /*.fullScreen*/]
+    fileprivate let multimonWindowedStyleMask: NSWindowStyleMask = [.resizable, .titled]
+    
+    fileprivate var fullscreenStyleMask: NSWindowStyleMask {
+        if isSingleMon {
+            return singlemonFullscreenStyleMask
+        }
+        return multimonFullscreenStyleMask
+    }
+    
+    fileprivate var windowedStyleMask: NSWindowStyleMask {
+        if isSingleMon {
+            return singlemonWindowedStyleMask
+        }
+        return multimonWindowedStyleMask
+    }
+    
+    fileprivate var isSingleMon: Bool {
+        return true
+    }
     
     public var fullscreen: Bool = false {
         didSet {
@@ -83,60 +97,63 @@ class FakeFullscreenWindowController: NSWindowController {
             }
             
             if fullscreen {
-                cacheWindowFrame()
-                reframe(useCache: false) // reframe to screen layout
-                window?.styleMask.insert(fullscreenStyleMask)
-                window?.styleMask.remove(windowedStyleMask)
-                window?.hasShadow = false
-                hideTitleBar()
-                hideMenuBar()
-                window?.debugPrintWindowStyle()
-                reframe(useCache: false) // reframe to screen layout
-                
+                enterCustomFullscreen()
             } else {
-                window?.styleMask.remove(fullscreenStyleMask)
-                window?.styleMask.insert(windowedStyleMask)
-                window?.hasShadow = true
-                showTitleBar()
-                showMenuBar()
-                reframe(useCache: true) // reframe to cache
+                exitCustomFullscreen()
             }
         }
     }
     
-    fileprivate func hideTitleBar() {
-        //window?.styleMask.remove([.titled])
-        //return;
+    fileprivate func enterCustomFullscreen() {
+        cacheWindowFrame()
         
+        // go 'fullscreen'
+        window?.styleMask.insert(fullscreenStyleMask)
+        window?.styleMask.remove(windowedStyleMask)
+        
+        window?.hasShadow = false
+        
+        // hide menu bar and dock
+        hideMenuBar()
+        hideTitleBar()
+        
+        // resize window to screen layout
+        reframeWindow(withCachedFrame: false)
+        
+    }
+    
+    fileprivate func exitCustomFullscreen() {
+        // go windowed
+        window?.styleMask.remove(fullscreenStyleMask)
+        window?.styleMask.insert(windowedStyleMask)
+        
+        window?.hasShadow = true
+        
+        // show menu bar and dock
+        showMenuBar()
+        showTitleBar()
+        
+        // resize window back to before fullscreen
+        reframeWindow(withCachedFrame: true)
+        
+    }
+    
+    fileprivate func hideTitleBar() {
         window?.titleVisibility = .hidden
         window?.titlebarAppearsTransparent = true
-        window?.isMovable = false
-        window?.isMovableByWindowBackground = false
+        window?.isMovable = false // this causes the menu bar to push the window down when it shows, if window has title bar
         window?.standardWindowButton(.closeButton)?.isHidden = true
         window?.standardWindowButton(.miniaturizeButton)?.isHidden = true
         window?.standardWindowButton(.zoomButton)?.isHidden = true
-        
-        // attach traffic lights
-        for b in trafficLights {
-            //window?.contentView?.addSubview(b)
-        }
     }
-
+    
     fileprivate func showTitleBar() {
-        //window?.styleMask.insert([.titled])
-        //return;
-        
         window?.titleVisibility = .visible
         window?.titlebarAppearsTransparent = false
         window?.isMovable = true
         window?.standardWindowButton(.closeButton)?.isHidden = false
         window?.standardWindowButton(.miniaturizeButton)?.isHidden = false
         window?.standardWindowButton(.zoomButton)?.isHidden = false
-        
-        // remove traffic light
-        for b in trafficLights {
-            //b.removeFromSuperview()
-        }
     }
     
     fileprivate func showMenuBar() {
@@ -145,6 +162,14 @@ class FakeFullscreenWindowController: NSWindowController {
     
     fileprivate func hideMenuBar() {
         NSApplication.shared().presentationOptions.insert([.hideDock, .autoHideMenuBar])
+    }
+    
+    func isFullscreen() -> Bool {
+        guard let styleMask = window?.styleMask else {
+            return false
+        }
+        
+        return styleMask.contains(fullscreenStyleMask) && !styleMask.contains(windowedStyleMask)
     }
 }
 

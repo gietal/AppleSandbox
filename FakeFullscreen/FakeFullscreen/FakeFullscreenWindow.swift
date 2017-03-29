@@ -21,4 +21,14 @@ class FakeFullscreenWindow: NSWindow {
     override func mouseDragged(with event: NSEvent) {
         
     }
+    
+    override func toggleFullScreen(_ sender: Any?) {
+        if let wc = windowController as? FakeFullscreenWindowController {
+            if wc.isFullscreen() {
+                wc.goWindowed(self)
+            } else {
+                wc.goFullscreen(self)
+            }
+        }
+    }
 }
