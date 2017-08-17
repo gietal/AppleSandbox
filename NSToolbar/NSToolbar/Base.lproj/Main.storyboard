@@ -769,6 +769,15 @@
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="59N-pd-H3B">
+                                <rect key="frame" x="54" y="139" width="295" height="96"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="nibName" value="ReusableView"/>
+                                </userDefinedRuntimeAttributes>
+                            </customView>
+                        </subviews>
                     </view>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1030,9 +1039,21 @@
                                     </customView>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="hMU-pa-cev"/>
+                                <toolbarItem implicitItemIdentifier="0B780C59-6E12-46B2-AD74-5921EA8CC6D9" label="Custom View" paletteLabel="Custom View" tag="-1" id="LdO-Uh-EOu" customClass="XibViewToolbarItem" customModule="NSToolbar" customModuleProvider="target">
+                                    <nil key="toolTip"/>
+                                    <size key="minSize" width="116" height="60"/>
+                                    <size key="maxSize" width="389" height="138"/>
+                                    <customView key="view" id="EKj-fY-hCS" customClass="XibView" customModule="NSToolbar" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="14" width="318" height="79"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </customView>
+                                    <connections>
+                                        <outlet property="theView" destination="EKj-fY-hCS" id="xVS-DU-D8h"/>
+                                    </connections>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
-                                <toolbarItem reference="eW2-ko-wWI"/>
+                                <toolbarItem reference="LdO-Uh-EOu"/>
                             </defaultToolbarItems>
                         </toolbar>
                     </window>
@@ -1043,6 +1064,18 @@
                 <customObject id="oeH-pX-H5u" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="81" y="45"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="k3T-7Z-B54">
+            <objects>
+                <viewController id="UMT-wv-TFi" sceneMemberID="viewController">
+                    <view key="view" id="pPY-Rm-RI1">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="iBF-og-Chm" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		F181067D1F450720000E4DDC /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181067C1F450720000E4DDC /* ToolbarView.swift */; };
+		F18106811F453A21000E4DDC /* XibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18106801F453A21000E4DDC /* XibView.swift */; };
+		F18106831F454030000E4DDC /* emptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F18106821F454030000E4DDC /* emptyView.xib */; };
 		F1B14D4F1F44F4DE0013ADC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B14D4E1F44F4DE0013ADC1 /* AppDelegate.swift */; };
 		F1B14D511F44F4DE0013ADC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B14D501F44F4DE0013ADC1 /* ViewController.swift */; };
 		F1B14D531F44F4DE0013ADC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1B14D521F44F4DE0013ADC1 /* Assets.xcassets */; };
@@ -16,6 +18,8 @@
 
 /* Begin PBXFileReference section */
 		F181067C1F450720000E4DDC /* ToolbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
+		F18106801F453A21000E4DDC /* XibView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XibView.swift; sourceTree = "<group>"; };
+		F18106821F454030000E4DDC /* emptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = emptyView.xib; sourceTree = "<group>"; };
 		F1B14D4B1F44F4DE0013ADC1 /* NSToolbar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSToolbar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1B14D4E1F44F4DE0013ADC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1B14D501F44F4DE0013ADC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 				F1B14D541F44F4DE0013ADC1 /* Main.storyboard */,
 				F1B14D571F44F4DE0013ADC1 /* Info.plist */,
 				F181067C1F450720000E4DDC /* ToolbarView.swift */,
+				F18106801F453A21000E4DDC /* XibView.swift */,
+				F18106821F454030000E4DDC /* emptyView.xib */,
 			);
 			path = NSToolbar;
 			sourceTree = "<group>";
@@ -123,6 +129,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F18106831F454030000E4DDC /* emptyView.xib in Resources */,
 				F1B14D531F44F4DE0013ADC1 /* Assets.xcassets in Resources */,
 				F1B14D561F44F4DE0013ADC1 /* Main.storyboard in Resources */,
 			);
@@ -137,6 +144,7 @@
 			files = (
 				F1B14D511F44F4DE0013ADC1 /* ViewController.swift in Sources */,
 				F1B14D4F1F44F4DE0013ADC1 /* AppDelegate.swift in Sources */,
+				F18106811F453A21000E4DDC /* XibView.swift in Sources */,
 				F181067D1F450720000E4DDC /* ToolbarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

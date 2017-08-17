@@ -43,3 +43,19 @@ extension AutoResizingToolbarView: NSWindowDelegate {
         updateFrame()
     }
 }
+
+@IBDesignable class XibViewToolbarItem: NSToolbarItem {
+    
+    @IBOutlet public var theView: XibView?
+    
+    override func awakeFromNib() {
+        //self.view = theView
+        //theView?.delegate = self
+    }
+}
+
+extension XibViewToolbarItem: XibViewDelegate {
+    public func onXibSetupDone() {
+        self.view = theView
+    }
+}
