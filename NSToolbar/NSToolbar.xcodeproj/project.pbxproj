@@ -1,0 +1,300 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F181067D1F450720000E4DDC /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181067C1F450720000E4DDC /* ToolbarView.swift */; };
+		F1B14D4F1F44F4DE0013ADC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B14D4E1F44F4DE0013ADC1 /* AppDelegate.swift */; };
+		F1B14D511F44F4DE0013ADC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B14D501F44F4DE0013ADC1 /* ViewController.swift */; };
+		F1B14D531F44F4DE0013ADC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1B14D521F44F4DE0013ADC1 /* Assets.xcassets */; };
+		F1B14D561F44F4DE0013ADC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1B14D541F44F4DE0013ADC1 /* Main.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F181067C1F450720000E4DDC /* ToolbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
+		F1B14D4B1F44F4DE0013ADC1 /* NSToolbar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSToolbar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1B14D4E1F44F4DE0013ADC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F1B14D501F44F4DE0013ADC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F1B14D521F44F4DE0013ADC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F1B14D551F44F4DE0013ADC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F1B14D571F44F4DE0013ADC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F1B14D481F44F4DE0013ADC1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F1B14D421F44F4DE0013ADC1 = {
+			isa = PBXGroup;
+			children = (
+				F1B14D4D1F44F4DE0013ADC1 /* NSToolbar */,
+				F1B14D4C1F44F4DE0013ADC1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F1B14D4C1F44F4DE0013ADC1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F1B14D4B1F44F4DE0013ADC1 /* NSToolbar.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F1B14D4D1F44F4DE0013ADC1 /* NSToolbar */ = {
+			isa = PBXGroup;
+			children = (
+				F1B14D4E1F44F4DE0013ADC1 /* AppDelegate.swift */,
+				F1B14D501F44F4DE0013ADC1 /* ViewController.swift */,
+				F1B14D521F44F4DE0013ADC1 /* Assets.xcassets */,
+				F1B14D541F44F4DE0013ADC1 /* Main.storyboard */,
+				F1B14D571F44F4DE0013ADC1 /* Info.plist */,
+				F181067C1F450720000E4DDC /* ToolbarView.swift */,
+			);
+			path = NSToolbar;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F1B14D4A1F44F4DE0013ADC1 /* NSToolbar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1B14D5A1F44F4DE0013ADC1 /* Build configuration list for PBXNativeTarget "NSToolbar" */;
+			buildPhases = (
+				F1B14D471F44F4DE0013ADC1 /* Sources */,
+				F1B14D481F44F4DE0013ADC1 /* Frameworks */,
+				F1B14D491F44F4DE0013ADC1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NSToolbar;
+			productName = NSToolbar;
+			productReference = F1B14D4B1F44F4DE0013ADC1 /* NSToolbar.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F1B14D431F44F4DE0013ADC1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "gietal-dev";
+				TargetAttributes = {
+					F1B14D4A1F44F4DE0013ADC1 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = F1B14D461F44F4DE0013ADC1 /* Build configuration list for PBXProject "NSToolbar" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F1B14D421F44F4DE0013ADC1;
+			productRefGroup = F1B14D4C1F44F4DE0013ADC1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F1B14D4A1F44F4DE0013ADC1 /* NSToolbar */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F1B14D491F44F4DE0013ADC1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1B14D531F44F4DE0013ADC1 /* Assets.xcassets in Resources */,
+				F1B14D561F44F4DE0013ADC1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F1B14D471F44F4DE0013ADC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1B14D511F44F4DE0013ADC1 /* ViewController.swift in Sources */,
+				F1B14D4F1F44F4DE0013ADC1 /* AppDelegate.swift in Sources */,
+				F181067D1F450720000E4DDC /* ToolbarView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F1B14D541F44F4DE0013ADC1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1B14D551F44F4DE0013ADC1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F1B14D581F44F4DE0013ADC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F1B14D591F44F4DE0013ADC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		F1B14D5B1F44F4DE0013ADC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = NSToolbar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.NSToolbar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		F1B14D5C1F44F4DE0013ADC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = NSToolbar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.NSToolbar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F1B14D461F44F4DE0013ADC1 /* Build configuration list for PBXProject "NSToolbar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1B14D581F44F4DE0013ADC1 /* Debug */,
+				F1B14D591F44F4DE0013ADC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1B14D5A1F44F4DE0013ADC1 /* Build configuration list for PBXNativeTarget "NSToolbar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1B14D5B1F44F4DE0013ADC1 /* Debug */,
+				F1B14D5C1F44F4DE0013ADC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F1B14D431F44F4DE0013ADC1 /* Project object */;
+}
