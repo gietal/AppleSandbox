@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="m0P-f6-4tA">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G1212" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -12,11 +12,11 @@
                 <application id="hnw-xV-0zn" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
-                            <menuItem title="NSToolbar" id="1Xt-HY-uBw">
+                            <menuItem title="z-order" id="1Xt-HY-uBw">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="NSToolbar" systemMenu="apple" id="uQy-DD-JDr">
+                                <menu key="submenu" title="z-order" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
-                                        <menuItem title="About NSToolbar" id="5kV-Vb-QxS">
+                                        <menuItem title="About z-order" id="5kV-Vb-QxS">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
@@ -30,7 +30,7 @@
                                             <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                                        <menuItem title="Hide NSToolbar" keyEquivalent="h" id="Olw-nP-bQN">
+                                        <menuItem title="Hide z-order" keyEquivalent="h" id="Olw-nP-bQN">
                                             <connections>
                                                 <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
                                             </connections>
@@ -48,7 +48,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                                        <menuItem title="Quit NSToolbar" keyEquivalent="q" id="4sb-4s-VLi">
+                                        <menuItem title="Quit z-order" keyEquivalent="q" id="4sb-4s-VLi">
                                             <connections>
                                                 <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
                                             </connections>
@@ -580,31 +580,6 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Window" id="aUF-d1-5bR">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Window" systemMenu="window" id="Td7-aD-5lo">
-                                    <items>
-                                        <menuItem title="Minimize" keyEquivalent="m" id="OY7-WF-poV">
-                                            <connections>
-                                                <action selector="performMiniaturize:" target="Ady-hI-5gd" id="VwT-WD-YPe"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Zoom" id="R4o-n2-Eq4">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="performZoom:" target="Ady-hI-5gd" id="DIl-cC-cCs"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="eu3-7i-yIM"/>
-                                        <menuItem title="Bring All to Front" id="LE2-aR-0XJ">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="arrangeInFront:" target="Ady-hI-5gd" id="DRN-fu-gQh"/>
-                                            </connections>
-                                        </menuItem>
-                                    </items>
-                                </menu>
-                            </menuItem>
                             <menuItem title="View" id="H8h-7b-M4v">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="View" id="HyV-fh-RgO">
@@ -637,11 +612,36 @@
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem title="Window" id="aUF-d1-5bR">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Window" systemMenu="window" id="Td7-aD-5lo">
+                                    <items>
+                                        <menuItem title="Minimize" keyEquivalent="m" id="OY7-WF-poV">
+                                            <connections>
+                                                <action selector="performMiniaturize:" target="Ady-hI-5gd" id="VwT-WD-YPe"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Zoom" id="R4o-n2-Eq4">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="performZoom:" target="Ady-hI-5gd" id="DIl-cC-cCs"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="eu3-7i-yIM"/>
+                                        <menuItem title="Bring All to Front" id="LE2-aR-0XJ">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="arrangeInFront:" target="Ady-hI-5gd" id="DRN-fu-gQh"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                             <menuItem title="Help" id="wpr-3q-Mcd">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                                     <items>
-                                        <menuItem title="NSToolbar Help" keyEquivalent="?" id="FKE-Sm-Kum">
+                                        <menuItem title="z-order Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                             <connections>
                                                 <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
                                             </connections>
@@ -655,10 +655,10 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="NSToolbar" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="z_order" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-597" y="252"/>
+            <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -669,90 +669,6 @@
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <toolbar key="toolbar" implicitIdentifier="08FBFF35-6478-4F99-BE03-98E2EE740131" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="kCh-8d-MyZ">
-                            <allowedToolbarItems>
-                                <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="V1J-NY-yZQ"/>
-                                <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="7hD-px-ieE"/>
-                                <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="Mmi-US-xsa"/>
-                                <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="vfx-W7-2TD"/>
-                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="olQ-oZ-lsU"/>
-                                <toolbarItem implicitItemIdentifier="839702E8-445A-4218-891A-490B5BEFDEB9" label="" paletteLabel="" id="MUr-nb-b4l">
-                                    <nil key="toolTip"/>
-                                    <size key="minSize" width="34" height="25"/>
-                                    <size key="maxSize" width="140" height="28"/>
-                                    <segmentedControl key="view" verticalHuggingPriority="750" id="XS1-8u-mwD">
-                                        <rect key="frame" x="0.0" y="14" width="135" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="2gZ-DZ-ZjQ">
-                                            <font key="font" metaFont="system"/>
-                                            <segments>
-                                                <segment label="Desktops" width="66"/>
-                                                <segment label="Apps" width="66"/>
-                                            </segments>
-                                        </segmentedCell>
-                                    </segmentedControl>
-                                </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="9E2ECDB8-DADF-4A01-A3D7-66D3F9C109C8" label="" paletteLabel="" id="XRt-Cp-ZxM">
-                                    <nil key="toolTip"/>
-                                    <size key="minSize" width="30" height="28"/>
-                                    <size key="maxSize" width="30" height="28"/>
-                                    <popUpButton key="view" verticalHuggingPriority="750" id="w6z-XF-FjX">
-                                        <rect key="frame" x="0.0" y="14" width="30" height="28"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <popUpButtonCell key="cell" type="roundTextured" title="Item 1" bezelStyle="texturedRounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="exF-8t-5HM" id="sjl-fa-TOA">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="menu"/>
-                                            <menu key="menu" id="STS-Iq-rfM">
-                                                <items>
-                                                    <menuItem title="Item 1" state="on" id="exF-8t-5HM"/>
-                                                    <menuItem title="Item 2" id="i1k-11-lVe"/>
-                                                    <menuItem title="Item 3" id="Tx2-o1-d64"/>
-                                                </items>
-                                            </menu>
-                                        </popUpButtonCell>
-                                    </popUpButton>
-                                </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="E965987A-2CAB-4284-9BBA-46C62A3A0CC0" label="" paletteLabel="" id="o4g-mX-Cjt">
-                                    <nil key="toolTip"/>
-                                    <size key="minSize" width="96" height="22"/>
-                                    <size key="maxSize" width="96" height="22"/>
-                                    <searchField key="view" wantsLayer="YES" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" textCompletion="NO" id="FLK-a0-K1N">
-                                        <rect key="frame" x="0.0" y="14" width="96" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="i59-ie-ddL">
-                                            <font key="font" metaFont="system"/>
-                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </searchFieldCell>
-                                    </searchField>
-                                </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="DEC438CF-EA12-4DD5-B8D0-59B57E1E52AA" label="" paletteLabel="" id="RZZ-tT-jzN">
-                                    <nil key="toolTip"/>
-                                    <size key="minSize" width="67" height="28"/>
-                                    <size key="maxSize" width="67" height="28"/>
-                                    <segmentedControl key="view" verticalHuggingPriority="750" id="Jny-fi-tS9">
-                                        <rect key="frame" x="0.0" y="14" width="67" height="28"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="1sP-Pj-U99">
-                                            <font key="font" metaFont="system"/>
-                                            <segments>
-                                                <segment image="NSActionTemplate" width="32"/>
-                                                <segment image="NSAddTemplate" width="32" selected="YES" tag="1"/>
-                                            </segments>
-                                        </segmentedCell>
-                                    </segmentedControl>
-                                </toolbarItem>
-                            </allowedToolbarItems>
-                            <defaultToolbarItems>
-                                <toolbarItem reference="RZZ-tT-jzN"/>
-                                <toolbarItem reference="XRt-Cp-ZxM"/>
-                                <toolbarItem reference="XRt-Cp-ZxM"/>
-                                <toolbarItem reference="olQ-oZ-lsU"/>
-                                <toolbarItem reference="MUr-nb-b4l"/>
-                                <toolbarItem reference="olQ-oZ-lsU"/>
-                                <toolbarItem reference="o4g-mX-Cjt"/>
-                            </defaultToolbarItems>
-                        </toolbar>
                     </window>
                     <connections>
                         <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
@@ -760,329 +676,44 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="81" y="439"/>
+            <point key="canvasLocation" x="75" y="250"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="NSToolbar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="z_order" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="59N-pd-H3B" customClass="XibView" customModule="NSToolbar" customModuleProvider="target">
-                                <rect key="frame" x="54" y="139" width="295" height="96"/>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ei0-Oy-Rvm">
+                                <rect key="frame" x="61" y="186" width="99" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="nibName" value="ReusableView"/>
-                                </userDefinedRuntimeAttributes>
-                            </customView>
+                                <buttonCell key="cell" type="push" title="reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fOV-yY-uPY">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="resetWindows:" target="XfG-lQ-9wD" id="mL5-JY-0HZ"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v6U-0A-f3u">
+                                <rect key="frame" x="61" y="143" width="99" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="do zorder" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="C4H-IY-uBq">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="doZOrder:" target="XfG-lQ-9wD" id="3pj-iQ-ofP"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1004" y="269"/>
-        </scene>
-        <!--Window Controller-->
-        <scene sceneID="MqG-Mi-DAA">
-            <objects>
-                <windowController id="m0P-f6-4tA" sceneMemberID="viewController">
-                    <window key="window" title="Microsoft Remote Desktop Beta" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="Feu-TC-Edx">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="320" y="343" width="480" height="270"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="2048" height="1129"/>
-                        <toolbar key="toolbar" implicitIdentifier="20DD19DA-2356-49AD-890C-F57F05AECA13" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="1IX-Xu-yaT">
-                            <allowedToolbarItems>
-                                <toolbarItem implicitItemIdentifier="2B95DE91-DF54-44BA-88A0-988CFC5A21CA" label="" paletteLabel="" id="Rol-N9-zdj">
-                                    <nil key="toolTip"/>
-                                    <size key="minSize" width="67" height="24"/>
-                                    <size key="maxSize" width="67" height="24"/>
-                                    <segmentedControl key="view" verticalHuggingPriority="750" id="HIU-Rb-sZe">
-                                        <rect key="frame" x="0.0" y="14" width="67" height="28"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="o3n-x4-aqL">
-                                            <font key="font" metaFont="system"/>
-                                            <segments>
-                                                <segment image="NSActionTemplate" width="32"/>
-                                                <segment image="NSAddTemplate" width="32" selected="YES" tag="1"/>
-                                            </segments>
-                                        </segmentedCell>
-                                    </segmentedControl>
-                                </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="2D1C966F-1AD9-4BE7-9539-D28F5660C108" label="" paletteLabel="" id="Fyr-4Z-hTB">
-                                    <nil key="toolTip"/>
-                                    <size key="minSize" width="30" height="28"/>
-                                    <size key="maxSize" width="30" height="28"/>
-                                    <popUpButton key="view" verticalHuggingPriority="750" id="NwU-qG-d7l">
-                                        <rect key="frame" x="0.0" y="14" width="30" height="28"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <popUpButtonCell key="cell" type="roundTextured" title="Item 1" bezelStyle="texturedRounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="CHz-zl-GuX" id="FVI-xr-qJg">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="menu"/>
-                                            <menu key="menu" id="KAX-y3-3Gv">
-                                                <items>
-                                                    <menuItem title="Item 1" state="on" id="CHz-zl-GuX"/>
-                                                    <menuItem title="Item 2" id="aw0-DX-wC3"/>
-                                                    <menuItem title="Item 3" id="c5M-pt-5FM"/>
-                                                </items>
-                                            </menu>
-                                        </popUpButtonCell>
-                                    </popUpButton>
-                                </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="228923A0-7A4D-4A51-85D0-4DD48F8F25E5" label="Custom View" paletteLabel="Custom View" tag="-1" id="eW2-ko-wWI">
-                                    <nil key="toolTip"/>
-                                    <size key="minSize" width="163" height="62"/>
-                                    <size key="maxSize" width="634" height="313"/>
-                                    <customView key="view" id="Bdp-HI-fjG" customClass="AutoResizingToolbarView" customModule="NSToolbar" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="14" width="589" height="62"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <subviews>
-                                            <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SWd-N2-hZa">
-                                                <rect key="frame" x="8" y="18" width="67" height="25"/>
-                                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="MMH-7B-WDJ">
-                                                    <font key="font" metaFont="system"/>
-                                                    <segments>
-                                                        <segment image="NSActionTemplate" width="32"/>
-                                                        <segment image="NSAddTemplate" width="32" selected="YES" tag="1"/>
-                                                    </segments>
-                                                </segmentedCell>
-                                            </segmentedControl>
-                                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jk3-A7-pN2">
-                                                <rect key="frame" x="83" y="18" width="30" height="25"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="Cfo-fW-JHP"/>
-                                                </constraints>
-                                                <popUpButtonCell key="cell" type="roundTextured" title="Item 1" bezelStyle="texturedRounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="iwL-CR-6FB" id="YrS-pm-IXn">
-                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="menu"/>
-                                                    <menu key="menu" id="VFi-dB-Cxq">
-                                                        <items>
-                                                            <menuItem title="Item 1" state="on" id="iwL-CR-6FB"/>
-                                                            <menuItem title="Item 2" id="hSs-GS-jJT"/>
-                                                            <menuItem title="Item 3" id="hK0-dC-Sq0"/>
-                                                        </items>
-                                                    </menu>
-                                                </popUpButtonCell>
-                                            </popUpButton>
-                                            <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="b6O-JY-YC1">
-                                                <rect key="frame" x="227" y="18" width="135" height="25"/>
-                                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="qgl-TU-UhR">
-                                                    <font key="font" metaFont="system"/>
-                                                    <segments>
-                                                        <segment label="Desktops" width="66"/>
-                                                        <segment label="Apps" width="66"/>
-                                                    </segments>
-                                                </segmentedCell>
-                                            </segmentedControl>
-                                            <searchField wantsLayer="YES" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RE8-OU-yre">
-                                                <rect key="frame" x="430" y="20" width="96" height="22"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="96" id="OcI-1U-PT8"/>
-                                                </constraints>
-                                                <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="lVF-qR-tqu">
-                                                    <font key="font" metaFont="system"/>
-                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </searchFieldCell>
-                                            </searchField>
-                                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Q7M-LO-E7w">
-                                                <rect key="frame" x="121" y="18" width="30" height="25"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="a0X-ku-ESo"/>
-                                                </constraints>
-                                                <popUpButtonCell key="cell" type="roundTextured" title="Item 1" bezelStyle="texturedRounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="vgf-jk-ELo" id="hzQ-kV-N2s">
-                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="menu"/>
-                                                    <menu key="menu" id="2hg-H3-L3F">
-                                                        <items>
-                                                            <menuItem title="Item 1" state="on" id="vgf-jk-ELo"/>
-                                                            <menuItem title="Item 2" id="PB0-aj-pgc"/>
-                                                            <menuItem title="Item 3" id="CRW-3n-mc5"/>
-                                                        </items>
-                                                    </menu>
-                                                </popUpButtonCell>
-                                            </popUpButton>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="RE8-OU-yre" firstAttribute="centerY" secondItem="Bdp-HI-fjG" secondAttribute="centerY" id="2mQ-fT-6uU"/>
-                                            <constraint firstItem="Q7M-LO-E7w" firstAttribute="leading" secondItem="jk3-A7-pN2" secondAttribute="trailing" constant="8" id="9qq-vb-pjQ"/>
-                                            <constraint firstItem="b6O-JY-YC1" firstAttribute="centerY" secondItem="RE8-OU-yre" secondAttribute="centerY" id="TBX-PS-fwd"/>
-                                            <constraint firstAttribute="trailing" secondItem="RE8-OU-yre" secondAttribute="trailing" constant="63" id="f42-x8-WN3"/>
-                                            <constraint firstItem="b6O-JY-YC1" firstAttribute="centerX" secondItem="Bdp-HI-fjG" secondAttribute="centerX" id="gfv-NE-9Be"/>
-                                            <constraint firstItem="SWd-N2-hZa" firstAttribute="centerY" secondItem="jk3-A7-pN2" secondAttribute="centerY" id="iMu-wg-8tH"/>
-                                            <constraint firstItem="SWd-N2-hZa" firstAttribute="leading" secondItem="Bdp-HI-fjG" secondAttribute="leading" constant="8" id="lZ3-5F-WD1"/>
-                                            <constraint firstItem="Q7M-LO-E7w" firstAttribute="centerY" secondItem="b6O-JY-YC1" secondAttribute="centerY" id="qff-Zh-MRg"/>
-                                            <constraint firstItem="jk3-A7-pN2" firstAttribute="leading" secondItem="SWd-N2-hZa" secondAttribute="trailing" constant="8" id="yvO-rY-unC"/>
-                                            <constraint firstItem="jk3-A7-pN2" firstAttribute="centerY" secondItem="Q7M-LO-E7w" secondAttribute="centerY" id="zNj-AR-9Ky"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="mainWindow" destination="Feu-TC-Edx" id="Aje-IQ-acu"/>
-                                            <outlet property="toolbar" destination="1IX-Xu-yaT" id="qmg-4g-LG2"/>
-                                            <outlet property="toolbarItem" destination="eW2-ko-wWI" id="7kU-Va-2Rx"/>
-                                        </connections>
-                                    </customView>
-                                </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="591D3486-680A-491B-AE57-08CEB1D7CAF2" label="Custom View" paletteLabel="Custom View" tag="-1" id="ZfR-QQ-ZkT">
-                                    <nil key="toolTip"/>
-                                    <size key="minSize" width="126" height="62"/>
-                                    <size key="maxSize" width="634" height="313"/>
-                                    <customView key="view" id="pPS-VF-6uM">
-                                        <rect key="frame" x="0.0" y="14" width="187" height="62"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <subviews>
-                                            <searchField wantsLayer="YES" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oaT-Ie-vmO">
-                                                <rect key="frame" x="37" y="20" width="150" height="22"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="150" id="deF-MK-hIk"/>
-                                                </constraints>
-                                                <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="uAI-vz-Cmt">
-                                                    <font key="font" metaFont="system"/>
-                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </searchFieldCell>
-                                            </searchField>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="oaT-Ie-vmO" firstAttribute="centerY" secondItem="pPS-VF-6uM" secondAttribute="centerY" id="QaQ-bs-JBY"/>
-                                            <constraint firstAttribute="trailing" secondItem="oaT-Ie-vmO" secondAttribute="trailing" id="cSd-4V-6G6"/>
-                                        </constraints>
-                                    </customView>
-                                </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="49A88864-2232-4CEC-9512-8D8BE4CF0E68" label="Custom View" paletteLabel="Custom View" tag="-1" id="9Ia-f6-ve4">
-                                    <nil key="toolTip"/>
-                                    <size key="minSize" width="138" height="62"/>
-                                    <size key="maxSize" width="634" height="313"/>
-                                    <customView key="view" id="bQZ-ek-Zs4">
-                                        <rect key="frame" x="0.0" y="14" width="142" height="62"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <subviews>
-                                            <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Oyc-E3-XU5">
-                                                <rect key="frame" x="4" y="18" width="135" height="25"/>
-                                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="1oV-TZ-GOJ">
-                                                    <font key="font" metaFont="system"/>
-                                                    <segments>
-                                                        <segment label="Desktops" width="66"/>
-                                                        <segment label="Apps" width="66"/>
-                                                    </segments>
-                                                </segmentedCell>
-                                            </segmentedControl>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="Oyc-E3-XU5" firstAttribute="centerY" secondItem="bQZ-ek-Zs4" secondAttribute="centerY" id="IX6-C3-L0L"/>
-                                            <constraint firstItem="Oyc-E3-XU5" firstAttribute="centerX" secondItem="bQZ-ek-Zs4" secondAttribute="centerX" id="hKJ-f3-yfe"/>
-                                        </constraints>
-                                    </customView>
-                                </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="19E72F20-9A2B-4664-948D-A08E83207B23" label="" paletteLabel="Custom View" tag="-1" id="ffg-CR-rYC">
-                                    <nil key="toolTip"/>
-                                    <size key="minSize" width="139" height="62"/>
-                                    <size key="maxSize" width="634" height="313"/>
-                                    <customView key="view" id="Xxc-Yp-4nR">
-                                        <rect key="frame" x="0.0" y="14" width="161" height="62"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <subviews>
-                                            <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Rmb-BX-6Bv">
-                                                <rect key="frame" x="8" y="18" width="67" height="25"/>
-                                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="Ltn-cQ-HOW">
-                                                    <font key="font" metaFont="system"/>
-                                                    <segments>
-                                                        <segment image="NSActionTemplate" width="32"/>
-                                                        <segment image="NSAddTemplate" width="32" selected="YES" tag="1"/>
-                                                    </segments>
-                                                </segmentedCell>
-                                            </segmentedControl>
-                                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Bbo-uA-QJu">
-                                                <rect key="frame" x="83" y="18" width="30" height="25"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="AR2-9u-yOy"/>
-                                                </constraints>
-                                                <popUpButtonCell key="cell" type="roundTextured" title="Item 1" bezelStyle="texturedRounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="BhN-qV-ToP" id="HDx-ju-yeQ">
-                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="menu"/>
-                                                    <menu key="menu" id="OK9-Il-zXK">
-                                                        <items>
-                                                            <menuItem title="Item 1" state="on" id="BhN-qV-ToP"/>
-                                                            <menuItem title="Item 2" id="ABj-R8-kUU"/>
-                                                            <menuItem title="Item 3" id="l32-z3-gqg"/>
-                                                        </items>
-                                                    </menu>
-                                                </popUpButtonCell>
-                                            </popUpButton>
-                                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ydn-Md-PXQ">
-                                                <rect key="frame" x="121" y="18" width="30" height="25"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="kLw-Fb-JLe"/>
-                                                </constraints>
-                                                <popUpButtonCell key="cell" type="roundTextured" title="Item 1" bezelStyle="texturedRounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="dGH-ec-1tp" id="093-Nf-hAO">
-                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="menu"/>
-                                                    <menu key="menu" id="a9U-IJ-VEo">
-                                                        <items>
-                                                            <menuItem title="Item 1" state="on" id="dGH-ec-1tp"/>
-                                                            <menuItem title="Item 2" id="PBR-nE-ECH"/>
-                                                            <menuItem title="Item 3" id="OK4-eQ-5nX"/>
-                                                        </items>
-                                                    </menu>
-                                                </popUpButtonCell>
-                                            </popUpButton>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="ydn-Md-PXQ" firstAttribute="centerY" secondItem="Xxc-Yp-4nR" secondAttribute="centerY" id="P9y-MX-XxZ"/>
-                                            <constraint firstItem="Bbo-uA-QJu" firstAttribute="leading" secondItem="Rmb-BX-6Bv" secondAttribute="trailing" constant="8" id="atC-4n-h0A"/>
-                                            <constraint firstItem="ydn-Md-PXQ" firstAttribute="leading" secondItem="Bbo-uA-QJu" secondAttribute="trailing" constant="8" id="bn1-C7-ec1"/>
-                                            <constraint firstItem="Bbo-uA-QJu" firstAttribute="centerY" secondItem="ydn-Md-PXQ" secondAttribute="centerY" id="ce3-Vn-CEx"/>
-                                            <constraint firstItem="Rmb-BX-6Bv" firstAttribute="leading" secondItem="Xxc-Yp-4nR" secondAttribute="leading" constant="8" id="x9K-Gm-FWh"/>
-                                            <constraint firstItem="Rmb-BX-6Bv" firstAttribute="centerY" secondItem="Bbo-uA-QJu" secondAttribute="centerY" id="ysg-TB-6V9"/>
-                                        </constraints>
-                                    </customView>
-                                </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="hMU-pa-cev"/>
-                                <toolbarItem implicitItemIdentifier="0B780C59-6E12-46B2-AD74-5921EA8CC6D9" label="Custom View" paletteLabel="Custom View" tag="-1" id="LdO-Uh-EOu" customClass="XibViewToolbarItem" customModule="NSToolbar" customModuleProvider="target">
-                                    <nil key="toolTip"/>
-                                    <size key="minSize" width="116" height="60"/>
-                                    <size key="maxSize" width="389" height="138"/>
-                                    <customView key="view" id="EKj-fY-hCS" customClass="XibView" customModule="NSToolbar" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="14" width="318" height="79"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    </customView>
-                                    <connections>
-                                        <outlet property="theView" destination="EKj-fY-hCS" id="xVS-DU-D8h"/>
-                                    </connections>
-                                </toolbarItem>
-                            </allowedToolbarItems>
-                            <defaultToolbarItems>
-                                <toolbarItem reference="Rol-N9-zdj"/>
-                            </defaultToolbarItems>
-                        </toolbar>
-                    </window>
-                    <connections>
-                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="wkU-6t-RlG"/>
-                    </connections>
-                </windowController>
-                <customObject id="oeH-pX-H5u" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="81" y="45"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="k3T-7Z-B54">
-            <objects>
-                <viewController id="UMT-wv-TFi" sceneMemberID="viewController">
-                    <view key="view" id="pPY-Rm-RI1">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                </viewController>
-                <customObject id="iBF-og-Chm" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
+            <point key="canvasLocation" x="75" y="655"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="NSActionTemplate" width="14" height="14"/>
-        <image name="NSAddTemplate" width="11" height="11"/>
-    </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="wkU-6t-RlG"/>
-    </inferredMetricsTieBreakers>
 </document>

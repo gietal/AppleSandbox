@@ -7,31 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F181067D1F450720000E4DDC /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181067C1F450720000E4DDC /* ToolbarView.swift */; };
-		F18106811F453A21000E4DDC /* XibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18106801F453A21000E4DDC /* XibView.swift */; };
-		F18106831F454030000E4DDC /* emptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F18106821F454030000E4DDC /* emptyView.xib */; };
-		F181068F1F456912000E4DDC /* emptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181068E1F456912000E4DDC /* emptyView.swift */; };
-		F1B14D4F1F44F4DE0013ADC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B14D4E1F44F4DE0013ADC1 /* AppDelegate.swift */; };
-		F1B14D511F44F4DE0013ADC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B14D501F44F4DE0013ADC1 /* ViewController.swift */; };
-		F1B14D531F44F4DE0013ADC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1B14D521F44F4DE0013ADC1 /* Assets.xcassets */; };
-		F1B14D561F44F4DE0013ADC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1B14D541F44F4DE0013ADC1 /* Main.storyboard */; };
+		F12D0BA4202D215800109CA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12D0BA3202D215800109CA6 /* AppDelegate.swift */; };
+		F12D0BA6202D215800109CA6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12D0BA5202D215800109CA6 /* ViewController.swift */; };
+		F12D0BA8202D215800109CA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F12D0BA7202D215800109CA6 /* Assets.xcassets */; };
+		F12D0BAB202D215800109CA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F12D0BA9202D215800109CA6 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F181067C1F450720000E4DDC /* ToolbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
-		F18106801F453A21000E4DDC /* XibView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XibView.swift; sourceTree = "<group>"; };
-		F18106821F454030000E4DDC /* emptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = emptyView.xib; sourceTree = "<group>"; };
-		F181068E1F456912000E4DDC /* emptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = emptyView.swift; sourceTree = "<group>"; };
-		F1B14D4B1F44F4DE0013ADC1 /* NSToolbar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSToolbar.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F1B14D4E1F44F4DE0013ADC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F1B14D501F44F4DE0013ADC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F1B14D521F44F4DE0013ADC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F1B14D551F44F4DE0013ADC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F1B14D571F44F4DE0013ADC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F12D0BA0202D215800109CA6 /* windowFirstResponder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = windowFirstResponder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F12D0BA3202D215800109CA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F12D0BA5202D215800109CA6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F12D0BA7202D215800109CA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F12D0BAA202D215800109CA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F12D0BAC202D215800109CA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F1B14D481F44F4DE0013ADC1 /* Frameworks */ = {
+		F12D0B9D202D215800109CA6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,83 +33,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F181068D1F456907000E4DDC /* New Group */ = {
+		F12D0B97202D215800109CA6 = {
 			isa = PBXGroup;
 			children = (
-			);
-			name = "New Group";
-			sourceTree = "<group>";
-		};
-		F1B14D421F44F4DE0013ADC1 = {
-			isa = PBXGroup;
-			children = (
-				F1B14D4D1F44F4DE0013ADC1 /* NSToolbar */,
-				F1B14D4C1F44F4DE0013ADC1 /* Products */,
+				F12D0BA2202D215800109CA6 /* windowFirstResponder */,
+				F12D0BA1202D215800109CA6 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		F1B14D4C1F44F4DE0013ADC1 /* Products */ = {
+		F12D0BA1202D215800109CA6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F1B14D4B1F44F4DE0013ADC1 /* NSToolbar.app */,
+				F12D0BA0202D215800109CA6 /* windowFirstResponder.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F1B14D4D1F44F4DE0013ADC1 /* NSToolbar */ = {
+		F12D0BA2202D215800109CA6 /* windowFirstResponder */ = {
 			isa = PBXGroup;
 			children = (
-				F181068D1F456907000E4DDC /* New Group */,
-				F1B14D4E1F44F4DE0013ADC1 /* AppDelegate.swift */,
-				F1B14D501F44F4DE0013ADC1 /* ViewController.swift */,
-				F1B14D521F44F4DE0013ADC1 /* Assets.xcassets */,
-				F1B14D541F44F4DE0013ADC1 /* Main.storyboard */,
-				F1B14D571F44F4DE0013ADC1 /* Info.plist */,
-				F181067C1F450720000E4DDC /* ToolbarView.swift */,
-				F18106801F453A21000E4DDC /* XibView.swift */,
-				F18106821F454030000E4DDC /* emptyView.xib */,
-				F181068E1F456912000E4DDC /* emptyView.swift */,
+				F12D0BA3202D215800109CA6 /* AppDelegate.swift */,
+				F12D0BA5202D215800109CA6 /* ViewController.swift */,
+				F12D0BA7202D215800109CA6 /* Assets.xcassets */,
+				F12D0BA9202D215800109CA6 /* Main.storyboard */,
+				F12D0BAC202D215800109CA6 /* Info.plist */,
 			);
-			path = NSToolbar;
+			path = windowFirstResponder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F1B14D4A1F44F4DE0013ADC1 /* NSToolbar */ = {
+		F12D0B9F202D215800109CA6 /* windowFirstResponder */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F1B14D5A1F44F4DE0013ADC1 /* Build configuration list for PBXNativeTarget "NSToolbar" */;
+			buildConfigurationList = F12D0BAF202D215800109CA6 /* Build configuration list for PBXNativeTarget "windowFirstResponder" */;
 			buildPhases = (
-				F1B14D471F44F4DE0013ADC1 /* Sources */,
-				F1B14D481F44F4DE0013ADC1 /* Frameworks */,
-				F1B14D491F44F4DE0013ADC1 /* Resources */,
+				F12D0B9C202D215800109CA6 /* Sources */,
+				F12D0B9D202D215800109CA6 /* Frameworks */,
+				F12D0B9E202D215800109CA6 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = NSToolbar;
-			productName = NSToolbar;
-			productReference = F1B14D4B1F44F4DE0013ADC1 /* NSToolbar.app */;
+			name = windowFirstResponder;
+			productName = windowFirstResponder;
+			productReference = F12D0BA0202D215800109CA6 /* windowFirstResponder.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		F1B14D431F44F4DE0013ADC1 /* Project object */ = {
+		F12D0B98202D215800109CA6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "gietal-dev";
 				TargetAttributes = {
-					F1B14D4A1F44F4DE0013ADC1 = {
-						CreatedOnToolsVersion = 8.3.3;
+					F12D0B9F202D215800109CA6 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = DTT6RZZAQ3;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = F1B14D461F44F4DE0013ADC1 /* Build configuration list for PBXProject "NSToolbar" */;
+			buildConfigurationList = F12D0B9B202D215800109CA6 /* Build configuration list for PBXProject "windowFirstResponder" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -125,49 +106,45 @@
 				en,
 				Base,
 			);
-			mainGroup = F1B14D421F44F4DE0013ADC1;
-			productRefGroup = F1B14D4C1F44F4DE0013ADC1 /* Products */;
+			mainGroup = F12D0B97202D215800109CA6;
+			productRefGroup = F12D0BA1202D215800109CA6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F1B14D4A1F44F4DE0013ADC1 /* NSToolbar */,
+				F12D0B9F202D215800109CA6 /* windowFirstResponder */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		F1B14D491F44F4DE0013ADC1 /* Resources */ = {
+		F12D0B9E202D215800109CA6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F18106831F454030000E4DDC /* emptyView.xib in Resources */,
-				F1B14D531F44F4DE0013ADC1 /* Assets.xcassets in Resources */,
-				F1B14D561F44F4DE0013ADC1 /* Main.storyboard in Resources */,
+				F12D0BA8202D215800109CA6 /* Assets.xcassets in Resources */,
+				F12D0BAB202D215800109CA6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F1B14D471F44F4DE0013ADC1 /* Sources */ = {
+		F12D0B9C202D215800109CA6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1B14D511F44F4DE0013ADC1 /* ViewController.swift in Sources */,
-				F1B14D4F1F44F4DE0013ADC1 /* AppDelegate.swift in Sources */,
-				F18106811F453A21000E4DDC /* XibView.swift in Sources */,
-				F181067D1F450720000E4DDC /* ToolbarView.swift in Sources */,
-				F181068F1F456912000E4DDC /* emptyView.swift in Sources */,
+				F12D0BA6202D215800109CA6 /* ViewController.swift in Sources */,
+				F12D0BA4202D215800109CA6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F1B14D541F44F4DE0013ADC1 /* Main.storyboard */ = {
+		F12D0BA9202D215800109CA6 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F1B14D551F44F4DE0013ADC1 /* Base */,
+				F12D0BAA202D215800109CA6 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -175,7 +152,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		F1B14D581F44F4DE0013ADC1 /* Debug */ = {
+		F12D0BAD202D215800109CA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -225,7 +202,7 @@
 			};
 			name = Debug;
 		};
-		F1B14D591F44F4DE0013ADC1 /* Release */ = {
+		F12D0BAE202D215800109CA6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -267,27 +244,29 @@
 			};
 			name = Release;
 		};
-		F1B14D5B1F44F4DE0013ADC1 /* Debug */ = {
+		F12D0BB0202D215800109CA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = NSToolbar/Info.plist;
+				DEVELOPMENT_TEAM = DTT6RZZAQ3;
+				INFOPLIST_FILE = windowFirstResponder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.NSToolbar;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.windowFirstResponder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		F1B14D5C1F44F4DE0013ADC1 /* Release */ = {
+		F12D0BB1202D215800109CA6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = NSToolbar/Info.plist;
+				DEVELOPMENT_TEAM = DTT6RZZAQ3;
+				INFOPLIST_FILE = windowFirstResponder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.NSToolbar;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.windowFirstResponder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -296,25 +275,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F1B14D461F44F4DE0013ADC1 /* Build configuration list for PBXProject "NSToolbar" */ = {
+		F12D0B9B202D215800109CA6 /* Build configuration list for PBXProject "windowFirstResponder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F1B14D581F44F4DE0013ADC1 /* Debug */,
-				F1B14D591F44F4DE0013ADC1 /* Release */,
+				F12D0BAD202D215800109CA6 /* Debug */,
+				F12D0BAE202D215800109CA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F1B14D5A1F44F4DE0013ADC1 /* Build configuration list for PBXNativeTarget "NSToolbar" */ = {
+		F12D0BAF202D215800109CA6 /* Build configuration list for PBXNativeTarget "windowFirstResponder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F1B14D5B1F44F4DE0013ADC1 /* Debug */,
-				F1B14D5C1F44F4DE0013ADC1 /* Release */,
+				F12D0BB0202D215800109CA6 /* Debug */,
+				F12D0BB1202D215800109CA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = F1B14D431F44F4DE0013ADC1 /* Project object */;
+	rootObject = F12D0B98202D215800109CA6 /* Project object */;
 }

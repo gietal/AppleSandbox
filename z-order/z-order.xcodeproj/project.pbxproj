@@ -7,31 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F181067D1F450720000E4DDC /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181067C1F450720000E4DDC /* ToolbarView.swift */; };
-		F18106811F453A21000E4DDC /* XibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18106801F453A21000E4DDC /* XibView.swift */; };
-		F18106831F454030000E4DDC /* emptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F18106821F454030000E4DDC /* emptyView.xib */; };
-		F181068F1F456912000E4DDC /* emptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181068E1F456912000E4DDC /* emptyView.swift */; };
-		F1B14D4F1F44F4DE0013ADC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B14D4E1F44F4DE0013ADC1 /* AppDelegate.swift */; };
-		F1B14D511F44F4DE0013ADC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B14D501F44F4DE0013ADC1 /* ViewController.swift */; };
-		F1B14D531F44F4DE0013ADC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1B14D521F44F4DE0013ADC1 /* Assets.xcassets */; };
-		F1B14D561F44F4DE0013ADC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1B14D541F44F4DE0013ADC1 /* Main.storyboard */; };
+		F130D5C2203517E900778018 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F130D5C1203517E900778018 /* AppDelegate.swift */; };
+		F130D5C4203517E900778018 /* Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F130D5C3203517E900778018 /* Controllers.swift */; };
+		F130D5C6203517E900778018 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F130D5C5203517E900778018 /* Assets.xcassets */; };
+		F130D5C9203517E900778018 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F130D5C7203517E900778018 /* Main.storyboard */; };
+		F130D5D12035180D00778018 /* MyWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = F130D5D02035180D00778018 /* MyWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F181067C1F450720000E4DDC /* ToolbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
-		F18106801F453A21000E4DDC /* XibView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XibView.swift; sourceTree = "<group>"; };
-		F18106821F454030000E4DDC /* emptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = emptyView.xib; sourceTree = "<group>"; };
-		F181068E1F456912000E4DDC /* emptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = emptyView.swift; sourceTree = "<group>"; };
-		F1B14D4B1F44F4DE0013ADC1 /* NSToolbar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSToolbar.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F1B14D4E1F44F4DE0013ADC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F1B14D501F44F4DE0013ADC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F1B14D521F44F4DE0013ADC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F1B14D551F44F4DE0013ADC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F1B14D571F44F4DE0013ADC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F130D5BE203517E900778018 /* z-order.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "z-order.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F130D5C1203517E900778018 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F130D5C3203517E900778018 /* Controllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controllers.swift; sourceTree = "<group>"; };
+		F130D5C5203517E900778018 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F130D5C8203517E900778018 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F130D5CA203517E900778018 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F130D5D02035180D00778018 /* MyWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F1B14D481F44F4DE0013ADC1 /* Frameworks */ = {
+		F130D5BB203517E900778018 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,83 +35,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F181068D1F456907000E4DDC /* New Group */ = {
+		F130D5B5203517E900778018 = {
 			isa = PBXGroup;
 			children = (
-			);
-			name = "New Group";
-			sourceTree = "<group>";
-		};
-		F1B14D421F44F4DE0013ADC1 = {
-			isa = PBXGroup;
-			children = (
-				F1B14D4D1F44F4DE0013ADC1 /* NSToolbar */,
-				F1B14D4C1F44F4DE0013ADC1 /* Products */,
+				F130D5C0203517E900778018 /* z-order */,
+				F130D5BF203517E900778018 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		F1B14D4C1F44F4DE0013ADC1 /* Products */ = {
+		F130D5BF203517E900778018 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F1B14D4B1F44F4DE0013ADC1 /* NSToolbar.app */,
+				F130D5BE203517E900778018 /* z-order.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F1B14D4D1F44F4DE0013ADC1 /* NSToolbar */ = {
+		F130D5C0203517E900778018 /* z-order */ = {
 			isa = PBXGroup;
 			children = (
-				F181068D1F456907000E4DDC /* New Group */,
-				F1B14D4E1F44F4DE0013ADC1 /* AppDelegate.swift */,
-				F1B14D501F44F4DE0013ADC1 /* ViewController.swift */,
-				F1B14D521F44F4DE0013ADC1 /* Assets.xcassets */,
-				F1B14D541F44F4DE0013ADC1 /* Main.storyboard */,
-				F1B14D571F44F4DE0013ADC1 /* Info.plist */,
-				F181067C1F450720000E4DDC /* ToolbarView.swift */,
-				F18106801F453A21000E4DDC /* XibView.swift */,
-				F18106821F454030000E4DDC /* emptyView.xib */,
-				F181068E1F456912000E4DDC /* emptyView.swift */,
+				F130D5C1203517E900778018 /* AppDelegate.swift */,
+				F130D5C3203517E900778018 /* Controllers.swift */,
+				F130D5C5203517E900778018 /* Assets.xcassets */,
+				F130D5C7203517E900778018 /* Main.storyboard */,
+				F130D5D02035180D00778018 /* MyWindow.xib */,
+				F130D5CA203517E900778018 /* Info.plist */,
 			);
-			path = NSToolbar;
+			path = "z-order";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F1B14D4A1F44F4DE0013ADC1 /* NSToolbar */ = {
+		F130D5BD203517E900778018 /* z-order */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F1B14D5A1F44F4DE0013ADC1 /* Build configuration list for PBXNativeTarget "NSToolbar" */;
+			buildConfigurationList = F130D5CD203517E900778018 /* Build configuration list for PBXNativeTarget "z-order" */;
 			buildPhases = (
-				F1B14D471F44F4DE0013ADC1 /* Sources */,
-				F1B14D481F44F4DE0013ADC1 /* Frameworks */,
-				F1B14D491F44F4DE0013ADC1 /* Resources */,
+				F130D5BA203517E900778018 /* Sources */,
+				F130D5BB203517E900778018 /* Frameworks */,
+				F130D5BC203517E900778018 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = NSToolbar;
-			productName = NSToolbar;
-			productReference = F1B14D4B1F44F4DE0013ADC1 /* NSToolbar.app */;
+			name = "z-order";
+			productName = "z-order";
+			productReference = F130D5BE203517E900778018 /* z-order.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		F1B14D431F44F4DE0013ADC1 /* Project object */ = {
+		F130D5B6203517E900778018 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "gietal-dev";
 				TargetAttributes = {
-					F1B14D4A1F44F4DE0013ADC1 = {
-						CreatedOnToolsVersion = 8.3.3;
+					F130D5BD203517E900778018 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = DTT6RZZAQ3;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = F1B14D461F44F4DE0013ADC1 /* Build configuration list for PBXProject "NSToolbar" */;
+			buildConfigurationList = F130D5B9203517E900778018 /* Build configuration list for PBXProject "z-order" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -125,49 +109,46 @@
 				en,
 				Base,
 			);
-			mainGroup = F1B14D421F44F4DE0013ADC1;
-			productRefGroup = F1B14D4C1F44F4DE0013ADC1 /* Products */;
+			mainGroup = F130D5B5203517E900778018;
+			productRefGroup = F130D5BF203517E900778018 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F1B14D4A1F44F4DE0013ADC1 /* NSToolbar */,
+				F130D5BD203517E900778018 /* z-order */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		F1B14D491F44F4DE0013ADC1 /* Resources */ = {
+		F130D5BC203517E900778018 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F18106831F454030000E4DDC /* emptyView.xib in Resources */,
-				F1B14D531F44F4DE0013ADC1 /* Assets.xcassets in Resources */,
-				F1B14D561F44F4DE0013ADC1 /* Main.storyboard in Resources */,
+				F130D5C6203517E900778018 /* Assets.xcassets in Resources */,
+				F130D5D12035180D00778018 /* MyWindow.xib in Resources */,
+				F130D5C9203517E900778018 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F1B14D471F44F4DE0013ADC1 /* Sources */ = {
+		F130D5BA203517E900778018 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1B14D511F44F4DE0013ADC1 /* ViewController.swift in Sources */,
-				F1B14D4F1F44F4DE0013ADC1 /* AppDelegate.swift in Sources */,
-				F18106811F453A21000E4DDC /* XibView.swift in Sources */,
-				F181067D1F450720000E4DDC /* ToolbarView.swift in Sources */,
-				F181068F1F456912000E4DDC /* emptyView.swift in Sources */,
+				F130D5C4203517E900778018 /* Controllers.swift in Sources */,
+				F130D5C2203517E900778018 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F1B14D541F44F4DE0013ADC1 /* Main.storyboard */ = {
+		F130D5C7203517E900778018 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F1B14D551F44F4DE0013ADC1 /* Base */,
+				F130D5C8203517E900778018 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -175,7 +156,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		F1B14D581F44F4DE0013ADC1 /* Debug */ = {
+		F130D5CB203517E900778018 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -225,7 +206,7 @@
 			};
 			name = Debug;
 		};
-		F1B14D591F44F4DE0013ADC1 /* Release */ = {
+		F130D5CC203517E900778018 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -267,27 +248,29 @@
 			};
 			name = Release;
 		};
-		F1B14D5B1F44F4DE0013ADC1 /* Debug */ = {
+		F130D5CE203517E900778018 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = NSToolbar/Info.plist;
+				DEVELOPMENT_TEAM = DTT6RZZAQ3;
+				INFOPLIST_FILE = "z-order/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.NSToolbar;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gietal.sandbox.z-order";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		F1B14D5C1F44F4DE0013ADC1 /* Release */ = {
+		F130D5CF203517E900778018 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = NSToolbar/Info.plist;
+				DEVELOPMENT_TEAM = DTT6RZZAQ3;
+				INFOPLIST_FILE = "z-order/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.NSToolbar;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gietal.sandbox.z-order";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -296,25 +279,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F1B14D461F44F4DE0013ADC1 /* Build configuration list for PBXProject "NSToolbar" */ = {
+		F130D5B9203517E900778018 /* Build configuration list for PBXProject "z-order" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F1B14D581F44F4DE0013ADC1 /* Debug */,
-				F1B14D591F44F4DE0013ADC1 /* Release */,
+				F130D5CB203517E900778018 /* Debug */,
+				F130D5CC203517E900778018 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F1B14D5A1F44F4DE0013ADC1 /* Build configuration list for PBXNativeTarget "NSToolbar" */ = {
+		F130D5CD203517E900778018 /* Build configuration list for PBXNativeTarget "z-order" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F1B14D5B1F44F4DE0013ADC1 /* Debug */,
-				F1B14D5C1F44F4DE0013ADC1 /* Release */,
+				F130D5CE203517E900778018 /* Debug */,
+				F130D5CF203517E900778018 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = F1B14D431F44F4DE0013ADC1 /* Project object */;
+	rootObject = F130D5B6203517E900778018 /* Project object */;
 }

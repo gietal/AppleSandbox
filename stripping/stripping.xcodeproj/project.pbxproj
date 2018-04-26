@@ -7,31 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F181067D1F450720000E4DDC /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181067C1F450720000E4DDC /* ToolbarView.swift */; };
-		F18106811F453A21000E4DDC /* XibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18106801F453A21000E4DDC /* XibView.swift */; };
-		F18106831F454030000E4DDC /* emptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F18106821F454030000E4DDC /* emptyView.xib */; };
-		F181068F1F456912000E4DDC /* emptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181068E1F456912000E4DDC /* emptyView.swift */; };
-		F1B14D4F1F44F4DE0013ADC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B14D4E1F44F4DE0013ADC1 /* AppDelegate.swift */; };
-		F1B14D511F44F4DE0013ADC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B14D501F44F4DE0013ADC1 /* ViewController.swift */; };
-		F1B14D531F44F4DE0013ADC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1B14D521F44F4DE0013ADC1 /* Assets.xcassets */; };
-		F1B14D561F44F4DE0013ADC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1B14D541F44F4DE0013ADC1 /* Main.storyboard */; };
+		F1F08C741F734C9F0018D15E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F08C731F734C9F0018D15E /* AppDelegate.swift */; };
+		F1F08C761F734C9F0018D15E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F08C751F734C9F0018D15E /* ViewController.swift */; };
+		F1F08C781F734C9F0018D15E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1F08C771F734C9F0018D15E /* Assets.xcassets */; };
+		F1F08C7B1F734C9F0018D15E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1F08C791F734C9F0018D15E /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F181067C1F450720000E4DDC /* ToolbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
-		F18106801F453A21000E4DDC /* XibView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XibView.swift; sourceTree = "<group>"; };
-		F18106821F454030000E4DDC /* emptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = emptyView.xib; sourceTree = "<group>"; };
-		F181068E1F456912000E4DDC /* emptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = emptyView.swift; sourceTree = "<group>"; };
-		F1B14D4B1F44F4DE0013ADC1 /* NSToolbar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSToolbar.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F1B14D4E1F44F4DE0013ADC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F1B14D501F44F4DE0013ADC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F1B14D521F44F4DE0013ADC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F1B14D551F44F4DE0013ADC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F1B14D571F44F4DE0013ADC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1F08C701F734C9F0018D15E /* stripping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stripping.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1F08C731F734C9F0018D15E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F1F08C751F734C9F0018D15E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F1F08C771F734C9F0018D15E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F1F08C7A1F734C9F0018D15E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F1F08C7C1F734C9F0018D15E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F1B14D481F44F4DE0013ADC1 /* Frameworks */ = {
+		F1F08C6D1F734C9F0018D15E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,83 +33,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F181068D1F456907000E4DDC /* New Group */ = {
+		F1F08C671F734C9F0018D15E = {
 			isa = PBXGroup;
 			children = (
-			);
-			name = "New Group";
-			sourceTree = "<group>";
-		};
-		F1B14D421F44F4DE0013ADC1 = {
-			isa = PBXGroup;
-			children = (
-				F1B14D4D1F44F4DE0013ADC1 /* NSToolbar */,
-				F1B14D4C1F44F4DE0013ADC1 /* Products */,
+				F1F08C721F734C9F0018D15E /* stripping */,
+				F1F08C711F734C9F0018D15E /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		F1B14D4C1F44F4DE0013ADC1 /* Products */ = {
+		F1F08C711F734C9F0018D15E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F1B14D4B1F44F4DE0013ADC1 /* NSToolbar.app */,
+				F1F08C701F734C9F0018D15E /* stripping.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F1B14D4D1F44F4DE0013ADC1 /* NSToolbar */ = {
+		F1F08C721F734C9F0018D15E /* stripping */ = {
 			isa = PBXGroup;
 			children = (
-				F181068D1F456907000E4DDC /* New Group */,
-				F1B14D4E1F44F4DE0013ADC1 /* AppDelegate.swift */,
-				F1B14D501F44F4DE0013ADC1 /* ViewController.swift */,
-				F1B14D521F44F4DE0013ADC1 /* Assets.xcassets */,
-				F1B14D541F44F4DE0013ADC1 /* Main.storyboard */,
-				F1B14D571F44F4DE0013ADC1 /* Info.plist */,
-				F181067C1F450720000E4DDC /* ToolbarView.swift */,
-				F18106801F453A21000E4DDC /* XibView.swift */,
-				F18106821F454030000E4DDC /* emptyView.xib */,
-				F181068E1F456912000E4DDC /* emptyView.swift */,
+				F1F08C731F734C9F0018D15E /* AppDelegate.swift */,
+				F1F08C751F734C9F0018D15E /* ViewController.swift */,
+				F1F08C771F734C9F0018D15E /* Assets.xcassets */,
+				F1F08C791F734C9F0018D15E /* Main.storyboard */,
+				F1F08C7C1F734C9F0018D15E /* Info.plist */,
 			);
-			path = NSToolbar;
+			path = stripping;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F1B14D4A1F44F4DE0013ADC1 /* NSToolbar */ = {
+		F1F08C6F1F734C9F0018D15E /* stripping */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F1B14D5A1F44F4DE0013ADC1 /* Build configuration list for PBXNativeTarget "NSToolbar" */;
+			buildConfigurationList = F1F08C7F1F734C9F0018D15E /* Build configuration list for PBXNativeTarget "stripping" */;
 			buildPhases = (
-				F1B14D471F44F4DE0013ADC1 /* Sources */,
-				F1B14D481F44F4DE0013ADC1 /* Frameworks */,
-				F1B14D491F44F4DE0013ADC1 /* Resources */,
+				F1F08C6C1F734C9F0018D15E /* Sources */,
+				F1F08C6D1F734C9F0018D15E /* Frameworks */,
+				F1F08C6E1F734C9F0018D15E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = NSToolbar;
-			productName = NSToolbar;
-			productReference = F1B14D4B1F44F4DE0013ADC1 /* NSToolbar.app */;
+			name = stripping;
+			productName = stripping;
+			productReference = F1F08C701F734C9F0018D15E /* stripping.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		F1B14D431F44F4DE0013ADC1 /* Project object */ = {
+		F1F08C681F734C9F0018D15E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "gietal-dev";
 				TargetAttributes = {
-					F1B14D4A1F44F4DE0013ADC1 = {
+					F1F08C6F1F734C9F0018D15E = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = DTT6RZZAQ3;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = F1B14D461F44F4DE0013ADC1 /* Build configuration list for PBXProject "NSToolbar" */;
+			buildConfigurationList = F1F08C6B1F734C9F0018D15E /* Build configuration list for PBXProject "stripping" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -125,49 +106,45 @@
 				en,
 				Base,
 			);
-			mainGroup = F1B14D421F44F4DE0013ADC1;
-			productRefGroup = F1B14D4C1F44F4DE0013ADC1 /* Products */;
+			mainGroup = F1F08C671F734C9F0018D15E;
+			productRefGroup = F1F08C711F734C9F0018D15E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F1B14D4A1F44F4DE0013ADC1 /* NSToolbar */,
+				F1F08C6F1F734C9F0018D15E /* stripping */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		F1B14D491F44F4DE0013ADC1 /* Resources */ = {
+		F1F08C6E1F734C9F0018D15E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F18106831F454030000E4DDC /* emptyView.xib in Resources */,
-				F1B14D531F44F4DE0013ADC1 /* Assets.xcassets in Resources */,
-				F1B14D561F44F4DE0013ADC1 /* Main.storyboard in Resources */,
+				F1F08C781F734C9F0018D15E /* Assets.xcassets in Resources */,
+				F1F08C7B1F734C9F0018D15E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F1B14D471F44F4DE0013ADC1 /* Sources */ = {
+		F1F08C6C1F734C9F0018D15E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1B14D511F44F4DE0013ADC1 /* ViewController.swift in Sources */,
-				F1B14D4F1F44F4DE0013ADC1 /* AppDelegate.swift in Sources */,
-				F18106811F453A21000E4DDC /* XibView.swift in Sources */,
-				F181067D1F450720000E4DDC /* ToolbarView.swift in Sources */,
-				F181068F1F456912000E4DDC /* emptyView.swift in Sources */,
+				F1F08C761F734C9F0018D15E /* ViewController.swift in Sources */,
+				F1F08C741F734C9F0018D15E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F1B14D541F44F4DE0013ADC1 /* Main.storyboard */ = {
+		F1F08C791F734C9F0018D15E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F1B14D551F44F4DE0013ADC1 /* Base */,
+				F1F08C7A1F734C9F0018D15E /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -175,7 +152,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		F1B14D581F44F4DE0013ADC1 /* Debug */ = {
+		F1F08C7D1F734C9F0018D15E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -225,7 +202,7 @@
 			};
 			name = Debug;
 		};
-		F1B14D591F44F4DE0013ADC1 /* Release */ = {
+		F1F08C7E1F734C9F0018D15E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -267,27 +244,35 @@
 			};
 			name = Release;
 		};
-		F1B14D5B1F44F4DE0013ADC1 /* Debug */ = {
+		F1F08C801F734C9F0018D15E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = NSToolbar/Info.plist;
+				COPY_PHASE_STRIP = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				DEVELOPMENT_TEAM = DTT6RZZAQ3;
+				INFOPLIST_FILE = stripping/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.NSToolbar;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.stripping;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		F1B14D5C1F44F4DE0013ADC1 /* Release */ = {
+		F1F08C811F734C9F0018D15E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = NSToolbar/Info.plist;
+				COPY_PHASE_STRIP = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				DEVELOPMENT_TEAM = DTT6RZZAQ3;
+				INFOPLIST_FILE = stripping/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.NSToolbar;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.stripping;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -296,25 +281,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F1B14D461F44F4DE0013ADC1 /* Build configuration list for PBXProject "NSToolbar" */ = {
+		F1F08C6B1F734C9F0018D15E /* Build configuration list for PBXProject "stripping" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F1B14D581F44F4DE0013ADC1 /* Debug */,
-				F1B14D591F44F4DE0013ADC1 /* Release */,
+				F1F08C7D1F734C9F0018D15E /* Debug */,
+				F1F08C7E1F734C9F0018D15E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F1B14D5A1F44F4DE0013ADC1 /* Build configuration list for PBXNativeTarget "NSToolbar" */ = {
+		F1F08C7F1F734C9F0018D15E /* Build configuration list for PBXNativeTarget "stripping" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F1B14D5B1F44F4DE0013ADC1 /* Debug */,
-				F1B14D5C1F44F4DE0013ADC1 /* Release */,
+				F1F08C801F734C9F0018D15E /* Debug */,
+				F1F08C811F734C9F0018D15E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = F1B14D431F44F4DE0013ADC1 /* Project object */;
+	rootObject = F1F08C681F734C9F0018D15E /* Project object */;
 }
