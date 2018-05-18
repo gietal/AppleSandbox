@@ -14,7 +14,15 @@ class GridViewController: NSViewController {
     @IBOutlet weak var collectionView: NSCollectionView!
     @IBOutlet weak var label: NSTextField!
     var imageDirectory = ImageDirectoryLoader()
+    var indexPathsOfItemsBeingDragged: Set<IndexPath>!
+    
     override func viewDidLoad() {
+        setupLayout()
+        setupDragAndDrop()
+        setupImageDirectory()
+    }
+    
+    fileprivate func setupLayout() {
         // setup the layout
         let flowLayout = NSCollectionViewFlowLayout()
         flowLayout.itemSize = NSSize(width: 160.0, height: 140.0)
@@ -35,8 +43,16 @@ class GridViewController: NSViewController {
         collectionView.register(NSNib(nibNamed: NSNib.Name(rawValue: "CollectionViewItem"), bundle: nil), forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue:"CollectionViewItem"))
         collectionView.register(NSNib(nibNamed: NSNib.Name(rawValue: "GridHeaderView"), bundle: nil), forSupplementaryViewOfKind: .sectionHeader, withIdentifier: NSUserInterfaceItemIdentifier(rawValue:"GridHeaderView"))
         
+    }
+    
+    fileprivate func setupDragAndDrop(){
+        collectionView.registerForDraggedTypes([.URL])
+        collectionView.setDraggingSourceOperationMask(.every, forLocal: true)
+    }
+    
+    fileprivate func setupImageDirectory() {
         imageDirectory.singleSectionMode = false
-        imageDirectory.loadDataForFolderWithUrl(URL(string: "/Users/gietal-dev/Desktop")!)
+        imageDirectory.loadDataForFolderWithUrl(URL(string: "/Users/gietal/Desktop")!)
     }
 }
 
@@ -61,13 +77,19 @@ extension GridViewController: NSCollectionViewDataSource {
         return item
     }
     
-    // used to create header/footer section
+    // used to create header/footer/interimgap section
     func collectionView(_ collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind: NSCollectionView.SupplementaryElementKind, at indexPath: IndexPath) -> NSView {
-        // 1
-        let view = collectionView.makeSupplementaryView(ofKind: .sectionHeader, withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "GridHeaderView"), for: indexPath) as! GridHeaderView
-        // 2
-        view.sectionTitle.stringValue = "Section \(indexPath.section)"
-
+        var view: NSView
+        if kind == .sectionHeader {
+            let headerView = collectionView.makeSupplementaryView(ofKind: .sectionHeader, withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "GridHeaderView"), for: indexPath) as! GridHeaderView
+            headerView.sectionTitle.stringValue = "Section \(indexPath.section)"
+            view = headerView
+        } else {
+            // non header, make nil view
+            view = collectionView.makeSupplementaryView(ofKind: .sectionHeader, withIdentifier: NSUserInterfaceItemIdentifier(rawValue: ""), for: indexPath)
+            
+        }
+        
         return view
     }
 }
@@ -78,3 +100,54 @@ extension GridViewController: NSCollectionViewDelegateFlowLayout {
         return NSSize(width: 100, height: 40)
     }
 }
+
+extension GridViewController: NSCollectionViewDelegate {
+    
+    //////// this part, allows the collectionview to act as Drag Source, so items can bepicked up from ////////
+    
+    // allow dragging item
+    func collectionView(_ collectionView: NSCollectionView, canDragItemsAt indexes: IndexSet, with event: NSEvent) -> Bool {
+        return true
+    }
+    
+    // this is for multi section
+    // thiswill be called per item dragged. we need to return pasteboard writer that represents our underlying object model
+    // in this  case  just an NSURL. for bookmark can be id as NSString i guess?
+    func collectionView(_ collectionView: NSCollectionView, pasteboardWriterForItemAt indexPath: IndexPath) -> NSPasteboardWriting? {
+        let imageFile = imageDirectory.imageFileForIndexPath(indexPath)
+        return imageFile.nsUrl
+    }
+    
+    // this is for single section
+//    func collectionView(_ collectionView: NSCollectionView, pasteboardWriterForItemAt index: Int) -> NSPasteboardWriting? {
+//
+//    }
+    
+    /////////////////////////////////////////////////
+    
+    // lets us know that this collection view started dragging the items with the specified indexpaths
+    
+    func collectionView(_ collectionView: NSCollectionView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItemsAt indexPaths: Set<IndexPath>) {
+        indexPathsOfItemsBeingDragged = indexPaths
+    }
+
+    // lets us decide what operation to do when the drag turns into a drop
+    func collectionView(_ collectionView: NSCollectionView, validateDrop draggingInfo: NSDraggingInfo,
+                        proposedIndexPath proposedDropIndexPath: AutoreleasingUnsafeMutablePointer<NSIndexPath>,
+                        dropOperation proposedDropOperation: UnsafeMutablePointer<NSCollectionView.DropOperation>) -> NSDragOperation {
+        
+        // this makes sure that when user try to drop items on to another item, we make it so that it drops before the item
+        if proposedDropOperation.pointee == NSCollectionView.DropOperation.on {
+            proposedDropOperation.pointee = NSCollectionView.DropOperation.before
+        }
+        
+        // when indexPathsOfItemsBeingDragged == nil, that means theitem is dragged from outside app
+        if indexPathsOfItemsBeingDragged == nil {
+            return NSDragOperation.copy
+        } else {
+            return NSDragOperation.move
+        }
+    }
+
+}
+

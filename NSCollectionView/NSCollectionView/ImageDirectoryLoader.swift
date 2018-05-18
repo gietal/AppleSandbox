@@ -41,7 +41,7 @@ class ImageDirectoryLoader: NSObject {
   // sectionLengthArray[0] is 7, i.e. put the first 7 images from the imageFiles array into section 0
   // sectionLengthArray[1] is 5, i.e. put the next 5 images from the imageFiles array into section 1
   // and so on...
-  fileprivate let sectionLengthArray = [7, 5, 10, 2, 11, 7, 10, 12, 20, 25, 10, 3, 30, 25, 40]
+    fileprivate var sectionLengthArray = [7, 5, 10, 2, 11, 7, 10, 12, 20, 25, 10, 3, 30, 25, 40]
   fileprivate var sectionsAttributesArray = [SectionAttributes]()
   
   func setupDataForUrls(_ urls: [URL]?) {
@@ -64,6 +64,49 @@ class ImageDirectoryLoader: NSObject {
     
   }
   
+    // 1
+    func moveImageFromIndexPath(_ indexPath: IndexPath, toIndexPath: IndexPath) {
+        
+        // 2
+        let itemBeingDragged = removeImageAtIndexPath(indexPath)
+        
+        let destinationIsLower = indexPath.compare(toIndexPath) == .orderedDescending
+        var indexPathOfDestination: IndexPath
+        if destinationIsLower {
+            indexPathOfDestination = toIndexPath
+        } else {
+            indexPathOfDestination = IndexPath(item: toIndexPath.item-1, section: toIndexPath.section)
+        }
+        // 3
+        insertImage(itemBeingDragged, atIndexPath: indexPathOfDestination)
+    }
+    
+    func insertImage(_ image: ImageFile, atIndexPath: IndexPath) {
+        let imageIndexInImageFiles = sectionsAttributesArray[atIndexPath.section].sectionOffset + atIndexPath.item
+        imageFiles.insert(image, at: imageIndexInImageFiles)
+        let sectionToUpdate = atIndexPath.section
+        sectionsAttributesArray[sectionToUpdate].sectionLength += 1
+        sectionLengthArray[sectionToUpdate] += 1
+        if sectionToUpdate < numberOfSections-1 {
+            for i in sectionToUpdate+1...numberOfSections-1 {
+                sectionsAttributesArray[i].sectionOffset += 1
+            }
+        }
+    }
+    
+    func removeImageAtIndexPath(_ indexPath: IndexPath) -> ImageFile {
+        let imageIndexInImageFiles = sectionsAttributesArray[indexPath.section].sectionOffset + indexPath.item
+        let imageFileRemoved = imageFiles.remove(at: imageIndexInImageFiles)
+        let sectionToUpdate = indexPath.section
+        sectionsAttributesArray[sectionToUpdate].sectionLength -= 1
+        if sectionToUpdate < numberOfSections-1 {
+            for i in sectionToUpdate+1...numberOfSections-1 {
+                sectionsAttributesArray[i].sectionOffset -= 1
+            }
+        }
+        return imageFileRemoved
+    }
+    
   fileprivate func setupDataForSingleSectionMode() {
     let sectionAttributes = SectionAttributes(sectionOffset: 0, sectionLength: imageFiles.count)
     sectionsAttributesArray.append(sectionAttributes) // sets up attributes for first section

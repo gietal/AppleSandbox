@@ -30,8 +30,9 @@ class ImageFile {
   
   fileprivate(set) var thumbnail: NSImage?
   fileprivate(set) var fileName: String
-  
+fileprivate(set) var nsUrl: NSURL
   init?(url: URL) {
+    nsUrl = NSURL(string: url.absoluteString)!
     fileName = url.lastPathComponent
     thumbnail = nil
     let imageSource = CGImageSourceCreateWithURL(url.absoluteURL as CFURL, nil)
