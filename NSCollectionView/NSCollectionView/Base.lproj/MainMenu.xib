@@ -702,13 +702,17 @@
                             <rect key="frame" x="1" y="1" width="478" height="328"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <collectionView id="iln-Q1-TZA">
+                                <collectionView selectable="YES" id="iln-Q1-TZA">
                                     <rect key="frame" x="0.0" y="0.0" width="478" height="328"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                     <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="gOw-AE-JN4">
                                         <size key="itemSize" width="50" height="50"/>
                                     </collectionViewFlowLayout>
                                     <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <connections>
+                                        <outlet property="dataSource" destination="71h-Ny-Pjk" id="wba-lu-QXn"/>
+                                        <outlet property="delegate" destination="71h-Ny-Pjk" id="jxy-jg-bau"/>
+                                    </connections>
                                 </collectionView>
                             </subviews>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>

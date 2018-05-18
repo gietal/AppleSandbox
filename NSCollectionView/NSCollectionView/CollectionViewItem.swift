@@ -24,13 +24,21 @@ class CollectionViewItem: NSCollectionViewItem {
                 imageView?.image = nil
                 textField?.stringValue = ""
             }
+            view.needsDisplay = true
         }
     }
     
+    override var isSelected: Bool {
+        didSet {
+            view.layer?.borderWidth = isSelected ? 5 : 0
+        }
+    }
     // 2
     override func viewDidLoad() {
         super.viewDidLoad()
         view.wantsLayer = true
         view.layer?.backgroundColor = NSColor.lightGray.cgColor
+        view.layer?.borderColor = NSColor.white.cgColor
+        view.layer?.borderWidth = 0
     }
 }

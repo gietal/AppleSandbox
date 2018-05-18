@@ -10,7 +10,9 @@
 		F12A32F020ACE8750009FBB7 /* CollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12A32EF20ACE8750009FBB7 /* CollectionViewItem.swift */; };
 		F12A32F320ACE8B90009FBB7 /* ImageDirectoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12A32F120ACE8B90009FBB7 /* ImageDirectoryLoader.swift */; };
 		F12A32F420ACE8B90009FBB7 /* ImageFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12A32F220ACE8B90009FBB7 /* ImageFile.swift */; };
-		F12A32F620ACE9AB0009FBB7 /* CollectionViewitem.xib in Resources */ = {isa = PBXBuildFile; fileRef = F12A32F520ACE9AB0009FBB7 /* CollectionViewitem.xib */; };
+		F12A32F620ACE9AB0009FBB7 /* CollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = F12A32F520ACE9AB0009FBB7 /* CollectionViewItem.xib */; };
+		F133239E20AE650C005E0768 /* GridHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F133239D20AE650B005E0768 /* GridHeaderView.xib */; };
+		F13323A020AE6583005E0768 /* GridHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F133239F20AE6583005E0768 /* GridHeaderView.swift */; };
 		F1D2A86A20AA9A6200169D47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2A86920AA9A6200169D47 /* AppDelegate.swift */; };
 		F1D2A86C20AA9A6300169D47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1D2A86B20AA9A6300169D47 /* Assets.xcassets */; };
 		F1D2A86F20AA9A6300169D47 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1D2A86D20AA9A6300169D47 /* MainMenu.xib */; };
@@ -21,7 +23,9 @@
 		F12A32EF20ACE8750009FBB7 /* CollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewItem.swift; sourceTree = "<group>"; };
 		F12A32F120ACE8B90009FBB7 /* ImageDirectoryLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDirectoryLoader.swift; sourceTree = "<group>"; };
 		F12A32F220ACE8B90009FBB7 /* ImageFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFile.swift; sourceTree = "<group>"; };
-		F12A32F520ACE9AB0009FBB7 /* CollectionViewitem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewitem.xib; sourceTree = "<group>"; };
+		F12A32F520ACE9AB0009FBB7 /* CollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewItem.xib; sourceTree = "<group>"; };
+		F133239D20AE650B005E0768 /* GridHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GridHeaderView.xib; sourceTree = "<group>"; };
+		F133239F20AE6583005E0768 /* GridHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridHeaderView.swift; sourceTree = "<group>"; };
 		F1D2A86620AA9A6200169D47 /* NSCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D2A86920AA9A6200169D47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1D2A86B20AA9A6300169D47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -70,7 +74,9 @@
 				F12A32F120ACE8B90009FBB7 /* ImageDirectoryLoader.swift */,
 				F12A32F220ACE8B90009FBB7 /* ImageFile.swift */,
 				F12A32EF20ACE8750009FBB7 /* CollectionViewItem.swift */,
-				F12A32F520ACE9AB0009FBB7 /* CollectionViewitem.xib */,
+				F12A32F520ACE9AB0009FBB7 /* CollectionViewItem.xib */,
+				F133239D20AE650B005E0768 /* GridHeaderView.xib */,
+				F133239F20AE6583005E0768 /* GridHeaderView.swift */,
 			);
 			path = NSCollectionView;
 			sourceTree = "<group>";
@@ -107,6 +113,11 @@
 				TargetAttributes = {
 					F1D2A86520AA9A6200169D47 = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -134,7 +145,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1D2A86C20AA9A6300169D47 /* Assets.xcassets in Resources */,
-				F12A32F620ACE9AB0009FBB7 /* CollectionViewitem.xib in Resources */,
+				F133239E20AE650C005E0768 /* GridHeaderView.xib in Resources */,
+				F12A32F620ACE9AB0009FBB7 /* CollectionViewItem.xib in Resources */,
 				F1D2A86F20AA9A6300169D47 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,6 +163,7 @@
 				F1D2A86A20AA9A6200169D47 /* AppDelegate.swift in Sources */,
 				F12A32F020ACE8750009FBB7 /* CollectionViewItem.swift in Sources */,
 				F12A32F420ACE8B90009FBB7 /* ImageFile.swift in Sources */,
+				F13323A020AE6583005E0768 /* GridHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +298,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = NSCollectionView/NSCollectionView.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = DTT6RZZAQ3;
@@ -304,7 +316,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = NSCollectionView/NSCollectionView.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = DTT6RZZAQ3;

@@ -21,6 +21,7 @@ class GridViewController: NSViewController {
         flowLayout.sectionInset = NSEdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0)
         flowLayout.minimumInteritemSpacing = 20.0
         flowLayout.minimumLineSpacing = 20.0
+        flowLayout.sectionHeadersPinToVisibleBounds = true
         collectionView.collectionViewLayout = flowLayout
         // 2
         view.wantsLayer = true
@@ -30,7 +31,12 @@ class GridViewController: NSViewController {
         collectionView.needsDisplay = true
         label.stringValue = "hello"
         
-        imageDirectory.loadDataForFolderWithUrl(URL("/Users/gietal-dev/Desktop")
+        // register xibs
+        collectionView.register(NSNib(nibNamed: NSNib.Name(rawValue: "CollectionViewItem"), bundle: nil), forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue:"CollectionViewItem"))
+        collectionView.register(NSNib(nibNamed: NSNib.Name(rawValue: "GridHeaderView"), bundle: nil), forSupplementaryViewOfKind: .sectionHeader, withIdentifier: NSUserInterfaceItemIdentifier(rawValue:"GridHeaderView"))
+        
+        imageDirectory.singleSectionMode = false
+        imageDirectory.loadDataForFolderWithUrl(URL(string: "/Users/gietal-dev/Desktop")!)
     }
 }
 
@@ -43,11 +49,7 @@ extension GridViewController: NSCollectionViewDataSource {
         return imageDirectory.numberOfItemsInSection(section)
     }
     
-//    func collectionView(_ collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind: NSCollectionView.SupplementaryElementKind, at indexPath: IndexPath) -> NSView {
-//        super.collection
-//    }
-//
-    
+    // used to create collection view item
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         // 4
         let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "CollectionViewItem"), for: indexPath)
@@ -57,5 +59,22 @@ extension GridViewController: NSCollectionViewDataSource {
         let imageFile = imageDirectory.imageFileForIndexPath(indexPath)
         collectionViewItem.imageFile = imageFile
         return item
+    }
+    
+    // used to create header/footer section
+    func collectionView(_ collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind: NSCollectionView.SupplementaryElementKind, at indexPath: IndexPath) -> NSView {
+        // 1
+        let view = collectionView.makeSupplementaryView(ofKind: .sectionHeader, withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "GridHeaderView"), for: indexPath) as! GridHeaderView
+        // 2
+        view.sectionTitle.stringValue = "Section \(indexPath.section)"
+
+        return view
+    }
+}
+
+extension GridViewController: NSCollectionViewDelegateFlowLayout {
+    // determine the size of the header
+    func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> NSSize {
+        return NSSize(width: 100, height: 40)
     }
 }

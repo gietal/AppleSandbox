@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="GridHeaderView" customModule="NSCollectionView" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="500" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6sZ-vO-SPG">
+                    <rect key="frame" x="9" y="10" width="117" height="19"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Section Header" id="iEO-aF-9Of">
+                        <font key="font" metaFont="system" size="16"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Kpc-Og-1Bn">
+                    <rect key="frame" x="400" y="3" width="91" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="79" id="bcR-iK-qdH"/>
+                    </constraints>
+                    <buttonCell key="cell" type="push" title="collapse" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="V41-3z-Qb8">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Kpc-Og-1Bn" secondAttribute="trailing" constant="15" id="RII-Pw-yfH"/>
+                <constraint firstItem="6sZ-vO-SPG" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="11" id="RXO-ks-jWv"/>
+                <constraint firstItem="6sZ-vO-SPG" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="glu-zL-1TK"/>
+                <constraint firstItem="Kpc-Og-1Bn" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="vFQ-NK-FdW"/>
+            </constraints>
+            <connections>
+                <outlet property="sectionCollapseButton" destination="Kpc-Og-1Bn" id="O45-v8-ri1"/>
+                <outlet property="sectionTitle" destination="6sZ-vO-SPG" id="A52-PO-KT4"/>
+            </connections>
+        </customView>
+    </objects>
+</document>
