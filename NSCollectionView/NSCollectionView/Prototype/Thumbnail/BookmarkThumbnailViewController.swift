@@ -162,27 +162,39 @@ extension BookmarkThumbnailViewController: NSCollectionViewDelegate {
         if let itemsDraggedIndexPath = indexPathsOfItemsBeingDragged {
             // Then it falls here when it's a move operation.
 
-            // update the model
-//            bookmarkDirectory.moveBookmark(from: itemsDraggedIndexPath, to: toIndexPath)
-            // notify collectionview
+            // determine how much the collectionview is going to move
+            // cocoa does its destination index path assuming the items arent moved yet
+            // i.e, given:
+            // A B C
+            // and we move A to the spot between B and C
+            // cocoa will give destionation index to be 2
+            // because when we insert A at index 2, we'll get
+            // A B A C
+            var sectionMovement = 0
             for fromIndexPath in itemsDraggedIndexPath {
-                var toIndexPath = indexPath
-                
-                // cocoa does its destination index path assuming the items arent moved yet
-                // i.e, given:
-                // A B C
-                // and we move A to the spot between B and C
-                // cocoa will give destionation index to be 2
-                // because when we insert A at index 2, we'll get
-                // A B A C
-                if fromIndexPath.section == toIndexPath.section &&
-                    fromIndexPath.compare(toIndexPath) == .orderedAscending {
-                    toIndexPath.item -= 1
+                if fromIndexPath.section == indexPath.section &&
+                    fromIndexPath.compare(indexPath) == .orderedAscending {
+                    sectionMovement += 1
                 }
-                bookmarkDirectory.moveBookmark(from: fromIndexPath, to: toIndexPath)
-                collectionView.moveItem(at: fromIndexPath, to: toIndexPath)
             }
+            var toIndexPath = indexPath
+            toIndexPath.item -= sectionMovement
             
+            // update model
+            bookmarkDirectory.moveBookmarks(from: itemsDraggedIndexPath, to: toIndexPath)
+            var toInsert = Set<IndexPath>()
+            collectionView.performBatchUpdates({
+                for fromIndexPath in itemsDraggedIndexPath {
+                    
+                    //                bookmarkDirectory.moveBookmark(from: fromIndexPath, to: toIndexPath)
+                    collectionView.moveItem(at: fromIndexPath, to: toIndexPath)
+//                    toInsert.insert(toIndexPath)
+                    toIndexPath.item += 1
+                }
+            }, completionHandler: nil)
+            
+//            collectionView.deleteItems(at: itemsDraggedIndexPath)
+//            collectionView.insertItems(at: toInsert)
         }
         return true
     }

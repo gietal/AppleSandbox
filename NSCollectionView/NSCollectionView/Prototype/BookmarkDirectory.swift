@@ -131,6 +131,13 @@ protocol BookmarkDirectorySubscriber {
         
     }
     
+    func reset() {
+        setupBookmarkAndGroup()
+        subscribers.notifyAll {
+            $0.directoryReloaded()
+        }
+    }
+    
     func moveBookmark(from: IndexPath, to: IndexPath) {
         let node = bookmarkNodes[from.section].children.remove(at: from.item)
         bookmarkNodes[to.section].children.insert(node, at: to.item)
@@ -138,17 +145,33 @@ protocol BookmarkDirectorySubscriber {
     
     func moveBookmarks(from fromIndexes: Set<IndexPath>, to toIndex: IndexPath) {
         // remove the bookmarks from model
-        var toMove = [Node]()
+        
+        
+        
+        // consolidate items to move
+        var indexMap = [Int: Set<Int>]()
         for index in fromIndexes {
-            toMove.append(bookmarkNodes[index.section].children.remove(at: index.item))
+            if !indexMap.contains(key: index.section) {
+                indexMap[index.section] = Set<Int>()
+            }
+            
+            indexMap[index.section]?.insert(index.item)
+        }
+        
+        // remove items at once per each section
+        var toMove = [Node]()
+        for (sectionIndex, set) in indexMap {
+            toMove.append(contentsOf: bookmarkNodes[sectionIndex].children.remove(at: set))
         }
         
         // reinsert on correct spot
+        var targetIndex = toIndex
         for node in toMove {
             let sectionNode = bookmarkNodes[toIndex.section]
-            var targetIndex = toIndex
-            targetIndex.item = max(targetIndex.item, sectionNode.children.count)
+            
+//            targetIndex.item = max(targetIndex.item, sectionNode.children.count)
             sectionNode.children.insert(node, at: targetIndex.item)
+            targetIndex.item += 1
         }
         
         // tell the subscribers item is moved?

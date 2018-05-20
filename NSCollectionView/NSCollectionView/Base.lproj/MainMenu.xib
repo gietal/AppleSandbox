@@ -15,6 +15,7 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="NSCollectionView" customModuleProvider="target">
             <connections>
                 <outlet property="bookmarkThumbnailViewController" destination="Nol-SQ-3lU" id="cQo-Zj-9oz"/>
+                <outlet property="resetButton" destination="Qsi-Nq-LPb" id="95H-y5-NyM"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -702,7 +703,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <tabView translatesAutoresizingMaskIntoConstraints="NO" id="uOQ-Et-IrA">
+                    <tabView drawsBackground="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uOQ-Et-IrA">
                         <rect key="frame" x="-7" y="12" width="494" height="332"/>
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
@@ -809,6 +810,17 @@
                             </tabViewItem>
                         </tabViewItems>
                     </tabView>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qsi-Nq-LPb">
+                        <rect key="frame" x="11" y="325" width="75" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dyE-Sj-BNN">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="resetDirectory:" target="Voe-Tx-rLC" id="cWb-uw-lKs"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="uOQ-Et-IrA" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="J2e-44-DY1"/>

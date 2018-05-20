@@ -16,6 +16,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBOutlet weak var bookmarkThumbnailViewController: BookmarkThumbnailViewController!
     
+    @IBAction func resetDirectory(_ sender: Any) {
+        bookmarkDirectory.reset()
+    }
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // init subscribers
         bookmarkThumbnailViewController.bookmarkDirectory = bookmarkDirectory
