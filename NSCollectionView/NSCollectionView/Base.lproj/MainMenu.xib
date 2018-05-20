@@ -25,6 +25,12 @@
                 <outlet property="view" destination="Lej-Ti-jA3" id="FH2-S5-EQD"/>
             </connections>
         </customObject>
+        <customObject id="sqw-Rx-JR1" customClass="GridViewController" customModule="NSCollectionView" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="DsY-DO-UgB" id="QMm-9M-RYP"/>
+                <outlet property="view" destination="sdd-2I-Vjx" id="mP2-hy-iFQ"/>
+            </connections>
+        </customObject>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
                 <menuItem title="NSCollectionView" id="1Xt-HY-uBw">
@@ -755,6 +761,50 @@
                                             </textFieldCell>
                                         </textField>
                                     </subviews>
+                                </view>
+                            </tabViewItem>
+                            <tabViewItem label="Tutorial" identifier="" id="6fb-eh-GhA">
+                                <view key="view" id="sdd-2I-Vjx">
+                                    <rect key="frame" x="10" y="33" width="474" height="286"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5n-Y0-lN3">
+                                            <rect key="frame" x="0.0" y="0.0" width="474" height="286"/>
+                                            <clipView key="contentView" drawsBackground="NO" id="MAv-Y6-IIb">
+                                                <rect key="frame" x="1" y="1" width="472" height="284"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <collectionView selectable="YES" allowsMultipleSelection="YES" id="DsY-DO-UgB">
+                                                        <rect key="frame" x="0.0" y="0.0" width="472" height="158"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="w0f-iM-J6E">
+                                                            <size key="itemSize" width="50" height="50"/>
+                                                        </collectionViewFlowLayout>
+                                                        <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="sqw-Rx-JR1" id="2yi-6N-kSo"/>
+                                                            <outlet property="delegate" destination="sqw-Rx-JR1" id="cIY-2C-1o7"/>
+                                                        </connections>
+                                                    </collectionView>
+                                                </subviews>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </clipView>
+                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Qbx-CD-faB">
+                                                <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </scroller>
+                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="K9i-Gu-EG8">
+                                                <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </scroller>
+                                        </scrollView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="w5n-Y0-lN3" firstAttribute="top" secondItem="sdd-2I-Vjx" secondAttribute="top" id="5ub-oY-5HA"/>
+                                        <constraint firstItem="w5n-Y0-lN3" firstAttribute="leading" secondItem="sdd-2I-Vjx" secondAttribute="leading" id="AWb-8P-ege"/>
+                                        <constraint firstAttribute="bottom" secondItem="w5n-Y0-lN3" secondAttribute="bottom" id="TlF-QI-FT4"/>
+                                        <constraint firstAttribute="trailing" secondItem="w5n-Y0-lN3" secondAttribute="trailing" id="hac-ro-NSG"/>
+                                    </constraints>
                                 </view>
                             </tabViewItem>
                         </tabViewItems>

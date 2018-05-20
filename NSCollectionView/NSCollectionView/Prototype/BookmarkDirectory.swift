@@ -66,6 +66,20 @@ protocol BookmarkDirectorySubscriber {
             children.append(n)
         }
         
+        func removeChildren(where shouldRemove: (Node) -> Bool) {
+            
+            var i = 0
+            while i < children.count {
+                if shouldRemove(children[i]) {
+                    // remove this one
+                    children.remove(at: i)
+                } else {
+                    // onto the next one
+                    i += 1
+                }
+            }
+        }
+        
         // lightweight container
         public fileprivate(set) var parent: Node?
         fileprivate var children = [Node]()
@@ -115,6 +129,29 @@ protocol BookmarkDirectorySubscriber {
             }
         }
         
+    }
+    
+    func moveBookmark(from: IndexPath, to: IndexPath) {
+        let node = bookmarkNodes[from.section].children.remove(at: from.item)
+        bookmarkNodes[to.section].children.insert(node, at: to.item)
+    }
+    
+    func moveBookmarks(from fromIndexes: Set<IndexPath>, to toIndex: IndexPath) {
+        // remove the bookmarks from model
+        var toMove = [Node]()
+        for index in fromIndexes {
+            toMove.append(bookmarkNodes[index.section].children.remove(at: index.item))
+        }
+        
+        // reinsert on correct spot
+        for node in toMove {
+            let sectionNode = bookmarkNodes[toIndex.section]
+            var targetIndex = toIndex
+            targetIndex.item = max(targetIndex.item, sectionNode.children.count)
+            sectionNode.children.insert(node, at: targetIndex.item)
+        }
+        
+        // tell the subscribers item is moved?
     }
     
     fileprivate func setupBookmarkAndGroup() {

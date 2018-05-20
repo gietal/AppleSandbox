@@ -36,7 +36,7 @@
                 <constraint firstAttribute="trailing" secondItem="OqW-ed-Xl9" secondAttribute="trailing" id="xKQ-XD-NoK"/>
             </constraints>
         </customView>
-        <collectionViewItem id="T5U-NK-rPu" customClass="BookmarkThumbnailViewItem" customModule="NSCollectionView" customModuleProvider="target">
+        <collectionViewItem id="T5U-NK-rPu" customClass="CollectionViewItem" customModule="NSCollectionView" customModuleProvider="target">
             <connections>
                 <outlet property="imageView" destination="17i-40-jsV" id="RJe-hC-CGp"/>
                 <outlet property="textField" destination="OqW-ed-Xl9" id="cFY-4n-ppU"/>

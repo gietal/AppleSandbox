@@ -12,7 +12,6 @@ import Cocoa
 
 class GridViewController: NSViewController {
     @IBOutlet weak var collectionView: NSCollectionView!
-    @IBOutlet weak var label: NSTextField!
     var imageDirectory = ImageDirectoryLoader()
     var indexPathsOfItemsBeingDragged: Set<IndexPath>!
     
@@ -37,7 +36,6 @@ class GridViewController: NSViewController {
         // 3
         collectionView.layer?.backgroundColor = NSColor.black.cgColor
         collectionView.needsDisplay = true
-        label.stringValue = "hello"
         
         // register xibs
         collectionView.register(NSNib(nibNamed: NSNib.Name(rawValue: "CollectionViewItem"), bundle: nil), forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue:"CollectionViewItem"))
