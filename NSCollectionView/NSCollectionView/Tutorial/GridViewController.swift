@@ -126,7 +126,6 @@ extension GridViewController: NSCollectionViewDelegate {
     /////////////////////////////////////////////////
     
     // lets us know that this collection view started dragging the items with the specified indexpaths
-    
     func collectionView(_ collectionView: NSCollectionView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItemsAt indexPaths: Set<IndexPath>) {
         indexPathsOfItemsBeingDragged = indexPaths
     }
@@ -147,6 +146,43 @@ extension GridViewController: NSCollectionViewDelegate {
         } else {
             return NSDragOperation.move
         }
+    }
+    
+    ////////////////////////////////////////////////////
+    
+    // This is invoked when the user releases the mouse to commit the drop operation.
+    func collectionView(_ collectionView: NSCollectionView, acceptDrop draggingInfo: NSDraggingInfo, indexPath: IndexPath, dropOperation: NSCollectionView.DropOperation) -> Bool {
+        if indexPathsOfItemsBeingDragged != nil {
+            // Then it falls here when it's a move operation.
+            let indexPathOfFirstItemBeingDragged = indexPathsOfItemsBeingDragged.first!
+            var toIndexPath: IndexPath
+            if indexPathOfFirstItemBeingDragged.compare(indexPath) == .orderedAscending {
+                toIndexPath = IndexPath(item: indexPath.item-1, section: indexPath.section)
+            } else {
+                toIndexPath = IndexPath(item: indexPath.item, section: indexPath.section)
+            }
+            // update the model
+            imageDirectory.moveImageFromIndexPath(indexPathOfFirstItemBeingDragged, toIndexPath: toIndexPath)
+            // notify collectionview
+            collectionView.moveItem(at: indexPathOfFirstItemBeingDragged, to: toIndexPath)
+        } else {
+            // It falls here to accept a drop from another app.
+//            var droppedObjects = Array<NSURL>()
+//            draggingInfo.enumerateDraggingItemsWithOptions(NSDraggingItemEnumerationOptions.Concurrent, forView: collectionView, classes: [NSURL.self], searchOptions: [NSPasteboardURLReadingFileURLsOnlyKey : NSNumber(bool: true)]) { (draggingItem, idx, stop) in
+//                if let url = draggingItem.item as? NSURL {
+//                    droppedObjects.append(url)
+//                }
+//            }
+//            // 6
+//            insertAtIndexPathFromURLs(droppedObjects, atIndexPath: indexPath)
+        }
+        return true
+    }
+    
+    // Invoked to conclude the drag session. Clears the value of indexPathsOfItemsBeingDragged.
+    func collectionView(_ collectionView: NSCollectionView, draggingSession session: NSDraggingSession, endedAt screenPoint: NSPoint, dragOperation operation: NSDragOperation) {
+        // nothing is being dragged anymore
+        indexPathsOfItemsBeingDragged = nil
     }
 
 }

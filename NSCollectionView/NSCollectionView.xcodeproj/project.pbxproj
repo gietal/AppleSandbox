@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88B1A68520B0DA44007FC30D /* BookmarkDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1A68420B0DA44007FC30D /* BookmarkDirectory.swift */; };
+		88B1A68B20B0EC61007FC30D /* BookmarkThumbnailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1A68A20B0EC61007FC30D /* BookmarkThumbnailViewController.swift */; };
+		88B1A68D20B0ED40007FC30D /* BookmarkThumbnailViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88B1A68C20B0ED40007FC30D /* BookmarkThumbnailViewItem.xib */; };
+		88B1A68F20B0ED4E007FC30D /* BookmarkThumbnailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88B1A68E20B0ED4E007FC30D /* BookmarkThumbnailHeaderView.xib */; };
+		88B1A69120B0EF3C007FC30D /* BookmarkThumbnailViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1A69020B0EF3C007FC30D /* BookmarkThumbnailViewItem.swift */; };
+		88B1A69320B0F481007FC30D /* BookmarkThumbnailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1A69220B0F481007FC30D /* BookmarkThumbnailHeaderView.swift */; };
+		88B1A69520B10550007FC30D /* Subscribable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1A69420B10550007FC30D /* Subscribable.swift */; };
 		F12A32F020ACE8750009FBB7 /* CollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12A32EF20ACE8750009FBB7 /* CollectionViewItem.swift */; };
 		F12A32F320ACE8B90009FBB7 /* ImageDirectoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12A32F120ACE8B90009FBB7 /* ImageDirectoryLoader.swift */; };
 		F12A32F420ACE8B90009FBB7 /* ImageFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12A32F220ACE8B90009FBB7 /* ImageFile.swift */; };
@@ -20,6 +27,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		88B1A68420B0DA44007FC30D /* BookmarkDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkDirectory.swift; sourceTree = "<group>"; };
+		88B1A68A20B0EC61007FC30D /* BookmarkThumbnailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkThumbnailViewController.swift; sourceTree = "<group>"; };
+		88B1A68C20B0ED40007FC30D /* BookmarkThumbnailViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookmarkThumbnailViewItem.xib; sourceTree = "<group>"; };
+		88B1A68E20B0ED4E007FC30D /* BookmarkThumbnailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookmarkThumbnailHeaderView.xib; sourceTree = "<group>"; };
+		88B1A69020B0EF3C007FC30D /* BookmarkThumbnailViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkThumbnailViewItem.swift; sourceTree = "<group>"; };
+		88B1A69220B0F481007FC30D /* BookmarkThumbnailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkThumbnailHeaderView.swift; sourceTree = "<group>"; };
+		88B1A69420B10550007FC30D /* Subscribable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscribable.swift; sourceTree = "<group>"; };
 		F12A32EF20ACE8750009FBB7 /* CollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewItem.swift; sourceTree = "<group>"; };
 		F12A32F120ACE8B90009FBB7 /* ImageDirectoryLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDirectoryLoader.swift; sourceTree = "<group>"; };
 		F12A32F220ACE8B90009FBB7 /* ImageFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFile.swift; sourceTree = "<group>"; };
@@ -46,6 +60,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		88B1A68620B0E704007FC30D /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				F1D2A87720AA9DEB00169D47 /* GridViewController.swift */,
+				F12A32F120ACE8B90009FBB7 /* ImageDirectoryLoader.swift */,
+				F12A32F220ACE8B90009FBB7 /* ImageFile.swift */,
+				F12A32EF20ACE8750009FBB7 /* CollectionViewItem.swift */,
+				F12A32F520ACE9AB0009FBB7 /* CollectionViewItem.xib */,
+				F133239D20AE650B005E0768 /* GridHeaderView.xib */,
+				F133239F20AE6583005E0768 /* GridHeaderView.swift */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
+		88B1A68720B0E70C007FC30D /* Prototype */ = {
+			isa = PBXGroup;
+			children = (
+				88B1A68920B0E743007FC30D /* List */,
+				88B1A68820B0E739007FC30D /* Thumbnail */,
+				88B1A68420B0DA44007FC30D /* BookmarkDirectory.swift */,
+				88B1A69420B10550007FC30D /* Subscribable.swift */,
+			);
+			path = Prototype;
+			sourceTree = "<group>";
+		};
+		88B1A68820B0E739007FC30D /* Thumbnail */ = {
+			isa = PBXGroup;
+			children = (
+				88B1A68A20B0EC61007FC30D /* BookmarkThumbnailViewController.swift */,
+				88B1A68C20B0ED40007FC30D /* BookmarkThumbnailViewItem.xib */,
+				88B1A68E20B0ED4E007FC30D /* BookmarkThumbnailHeaderView.xib */,
+				88B1A69020B0EF3C007FC30D /* BookmarkThumbnailViewItem.swift */,
+				88B1A69220B0F481007FC30D /* BookmarkThumbnailHeaderView.swift */,
+			);
+			path = Thumbnail;
+			sourceTree = "<group>";
+		};
+		88B1A68920B0E743007FC30D /* List */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
 		F1D2A85D20AA9A6200169D47 = {
 			isa = PBXGroup;
 			children = (
@@ -65,18 +123,13 @@
 		F1D2A86820AA9A6200169D47 /* NSCollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				88B1A68720B0E70C007FC30D /* Prototype */,
+				88B1A68620B0E704007FC30D /* Tutorial */,
 				F1D2A86920AA9A6200169D47 /* AppDelegate.swift */,
 				F1D2A86B20AA9A6300169D47 /* Assets.xcassets */,
 				F1D2A86D20AA9A6300169D47 /* MainMenu.xib */,
-				F1D2A87720AA9DEB00169D47 /* GridViewController.swift */,
 				F1D2A87020AA9A6300169D47 /* Info.plist */,
 				F1D2A87120AA9A6300169D47 /* NSCollectionView.entitlements */,
-				F12A32F120ACE8B90009FBB7 /* ImageDirectoryLoader.swift */,
-				F12A32F220ACE8B90009FBB7 /* ImageFile.swift */,
-				F12A32EF20ACE8750009FBB7 /* CollectionViewItem.swift */,
-				F12A32F520ACE9AB0009FBB7 /* CollectionViewItem.xib */,
-				F133239D20AE650B005E0768 /* GridHeaderView.xib */,
-				F133239F20AE6583005E0768 /* GridHeaderView.swift */,
 			);
 			path = NSCollectionView;
 			sourceTree = "<group>";
@@ -144,9 +197,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88B1A68F20B0ED4E007FC30D /* BookmarkThumbnailHeaderView.xib in Resources */,
 				F1D2A86C20AA9A6300169D47 /* Assets.xcassets in Resources */,
 				F133239E20AE650C005E0768 /* GridHeaderView.xib in Resources */,
 				F12A32F620ACE9AB0009FBB7 /* CollectionViewItem.xib in Resources */,
+				88B1A68D20B0ED40007FC30D /* BookmarkThumbnailViewItem.xib in Resources */,
 				F1D2A86F20AA9A6300169D47 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,10 +214,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F12A32F320ACE8B90009FBB7 /* ImageDirectoryLoader.swift in Sources */,
+				88B1A68520B0DA44007FC30D /* BookmarkDirectory.swift in Sources */,
+				88B1A69120B0EF3C007FC30D /* BookmarkThumbnailViewItem.swift in Sources */,
 				F1D2A87820AA9DEB00169D47 /* GridViewController.swift in Sources */,
+				88B1A68B20B0EC61007FC30D /* BookmarkThumbnailViewController.swift in Sources */,
 				F1D2A86A20AA9A6200169D47 /* AppDelegate.swift in Sources */,
 				F12A32F020ACE8750009FBB7 /* CollectionViewItem.swift in Sources */,
 				F12A32F420ACE8B90009FBB7 /* ImageFile.swift in Sources */,
+				88B1A69320B0F481007FC30D /* BookmarkThumbnailHeaderView.swift in Sources */,
+				88B1A69520B10550007FC30D /* Subscribable.swift in Sources */,
 				F13323A020AE6583005E0768 /* GridHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

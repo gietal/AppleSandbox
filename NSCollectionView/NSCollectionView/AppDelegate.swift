@@ -12,10 +12,16 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
-
-
+    var bookmarkDirectory = BookmarkDirectory()
+    
+    @IBOutlet weak var bookmarkThumbnailViewController: BookmarkThumbnailViewController!
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        // init subscribers
+        bookmarkThumbnailViewController.bookmarkDirectory = bookmarkDirectory
+        
+        // init bookmark directory
+        bookmarkDirectory.loadImages(fromFolder: URL(string: "\(NSHomeDirectory())/Desktop")!)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

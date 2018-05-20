@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="BookmarkThumbnailHeaderView" customModule="NSCollectionView" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="27"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oWj-qr-pS0">
+                    <rect key="frame" x="2" y="4" width="274" height="19"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Bookmark Thumbnail Section Header" id="BYl-a9-bOY">
+                        <font key="font" metaFont="system" size="16"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="oWj-qr-pS0" secondAttribute="bottom" constant="4" id="0fI-PE-Aid"/>
+                <constraint firstItem="oWj-qr-pS0" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="4" id="9Ou-8d-BXp"/>
+                <constraint firstItem="oWj-qr-pS0" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="4" id="AcC-CC-cD9"/>
+            </constraints>
+            <connections>
+                <outlet property="title" destination="oWj-qr-pS0" id="Ng9-1N-1Rq"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="278.5"/>
+        </customView>
+    </objects>
+</document>
