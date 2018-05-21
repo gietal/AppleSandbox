@@ -61,9 +61,8 @@ protocol BookmarkDirectorySubscriber {
         }
         
         func addChild(_ node: Node) {
-            var n = node
-            n.parent = self
-            children.append(n)
+            node.parent = self
+            children.append(node)
         }
         
         func removeChildren(where shouldRemove: (Node) -> Bool) {
@@ -82,7 +81,7 @@ protocol BookmarkDirectorySubscriber {
         
         // lightweight container
         public fileprivate(set) var parent: Node?
-        fileprivate var children = [Node]()
+        public fileprivate(set) var children = [Node]()
         var type = ContentType.bookmark
         var id = ""
     }
@@ -109,11 +108,36 @@ protocol BookmarkDirectorySubscriber {
         return bookmarkMap[node.id]!
     }
     
+    // Outline View data source
+    
+    public func node(at indexPath: IndexPath) -> Node {
+        var theIndexPath = indexPath
+        // assume at least 1
+        let firstIndex = theIndexPath.popFirst()!
+        var currentNode = bookmarkNodes[firstIndex]
+        
+        // then recurse
+        while let childIndex = theIndexPath.popFirst() {
+            currentNode = currentNode.children[childIndex]
+        }
+        
+        return currentNode
+        
+    }
     // data provider
     fileprivate var imageFiles = [ImageFile]()
     fileprivate var groupMap = [String: BookmarkGroup]()
     fileprivate var bookmarkMap = [String: Bookmark]()
     
+    public func bookmark(withId id:String) -> Bookmark? {
+        return bookmarkMap[id]
+    }
+    
+    public func bookmarkGroup(withId id: String) -> BookmarkGroup? {
+        return groupMap[id]
+    }
+    
+    // public methods
     func loadImages(fromFolder folderURL: URL) {
         let urls = getFilesURLFromFolder(folderURL)
         if let urls = urls {
@@ -179,6 +203,7 @@ protocol BookmarkDirectorySubscriber {
     
     fileprivate func setupBookmarkAndGroup() {
         let sections = [3,5]
+        let usernames = ["rdpuser", nil, "tslabadmin"]
         var groupIndex = 0
         var imageIndex = 0
         bookmarkNodes = []
@@ -199,6 +224,8 @@ protocol BookmarkDirectorySubscriber {
                 let imageFile = imageFiles[imageIndex]
                 bookmark.hostname = "[\(groupIndex), \(i)]"//bookmark.id
                 bookmark.image = imageFile.thumbnail
+                bookmark.username = usernames[Int(arc4random_uniform(UInt32(usernames.count)))]
+                bookmark.lastConnected = arc4random_uniform(2) == 0 ? nil : Date()
                 bookmarkMap[bookmark.id] = bookmark
                 imageIndex = imageIndex == imageFiles.count-1 ? 0 : imageIndex + 1
                 

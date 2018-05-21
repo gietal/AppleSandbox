@@ -15,6 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var bookmarkDirectory = BookmarkDirectory()
     
     @IBOutlet weak var bookmarkThumbnailViewController: BookmarkThumbnailViewController!
+    @IBOutlet weak var bookmarkListViewController: BookmarkListViewController!
     
     @IBAction func resetDirectory(_ sender: Any) {
         bookmarkDirectory.reset()
@@ -23,6 +24,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // init subscribers
         bookmarkThumbnailViewController.bookmarkDirectory = bookmarkDirectory
+        bookmarkListViewController.bookmarkDirectory = bookmarkDirectory
         
         // init bookmark directory
         bookmarkDirectory.loadImages(fromFolder: URL(string: "\(NSHomeDirectory())/Desktop")!)

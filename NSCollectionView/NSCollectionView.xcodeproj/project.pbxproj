@@ -15,6 +15,7 @@
 		88B1A69320B0F481007FC30D /* BookmarkThumbnailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1A69220B0F481007FC30D /* BookmarkThumbnailHeaderView.swift */; };
 		88B1A69520B10550007FC30D /* Subscribable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1A69420B10550007FC30D /* Subscribable.swift */; };
 		88B1A69720B17D40007FC30D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1A69620B17D40007FC30D /* Extensions.swift */; };
+		88B1A69920B22A21007FC30D /* BookmarkListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1A69820B22A21007FC30D /* BookmarkListViewController.swift */; };
 		F12A32F020ACE8750009FBB7 /* CollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12A32EF20ACE8750009FBB7 /* CollectionViewItem.swift */; };
 		F12A32F320ACE8B90009FBB7 /* ImageDirectoryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12A32F120ACE8B90009FBB7 /* ImageDirectoryLoader.swift */; };
 		F12A32F420ACE8B90009FBB7 /* ImageFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12A32F220ACE8B90009FBB7 /* ImageFile.swift */; };
@@ -36,6 +37,7 @@
 		88B1A69220B0F481007FC30D /* BookmarkThumbnailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkThumbnailHeaderView.swift; sourceTree = "<group>"; };
 		88B1A69420B10550007FC30D /* Subscribable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscribable.swift; sourceTree = "<group>"; };
 		88B1A69620B17D40007FC30D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		88B1A69820B22A21007FC30D /* BookmarkListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkListViewController.swift; sourceTree = "<group>"; };
 		F12A32EF20ACE8750009FBB7 /* CollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewItem.swift; sourceTree = "<group>"; };
 		F12A32F120ACE8B90009FBB7 /* ImageDirectoryLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDirectoryLoader.swift; sourceTree = "<group>"; };
 		F12A32F220ACE8B90009FBB7 /* ImageFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFile.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 		88B1A68920B0E743007FC30D /* List */ = {
 			isa = PBXGroup;
 			children = (
+				88B1A69820B22A21007FC30D /* BookmarkListViewController.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				88B1A69720B17D40007FC30D /* Extensions.swift in Sources */,
 				F12A32F420ACE8B90009FBB7 /* ImageFile.swift in Sources */,
 				88B1A69320B0F481007FC30D /* BookmarkThumbnailHeaderView.swift in Sources */,
+				88B1A69920B22A21007FC30D /* BookmarkListViewController.swift in Sources */,
 				88B1A69520B10550007FC30D /* Subscribable.swift in Sources */,
 				F13323A020AE6583005E0768 /* GridHeaderView.swift in Sources */,
 			);

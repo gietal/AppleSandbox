@@ -182,20 +182,17 @@ extension BookmarkThumbnailViewController: NSCollectionViewDelegate {
             
             // update model
             bookmarkDirectory.moveBookmarks(from: itemsDraggedIndexPath, to: toIndexPath)
-            var toInsert = Set<IndexPath>()
+
+            // update collection view in a batch
             collectionView.performBatchUpdates({
                 for fromIndexPath in itemsDraggedIndexPath {
-                    
-                    //                bookmarkDirectory.moveBookmark(from: fromIndexPath, to: toIndexPath)
                     collectionView.moveItem(at: fromIndexPath, to: toIndexPath)
-//                    toInsert.insert(toIndexPath)
                     toIndexPath.item += 1
                 }
             }, completionHandler: nil)
-            
-//            collectionView.deleteItems(at: itemsDraggedIndexPath)
-//            collectionView.insertItems(at: toInsert)
+
         }
+        
         return true
     }
     
