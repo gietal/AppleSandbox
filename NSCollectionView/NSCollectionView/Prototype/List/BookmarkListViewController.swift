@@ -23,6 +23,11 @@ class BookmarkListViewController: NSViewController {
     
     override func viewDidLoad() {
         dateFormatter.dateStyle = .medium
+        
+        // setup sort descriptors
+        outlineView.tableColumn(withIdentifier: NSUserInterfaceItemIdentifier("HostnameColumn"))!.sortDescriptorPrototype = NSSortDescriptor(key: "HostnameColumn", ascending: true)
+        outlineView.tableColumn(withIdentifier: NSUserInterfaceItemIdentifier("UsernameColumn"))!.sortDescriptorPrototype = NSSortDescriptor(key: "UsernameColumn", ascending: true)
+        outlineView.tableColumn(withIdentifier: NSUserInterfaceItemIdentifier("LastConnectedColumn"))!.sortDescriptorPrototype = NSSortDescriptor(key: "LastConnectedColumn", ascending: true)
     }
     
 }
@@ -39,7 +44,7 @@ extension BookmarkListViewController: NSOutlineViewDataSource {
         return bookmarkDirectory.numberOfSections
     }
     
-    // return the node
+    // return the node model for each row entry
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
         if let node = item as? BookmarkDirectory.Node {
             return node.children[index]
@@ -56,6 +61,7 @@ extension BookmarkListViewController: NSOutlineViewDataSource {
         }
         return false
     }
+    
 }
 extension BookmarkListViewController: NSOutlineViewDelegate {
     // determine the content of each cell column for each item
@@ -73,6 +79,7 @@ extension BookmarkListViewController: NSOutlineViewDelegate {
                 let bookmark = bookmarkDirectory.bookmark(withId: node.id)!
                 output = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("HostnameCell"), owner: self) as? NSTableCellView
                 output?.textField?.stringValue = bookmark.hostname
+                output?.imageView?.image = bookmark.image
             case .bookmarkGroup:
                 let group = bookmarkDirectory.bookmarkGroup(withId: node.id)!
                 output = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("FolderCell"), owner: self) as? NSTableCellView
@@ -87,7 +94,6 @@ extension BookmarkListViewController: NSOutlineViewDelegate {
                 output = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("UsernameCell"), owner: self) as? NSTableCellView
                 output?.textField?.stringValue = bookmark.username ?? ""
             case .bookmarkGroup:
-                let group = bookmarkDirectory.bookmarkGroup(withId: node.id)!
                 output = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("FolderCell"), owner: self) as? NSTableCellView
                 output?.textField?.stringValue = ""
             default:
@@ -115,11 +121,60 @@ extension BookmarkListViewController: NSOutlineViewDelegate {
         
         return output
     }
+    
+    func outlineView(_ outlineView: NSOutlineView, shouldCollapseItem item: Any) -> Bool {
+        guard let node = item as? BookmarkDirectory.Node else {
+            return false
+        }
+        
+        // update model
+        bookmarkDirectory.collapse(bookmarkGroupId: node.id)
+        
+        return true
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, shouldExpandItem item: Any) -> Bool {
+        guard let node = item as? BookmarkDirectory.Node else {
+            return false
+        }
+        
+        // update model
+        bookmarkDirectory.expand(bookmarkGroupId: node.id)
+        
+        return true
+    }
+    
+    // when user click on the column header and cause it to sort
+    func outlineView(_ outlineView: NSOutlineView, sortDescriptorsDidChange oldDescriptors: [NSSortDescriptor]) {
+        guard let sortDescriptor =  outlineView.sortDescriptors.first else {
+            return
+        }
+        
+        if sortDescriptor.key == "HostnameColumn" {
+            bookmarkDirectory.sortData(by: .hostname, ascending: sortDescriptor.ascending)
+        }else if sortDescriptor.key == "UsernameColumn" {
+            bookmarkDirectory.sortData(by: .username, ascending: sortDescriptor.ascending)
+        }else if sortDescriptor.key == "LastConnectedColumn" {
+            bookmarkDirectory.sortData(by: .lastConnected, ascending: sortDescriptor.ascending)
+        }
+    }
 }
 
 extension BookmarkListViewController: BookmarkDirectorySubscriber {
     func directoryReloaded() {
         outlineView.reloadData()
+        let groupNodes = bookmarkDirectory.node(where: { $0.type == .bookmarkGroup })
+        
+        outlineView.beginUpdates()
+        for n in groupNodes {
+            let g = bookmarkDirectory.bookmarkGroup(withId: n.id)!
+            if g.isCollapsed {
+                outlineView.collapseItem(n, collapseChildren: false)
+            } else {
+                outlineView.expandItem(n, expandChildren: false)
+            }
+        }
+        outlineView.endUpdates()
     }
 }
 
