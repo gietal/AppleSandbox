@@ -20,16 +20,19 @@ class BookmarkListViewController: NSViewController {
         }
     }
     let dateFormatter  = DateFormatter()
+    var itemsBeingDragged: [BookmarkDirectory.Node]?
     
     override func viewDidLoad() {
         dateFormatter.dateStyle = .medium
         
+        outlineView.rowHeight = 40
         // setup sort descriptors
         outlineView.tableColumn(withIdentifier: NSUserInterfaceItemIdentifier("HostnameColumn"))!.sortDescriptorPrototype = NSSortDescriptor(key: "HostnameColumn", ascending: true)
         outlineView.tableColumn(withIdentifier: NSUserInterfaceItemIdentifier("UsernameColumn"))!.sortDescriptorPrototype = NSSortDescriptor(key: "UsernameColumn", ascending: true)
         outlineView.tableColumn(withIdentifier: NSUserInterfaceItemIdentifier("LastConnectedColumn"))!.sortDescriptorPrototype = NSSortDescriptor(key: "LastConnectedColumn", ascending: true)
     }
     
+
 }
 
 extension BookmarkListViewController: NSOutlineViewDataSource {
@@ -122,26 +125,24 @@ extension BookmarkListViewController: NSOutlineViewDelegate {
         return output
     }
     
-    func outlineView(_ outlineView: NSOutlineView, shouldCollapseItem item: Any) -> Bool {
-        guard let node = item as? BookmarkDirectory.Node else {
-            return false
+    func outlineViewItemDidCollapse(_ notification: Notification) {
+        guard let node = notification.userInfo?["NSObject"] as? BookmarkDirectory.Node else {
+            return
         }
         
         // update model
         bookmarkDirectory.collapse(bookmarkGroupId: node.id)
         
-        return true
     }
     
-    func outlineView(_ outlineView: NSOutlineView, shouldExpandItem item: Any) -> Bool {
-        guard let node = item as? BookmarkDirectory.Node else {
-            return false
+    func outlineViewItemDidExpand(_ notification: Notification) {
+        guard let node = notification.userInfo?["NSObject"] as? BookmarkDirectory.Node else {
+            return
         }
         
         // update model
         bookmarkDirectory.expand(bookmarkGroupId: node.id)
         
-        return true
     }
     
     // when user click on the column header and cause it to sort
@@ -158,6 +159,24 @@ extension BookmarkListViewController: NSOutlineViewDelegate {
             bookmarkDirectory.sortData(by: .lastConnected, ascending: sortDescriptor.ascending)
         }
     }
+    
+    
+    //// dragg and drop ////
+    func outlineView(_ outlineView: NSOutlineView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItems draggedItems: [Any]) {
+        itemsBeingDragged = draggedItems.map({ $0 as! BookmarkDirectory.Node })
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, draggingSession session: NSDraggingSession, endedAt screenPoint: NSPoint, operation: NSDragOperation) {
+        itemsBeingDragged = nil
+    }
+    
+//    func outlineView(_ outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: Any?, proposedChildIndex index: Int) -> NSDragOperation {
+//
+//    }
+//
+//    func outlineView(_ outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: Any?, childIndex index: Int) -> Bool {
+//
+//    }
 }
 
 extension BookmarkListViewController: BookmarkDirectorySubscriber {

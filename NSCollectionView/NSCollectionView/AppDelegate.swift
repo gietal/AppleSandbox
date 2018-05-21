@@ -27,7 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         bookmarkListViewController.bookmarkDirectory = bookmarkDirectory
         
         // init bookmark directory
-        bookmarkDirectory.loadImages(fromFolder: URL(string: "\(NSHomeDirectory())/Desktop")!)
+        bookmarkDirectory.loadImages(fromFolder: URL(string: "\(NSHomeDirectory())/Pictures/test")!)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

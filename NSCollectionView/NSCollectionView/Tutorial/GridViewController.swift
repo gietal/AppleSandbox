@@ -50,7 +50,7 @@ class GridViewController: NSViewController {
     
     fileprivate func setupImageDirectory() {
         imageDirectory.singleSectionMode = false
-        imageDirectory.loadDataForFolderWithUrl(URL(string: "/Users/gietal/Desktop")!)
+        imageDirectory.loadDataForFolderWithUrl(URL(string: "\(NSHomeDirectory())/test")!)
     }
 }
 
