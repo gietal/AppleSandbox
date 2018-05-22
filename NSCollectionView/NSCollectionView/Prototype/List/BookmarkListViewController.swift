@@ -25,7 +25,10 @@ class BookmarkListViewController: NSViewController {
     override func viewDidLoad() {
         dateFormatter.dateStyle = .medium
         
-        outlineView.rowHeight = 40
+        // setup dragging
+        outlineView.registerForDraggedTypes([.string])
+        outlineView.setDraggingSourceOperationMask(NSDragOperation.every, forLocal: true)
+        
         // setup sort descriptors
         outlineView.tableColumn(withIdentifier: NSUserInterfaceItemIdentifier("HostnameColumn"))!.sortDescriptorPrototype = NSSortDescriptor(key: "HostnameColumn", ascending: true)
         outlineView.tableColumn(withIdentifier: NSUserInterfaceItemIdentifier("UsernameColumn"))!.sortDescriptorPrototype = NSSortDescriptor(key: "UsernameColumn", ascending: true)
@@ -125,6 +128,16 @@ extension BookmarkListViewController: NSOutlineViewDelegate {
         return output
     }
     
+    func outlineView(_ outlineView: NSOutlineView, heightOfRowByItem item: Any) -> CGFloat {
+        guard let node = item as? BookmarkDirectory.Node else {
+            return 0
+        }
+        
+        // apply different row size for different item
+        return node.type == .bookmarkGroup ? 80 : 40
+    }
+    ///// collapse and expand /////
+    
     func outlineViewItemDidCollapse(_ notification: Notification) {
         guard let node = notification.userInfo?["NSObject"] as? BookmarkDirectory.Node else {
             return
@@ -162,21 +175,105 @@ extension BookmarkListViewController: NSOutlineViewDelegate {
     
     
     //// dragg and drop ////
-    func outlineView(_ outlineView: NSOutlineView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItems draggedItems: [Any]) {
-        itemsBeingDragged = draggedItems.map({ $0 as! BookmarkDirectory.Node })
+    
+    // pasteboardwriter
+    func outlineView(_ outlineView: NSOutlineView, pasteboardWriterForItem item: Any) -> NSPasteboardWriting? {
+        guard let node = item as? BookmarkDirectory.Node else {
+            return nil
+        }
+        
+        // disable dragging for group
+        if node.type == .bookmarkGroup {
+            return nil
+        }
+        
+        return NSString(string: node.id)
     }
     
+    
+    // drag started
+    func outlineView(_ outlineView: NSOutlineView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItems draggedItems: [Any]) {
+        itemsBeingDragged = draggedItems.map({ $0 as! BookmarkDirectory.Node })
+        session.draggingPasteboard.setData(Data(), forType: .string)
+    }
+    
+    // drag ended
     func outlineView(_ outlineView: NSOutlineView, draggingSession session: NSDraggingSession, endedAt screenPoint: NSPoint, operation: NSDragOperation) {
         itemsBeingDragged = nil
     }
     
-//    func outlineView(_ outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: Any?, proposedChildIndex index: Int) -> NSDragOperation {
-//
-//    }
-//
-//    func outlineView(_ outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: Any?, childIndex index: Int) -> Bool {
-//
-//    }
+    
+    // validate
+    func outlineView(_ outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: Any?, proposedChildIndex index: Int) -> NSDragOperation {
+        print("validate drop: proposedItem: \(item), proposedChildIndex: \(index)")
+        
+        var retval = NSDragOperation()
+        
+        // prevent dropping outside of group
+        guard let parent = item as? BookmarkDirectory.Node else {
+            return retval
+        }
+        
+        // prevent dropping on to a non group
+        if index == -1 && parent.type != .bookmarkGroup {
+            return retval
+        }
+        
+        return NSDragOperation.generic
+    }
+
+    // accept
+    func outlineView(_ outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: Any?, childIndex index: Int) -> Bool {
+        // update model and collection view
+        guard let draggedItem = itemsBeingDragged?.first, let draggedParent = outlineView.parent(forItem: draggedItem) as? BookmarkDirectory.Node else {
+            return false
+        }
+        let targetParent = item as! BookmarkDirectory.Node
+        let draggedIndex = outlineView.childIndex(forItem: draggedItem)
+        var targetIndex = index
+        
+        if draggedParent === targetParent {
+            // do nothing if item is dragging to its own parent by dropping on the header
+            if targetIndex == -1 {
+                return false
+            }
+            
+            // moving to its own location
+            if targetIndex == draggedIndex+1 {
+                return false
+            }
+            
+            if draggedIndex < targetIndex {
+                targetIndex -= 1
+            }
+            
+            // outline view's index indicate the space between items. so if we have items:
+            // A B
+            // index 0 = before A
+            // index 1 = between A B
+            // index 2 = after B
+            // but our backing model is an array, so we have to handle this case
+            targetIndex = min(targetIndex, targetParent.children.count-1)
+        }
+        
+        // dropping on to a different header
+        if index == -1 {
+            targetIndex = 0 // if dropping to a header, put on the beginning
+            
+        }
+        print("drop item fromParent: \(draggedParent.id), fromIndex: \(draggedIndex), toParent: \(targetParent.id), toIndex: \(targetIndex)")
+        
+        
+        
+        // update model
+        let fromIndexPath = IndexPath(item: draggedIndex, section: outlineView.childIndex(forItem: draggedParent))
+        var toIndexPath = IndexPath(item: targetIndex, section: outlineView.childIndex(forItem: targetParent))
+        
+        bookmarkDirectory.moveBookmark(from: fromIndexPath, to: toIndexPath)
+        // update view
+        outlineView.moveItem(at: draggedIndex, inParent: draggedParent, to: targetIndex, inParent: targetParent)
+        return true
+    }
 }
 
 extension BookmarkListViewController: BookmarkDirectorySubscriber {

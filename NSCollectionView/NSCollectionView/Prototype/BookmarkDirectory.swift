@@ -73,6 +73,11 @@ protocol BookmarkDirectorySubscriber {
             children.append(node)
         }
         
+        func insertChild(_ node: Node, at: Int) {
+            node.parent = self
+            children.insert(node, at: at)
+        }
+        
         func removeChildren(where shouldRemove: (Node) -> Bool) {
             
             var i = 0
@@ -261,7 +266,7 @@ protocol BookmarkDirectorySubscriber {
     
     func moveBookmark(from: IndexPath, to: IndexPath) {
         let node = bookmarkNodes[from.section].children.remove(at: from.item)
-        bookmarkNodes[to.section].children.insert(node, at: to.item)
+        bookmarkNodes[to.section].insertChild(node, at: to.item)
     }
     
     func moveBookmarks(from fromIndexes: Set<IndexPath>, to toIndex: IndexPath) {
@@ -291,7 +296,7 @@ protocol BookmarkDirectorySubscriber {
             let sectionNode = bookmarkNodes[toIndex.section]
             
 //            targetIndex.item = max(targetIndex.item, sectionNode.children.count)
-            sectionNode.children.insert(node, at: targetIndex.item)
+            sectionNode.insertChild(node, at: targetIndex.item)
             targetIndex.item += 1
         }
         
