@@ -210,12 +210,12 @@ extension BookmarkListViewController: NSOutlineViewDelegate {
         var retval = NSDragOperation()
         
         // prevent dropping outside of group
-        guard let parent = item as? BookmarkDirectory.Node else {
+        if item == nil {
             return retval
         }
         
         // prevent dropping on to an item
-        if index == -1 {
+        if index == NSOutlineViewDropOnItemIndex {
             return retval
         }
         
@@ -231,48 +231,48 @@ extension BookmarkListViewController: NSOutlineViewDelegate {
             return false
         }
         
+        print("====== begin dropping items ======")
         outlineView.beginUpdates()
-        var insertedItem = 0
+        
+        // this modifier was found after hours of figuring out how collectionview works the hard way
+        var indexModifier = 0
+
         for draggedItem in draggedItems {
             let draggedIndex = outlineView.childIndex(forItem: draggedItem)
             let draggedParent = outlineView.parent(forItem: draggedItem) as! BookmarkDirectory.Node
             var targetIndex = index
             
+            // new items will be repositioned according to this modifier
+            targetIndex += indexModifier
+            
             if draggedParent === targetParent {
-                // moving to its own location
-                if targetIndex == draggedIndex+1 {
-                    continue
+                // if moving item from the same parent
+                if draggedIndex < index {
+                    // and our target is in front of us, reduce index by 1
+                    // since we will remove, then readd this item to the same array
+                    targetIndex = max(0, index - 1)
+                } else {
+                    // otherwise it's ok to put the enxt item after this item
+                    indexModifier += 1
                 }
-                
-                if draggedIndex < targetIndex {
-                    targetIndex -= 1
-                }
-                
-                // outline view's index indicate the space between items. so if we have items:
-                // A B
-                // index 0 = before A
-                // index 1 = between A B
-                // index 2 = after B
-                // but our backing model is an array, so we have to handle this case
-//                targetIndex = min(targetIndex, targetParent.children.count-1)
+
+            } else {
+                // moving to a new parent, it's ok to put the next item after this item
+                indexModifier += 1
             }
             
-//            targetIndex += insertedItem
-            
-//            targetIndex = max(0, min(targetIndex, targetParent.children.count-1))
             print("drop item fromParent: \(draggedParent.id), fromIndex: \(draggedIndex), toParent: \(targetParent.id), toIndex: \(targetIndex)")
             
             // update model
             let fromIndexPath = IndexPath(item: draggedIndex, section: outlineView.childIndex(forItem: draggedParent))
-            var toIndexPath = IndexPath(item: targetIndex, section: outlineView.childIndex(forItem: targetParent))
-            
-            
+            let toIndexPath = IndexPath(item: targetIndex, section: outlineView.childIndex(forItem: targetParent))
             bookmarkDirectory.moveBookmark(from: fromIndexPath, to: toIndexPath)
+            
             // update view
             outlineView.moveItem(at: draggedIndex, inParent: draggedParent, to: targetIndex, inParent: targetParent)
-        
-//            insertedItem += 1
+
         }
+        
         outlineView.endUpdates()
         return true
     }

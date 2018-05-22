@@ -304,7 +304,7 @@ protocol BookmarkDirectorySubscriber {
     }
     
     fileprivate func setupBookmarkAndGroup() {
-        let sections = [3,5]
+        let sections = [10, 0]
         let usernames = ["rdpuser", nil, "tslabadmin"]
         var groupIndex = 0
         var imageIndex = 0
