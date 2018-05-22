@@ -70,6 +70,14 @@ extension BookmarkListViewController: NSOutlineViewDataSource {
     
 }
 extension BookmarkListViewController: NSOutlineViewDelegate {
+    // disable moving the first column
+    func outlineView(_ outlineView: NSOutlineView, shouldReorderColumn columnIndex: Int, toColumn newColumnIndex: Int) -> Bool {
+        if columnIndex == 0 || newColumnIndex == 0 {
+            return false
+        }
+        return true
+    }
+    
     // determine the content of each cell column for each item
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
         guard let node = item as? BookmarkDirectory.Node,
@@ -205,9 +213,9 @@ extension BookmarkListViewController: NSOutlineViewDelegate {
     
     // validate
     func outlineView(_ outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: Any?, proposedChildIndex index: Int) -> NSDragOperation {
-        print("validate drop: proposedItem: \(item), proposedChildIndex: \(index)")
+        print("validate drop: proposedItem: \(String(describing: item)), proposedChildIndex: \(index)")
         
-        var retval = NSDragOperation()
+        let retval = NSDragOperation()
         
         // prevent dropping outside of group
         if item == nil {
@@ -276,6 +284,8 @@ extension BookmarkListViewController: NSOutlineViewDelegate {
         outlineView.endUpdates()
         return true
     }
+    
+    
 }
 
 extension BookmarkListViewController: BookmarkDirectorySubscriber {

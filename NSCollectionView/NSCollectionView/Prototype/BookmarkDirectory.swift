@@ -219,7 +219,6 @@ protocol BookmarkDirectorySubscriber {
         default:
             return groupA.title < groupB.title
         }
-        return true
     }
     fileprivate func sort(bookmarkA: Bookmark, bookmarkB: Bookmark, by whatToSort: SortBy, ascending: Bool) -> Bool {
         switch whatToSort {
@@ -319,7 +318,7 @@ protocol BookmarkDirectorySubscriber {
             groupMap[group.id ] = group
             
             // create node
-            var sectionNode = Node(group)
+            let sectionNode = Node(group)
             bookmarkNodes.append(sectionNode)
             
             for i in 0..<count {
