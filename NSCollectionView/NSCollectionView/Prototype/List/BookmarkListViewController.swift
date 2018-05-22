@@ -214,8 +214,8 @@ extension BookmarkListViewController: NSOutlineViewDelegate {
             return retval
         }
         
-        // prevent dropping on to a non group
-        if index == -1 && parent.type != .bookmarkGroup {
+        // prevent dropping on to an item
+        if index == -1 {
             return retval
         }
         
@@ -224,54 +224,56 @@ extension BookmarkListViewController: NSOutlineViewDelegate {
 
     // accept
     func outlineView(_ outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: Any?, childIndex index: Int) -> Bool {
-        // update model and collection view
-        guard let draggedItem = itemsBeingDragged?.first, let draggedParent = outlineView.parent(forItem: draggedItem) as? BookmarkDirectory.Node else {
+        let targetParent = item as! BookmarkDirectory.Node
+        
+        
+        guard let draggedItems = itemsBeingDragged else {
             return false
         }
-        let targetParent = item as! BookmarkDirectory.Node
-        let draggedIndex = outlineView.childIndex(forItem: draggedItem)
-        var targetIndex = index
         
-        if draggedParent === targetParent {
-            // do nothing if item is dragging to its own parent by dropping on the header
-            if targetIndex == -1 {
-                return false
+        outlineView.beginUpdates()
+        var insertedItem = 0
+        for draggedItem in draggedItems {
+            let draggedIndex = outlineView.childIndex(forItem: draggedItem)
+            let draggedParent = outlineView.parent(forItem: draggedItem) as! BookmarkDirectory.Node
+            var targetIndex = index
+            
+            if draggedParent === targetParent {
+                // moving to its own location
+                if targetIndex == draggedIndex+1 {
+                    continue
+                }
+                
+                if draggedIndex < targetIndex {
+                    targetIndex -= 1
+                }
+                
+                // outline view's index indicate the space between items. so if we have items:
+                // A B
+                // index 0 = before A
+                // index 1 = between A B
+                // index 2 = after B
+                // but our backing model is an array, so we have to handle this case
+//                targetIndex = min(targetIndex, targetParent.children.count-1)
             }
             
-            // moving to its own location
-            if targetIndex == draggedIndex+1 {
-                return false
-            }
+//            targetIndex += insertedItem
             
-            if draggedIndex < targetIndex {
-                targetIndex -= 1
-            }
+//            targetIndex = max(0, min(targetIndex, targetParent.children.count-1))
+            print("drop item fromParent: \(draggedParent.id), fromIndex: \(draggedIndex), toParent: \(targetParent.id), toIndex: \(targetIndex)")
             
-            // outline view's index indicate the space between items. so if we have items:
-            // A B
-            // index 0 = before A
-            // index 1 = between A B
-            // index 2 = after B
-            // but our backing model is an array, so we have to handle this case
-            targetIndex = min(targetIndex, targetParent.children.count-1)
+            // update model
+            let fromIndexPath = IndexPath(item: draggedIndex, section: outlineView.childIndex(forItem: draggedParent))
+            var toIndexPath = IndexPath(item: targetIndex, section: outlineView.childIndex(forItem: targetParent))
+            
+            
+            bookmarkDirectory.moveBookmark(from: fromIndexPath, to: toIndexPath)
+            // update view
+            outlineView.moveItem(at: draggedIndex, inParent: draggedParent, to: targetIndex, inParent: targetParent)
+        
+//            insertedItem += 1
         }
-        
-        // dropping on to a different header
-        if index == -1 {
-            targetIndex = 0 // if dropping to a header, put on the beginning
-            
-        }
-        print("drop item fromParent: \(draggedParent.id), fromIndex: \(draggedIndex), toParent: \(targetParent.id), toIndex: \(targetIndex)")
-        
-        
-        
-        // update model
-        let fromIndexPath = IndexPath(item: draggedIndex, section: outlineView.childIndex(forItem: draggedParent))
-        var toIndexPath = IndexPath(item: targetIndex, section: outlineView.childIndex(forItem: targetParent))
-        
-        bookmarkDirectory.moveBookmark(from: fromIndexPath, to: toIndexPath)
-        // update view
-        outlineView.moveItem(at: draggedIndex, inParent: draggedParent, to: targetIndex, inParent: targetParent)
+        outlineView.endUpdates()
         return true
     }
 }
