@@ -35,6 +35,7 @@ class BookmarkThumbnailViewController: NSViewController {
         flowLayout.minimumInteritemSpacing = 20.0
         flowLayout.minimumLineSpacing = 20.0
         flowLayout.sectionHeadersPinToVisibleBounds = true
+        
         collectionView.collectionViewLayout = flowLayout
         // 2
         view.wantsLayer = true
@@ -142,6 +143,8 @@ extension BookmarkThumbnailViewController: NSCollectionViewDelegate {
                         proposedIndexPath proposedDropIndexPath: AutoreleasingUnsafeMutablePointer<NSIndexPath>,
                         dropOperation proposedDropOperation: UnsafeMutablePointer<NSCollectionView.DropOperation>) -> NSDragOperation {
         
+//        print("validate drop, \(proposedDropOperation.pointee) \(proposedDropIndexPath.pointee)")
+        
         // this makes sure that when user try to drop items on to another item, we make it so that it drops before the item
         if proposedDropOperation.pointee == NSCollectionView.DropOperation.on {
             proposedDropOperation.pointee = NSCollectionView.DropOperation.before
@@ -149,7 +152,7 @@ extension BookmarkThumbnailViewController: NSCollectionViewDelegate {
         
         // when indexPathsOfItemsBeingDragged == nil, that means theitem is dragged from outside app
         if indexPathsOfItemsBeingDragged == nil {
-            return NSDragOperation.copy
+            return NSDragOperation() // dont accept drop
         } else {
             return NSDragOperation.move
         }
@@ -159,7 +162,8 @@ extension BookmarkThumbnailViewController: NSCollectionViewDelegate {
     
     // This is invoked when the user releases the mouse to commit the drop operation.
     func collectionView(_ collectionView: NSCollectionView, acceptDrop draggingInfo: NSDraggingInfo, indexPath: IndexPath, dropOperation: NSCollectionView.DropOperation) -> Bool {
-        if let itemsDraggedIndexPath = indexPathsOfItemsBeingDragged {
+        if let itemsDraggedSet = indexPathsOfItemsBeingDragged {
+            let itemsDraggedIndexPath = itemsDraggedSet.sorted()
             // Then it falls here when it's a move operation.
 
             // determine how much the collectionview is going to move
@@ -181,11 +185,11 @@ extension BookmarkThumbnailViewController: NSCollectionViewDelegate {
             toIndexPath.item -= sectionMovement
             
             // update model
-            bookmarkDirectory.moveBookmarks(from: itemsDraggedIndexPath, to: toIndexPath)
-
+            bookmarkDirectory.moveBookmarks(from: itemsDraggedSet, to: toIndexPath)
             // update collection view in a batch
-            collectionView.performBatchUpdates({
+            collectionView.animator().performBatchUpdates({
                 for fromIndexPath in itemsDraggedIndexPath {
+                    print("move item from: \(fromIndexPath) to: \(toIndexPath)")
                     collectionView.moveItem(at: fromIndexPath, to: toIndexPath)
                     toIndexPath.item += 1
                 }

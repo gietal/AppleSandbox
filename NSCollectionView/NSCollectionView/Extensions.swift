@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import Cocoa
+
+
 extension Array {
     
     mutating func remove(at positions: Set<Int>) -> [Element] {
@@ -28,5 +31,16 @@ extension Array {
 extension Dictionary {
     func contains(key: Key) -> Bool {
         return self.index(forKey: key) != nil
+    }
+}
+
+extension NSCollectionView.DropOperation: CustomDebugStringConvertible {
+    public var debugDescription: String {
+        if self == .on {
+            return "on"
+        } else if self == .before {
+            return "before"
+        }
+        return "unknown"
     }
 }

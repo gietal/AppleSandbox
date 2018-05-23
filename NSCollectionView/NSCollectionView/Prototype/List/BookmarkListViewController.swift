@@ -78,6 +78,7 @@ extension BookmarkListViewController: NSOutlineViewDelegate {
         return true
     }
     
+    
     // determine the content of each cell column for each item
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
         guard let node = item as? BookmarkDirectory.Node,
@@ -213,7 +214,7 @@ extension BookmarkListViewController: NSOutlineViewDelegate {
     
     // validate
     func outlineView(_ outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: Any?, proposedChildIndex index: Int) -> NSDragOperation {
-        print("validate drop: proposedItem: \(String(describing: item)), proposedChildIndex: \(index)")
+//        print("validate drop: proposedItem: \(String(describing: item)), proposedChildIndex: \(index)")
         
         let retval = NSDragOperation()
         
