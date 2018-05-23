@@ -51,6 +51,17 @@ protocol BookmarkDirectorySubscriber {
         case lastConnected
     }
     
+    struct Filter {
+        enum Mode {
+            case desktop
+            case feeds
+        }
+        
+        var searchString: String = ""
+        var excludeEmptySection: Bool = false
+        var mode: Mode = .desktop
+    }
+    
     class Node {
         enum ContentType {
             case bookmark
