@@ -13,20 +13,33 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oWj-qr-pS0">
-                    <rect key="frame" x="2" y="4" width="274" height="19"/>
+                    <rect key="frame" x="103" y="4" width="274" height="19"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Bookmark Thumbnail Section Header" id="BYl-a9-bOY">
                         <font key="font" metaFont="system" size="16"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WBm-qE-9Mg">
+                    <rect key="frame" x="0.0" y="-4" width="81" height="32"/>
+                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dZs-Yy-exf">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onCollapseButtonPressed:" target="c22-O7-iKe" id="EDK-rg-fLb"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="oWj-qr-pS0" secondAttribute="bottom" constant="4" id="0fI-PE-Aid"/>
-                <constraint firstItem="oWj-qr-pS0" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="4" id="9Ou-8d-BXp"/>
+                <constraint firstItem="WBm-qE-9Mg" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="69h-Nh-BgX"/>
                 <constraint firstItem="oWj-qr-pS0" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="4" id="AcC-CC-cD9"/>
+                <constraint firstItem="oWj-qr-pS0" firstAttribute="leading" secondItem="WBm-qE-9Mg" secondAttribute="trailing" constant="30" id="Lhg-B7-u5F"/>
+                <constraint firstItem="WBm-qE-9Mg" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="6" id="Tmb-sL-k1a"/>
             </constraints>
             <connections>
+                <outlet property="collapseButton" destination="WBm-qE-9Mg" id="qyL-p7-RFe"/>
                 <outlet property="title" destination="oWj-qr-pS0" id="Ng9-1N-1Rq"/>
             </connections>
             <point key="canvasLocation" x="139" y="278.5"/>

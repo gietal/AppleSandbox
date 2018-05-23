@@ -43,6 +43,12 @@ extension BookmarkListViewController: NSOutlineViewDataSource {
     // determine how many children does a node have
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
         if let node = item as? BookmarkDirectory.Node {
+            if node.type == .bookmarkGroup {
+                let group = bookmarkDirectory.bookmarkGroup(withId: node.id)!
+                if group.isCollapsed {
+//                    return 0
+                }
+            }
             return node.children.count
         }
         
@@ -153,7 +159,7 @@ extension BookmarkListViewController: NSOutlineViewDelegate {
         }
         
         // update model
-        bookmarkDirectory.collapse(bookmarkGroupId: node.id)
+        bookmarkDirectory.collapse(bookmarkGroupId: node.id, notify: false)
         
     }
     
@@ -163,7 +169,7 @@ extension BookmarkListViewController: NSOutlineViewDelegate {
         }
         
         // update model
-        bookmarkDirectory.expand(bookmarkGroupId: node.id)
+        bookmarkDirectory.expand(bookmarkGroupId: node.id, notify: false)
         
     }
     
@@ -290,6 +296,10 @@ extension BookmarkListViewController: NSOutlineViewDelegate {
 }
 
 extension BookmarkListViewController: BookmarkDirectorySubscriber {
+    func onSectionCollapseStateChanged(at index: IndexPath, sectionNode: BookmarkDirectory.Node, collapsed: Bool) {
+        // do nothing, already handled
+    }
+    
     func directoryReloaded() {
         outlineView.reloadData()
         let groupNodes = bookmarkDirectory.node(where: { $0.type == .bookmarkGroup })

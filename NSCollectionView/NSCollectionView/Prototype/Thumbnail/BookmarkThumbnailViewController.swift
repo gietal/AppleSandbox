@@ -64,8 +64,25 @@ class BookmarkThumbnailViewController: NSViewController {
 }
 
 extension BookmarkThumbnailViewController: BookmarkDirectorySubscriber {
+    func onSectionCollapseStateChanged(at index: IndexPath, sectionNode: BookmarkDirectory.Node, collapsed: Bool) {
+        // reload section
+        collectionView.reloadSections([index.first!])
+    }
+    
     func directoryReloaded() {
+        // reload all
         collectionView.reloadData()
+    }
+}
+
+extension BookmarkThumbnailViewController: BookmarkThumbnailHeaderViewDelegate {
+    func onCollapseButtonPressed(forGroup group: BookmarkGroup) {
+        if group.isCollapsed {
+            bookmarkDirectory.expand(bookmarkGroupId: group.id, notify: true)
+        } else {
+            bookmarkDirectory.collapse(bookmarkGroupId: group.id, notify: true)
+        }
+        
     }
 }
 
@@ -75,6 +92,10 @@ extension BookmarkThumbnailViewController: NSCollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
+        let group = bookmarkDirectory.bookmarkGroup(for: IndexPath(index: section))
+        if group.isCollapsed {
+            return 0
+        }
         return bookmarkDirectory.numberOfItemsInSection(section)
     }
     
@@ -96,6 +117,7 @@ extension BookmarkThumbnailViewController: NSCollectionViewDataSource {
             // create header and  put our model in
             let headerView = collectionView.makeSupplementaryView(ofKind: .sectionHeader, withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "BookmarkThumbnailHeaderView"), for: indexPath) as! BookmarkThumbnailHeaderView
             headerView.group = bookmarkDirectory.bookmarkGroup(for: indexPath)
+            headerView.delegate = self
             view = headerView
         } else {
             // non header, make nil view

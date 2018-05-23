@@ -37,6 +37,8 @@ class BookmarkGroup {
 
 protocol BookmarkDirectorySubscriber {
     func directoryReloaded()
+    func onSectionCollapseStateChanged(at index: IndexPath, sectionNode: BookmarkDirectory.Node, collapsed: Bool)
+    
 }
 
 // modelss
@@ -113,7 +115,7 @@ protocol BookmarkDirectorySubscriber {
     }
     
     public func bookmarkGroup(for indexPath: IndexPath) -> BookmarkGroup {
-        let node = bookmarkNodes[indexPath.section]
+        let node = bookmarkNodes[indexPath.first!]
         return groupMap[node.id]!
     }
     public func bookmark(for indexPath: IndexPath) -> Bookmark {
@@ -122,13 +124,6 @@ protocol BookmarkDirectorySubscriber {
     }
     
     // Outline View data source
-    
-    public func collapse(bookmarkGroupId: String) {
-        bookmarkGroup(withId: bookmarkGroupId)?.isCollapsed = true
-    }
-    public func expand(bookmarkGroupId: String) {
-        bookmarkGroup(withId: bookmarkGroupId)?.isCollapsed = false
-    }
     
     public func node(at indexPath: IndexPath) -> Node {
         var theIndexPath = indexPath
@@ -263,16 +258,64 @@ protocol BookmarkDirectorySubscriber {
         }
     }
     
+    public func collapse(bookmarkGroupId: String, notify: Bool = true) {
+        if let index = bookmarkNodes.index(where: { $0.id == bookmarkGroupId }) {
+            collapseSection(at: IndexPath(arrayLiteral: index), notify: notify)
+        }
+        
+    }
+    
+    public func expand(bookmarkGroupId: String, notify: Bool = true) {
+        if let index = bookmarkNodes.index(where: { $0.id == bookmarkGroupId }) {
+            expandSection(at: IndexPath(arrayLiteral: index), notify: notify)
+        }
+        
+    }
+    
+    func collapseSection(at: IndexPath, notify: Bool = true) {
+        collapseSection(collapse: true, at: at, notify: notify)
+    }
+    
+    func expandSection(at: IndexPath, notify: Bool = true) {
+        collapseSection(collapse: false, at: at, notify: notify)
+    }
+    
+    fileprivate func collapseSection(collapse: Bool, at: IndexPath, notify: Bool) {
+        var node: Node?
+        var firstItem = true
+        for index in at {
+            if firstItem {
+                node = bookmarkNodes[index]
+                firstItem = false
+            } else {
+                node = node!.children[index]
+            }
+        }
+        
+        guard let sectionNode = node else {
+            return
+        }
+        
+        if sectionNode.type != .bookmarkGroup {
+            return
+        }
+        
+        let group = bookmarkGroup(withId: sectionNode.id)!
+        group.isCollapsed = collapse
+        if notify {
+            subscribers.notifyAll {
+                $0.onSectionCollapseStateChanged(at: at, sectionNode: sectionNode, collapsed: collapse)
+            }
+        }
+        
+    }
+    
     func moveBookmark(from: IndexPath, to: IndexPath) {
         let node = bookmarkNodes[from.section].children.remove(at: from.item)
         bookmarkNodes[to.section].insertChild(node, at: to.item)
     }
     
     func moveBookmarks(from fromIndexes: Set<IndexPath>, to toIndex: IndexPath) {
-        // remove the bookmarks from model
-        
-        
-        
         // consolidate items to move
         var indexMap = [Int: Set<Int>]()
         for index in fromIndexes {
