@@ -27,12 +27,30 @@ class WorkspaceSetting {
     let id = UUID().uuidString
     var title = ""
     var isCollapsed = false
+    var username: String?
+    var lastConnected: Date?
+}
+
+class WorkspaceGroup {
+    let id = UUID().uuidString
+    var title: String {
+        set {
+            myTitle = newValue
+        }
+        get {
+            return workspaceSetting?.title ?? myTitle
+        }
+    }
+    var workspaceSetting: WorkspaceSetting? // only valid for root feed, subfolder wont have this
+    
+    private var myTitle = ""
 }
 
 class BookmarkGroup {
     let id = UUID().uuidString
     var title = ""
     var isCollapsed = false
+    var isCollapsable = true
 }
 
 protocol BookmarkDirectorySubscriber {
@@ -66,7 +84,7 @@ protocol BookmarkDirectorySubscriber {
         enum ContentType {
             case bookmark
             case remoteResource
-            case workspace
+            case workspaceGroup
             case bookmarkGroup
         }
         
@@ -79,6 +97,11 @@ protocol BookmarkDirectorySubscriber {
             self.parent = parent
             type = .bookmarkGroup
             id = group.id
+        }
+        public init(_ workspaceGroup: WorkspaceGroup, parent: Node? = nil) {
+            self.parent = parent
+            type = .workspaceGroup
+            id = workspaceGroup.id
         }
         
         func addChild(_ node: Node) {
@@ -112,9 +135,19 @@ protocol BookmarkDirectorySubscriber {
         var id = ""
     }
     
+    public var filter = Filter() {
+        didSet {
+            // apply filter
+            
+            subscribers.notifyAll {
+                $0.directoryReloaded()
+            }
+        }
+    }
     public var subscribers = Subscribable<BookmarkDirectorySubscriber>()
     
     fileprivate var bookmarkNodes = [Node]()
+    fileprivate var workspaceNodes = [Node]()
     
     // Collection view data source
     public var numberOfSections: Int {
@@ -178,6 +211,9 @@ protocol BookmarkDirectorySubscriber {
     fileprivate var imageFiles = [ImageFile]()
     fileprivate var groupMap = [String: BookmarkGroup]()
     fileprivate var bookmarkMap = [String: Bookmark]()
+    fileprivate var workspaceMap = [String: WorkspaceSetting]()
+    fileprivate var remoteResourceMap = [String: RemoteResource]()
+    fileprivate var workspaceGroupMap = [String: WorkspaceGroup]() // nonpersistent
     
     public func bookmark(withId id:String) -> Bookmark? {
         return bookmarkMap[id]
@@ -362,6 +398,8 @@ protocol BookmarkDirectorySubscriber {
         var groupIndex = 0
         var imageIndex = 0
         bookmarkNodes = []
+        groupMap = [:]
+        bookmarkMap = [:]
         
         var date = Date()
         
@@ -388,6 +426,62 @@ protocol BookmarkDirectorySubscriber {
                 imageIndex = imageIndex == imageFiles.count-1 ? 0 : imageIndex + 1
                 
                 sectionNode.addChild(Node(bookmark))
+            }
+            
+            groupIndex += 1
+        }
+    }
+    
+    fileprivate func setupWorkspaces() {
+        let sections: [(Int, [Int])] = [(3, []), (3,[3, 3]) ]
+        let usernames = ["rdpuser", nil, "tslabadmin"]
+        var workspaceIndex = 0
+        var imageIndex = 0
+        workspaceNodes = []
+        
+        var date = Date()
+        
+        for (rootCount, subfolders) in sections {
+            // create workspace
+            let workspace = WorkspaceSetting()
+            workspace.title = "Workspace Feed \(workspaceIndex)"
+            workspace.username = usernames[Int(arc4random_uniform(UInt32(usernames.count)))]
+            workspaceMap[workspace.id ] = group
+            
+            // create workspace group
+            let rootGroup = WorkspaceGroup()
+            rootGroup.workspaceSetting = workspace
+            
+            // create node
+            let sectionNode = Node(rootGroup)
+            workspaceNodes.append(sectionNode)
+            
+            // create resource
+            for i in 0..<rootCount {
+                // create resource
+                
+                let resource = RemoteResource()
+                let imageFile = imageFiles[imageIndex]
+                resource.appName = "RemoteResource [\(workspaceIndex"//bookmark.id
+                resource.image = imageFile.thumbnail
+                
+                date = date.addingTimeInterval(-60 * 60 * 48)
+                bookmark.lastConnected = arc4random_uniform(2) == 0 ? nil : date
+                bookmarkMap[bookmark.id] = bookmark
+                imageIndex = imageIndex == imageFiles.count-1 ? 0 : imageIndex + 1
+                
+                sectionNode.addChild(Node(bookmark))
+            }
+            
+            for subfolderCount in subfolders {
+                // create  workspace group
+                let subfolderGroup
+                for  i in 0..<subfolderCount {
+                    // create resource
+                }
+            }
+            for i in 0..<count {
+                
             }
             
             groupIndex += 1

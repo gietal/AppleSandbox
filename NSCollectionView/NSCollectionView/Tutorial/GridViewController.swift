@@ -44,7 +44,11 @@ class GridViewController: NSViewController {
     }
     
     fileprivate func setupDragAndDrop(){
-        collectionView.registerForDraggedTypes([.URL])
+        if #available(OSX 10.13, *) {
+            collectionView.registerForDraggedTypes([.URL])
+        } else {
+            // Fallback on earlier versions
+        }
         collectionView.setDraggingSourceOperationMask(.every, forLocal: true)
     }
     
