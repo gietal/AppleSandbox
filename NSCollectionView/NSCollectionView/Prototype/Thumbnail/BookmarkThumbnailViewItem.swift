@@ -30,7 +30,22 @@ class BookmarkThumbnailViewItem: NSCollectionViewItem {
     
     override var isSelected: Bool {
         didSet {
-            view.layer?.borderWidth = isSelected ? 5 : 0
+//            view.layer?.borderWidth = isSelected ? 5 : 0
+//            view.layer?.borderColor = isSelected ? NSColor.orange.cgColor : NSColor.clear.cgColor
+        }
+    }
+    
+    override var highlightState: NSCollectionViewItem.HighlightState {
+        didSet {
+            if highlightState == .forSelection {
+                // going to be selected
+                view.layer?.borderColor = NSColor.blue.cgColor
+            } else if isSelected && highlightState != .forDeselection {
+                view.layer?.borderColor = NSColor.orange.cgColor
+            } else {
+                // not selected, or not highlighted
+                view.layer?.borderColor = NSColor.clear.cgColor
+            }
         }
     }
     
@@ -42,7 +57,7 @@ class BookmarkThumbnailViewItem: NSCollectionViewItem {
         contentView.layer?.borderColor = NSColor.black.cgColor
         contentView.layer?.borderWidth = 1
 //        contentView.layer?.backgroundColor = NSColor.lightGray.cgColor
-        view.layer?.borderColor = NSColor.orange.cgColor
-        view.layer?.borderWidth = 0
+        view.layer?.borderColor = NSColor.clear.cgColor
+        view.layer?.borderWidth = 5
     }
 }
