@@ -140,7 +140,7 @@ protocol BookmarkDirectorySubscriber {
         var id = ""
     }
     
-    public var filter = Filter() {
+    public var filter: Filter? {
         didSet {
             // apply filter
             applyFilter()
@@ -148,6 +148,7 @@ protocol BookmarkDirectorySubscriber {
             subscribers.notifyAll {
                 $0.directoryReloaded()
             }
+            
         }
     }
     public var subscribers = Subscribable<BookmarkDirectorySubscriber>()
@@ -400,6 +401,10 @@ protocol BookmarkDirectorySubscriber {
     fileprivate func applyFilter() {
         filteredBookmarkNodes = []
         filteredBookmarkNodes = originalBookmarkNodes
+        
+        guard let filter = filter else {
+            return
+        }
 //        if filter.mode == .desktop {
 //
 //            for sectionNode in originalBookmarkNodes {

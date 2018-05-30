@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,41 +13,52 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ewT-y8-oap">
-                    <rect key="frame" x="0.0" y="46" width="480" height="226"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="JRl-hy-tj1"/>
-                </imageView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EMC-zL-msB">
-                    <rect key="frame" x="-2" y="21" width="37" height="17"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="ylT-1L-vIf">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SKU-0I-oaj">
-                    <rect key="frame" x="-2" y="0.0" width="37" height="17"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="VnZ-jJ-rMc">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="jzJ-RJ-E14">
+                    <rect key="frame" x="5" y="5" width="470" height="262"/>
+                    <subviews>
+                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ewT-y8-oap">
+                            <rect key="frame" x="0.0" y="40" width="470" height="222"/>
+                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="JRl-hy-tj1"/>
+                        </imageView>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EMC-zL-msB">
+                            <rect key="frame" x="-2" y="23" width="37" height="17"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="ylT-1L-vIf">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SKU-0I-oaj">
+                            <rect key="frame" x="-2" y="6" width="64" height="17"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="username" id="VnZ-jJ-rMc">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="ewT-y8-oap" firstAttribute="top" secondItem="jzJ-RJ-E14" secondAttribute="top" id="1DK-eb-Gmk"/>
+                        <constraint firstItem="EMC-zL-msB" firstAttribute="leading" secondItem="jzJ-RJ-E14" secondAttribute="leading" id="1Xa-2B-Pcl"/>
+                        <constraint firstItem="ewT-y8-oap" firstAttribute="leading" secondItem="jzJ-RJ-E14" secondAttribute="leading" id="6Yf-fq-C1m"/>
+                        <constraint firstItem="ewT-y8-oap" firstAttribute="bottom" secondItem="EMC-zL-msB" secondAttribute="top" id="Ea8-zR-GaS"/>
+                        <constraint firstAttribute="bottom" secondItem="ewT-y8-oap" secondAttribute="bottom" constant="40" id="ZFy-wd-88q"/>
+                        <constraint firstItem="SKU-0I-oaj" firstAttribute="leading" secondItem="EMC-zL-msB" secondAttribute="leading" id="tsw-28-d6S"/>
+                        <constraint firstAttribute="trailing" secondItem="ewT-y8-oap" secondAttribute="trailing" id="wqU-eo-KDA"/>
+                        <constraint firstItem="EMC-zL-msB" firstAttribute="bottom" secondItem="SKU-0I-oaj" secondAttribute="top" id="xZ4-OQ-Nz9"/>
+                    </constraints>
+                </customView>
             </subviews>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="SKU-0I-oaj" secondAttribute="bottom" id="9i6-b8-RO2"/>
-                <constraint firstItem="SKU-0I-oaj" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="Jea-MC-Rz7"/>
-                <constraint firstItem="EMC-zL-msB" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="JiM-w7-TbK"/>
-                <constraint firstItem="ewT-y8-oap" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="L8e-iZ-LSX"/>
-                <constraint firstItem="ewT-y8-oap" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="f4S-90-tpz"/>
-                <constraint firstItem="EMC-zL-msB" firstAttribute="top" secondItem="ewT-y8-oap" secondAttribute="bottom" constant="8" id="jZs-mM-sDf"/>
-                <constraint firstAttribute="bottom" secondItem="ewT-y8-oap" secondAttribute="bottom" constant="46" id="lRs-lh-aXX"/>
-                <constraint firstItem="SKU-0I-oaj" firstAttribute="top" secondItem="EMC-zL-msB" secondAttribute="bottom" constant="4" id="pHJ-sm-17v"/>
-                <constraint firstAttribute="trailing" secondItem="ewT-y8-oap" secondAttribute="trailing" id="yGG-Xk-nHs"/>
+                <constraint firstAttribute="trailing" secondItem="jzJ-RJ-E14" secondAttribute="trailing" constant="5" id="Vtx-lp-Z8X"/>
+                <constraint firstItem="jzJ-RJ-E14" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="5" id="WHN-MD-gtn"/>
+                <constraint firstAttribute="bottom" secondItem="jzJ-RJ-E14" secondAttribute="bottom" constant="5" id="ceG-sN-HEb"/>
+                <constraint firstItem="jzJ-RJ-E14" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="5" id="eje-Cj-isi"/>
             </constraints>
         </customView>
         <collectionViewItem id="w4w-0Z-s20" customClass="BookmarkThumbnailViewItem" customModule="NSCollectionView" customModuleProvider="target">
             <connections>
+                <outlet property="contentView" destination="jzJ-RJ-E14" id="UFr-TZ-sdF"/>
                 <outlet property="hostnameLabel" destination="EMC-zL-msB" id="ruU-VM-gG4"/>
                 <outlet property="imageView" destination="ewT-y8-oap" id="mBC-fl-LAp"/>
                 <outlet property="usernameLabel" destination="SKU-0I-oaj" id="Ddq-Mv-Rzo"/>

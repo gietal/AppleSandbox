@@ -26,6 +26,7 @@ class BookmarkThumbnailViewItem: NSCollectionViewItem {
     }
     @IBOutlet weak var hostnameLabel: NSTextField!
     @IBOutlet weak var usernameLabel: NSTextField!
+    @IBOutlet weak var contentView: NSView!
     
     override var isSelected: Bool {
         didSet {
@@ -37,7 +38,10 @@ class BookmarkThumbnailViewItem: NSCollectionViewItem {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.wantsLayer = true
-        view.layer?.backgroundColor = NSColor.lightGray.cgColor
+        contentView.wantsLayer = true
+        contentView.layer?.borderColor = NSColor.black.cgColor
+        contentView.layer?.borderWidth = 1
+//        contentView.layer?.backgroundColor = NSColor.lightGray.cgColor
         view.layer?.borderColor = NSColor.orange.cgColor
         view.layer?.borderWidth = 0
     }

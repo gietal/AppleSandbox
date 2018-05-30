@@ -41,7 +41,7 @@ class BookmarkThumbnailViewController: NSViewController {
         view.wantsLayer = true
         collectionView.wantsLayer = true
         // 3
-        collectionView.layer?.backgroundColor = NSColor.black.cgColor
+        collectionView.layer?.backgroundColor = NSColor.clear.cgColor
         collectionView.needsDisplay = true
         
         // register xibs
@@ -119,7 +119,7 @@ extension BookmarkThumbnailViewController: NSCollectionViewDataSource {
         print("item for [\(indexPath.section), \(indexPath.item)]")
         if numberOfItems(inSection: indexPath.section) == 0 {
             // dummy
-            output = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "BookmarkThumbnailDummyItem"), for: indexPath)
+            output = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "BookmarkThumbnailViewItem"), for: indexPath)
             
         } else {
             // create the view item
@@ -156,6 +156,9 @@ extension BookmarkThumbnailViewController: NSCollectionViewDataSource {
 extension BookmarkThumbnailViewController: NSCollectionViewDelegateFlowLayout {
     // determine the size of the header
     func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> NSSize {
+        if section == 1 {
+            return NSSize(width: 50, height: 100)
+        }
         return NSSize(width: 100, height: 40)
     }
     

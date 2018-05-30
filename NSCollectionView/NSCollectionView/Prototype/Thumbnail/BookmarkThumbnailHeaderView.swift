@@ -36,6 +36,6 @@ class BookmarkThumbnailHeaderView: NSView {
     
     override func awakeFromNib() {
         self.wantsLayer = true
-        self.layer?.backgroundColor = NSColor.gray.cgColor
+        self.layer?.backgroundColor = CGColor(gray: 0.9, alpha: 1)
     }
 }
