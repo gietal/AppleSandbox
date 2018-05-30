@@ -103,6 +103,11 @@ protocol BookmarkDirectorySubscriber {
             type = .workspaceGroup
             id = workspaceGroup.id
         }
+        public init(_ copy: Node, parent: Node?) {
+            self.parent = parent
+            self.type = copy.type
+            self.id = copy.id
+        }
         
         func addChild(_ node: Node) {
             node.parent = self
@@ -138,6 +143,7 @@ protocol BookmarkDirectorySubscriber {
     public var filter = Filter() {
         didSet {
             // apply filter
+            applyFilter()
             
             subscribers.notifyAll {
                 $0.directoryReloaded()
@@ -146,24 +152,25 @@ protocol BookmarkDirectorySubscriber {
     }
     public var subscribers = Subscribable<BookmarkDirectorySubscriber>()
     
-    fileprivate var bookmarkNodes = [Node]()
+    fileprivate var originalBookmarkNodes = [Node]()
+    fileprivate var filteredBookmarkNodes = [Node]()
     fileprivate var workspaceNodes = [Node]()
     
     // Collection view data source
     public var numberOfSections: Int {
-        return bookmarkNodes.count
+        return filteredBookmarkNodes.count
     }
     
     public func numberOfItemsInSection(_ section: Int) -> Int {
-        return bookmarkNodes[section].children.count
+        return filteredBookmarkNodes[section].children.count
     }
     
     public func bookmarkGroup(for indexPath: IndexPath) -> BookmarkGroup {
-        let node = bookmarkNodes[indexPath.first!]
+        let node = filteredBookmarkNodes[indexPath.first!]
         return groupMap[node.id]!
     }
     public func bookmark(for indexPath: IndexPath) -> Bookmark {
-        let node = bookmarkNodes[indexPath.section].children[indexPath.item]
+        let node = filteredBookmarkNodes[indexPath.section].children[indexPath.item]
         return bookmarkMap[node.id]!
     }
     
@@ -173,7 +180,7 @@ protocol BookmarkDirectorySubscriber {
         var theIndexPath = indexPath
         // assume at least 1
         let firstIndex = theIndexPath.popFirst()!
-        var currentNode = bookmarkNodes[firstIndex]
+        var currentNode = filteredBookmarkNodes[firstIndex]
         
         // then recurse
         while let childIndex = theIndexPath.popFirst() {
@@ -186,7 +193,7 @@ protocol BookmarkDirectorySubscriber {
     
     public func node(where include: (Node) -> Bool) -> [Node] {
         var output = [Node]()
-        for root in bookmarkNodes {
+        for root in filteredBookmarkNodes {
             output.append(contentsOf: node(root: root, where: include))
         }
         return output
@@ -231,7 +238,7 @@ protocol BookmarkDirectorySubscriber {
         }
         
         // sort root
-        bookmarkNodes.sort { (a, b) -> Bool in
+        filteredBookmarkNodes.sort { (a, b) -> Bool in
             // todo: handle different types, folder vs workspace folder
             let ga = bookmarkGroup(withId: a.id)!
             let gb = bookmarkGroup(withId: b.id)!
@@ -239,7 +246,7 @@ protocol BookmarkDirectorySubscriber {
         }
         
         // sort children
-        for node in bookmarkNodes {
+        for node in filteredBookmarkNodes {
             node.children.sort { (a, b) -> Bool in
                 // todo: handle different types, subfolder vs desktop vs remoteresource
                 // container vs connectable?
@@ -290,30 +297,28 @@ protocol BookmarkDirectorySubscriber {
                 print("\(url.lastPathComponent)")
             }
             createImageFilesForUrls(urls)
-            setupBookmarkAndGroup()
-            subscribers.notifyAll {
-                $0.directoryReloaded()
-            }
+            reset()
         }
         
     }
     
     func reset() {
         setupBookmarkAndGroup()
+        applyFilter()
         subscribers.notifyAll {
             $0.directoryReloaded()
         }
     }
     
     public func collapse(bookmarkGroupId: String, notify: Bool = true) {
-        if let index = bookmarkNodes.index(where: { $0.id == bookmarkGroupId }) {
+        if let index = filteredBookmarkNodes.index(where: { $0.id == bookmarkGroupId }) {
             collapseSection(at: IndexPath(arrayLiteral: index), notify: notify)
         }
         
     }
     
     public func expand(bookmarkGroupId: String, notify: Bool = true) {
-        if let index = bookmarkNodes.index(where: { $0.id == bookmarkGroupId }) {
+        if let index = filteredBookmarkNodes.index(where: { $0.id == bookmarkGroupId }) {
             expandSection(at: IndexPath(arrayLiteral: index), notify: notify)
         }
         
@@ -332,7 +337,7 @@ protocol BookmarkDirectorySubscriber {
         var firstItem = true
         for index in at {
             if firstItem {
-                node = bookmarkNodes[index]
+                node = filteredBookmarkNodes[index]
                 firstItem = false
             } else {
                 node = node!.children[index]
@@ -358,8 +363,8 @@ protocol BookmarkDirectorySubscriber {
     }
     
     func moveBookmark(from: IndexPath, to: IndexPath) {
-        let node = bookmarkNodes[from.section].children.remove(at: from.item)
-        bookmarkNodes[to.section].insertChild(node, at: to.item)
+        let node = filteredBookmarkNodes[from.section].children.remove(at: from.item)
+        filteredBookmarkNodes[to.section].insertChild(node, at: to.item)
     }
     
     func moveBookmarks(from fromIndexes: Set<IndexPath>, to toIndex: IndexPath) {
@@ -376,13 +381,13 @@ protocol BookmarkDirectorySubscriber {
         // remove items at once per each section
         var toMove = [Node]()
         for (sectionIndex, set) in indexMap {
-            toMove.append(contentsOf: bookmarkNodes[sectionIndex].children.remove(at: set))
+            toMove.append(contentsOf: filteredBookmarkNodes[sectionIndex].children.remove(at: set))
         }
         
         // reinsert on correct spot
         var targetIndex = toIndex
         for node in toMove {
-            let sectionNode = bookmarkNodes[toIndex.section]
+            let sectionNode = filteredBookmarkNodes[toIndex.section]
             
 //            targetIndex.item = max(targetIndex.item, sectionNode.children.count)
             sectionNode.insertChild(node, at: targetIndex.item)
@@ -392,12 +397,34 @@ protocol BookmarkDirectorySubscriber {
         // tell the subscribers item is moved?
     }
     
+    fileprivate func applyFilter() {
+        filteredBookmarkNodes = []
+        filteredBookmarkNodes = originalBookmarkNodes
+//        if filter.mode == .desktop {
+//
+//            for sectionNode in originalBookmarkNodes {
+//
+//                // skip empty
+//                if filter.excludeEmptySection && sectionNode.children.count == 0 {
+//                    continue
+//                }
+//
+//                if let group = bookmarkGroup(withId: sectionNode.id) {
+//                    let includeTitle = group.title.contains(filter.searchString)
+//                }
+//            }
+//
+//        } else {
+//
+//        }
+    }
+    
     fileprivate func setupBookmarkAndGroup() {
         let sections = [5, 5, 5]
         let usernames = ["rdpuser", nil, "tslabadmin"]
         var groupIndex = 0
         var imageIndex = 0
-        bookmarkNodes = []
+        originalBookmarkNodes = []
         groupMap = [:]
         bookmarkMap = [:]
         
@@ -411,7 +438,7 @@ protocol BookmarkDirectorySubscriber {
             
             // create node
             let sectionNode = Node(group)
-            bookmarkNodes.append(sectionNode)
+            originalBookmarkNodes.append(sectionNode)
             
             for i in 0..<count {
                 // create bookmark
@@ -432,6 +459,7 @@ protocol BookmarkDirectorySubscriber {
         }
     }
     
+    /*
     fileprivate func setupWorkspaces() {
         let sections: [(Int, [Int])] = [(3, []), (3,[3, 3]) ]
         let usernames = ["rdpuser", nil, "tslabadmin"]
@@ -446,7 +474,7 @@ protocol BookmarkDirectorySubscriber {
             let workspace = WorkspaceSetting()
             workspace.title = "Workspace Feed \(workspaceIndex)"
             workspace.username = usernames[Int(arc4random_uniform(UInt32(usernames.count)))]
-            workspaceMap[workspace.id ] = group
+            workspaceMap[workspace.id ] = workspace
             
             // create workspace group
             let rootGroup = WorkspaceGroup()
@@ -462,7 +490,7 @@ protocol BookmarkDirectorySubscriber {
                 
                 let resource = RemoteResource()
                 let imageFile = imageFiles[imageIndex]
-                resource.appName = "RemoteResource [\(workspaceIndex"//bookmark.id
+                resource.appName = "RemoteResource [\(workspaceIndex), \(i)]"
                 resource.image = imageFile.thumbnail
                 
                 date = date.addingTimeInterval(-60 * 60 * 48)
@@ -475,18 +503,17 @@ protocol BookmarkDirectorySubscriber {
             
             for subfolderCount in subfolders {
                 // create  workspace group
-                let subfolderGroup
+                let subfolderGroup = WorkspaceGroup()
                 for  i in 0..<subfolderCount {
                     // create resource
                 }
             }
-            for i in 0..<count {
-                
-            }
+
             
             groupIndex += 1
         }
     }
+ */
     
     fileprivate func getFilesURLFromFolder(_ folderURL: URL) -> [URL]? {
         

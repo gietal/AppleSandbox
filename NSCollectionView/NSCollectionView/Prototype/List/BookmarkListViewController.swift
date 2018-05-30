@@ -69,7 +69,7 @@ extension BookmarkListViewController: NSOutlineViewDataSource {
     // allow node to be expandable
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
         if let node = item as? BookmarkDirectory.Node {
-            return node.type == .bookmarkGroup || node.type == .workspace
+            return node.type == .bookmarkGroup || node.type == .workspaceGroup
         }
         return false
     }

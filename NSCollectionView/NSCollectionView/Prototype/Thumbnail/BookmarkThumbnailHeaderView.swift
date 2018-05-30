@@ -22,7 +22,7 @@ class BookmarkThumbnailHeaderView: NSView {
         didSet {
             if let g = group {
                 title.stringValue = g.title
-                collapseButton.stringValue = g.isCollapsed ? "expand" : "collapse"
+                collapseButton.title = g.isCollapsed ? "expand" : "collapse"
             }
             
         }

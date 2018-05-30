@@ -30,7 +30,7 @@ class BookmarkThumbnailViewController: NSViewController {
     fileprivate func setupLayout() {
         // setup the layout
         let flowLayout = NSCollectionViewFlowLayout()
-        flowLayout.itemSize = NSSize(width: 160.0, height: 140.0)
+//        flowLayout.itemSize = NSSize(width: 160.0, height: 140.0)
         flowLayout.sectionInset = NSEdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0)
         flowLayout.minimumInteritemSpacing = 20.0
         flowLayout.minimumLineSpacing = 20.0
@@ -92,6 +92,12 @@ extension BookmarkThumbnailViewController: NSCollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
+        let count = numberOfItemsWithDummy(inSection: section)
+        print("number of item in section \(section): \(count)")
+        return count
+    }
+    
+    func numberOfItems(inSection section: Int) -> Int {
         let group = bookmarkDirectory.bookmarkGroup(for: IndexPath(index: section))
         if group.isCollapsed {
             return 0
@@ -99,15 +105,33 @@ extension BookmarkThumbnailViewController: NSCollectionViewDataSource {
         return bookmarkDirectory.numberOfItemsInSection(section)
     }
     
+    func numberOfItemsWithDummy(inSection section: Int) -> Int {
+        let group = bookmarkDirectory.bookmarkGroup(for: IndexPath(index: section))
+        if group.isCollapsed {
+            return 0
+        }
+        return max(bookmarkDirectory.numberOfItemsInSection(section), 1)
+    }
+    
     // used to create collection view item
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-        // create the view item
-        let viewItem = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "BookmarkThumbnailViewItem"), for: indexPath) as! BookmarkThumbnailViewItem
-
-        // put our model in
-        let bookmark = bookmarkDirectory.bookmark(for: indexPath)
-        viewItem.bookmark = bookmark
-        return viewItem
+        var output: NSCollectionViewItem
+        print("item for [\(indexPath.section), \(indexPath.item)]")
+        if numberOfItems(inSection: indexPath.section) == 0 {
+            // dummy
+            output = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "BookmarkThumbnailDummyItem"), for: indexPath)
+            
+        } else {
+            // create the view item
+            let viewItem = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "BookmarkThumbnailViewItem"), for: indexPath) as! BookmarkThumbnailViewItem
+            
+            // put our model in
+            let bookmark = bookmarkDirectory.bookmark(for: indexPath)
+            viewItem.bookmark = bookmark
+            output = viewItem
+        }
+        
+        return output
     }
     
     // used to create header/footer/interimgap section
@@ -134,6 +158,16 @@ extension BookmarkThumbnailViewController: NSCollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> NSSize {
         return NSSize(width: 100, height: 40)
     }
+    
+    func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> NSSize {
+        if numberOfItems(inSection: indexPath.section) == 0 {
+            // dummy
+            return NSSize(width: 0.0, height: 140.0)
+        } else {
+            return NSSize(width: 160.0, height: 140.0)
+        }
+    }
+    
 }
 
 extension BookmarkThumbnailViewController: NSCollectionViewDelegate {
@@ -145,13 +179,16 @@ extension BookmarkThumbnailViewController: NSCollectionViewDelegate {
         return true
     }
     
+    func collectionView(_ collectionView: NSCollectionView, canDragItemsAt indexPaths: Set<IndexPath>, with event: NSEvent) -> Bool {
+        return true
+    }
+    
     // this is for multi section
     // thiswill be called per item dragged. we need to return pasteboard writer that represents our underlying object model
     // in this  case  just an NSURL. for bookmark can be id as NSString i guess?
     func collectionView(_ collectionView: NSCollectionView, pasteboardWriterForItemAt indexPath: IndexPath) -> NSPasteboardWriting? {
         return NSString(string: "blah")
     }
-
     
     /////////////////////////////////////////////////
     
@@ -159,17 +196,22 @@ extension BookmarkThumbnailViewController: NSCollectionViewDelegate {
     func collectionView(_ collectionView: NSCollectionView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItemsAt indexPaths: Set<IndexPath>) {
         indexPathsOfItemsBeingDragged = indexPaths
     }
-    
+
     // lets us decide what operation to do when the drag turns into a drop
     func collectionView(_ collectionView: NSCollectionView, validateDrop draggingInfo: NSDraggingInfo,
                         proposedIndexPath proposedDropIndexPath: AutoreleasingUnsafeMutablePointer<NSIndexPath>,
                         dropOperation proposedDropOperation: UnsafeMutablePointer<NSCollectionView.DropOperation>) -> NSDragOperation {
         
-//        print("validate drop, \(proposedDropOperation.pointee) \(proposedDropIndexPath.pointee)")
+        print("validate drop, \(proposedDropOperation.pointee) \(proposedDropIndexPath.pointee)")
         
         // this makes sure that when user try to drop items on to another item, we make it so that it drops before the item
         if proposedDropOperation.pointee == NSCollectionView.DropOperation.on {
             proposedDropOperation.pointee = NSCollectionView.DropOperation.before
+        }
+        
+        // this makes sure that when dropping to an empty section with a dummy, the drop position is set to 0. otherwise it may be set to 1 (after the dummy)
+        if proposedDropOperation.pointee == .before && numberOfItems(inSection: proposedDropIndexPath.pointee.section) == 0 {
+            proposedDropIndexPath.pointee = NSIndexPath(forItem: 0, inSection: proposedDropIndexPath.pointee.section)
         }
         
         // when indexPathsOfItemsBeingDragged == nil, that means theitem is dragged from outside app
@@ -206,21 +248,43 @@ extension BookmarkThumbnailViewController: NSCollectionViewDelegate {
             var toIndexPath = indexPath
             toIndexPath.item -= sectionMovement
             
+            let targetWasEmpty = numberOfItems(inSection: toIndexPath.section) == 0
+            
             // update model
             bookmarkDirectory.moveBookmarks(from: itemsDraggedSet, to: toIndexPath)
+
+            var emptySections = Set<Int>()
+            for sourceIndexPath in itemsDraggedSet {
+                if numberOfItems(inSection: sourceIndexPath.section) == 0 {
+                    emptySections.insert(sourceIndexPath.section)
+                }
+            }
+            
             // update collection view in a batch
             collectionView.animator().performBatchUpdates({
+                // move the items
                 for fromIndexPath in itemsDraggedIndexPath {
                     print("move item from: \(fromIndexPath) to: \(toIndexPath)")
                     collectionView.moveItem(at: fromIndexPath, to: toIndexPath)
                     toIndexPath.item += 1
                 }
+                
+                // reload the target section which was empty to remove the dummy item
+                if targetWasEmpty {
+                    collectionView.reloadSections([toIndexPath.section])
+                }
+                
+                // reload sources section which are now empty to add dummy item
+                for section in emptySections {
+                    collectionView.reloadSections([section])
+                }
+                
             }, completionHandler: nil)
-
         }
         
         return true
     }
+    
     
     // Invoked to conclude the drag session. Clears the value of indexPathsOfItemsBeingDragged.
     func collectionView(_ collectionView: NSCollectionView, draggingSession session: NSDraggingSession, endedAt screenPoint: NSPoint, dragOperation operation: NSDragOperation) {
