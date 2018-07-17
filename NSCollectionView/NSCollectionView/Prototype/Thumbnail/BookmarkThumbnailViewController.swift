@@ -9,6 +9,52 @@
 import Foundation
 import Cocoa
 
+class RDCFlowLayout: NSCollectionViewFlowLayout {
+    
+    override func invalidateLayout() {
+        super.invalidateLayout()
+    }
+    
+    var loopCount = 0
+    override func layoutAttributesForElements(in rect: NSRect) -> [NSCollectionViewLayoutAttributes] {
+        var original = super.layoutAttributesForElements(in: rect)
+        var output = [NSCollectionViewLayoutAttributes]()
+        
+        if original.count == 0 {
+            return original
+        }
+        
+        // left align
+        var startX = sectionInset.left
+        var startY = CGFloat.leastNormalMagnitude // CGFLOAT_MIN
+        
+        for attribute in original  {
+            if attribute.representedElementCategory != .item {
+                output.append(attribute)
+                continue
+            }
+            
+            let originalPos = attribute.frame.origin
+            if startY != originalPos.y {
+                // we started on a new column, reset x position
+                startY = originalPos.y
+                startX = sectionInset.left
+            }
+            
+            attribute.frame.origin = CGPoint(x: startX, y: startY)
+            startX += attribute.frame.width + minimumInteritemSpacing
+            
+            output.append(attribute)
+        }
+        
+        return output
+    }
+    
+    override func layoutAttributesForItem(at indexPath: IndexPath) -> NSCollectionViewLayoutAttributes? {
+        return super.layoutAttributesForItem(at: indexPath)
+    }
+}
+
 class BookmarkThumbnailViewController: NSViewController {
     @IBOutlet weak var collectionView: NSCollectionView!
     weak var bookmarkDirectory: BookmarkDirectory! {
@@ -26,10 +72,10 @@ class BookmarkThumbnailViewController: NSViewController {
         setupLayout()
         setupDragAndDrop()
     }
-    
+    let flowLayout = RDCFlowLayout()
     fileprivate func setupLayout() {
         // setup the layout
-        let flowLayout = NSCollectionViewFlowLayout()
+        
 //        flowLayout.itemSize = NSSize(width: 160.0, height: 140.0)
         flowLayout.sectionInset = NSEdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0)
         flowLayout.minimumInteritemSpacing = 20.0
@@ -116,7 +162,7 @@ extension BookmarkThumbnailViewController: NSCollectionViewDataSource {
     // used to create collection view item
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         var output: NSCollectionViewItem
-        print("item for [\(indexPath.section), \(indexPath.item)]")
+//        print("item for [\(indexPath.section), \(indexPath.item)]")
         if numberOfItems(inSection: indexPath.section) == 0 {
             // dummy
             output = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "BookmarkThumbnailViewItem"), for: indexPath)

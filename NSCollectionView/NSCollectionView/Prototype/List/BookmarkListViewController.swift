@@ -35,11 +35,20 @@ class BookmarkListViewController: NSViewController {
         outlineView.tableColumn(withIdentifier: NSUserInterfaceItemIdentifier("LastConnectedColumn"))!.sortDescriptorPrototype = NSSortDescriptor(key: "LastConnectedColumn", ascending: true)
     }
     
-
+    @IBAction func menuPressed1(_ sender: Any) {
+    }
+    override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+        return true
+    }
 }
 
 extension BookmarkListViewController: NSOutlineViewDataSource {
-    
+    func outlineView(_ outlineView: NSOutlineView, isGroupItem item: Any) -> Bool {
+        if let node = item as? BookmarkDirectory.Node {
+            return node.type == .bookmarkGroup
+        }
+        return false
+    }
     // determine how many children does a node have
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
         if let node = item as? BookmarkDirectory.Node {
@@ -317,3 +326,7 @@ extension BookmarkListViewController: BookmarkDirectorySubscriber {
     }
 }
 
+extension BookmarkListViewController {
+    // actions
+    
+}
