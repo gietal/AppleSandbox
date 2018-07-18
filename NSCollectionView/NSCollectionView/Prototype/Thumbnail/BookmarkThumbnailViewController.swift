@@ -73,6 +73,7 @@ class BookmarkThumbnailViewController: NSViewController {
         setupDragAndDrop()
     }
     let flowLayout = RDCFlowLayout()
+    let thumbnailLayout = ThumbnailCollectionViewLayout()
     fileprivate func setupLayout() {
         // setup the layout
         
@@ -82,7 +83,11 @@ class BookmarkThumbnailViewController: NSViewController {
         flowLayout.minimumLineSpacing = 20.0
         flowLayout.sectionHeadersPinToVisibleBounds = true
         
-        collectionView.collectionViewLayout = flowLayout
+        thumbnailLayout.itemSize = CGSize(width: 160, height: 140)
+        thumbnailLayout.delegate = self
+        thumbnailLayout.sectionInset = flowLayout.sectionInset
+        thumbnailLayout.itemSpacing = CGSize(width: 20, height: 20)
+        collectionView.collectionViewLayout = thumbnailLayout// flowLayout
         // 2
         view.wantsLayer = true
         collectionView.wantsLayer = true
@@ -196,6 +201,12 @@ extension BookmarkThumbnailViewController: NSCollectionViewDataSource {
         }
         
         return view
+    }
+}
+
+extension BookmarkThumbnailViewController: ThumbnailCollectionViewLayoutDelegate {
+    func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, headerHeightForSection section: Int) -> CGFloat {
+        return 40
     }
 }
 
