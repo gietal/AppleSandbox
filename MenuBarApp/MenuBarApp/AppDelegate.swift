@@ -14,6 +14,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var window: NSWindow!
 
     let popover = NSPopover()
+    popover.setAllowedOnAllSpaces()
+
     let popoverStatusItem = NSStatusBar.system().statusItem(withLength: -2)
     
     func togglePopover(_ sender: AnyObject?) {
@@ -22,7 +24,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             popover.performClose(sender)
         } else {
             // show
-            if let button = popoverStatusItem.button {
+                        if let button = popoverStatusItem.button {
                 popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
             }
             

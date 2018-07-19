@@ -12,6 +12,7 @@
 		8833D46F1E171D170045FADF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8833D46D1E171D170045FADF /* MainMenu.xib */; };
 		8833D4771E171D310045FADF /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8833D4761E171D310045FADF /* EmptyView.xib */; };
 		8833D4791E171D3D0045FADF /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833D4781E171D3D0045FADF /* EmptyViewController.swift */; };
+		88C0A47B20C84DB600B91FB7 /* PopoverPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C0A47A20C84DB600B91FB7 /* PopoverPrivate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		8833D4701E171D170045FADF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8833D4761E171D310045FADF /* EmptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
 		8833D4781E171D3D0045FADF /* EmptyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
+		88C0A47820C84DB500B91FB7 /* MenuBarApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MenuBarApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		88C0A47920C84DB600B91FB7 /* PopoverPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopoverPrivate.h; sourceTree = "<group>"; };
+		88C0A47A20C84DB600B91FB7 /* PopoverPrivate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopoverPrivate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,9 @@
 				8833D4701E171D170045FADF /* Info.plist */,
 				8833D4761E171D310045FADF /* EmptyView.xib */,
 				8833D4781E171D3D0045FADF /* EmptyViewController.swift */,
+				88C0A47920C84DB600B91FB7 /* PopoverPrivate.h */,
+				88C0A47A20C84DB600B91FB7 /* PopoverPrivate.m */,
+				88C0A47820C84DB500B91FB7 /* MenuBarApp-Bridging-Header.h */,
 			);
 			path = MenuBarApp;
 			sourceTree = "<group>";
@@ -96,6 +103,7 @@
 				TargetAttributes = {
 					8833D4651E171D170045FADF = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -136,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88C0A47B20C84DB600B91FB7 /* PopoverPrivate.m in Sources */,
 				8833D4791E171D3D0045FADF /* EmptyViewController.swift in Sources */,
 				8833D46A1E171D170045FADF /* AppDelegate.swift in Sources */,
 			);
@@ -249,11 +258,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = MenuBarApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.gietal.sandbox.MenuBarApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MenuBarApp/MenuBarApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -262,11 +274,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = MenuBarApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.gietal.sandbox.MenuBarApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MenuBarApp/MenuBarApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -290,6 +304,7 @@
 				8833D4751E171D170045FADF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
