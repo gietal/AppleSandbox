@@ -14,6 +14,7 @@ class Bookmark {
     var image: NSImage?
     var hostname = ""
     var username: String?
+    var gateway: String?
     var lastConnected: Date?
 }
 
@@ -425,8 +426,9 @@ protocol BookmarkDirectorySubscriber {
     }
     
     fileprivate func setupBookmarkAndGroup() {
-        let sections = [10, 10, 10]
+        let sections = [6, 3, 3]
         let usernames = ["rdpuser", nil, "tslabadmin"]
+        let gatewayNames = ["redmondts.microsoft.com", nil, "ma gateway", "da gateway"]
         var groupIndex = 0
         var imageIndex = 0
         originalBookmarkNodes = []
@@ -452,6 +454,7 @@ protocol BookmarkDirectorySubscriber {
                 bookmark.hostname = "[\(groupIndex), \(i)]"//bookmark.id
                 bookmark.image = imageFile.thumbnail
                 bookmark.username = usernames[Int(arc4random_uniform(UInt32(usernames.count)))]
+                bookmark.gateway = gatewayNames[Int(arc4random_uniform(UInt32(gatewayNames.count)))]
                 date = date.addingTimeInterval(-60 * 60 * 48)
                 bookmark.lastConnected = arc4random_uniform(2) == 0 ? nil : date
                 bookmarkMap[bookmark.id] = bookmark

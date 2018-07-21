@@ -10,6 +10,23 @@ import Cocoa
 
 class BookmarkListViewController: NSViewController {
 
+    struct ColumnHeaderOptions: OptionSet {
+        let rawValue: UInt
+        
+        static let username = ColumnHeaderOptions(rawValue: 1 << 0)
+        static let gateway = ColumnHeaderOptions(rawValue: 1 << 1)
+        static let lastConnected = ColumnHeaderOptions(rawValue: 1 << 2)
+        
+        static let standardOptions: ColumnHeaderOptions = [.username]
+    }
+    
+    enum columnHeaderIdentifier: String {
+        case hostname = "HostnameColumn"
+        case username = "UsernameColumn"
+        case gateway = "GatewayColumn"
+        case lastConnected = "LastConnectedColumn"
+    }
+    
     @IBOutlet weak var outlineView: NSOutlineView!
     weak var bookmarkDirectory: BookmarkDirectory! {
         didSet {
@@ -21,7 +38,10 @@ class BookmarkListViewController: NSViewController {
     }
     let dateFormatter  = DateFormatter()
     var itemsBeingDragged: [BookmarkDirectory.Node]?
+    var columnHeaderOptions = ColumnHeaderOptions.standardOptions
+    var columnMap = [columnHeaderIdentifier: NSTableColumn]()
     
+    @IBOutlet weak var columnHeaderMenu: NSMenu!
     override func viewDidLoad() {
         dateFormatter.dateStyle = .medium
         
@@ -33,6 +53,34 @@ class BookmarkListViewController: NSViewController {
         outlineView.tableColumn(withIdentifier: NSUserInterfaceItemIdentifier("HostnameColumn"))!.sortDescriptorPrototype = NSSortDescriptor(key: "HostnameColumn", ascending: true)
         outlineView.tableColumn(withIdentifier: NSUserInterfaceItemIdentifier("UsernameColumn"))!.sortDescriptorPrototype = NSSortDescriptor(key: "UsernameColumn", ascending: true)
         outlineView.tableColumn(withIdentifier: NSUserInterfaceItemIdentifier("LastConnectedColumn"))!.sortDescriptorPrototype = NSSortDescriptor(key: "LastConnectedColumn", ascending: true)
+    
+        // sync column header options to the menu
+        columnHeaderMenu.item(withTitle: "Username")?.state = columnHeaderOptions.contains(.username) ? .on : .off
+        columnHeaderMenu.item(withTitle: "Gateway")?.state = columnHeaderOptions.contains(.gateway) ? .on : .off
+        columnHeaderMenu.item(withTitle: "Last Connected")?.state = columnHeaderOptions.contains(.lastConnected) ? .on : .off
+        
+        
+        // grab the columns
+        for column in outlineView.tableColumns {
+            if column.identifier == NSUserInterfaceItemIdentifier(rawValue: "UsernameColumn") {
+                columnMap[.username] = column
+            } else if column.identifier == NSUserInterfaceItemIdentifier(rawValue: "GatewayColumn") {
+                columnMap[.gateway] = column
+            } else if column.identifier == NSUserInterfaceItemIdentifier(rawValue: "LastConnectedColumn") {
+                columnMap[.lastConnected] = column
+            }
+        }
+        
+        // sync the options to the columns
+        if !columnHeaderOptions.contains(.username) {
+            outlineView.removeTableColumn(columnMap[.username]!)
+        }
+        if !columnHeaderOptions.contains(.gateway) {
+            outlineView.removeTableColumn(columnMap[.gateway]!)
+        }
+        if !columnHeaderOptions.contains(.lastConnected) {
+            outlineView.removeTableColumn(columnMap[.lastConnected]!)
+        }
     }
     
     @IBAction func menuPressed1(_ sender: Any) {
@@ -40,10 +88,51 @@ class BookmarkListViewController: NSViewController {
     override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
         return true
     }
+    
+    @IBAction func columnHeaderMenuUsernamePressed(_ sender: NSMenuItem) {
+        if columnHeaderOptions.contains(.username) {
+            columnHeaderOptions.remove(.username)
+        } else {
+            columnHeaderOptions.insert(.username)
+        }
+        sender.state = columnHeaderOptions.contains(.username) ? .on : .off
+        if sender.state == .on {
+            outlineView.addTableColumn(columnMap[.username]!)
+        } else {
+            outlineView.removeTableColumn(columnMap[.username]!)
+        }
+    }
+    @IBAction func columnHeaderMenuGatewayPressed(_ sender: NSMenuItem) {
+        if columnHeaderOptions.contains(.gateway) {
+            columnHeaderOptions.remove(.gateway)
+        } else {
+            columnHeaderOptions.insert(.gateway)
+        }
+        sender.state = columnHeaderOptions.contains(.gateway) ? .on : .off
+        if sender.state == .on {
+            outlineView.addTableColumn(columnMap[.gateway]!)
+        } else {
+            outlineView.removeTableColumn(columnMap[.gateway]!)
+        }
+    }
+    @IBAction func columnHeaderMenuLastConnectedPressed(_ sender: NSMenuItem) {
+        if columnHeaderOptions.contains(.lastConnected) {
+            columnHeaderOptions.remove(.lastConnected)
+        } else {
+            columnHeaderOptions.insert(.lastConnected)
+        }
+        sender.state = columnHeaderOptions.contains(.lastConnected) ? .on : .off
+        if sender.state == .on {
+            outlineView.addTableColumn(columnMap[.lastConnected]!)
+        } else {
+            outlineView.removeTableColumn(columnMap[.lastConnected]!)
+        }
+    }
 }
 
 extension BookmarkListViewController: NSOutlineViewDataSource {
     func outlineView(_ outlineView: NSOutlineView, isGroupItem item: Any) -> Bool {
+        return false
         if let node = item as? BookmarkDirectory.Node {
             return node.type == .bookmarkGroup
         }
@@ -129,6 +218,18 @@ extension BookmarkListViewController: NSOutlineViewDelegate {
             default:
                 break
             }
+        } else if column.identifier == NSUserInterfaceItemIdentifier("GatewayColumn") {
+            switch node.type {
+            case .bookmark:
+                let bookmark = bookmarkDirectory.bookmark(withId: node.id)!
+                output = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("GatewayCell"), owner: self) as? NSTableCellView
+                output?.textField?.stringValue = bookmark.gateway ?? ""
+//            case .bookmarkGroup:
+//                output = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("FolderCell"), owner: self) as? NSTableCellView
+//                output?.textField?.stringValue = ""
+            default:
+                break
+            }
         } else if column.identifier == NSUserInterfaceItemIdentifier("LastConnectedColumn") {
             switch node.type {
             case .bookmark:
@@ -158,7 +259,7 @@ extension BookmarkListViewController: NSOutlineViewDelegate {
         }
         
         // apply different row size for different item
-        return node.type == .bookmarkGroup ? 80 : 40
+        return node.type == .bookmarkGroup ? 50 : 40
     }
     ///// collapse and expand /////
     

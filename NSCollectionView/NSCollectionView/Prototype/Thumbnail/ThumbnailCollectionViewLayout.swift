@@ -20,6 +20,8 @@ class ThumbnailCollectionViewLayout: NSCollectionViewLayout {
     open var itemSpacing = CGSize.zero
     open var sectionInset = NSEdgeInsetsZero
     open var delegate: ThumbnailCollectionViewLayoutDelegate?
+    open var fillGapByEnlargingItems = true
+    open var maxEnlargingFactor: CGFloat = 1.3
     
     private var indexPathToAttributeIndex = [IndexPath: Int]()
     private var contentBounds = CGRect.zero
@@ -65,8 +67,36 @@ class ThumbnailCollectionViewLayout: NSCollectionViewLayout {
         if (rightEdge - (leftEdge + CGFloat(itemPerRow) * (itemSize.width + itemSpacing.width))) > itemSize.width {
             itemPerRow += 1
         }
+        
+        if itemPerRow == 0 {
+            return
+        }
+        var actualItemSize = itemSize
+        
+        // determine if there's any gap
+        if fillGapByEnlargingItems {
+            // only enlarge items when at least 1 section has items more than the itemPerRow
+            var doEnlarge = true
+//            for sectionId in 0..<cv.numberOfSections {
+//                if cv.numberOfItems(inSection: sectionId) > itemPerRow {
+//                    doEnlarge = true
+//                    break
+//                }
+//            }
+            var percentMultiplierPerItem: CGFloat = 1
+            if doEnlarge {
+                let itemsRowWidth = (itemSize.width * CGFloat(itemPerRow)) + (itemSpacing.width * CGFloat(itemPerRow - 1))
+                let gap: CGFloat = rightEdge - (leftEdge + itemsRowWidth)
+                let gapPerItem = (gap / CGFloat(itemPerRow))
+                percentMultiplierPerItem = min(maxEnlargingFactor, (gapPerItem / itemSize.width) + 1)
+                
+            }
+            actualItemSize.width = actualItemSize.width * percentMultiplierPerItem
+            actualItemSize.height = actualItemSize.height * percentMultiplierPerItem
+        }
+        
         for sectionId in 0..<cv.numberOfSections {
-
+            
             let headerHeight = delegate.collectionView(cv, layout: self, headerHeightForSection: sectionId)
             let headerAttribute = NSCollectionViewLayoutAttributes(forSupplementaryViewOfKind: .sectionHeader, with: IndexPath(item: 0, section: sectionId))
             headerAttribute.frame = CGRect(x: 0, y: currentY, width: contentBounds.width, height: headerHeight)
@@ -90,12 +120,12 @@ class ThumbnailCollectionViewLayout: NSCollectionViewLayout {
                     currentX = leftEdge
                     
                     // advance y position
-                    currentY += itemSize.height + itemSpacing.height
+                    currentY += actualItemSize.height + itemSpacing.height
                 }
                 
                 // put an item here
                 let itemAttribute = NSCollectionViewLayoutAttributes(forItemWith: IndexPath(item: itemId, section: sectionId))
-                itemAttribute.frame = CGRect(origin: CGPoint(x: currentX, y: currentY), size: itemSize)
+                itemAttribute.frame = CGRect(origin: CGPoint(x: currentX, y: currentY), size: actualItemSize)
                 cachedAttributes.append(itemAttribute)
                 
                 // cache the index
@@ -103,11 +133,11 @@ class ThumbnailCollectionViewLayout: NSCollectionViewLayout {
                 
                 // advance position
                 itemIndexInRow += 1
-                currentX += itemSize.width + itemSpacing.width
+                currentX += actualItemSize.width + itemSpacing.width
             }
             if cv.numberOfItems(inSection: sectionId) > 0 {
                 // last row is done ( if any)
-                currentY += itemSize.height + itemSpacing.height
+                currentY += actualItemSize.height + itemSpacing.height
             }
             
             // add bottom section inset
