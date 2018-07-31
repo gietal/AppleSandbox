@@ -131,11 +131,22 @@ class ThumbnailCollectionViewLayout: NSCollectionViewLayout {
                 // cache the index
                 indexPathToAttributeIndex[IndexPath(item: itemId, section: sectionId)] = cachedAttributes.count - 1
                 
+                // put an interitem gap before this item
+                var gapAttribute = NSCollectionViewLayoutAttributes(forInterItemGapBefore: IndexPath(item: itemId, section: sectionId))
+                gapAttribute.frame = CGRect(origin: CGPoint(x: currentX - itemSpacing.width, y: currentY), size: CGSize(width: itemSpacing.width, height: actualItemSize.height))
+                cachedAttributes.append(gapAttribute)
+                
                 // advance position
                 itemIndexInRow += 1
                 currentX += actualItemSize.width + itemSpacing.width
             }
             if cv.numberOfItems(inSection: sectionId) > 0 {
+                
+                // add inter item gap after the last item
+                var gapAttribute = NSCollectionViewLayoutAttributes(forInterItemGapBefore: IndexPath(item: 0, section: sectionId + 1))
+                gapAttribute.frame = CGRect(origin: CGPoint(x: currentX - itemSpacing.width, y: currentY), size: CGSize(width: itemSpacing.width, height: actualItemSize.height))
+                cachedAttributes.append(gapAttribute)
+                
                 // last row is done ( if any)
                 currentY += actualItemSize.height + itemSpacing.height
             }
@@ -165,6 +176,13 @@ class ThumbnailCollectionViewLayout: NSCollectionViewLayout {
     override func layoutAttributesForItem(at indexPath: IndexPath) -> NSCollectionViewLayoutAttributes? {
         if let index = indexPathToAttributeIndex[indexPath] {
             return cachedAttributes[index]
+        }
+        return nil
+    }
+    
+    override func layoutAttributesForInterItemGap(before indexPath: IndexPath) -> NSCollectionViewLayoutAttributes? {
+        if let index = indexPathToAttributeIndex[indexPath] {
+            return cachedAttributes[index + 1] // interitem gap is always after the item
         }
         return nil
     }
