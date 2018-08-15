@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		882809ED2105609A00AD615E /* GNLOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882809EC2105609A00AD615E /* GNLOutlineView.swift */; };
 		88B1A68520B0DA44007FC30D /* BookmarkDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1A68420B0DA44007FC30D /* BookmarkDirectory.swift */; };
 		88B1A68B20B0EC61007FC30D /* BookmarkThumbnailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1A68A20B0EC61007FC30D /* BookmarkThumbnailViewController.swift */; };
 		88B1A68D20B0ED40007FC30D /* BookmarkThumbnailViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88B1A68C20B0ED40007FC30D /* BookmarkThumbnailViewItem.xib */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		882809EC2105609A00AD615E /* GNLOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GNLOutlineView.swift; sourceTree = "<group>"; };
 		88B1A68420B0DA44007FC30D /* BookmarkDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkDirectory.swift; sourceTree = "<group>"; };
 		88B1A68A20B0EC61007FC30D /* BookmarkThumbnailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkThumbnailViewController.swift; sourceTree = "<group>"; };
 		88B1A68C20B0ED40007FC30D /* BookmarkThumbnailViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookmarkThumbnailViewItem.xib; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				88B1A69820B22A21007FC30D /* BookmarkListViewController.swift */,
+				882809EC2105609A00AD615E /* GNLOutlineView.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				F12A32F420ACE8B90009FBB7 /* ImageFile.swift in Sources */,
 				88B1A69320B0F481007FC30D /* BookmarkThumbnailHeaderView.swift in Sources */,
 				88B1A69920B22A21007FC30D /* BookmarkListViewController.swift in Sources */,
+				882809ED2105609A00AD615E /* GNLOutlineView.swift in Sources */,
 				F111D10F20FEB30D0087D57C /* ThumbnailCollectionViewLayout.swift in Sources */,
 				88B1A69520B10550007FC30D /* Subscribable.swift in Sources */,
 				F13323A020AE6583005E0768 /* GridHeaderView.swift in Sources */,

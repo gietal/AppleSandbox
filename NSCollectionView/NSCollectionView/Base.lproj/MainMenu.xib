@@ -707,7 +707,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="480" height="360"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2048" height="1130"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -762,11 +762,11 @@
                                         <scrollView autohidesScrollers="YES" horizontalLineScroll="20" horizontalPageScroll="10" verticalLineScroll="20" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cu8-gg-iue">
                                             <rect key="frame" x="0.0" y="0.0" width="474" height="286"/>
                                             <clipView key="contentView" drawsBackground="NO" id="l76-Bw-HDg">
-                                                <rect key="frame" x="1" y="0.0" width="472" height="270"/>
+                                                <rect key="frame" x="1" y="0.0" width="472" height="285"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" alternatingRowBackgroundColors="YES" autosaveColumns="NO" typeSelect="NO" rowSizeStyle="automatic" headerView="DAW-QB-a9N" viewBased="YES" indentationPerLevel="16" outlineTableColumn="sEl-JW-K6E" id="VWQ-x2-SX0">
-                                                        <rect key="frame" x="0.0" y="0.0" width="514" height="247"/>
+                                                    <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" alternatingRowBackgroundColors="YES" autosaveColumns="NO" typeSelect="NO" rowSizeStyle="automatic" headerView="DAW-QB-a9N" viewBased="YES" indentationPerLevel="16" outlineTableColumn="sEl-JW-K6E" id="VWQ-x2-SX0" customClass="GNLOutlineView" customModule="NSCollectionView" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="514" height="262"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <size key="intercellSpacing" width="2" height="3"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -859,6 +859,14 @@
                                                                             <outlet property="textField" destination="8hD-T4-7cb" id="Nb0-6p-bmb"/>
                                                                         </connections>
                                                                     </tableCellView>
+                                                                    <button identifier="MyDisclosureButton" id="IaY-Lm-lRO" userLabel="My Custom Button">
+                                                                        <rect key="frame" x="1" y="61" width="181" height="45"/>
+                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSStatusAvailable" imagePosition="only" alignment="center" alternateImage="NSStatusUnavailable" imageScaling="proportionallyUpOrDown" inset="2" id="xLj-xR-wu9">
+                                                                            <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                                                                            <font key="font" metaFont="system"/>
+                                                                        </buttonCell>
+                                                                    </button>
                                                                 </prototypeCellViews>
                                                             </tableColumn>
                                                             <tableColumn identifier="UsernameColumn" width="142" minWidth="40" maxWidth="1000" id="8LK-R1-BNb">
@@ -969,7 +977,7 @@
                                                 <nil key="backgroundColor"/>
                                             </clipView>
                                             <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="7KY-Kn-hnn">
-                                                <rect key="frame" x="1" y="270" width="472" height="15"/>
+                                                <rect key="frame" x="1" y="269" width="472" height="16"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                             <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="aLf-Q9-ALh">
@@ -1103,5 +1111,7 @@
     </objects>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>
+        <image name="NSStatusAvailable" width="16" height="16"/>
+        <image name="NSStatusUnavailable" width="16" height="16"/>
     </resources>
 </document>
