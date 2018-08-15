@@ -426,7 +426,11 @@ protocol BookmarkDirectorySubscriber {
     }
     
     fileprivate func setupBookmarkAndGroup() {
+<<<<<<< Updated upstream
+        let sections = [6, 3, 3]
+=======
         let sections = [8, 6]
+>>>>>>> Stashed changes
         let usernames = ["rdpuser", nil, "tslabadmin"]
         let gatewayNames = ["redmondts.microsoft.com", nil, "ma gateway", "da gateway"]
         var groupIndex = 0

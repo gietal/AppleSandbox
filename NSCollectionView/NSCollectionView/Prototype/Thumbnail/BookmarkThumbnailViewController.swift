@@ -10,48 +10,96 @@ import Foundation
 import Cocoa
 
 class RDCFlowLayout: NSCollectionViewFlowLayout {
+//
+//    fileprivate var expectedItemSize = CGSize.zero
+//    fileprivate var actualItemSize: CGSize {
+//        set {
+//            super.itemSize = newValue
+//        }
+//        get {
+//            return super.itemSize
+//        }
+//    }
+//
+//    open override var itemSize: CGSize {
+//        set {
+//            expectedItemSize = newValue
+//        }
+//        get {
+//            return expectedItemSize
+//        }
+//    }
+//
+//    fileprivate var expectedSectionInset = NSEdgeInsetsZero
+//    fileprivate var actualSectionInset: NSEdgeInsets {
+//        set {
+//            super.sectionInset = newValue
+//        }
+//        get {
+//            return super.sectionInset
+//        }
+//    }
+//    open override var sectionInset: NSEdgeInsets {
+//        set {
+//            expectedSectionInset = newValue
+//        }
+//        get {
+//            return expectedSectionInset
+//        }
+//    }
     
-    override func invalidateLayout() {
-        super.invalidateLayout()
+    open var itemSpacing = CGSize.zero {
+        didSet {
+            super.minimumInteritemSpacing = itemSpacing.width
+            super.minimumLineSpacing = itemSpacing.height
+        }
     }
+    open var fillGapByEnlargingItems = true
+    open var maxEnlargingFactor: CGFloat = 1.3
     
-    var loopCount = 0
-    override func layoutAttributesForElements(in rect: NSRect) -> [NSCollectionViewLayoutAttributes] {
-        var original = super.layoutAttributesForElements(in: rect)
-        var output = [NSCollectionViewLayoutAttributes]()
-        
-        if original.count == 0 {
-            return original
+    open var expectedItemSize = CGSize.zero
+    private var contentBounds = CGRect.zero
+    override func prepare() {
+        guard let cv = collectionView else {
+            return
         }
         
-        // left align
-        var startX = sectionInset.left
-        var startY = CGFloat.leastNormalMagnitude // CGFLOAT_MIN
+        // setup normally
+        itemSize = expectedItemSize
+//        actualSectionInset = expectedSectionInset
         
-        for attribute in original  {
-            if attribute.representedElementCategory != .item {
-                output.append(attribute)
-                continue
+        // modify
+        if fillGapByEnlargingItems {
+            contentBounds = CGRect(origin: CGPoint.zero, size: cv.bounds.size)
+            let leftEdge = sectionInset.left
+            let rightEdge = contentBounds.width - sectionInset.right
+            
+            var itemPerRow = (Int)((contentBounds.width - sectionInset.left - sectionInset.right) / (itemSize.width + itemSpacing.width))
+            
+            if (rightEdge - (leftEdge + CGFloat(itemPerRow) * (itemSize.width + itemSpacing.width))) > itemSize.width {
+                itemPerRow += 1
             }
             
-            let originalPos = attribute.frame.origin
-            if startY != originalPos.y {
-                // we started on a new column, reset x position
-                startY = originalPos.y
-                startX = sectionInset.left
+            if itemPerRow == 0 {
+                return
             }
             
-            attribute.frame.origin = CGPoint(x: startX, y: startY)
-            startX += attribute.frame.width + minimumInteritemSpacing
+            var percentMultiplierPerItem: CGFloat = 1
+            let itemsRowWidth = (itemSize.width * CGFloat(itemPerRow)) + (itemSpacing.width * CGFloat(itemPerRow - 1))
+            let gap: CGFloat = rightEdge - (leftEdge + itemsRowWidth)
+            let gapPerItem = (gap / CGFloat(itemPerRow))
+            percentMultiplierPerItem = min(maxEnlargingFactor, (gapPerItem / itemSize.width) + 1)
+
+            estimatedItemSize.width = expectedItemSize.width * percentMultiplierPerItem
+            estimatedItemSize.height = expectedItemSize.height * percentMultiplierPerItem
             
-            output.append(attribute)
         }
         
-        return output
+        super.prepare()
     }
     
-    override func layoutAttributesForItem(at indexPath: IndexPath) -> NSCollectionViewLayoutAttributes? {
-        return super.layoutAttributesForItem(at: indexPath)
+    override func shouldInvalidateLayout(forBoundsChange newBounds: NSRect) -> Bool {
+        return true
     }
 }
 
@@ -83,11 +131,15 @@ class BookmarkThumbnailViewController: NSViewController {
         flowLayout.minimumLineSpacing = 20.0
         flowLayout.sectionHeadersPinToVisibleBounds = true
         
+        flowLayout.expectedItemSize = CGSize(width: 160, height: 140)
+//        flowLayout.estimatedItemSize = flowLayout.itemSize
+        flowLayout.itemSpacing = CGSize(width: 20, height: 20)
+        
         thumbnailLayout.itemSize = CGSize(width: 160, height: 140)
         thumbnailLayout.delegate = self
         thumbnailLayout.sectionInset = flowLayout.sectionInset
         thumbnailLayout.itemSpacing = CGSize(width: 20, height: 20)
-        collectionView.collectionViewLayout = thumbnailLayout// flowLayout
+        collectionView.collectionViewLayout = thumbnailLayout
         // 2
         view.wantsLayer = true
         collectionView.wantsLayer = true
@@ -219,14 +271,14 @@ extension BookmarkThumbnailViewController: NSCollectionViewDelegateFlowLayout {
         return NSSize(width: 100, height: 40)
     }
     
-    func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> NSSize {
-        if numberOfItems(inSection: indexPath.section) == 0 {
-            // dummy
-            return NSSize(width: 0.0, height: 140.0)
-        } else {
-            return NSSize(width: 160.0, height: 140.0)
-        }
-    }
+//    func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> NSSize {
+//        if numberOfItems(inSection: indexPath.section) == 0 {
+//            // dummy
+//            return NSSize(width: 0.0, height: 140.0)
+//        } else {
+//            return NSSize(width: 160.0, height: 140.0)
+//        }
+//    }
     
 }
 
@@ -235,10 +287,6 @@ extension BookmarkThumbnailViewController: NSCollectionViewDelegate {
     //////// this part, allows the collectionview to act as Drag Source, so items can bepicked up from ////////
     
     // allow dragging item
-    func collectionView(_ collectionView: NSCollectionView, canDragItemsAt indexes: IndexSet, with event: NSEvent) -> Bool {
-        return true
-    }
-    
     func collectionView(_ collectionView: NSCollectionView, canDragItemsAt indexPaths: Set<IndexPath>, with event: NSEvent) -> Bool {
         return true
     }

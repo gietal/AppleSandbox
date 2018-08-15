@@ -26,6 +26,8 @@ class ThumbnailCollectionViewLayout: NSCollectionViewLayout {
     private var indexPathToAttributeIndex = [IndexPath: Int]()
     private var contentBounds = CGRect.zero
     private var cachedAttributes = [NSCollectionViewLayoutAttributes]()
+    private var dropTargetAreas = [IndexPath: CGRect]()
+    private var actualItemSize = CGSize.zero
     
     override func prepare() {
         // called everytime layout is invalidated
@@ -40,6 +42,7 @@ class ThumbnailCollectionViewLayout: NSCollectionViewLayout {
         // reset cache
         cachedAttributes.removeAll()
         indexPathToAttributeIndex.removeAll()
+        dropTargetAreas.removeAll()
         contentBounds = CGRect(origin: CGPoint.zero, size: cv.bounds.size)
         
         createAttributes()
@@ -71,7 +74,9 @@ class ThumbnailCollectionViewLayout: NSCollectionViewLayout {
         if itemPerRow == 0 {
             return
         }
-        var actualItemSize = itemSize
+        
+        // reset actual item size
+        actualItemSize = itemSize
         
         // determine if there's any gap
         if fillGapByEnlargingItems {
@@ -116,6 +121,10 @@ class ThumbnailCollectionViewLayout: NSCollectionViewLayout {
                 if itemIndexInRow == itemPerRow {
                     itemIndexInRow = 0
                     
+                    // add a drop target area to allow dropping after the last item on a row
+                    let dropSectionX = currentX - itemSpacing.width
+                    dropTargetAreas[IndexPath(item: itemId, section: sectionId)] = CGRect(x: dropSectionX , y: currentY, width: actualItemSize.width, height: actualItemSize.height)
+                    
                     // reset x position
                     currentX = leftEdge
                     
@@ -131,25 +140,20 @@ class ThumbnailCollectionViewLayout: NSCollectionViewLayout {
                 // cache the index
                 indexPathToAttributeIndex[IndexPath(item: itemId, section: sectionId)] = cachedAttributes.count - 1
                 
-                // put an interitem gap before this item
-                var gapAttribute = NSCollectionViewLayoutAttributes(forInterItemGapBefore: IndexPath(item: itemId, section: sectionId))
-                gapAttribute.frame = CGRect(origin: CGPoint(x: currentX - itemSpacing.width, y: currentY), size: CGSize(width: itemSpacing.width, height: actualItemSize.height))
-                cachedAttributes.append(gapAttribute)
-                
                 // advance position
                 itemIndexInRow += 1
                 currentX += actualItemSize.width + itemSpacing.width
             }
+            
             if cv.numberOfItems(inSection: sectionId) > 0 {
                 
-                // add inter item gap after the last item
-                var gapAttribute = NSCollectionViewLayoutAttributes(forInterItemGapBefore: IndexPath(item: 0, section: sectionId + 1))
-                gapAttribute.frame = CGRect(origin: CGPoint(x: currentX - itemSpacing.width, y: currentY), size: CGSize(width: itemSpacing.width, height: actualItemSize.height))
-                cachedAttributes.append(gapAttribute)
+                // add a drop target area to allow dropping after the last item on the section
+                dropTargetAreas[IndexPath(item: cv.numberOfItems(inSection: sectionId), section: sectionId)] = CGRect(x: currentX, y: currentY, width: rightEdge - currentX, height: actualItemSize.height)
                 
                 // last row is done ( if any)
                 currentY += actualItemSize.height + itemSpacing.height
             }
+            
             
             // add bottom section inset
             currentY += sectionInset.bottom
@@ -182,7 +186,39 @@ class ThumbnailCollectionViewLayout: NSCollectionViewLayout {
     
     override func layoutAttributesForInterItemGap(before indexPath: IndexPath) -> NSCollectionViewLayoutAttributes? {
         if let index = indexPathToAttributeIndex[indexPath] {
-            return cachedAttributes[index + 1] // interitem gap is always after the item
+            // gap is before the item
+            let itemAttribute = cachedAttributes[index]
+            let gapAttribute = NSCollectionViewLayoutAttributes(forInterItemGapBefore: indexPath)
+            gapAttribute.frame.origin = CGPoint(x: itemAttribute.frame.minX - itemSpacing.width, y: itemAttribute.frame.minY)
+            gapAttribute.frame.size = CGSize(width: itemSpacing.width, height: itemAttribute.frame.height)
+            return gapAttribute
+        } else if let index = indexPathToAttributeIndex[IndexPath(item: indexPath.item-1, section: indexPath.section)] {
+            // gap is after the item (only happen at the end of collection view)
+            // so we create an inter item gap after the last item all the way to the right-most side of the collection
+            let itemAttribute = cachedAttributes[index]
+            let gapAttribute = NSCollectionViewLayoutAttributes(forInterItemGapBefore: indexPath)
+            gapAttribute.frame.origin = CGPoint(x: itemAttribute.frame.minX + itemAttribute.frame.width, y: itemAttribute.frame.minY)
+            gapAttribute.frame.size = CGSize(width: itemSpacing.width, height: itemAttribute.frame.height)
+            return gapAttribute
+        }
+        return nil
+    }
+    
+    override func layoutAttributesForDropTarget(at pointInCollectionView: NSPoint) -> NSCollectionViewLayoutAttributes? {
+        guard let cv = collectionView else {
+            return nil
+        }
+        
+        // let super find a suitable drop target if possible
+        if let dropAttribute = super.layoutAttributesForDropTarget(at: pointInCollectionView) {
+            return dropAttribute
+        }
+        
+        // otherwise, check all our extra drop targets
+        if let kvp = dropTargetAreas.filter( { (_, areaRect) -> Bool in
+            return areaRect.contains(pointInCollectionView)
+        }).first {
+            return NSCollectionViewLayoutAttributes(forInterItemGapBefore: kvp.key)
         }
         return nil
     }

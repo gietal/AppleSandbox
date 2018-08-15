@@ -44,3 +44,32 @@ extension NSCollectionView.DropOperation: CustomDebugStringConvertible {
         return "unknown"
     }
 }
+
+extension NSDragOperation: CustomDebugStringConvertible {
+    public var debugDescription: String {
+        if self == .none {
+            return "none"
+        }
+        
+        var output = ""
+        if self.contains(.copy) {
+            output += "copy | "
+        }
+        if self.contains(.link) {
+            output += "link | "
+        }
+        if self.contains(.private) {
+            output += "private | "
+        }
+        if self.contains(.move) {
+            output += "move | "
+        }
+        if self.contains(.delete) {
+            output += "delete | "
+        }
+        if self.contains(.every) {
+            output += "every | "
+        }
+        return output
+    }
+}

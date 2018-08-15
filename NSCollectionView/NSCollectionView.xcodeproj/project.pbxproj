@@ -24,6 +24,7 @@
 		F12A32F620ACE9AB0009FBB7 /* CollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = F12A32F520ACE9AB0009FBB7 /* CollectionViewItem.xib */; };
 		F133239E20AE650C005E0768 /* GridHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F133239D20AE650B005E0768 /* GridHeaderView.xib */; };
 		F13323A020AE6583005E0768 /* GridHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F133239F20AE6583005E0768 /* GridHeaderView.swift */; };
+		F1B71ED52110D5D10075A484 /* GNLCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B71ED42110D5D10075A484 /* GNLCollectionView.swift */; };
 		F1D2A86A20AA9A6200169D47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2A86920AA9A6200169D47 /* AppDelegate.swift */; };
 		F1D2A86C20AA9A6300169D47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1D2A86B20AA9A6300169D47 /* Assets.xcassets */; };
 		F1D2A86F20AA9A6300169D47 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1D2A86D20AA9A6300169D47 /* MainMenu.xib */; };
@@ -48,6 +49,7 @@
 		F12A32F520ACE9AB0009FBB7 /* CollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewItem.xib; sourceTree = "<group>"; };
 		F133239D20AE650B005E0768 /* GridHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GridHeaderView.xib; sourceTree = "<group>"; };
 		F133239F20AE6583005E0768 /* GridHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridHeaderView.swift; sourceTree = "<group>"; };
+		F1B71ED42110D5D10075A484 /* GNLCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GNLCollectionView.swift; sourceTree = "<group>"; };
 		F1D2A86620AA9A6200169D47 /* NSCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D2A86920AA9A6200169D47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1D2A86B20AA9A6300169D47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				88B1A69220B0F481007FC30D /* BookmarkThumbnailHeaderView.swift */,
 				F1276A4520BE21820061CAC9 /* BookmarkThumbnailDummyItem.xib */,
 				F111D10E20FEB30D0087D57C /* ThumbnailCollectionViewLayout.swift */,
+				F1B71ED42110D5D10075A484 /* GNLCollectionView.swift */,
 			);
 			path = Thumbnail;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1B71ED52110D5D10075A484 /* GNLCollectionView.swift in Sources */,
 				F12A32F320ACE8B90009FBB7 /* ImageDirectoryLoader.swift in Sources */,
 				88B1A68520B0DA44007FC30D /* BookmarkDirectory.swift in Sources */,
 				88B1A69120B0EF3C007FC30D /* BookmarkThumbnailViewItem.swift in Sources */,
