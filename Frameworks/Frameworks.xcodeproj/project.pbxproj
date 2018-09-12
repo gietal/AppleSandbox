@@ -33,6 +33,13 @@
 			remoteGlobalIDString = F195116C214891FD0001DC27;
 			remoteInfo = MyFramework;
 		};
+		F195119A2148979B0001DC27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F124781321472057006B5610 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F124784121472076006B5610;
+			remoteInfo = CLI;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -76,6 +83,8 @@
 		F195116F214891FE0001DC27 /* MyFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyFramework.h; sourceTree = "<group>"; };
 		F1951170214891FE0001DC27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F19511792148924C0001DC27 /* Foo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foo.swift; sourceTree = "<group>"; };
+		F1951194214897540001DC27 /* CLI.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CLI.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1951196214897540001DC27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +111,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F1951191214897540001DC27 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -110,6 +126,7 @@
 			children = (
 				F124784321472076006B5610 /* CLI */,
 				F195116E214891FE0001DC27 /* MyFramework */,
+				F1951195214897540001DC27 /* CLIBundle */,
 				F124781D21472057006B5610 /* Frameworks */,
 				F124781C21472057006B5610 /* Products */,
 			);
@@ -121,6 +138,7 @@
 				F124781B21472057006B5610 /* Frameworks.app */,
 				F124784221472076006B5610 /* CLI */,
 				F195116D214891FD0001DC27 /* MyFramework.framework */,
+				F1951194214897540001DC27 /* CLI.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -158,6 +176,14 @@
 				F19511792148924C0001DC27 /* Foo.swift */,
 			);
 			path = MyFramework;
+			sourceTree = "<group>";
+		};
+		F1951195214897540001DC27 /* CLIBundle */ = {
+			isa = PBXGroup;
+			children = (
+				F1951196214897540001DC27 /* Info.plist */,
+			);
+			path = CLIBundle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +255,24 @@
 			productReference = F195116D214891FD0001DC27 /* MyFramework.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		F1951193214897540001DC27 /* CLIBundle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1951197214897540001DC27 /* Build configuration list for PBXNativeTarget "CLIBundle" */;
+			buildPhases = (
+				F1951190214897540001DC27 /* Sources */,
+				F1951191214897540001DC27 /* Frameworks */,
+				F1951192214897540001DC27 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F195119B2148979B0001DC27 /* PBXTargetDependency */,
+			);
+			name = CLIBundle;
+			productName = CLIBundle;
+			productReference = F1951194214897540001DC27 /* CLI.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -249,6 +293,9 @@
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 0940;
 					};
+					F1951193214897540001DC27 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
 				};
 			};
 			buildConfigurationList = F124781621472057006B5610 /* Build configuration list for PBXProject "Frameworks" */;
@@ -267,6 +314,7 @@
 				F124781A21472057006B5610 /* Frameworks */,
 				F124784121472076006B5610 /* CLI */,
 				F195116C214891FD0001DC27 /* MyFramework */,
+				F1951193214897540001DC27 /* CLIBundle */,
 			);
 		};
 /* End PBXProject section */
@@ -282,6 +330,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F195116B214891FD0001DC27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1951192214897540001DC27 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -315,6 +370,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F1951190214897540001DC27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -327,6 +389,11 @@
 			isa = PBXTargetDependency;
 			target = F195116C214891FD0001DC27 /* MyFramework */;
 			targetProxy = F1951172214891FE0001DC27 /* PBXContainerItemProxy */;
+		};
+		F195119B2148979B0001DC27 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F124784121472076006B5610 /* CLI */;
+			targetProxy = F195119A2148979B0001DC27 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -505,7 +572,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DTT6RZZAQ3;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/MyFramework.Framework/Versions/Current/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/$(PRODUCT_NAME).bundle/Contents/Frameworks",
+					"@executable_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -521,7 +592,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DTT6RZZAQ3;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/MyFramework.Framework/Versions/Current/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/$(PRODUCT_NAME).bundle/Contents/Frameworks",
+					"@executable_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -596,6 +671,38 @@
 			};
 			name = Release;
 		};
+		F1951198214897540001DC27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = DTT6RZZAQ3;
+				INFOPLIST_FILE = CLIBundle/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.CLIBundle;
+				PRODUCT_NAME = CLI;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		F1951199214897540001DC27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = DTT6RZZAQ3;
+				INFOPLIST_FILE = CLIBundle/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.CLIBundle;
+				PRODUCT_NAME = CLI;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -631,6 +738,15 @@
 			buildConfigurations = (
 				F1951177214891FE0001DC27 /* Debug */,
 				F1951178214891FE0001DC27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1951197214897540001DC27 /* Build configuration list for PBXNativeTarget "CLIBundle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1951198214897540001DC27 /* Debug */,
+				F1951199214897540001DC27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
