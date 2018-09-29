@@ -178,8 +178,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let blob = NSImage(named: NSImage.Name(rawValue: "image\(imageIndex)"))?.tiffRepresentation {
             entity.setValue(blob, forKey: "image")
         }
-        // toggle image on each save
-        imageIndex = (imageIndex + 1) % 2
+
+        // ---- CORE DATA BUG ? -----
+        // when the data blob is toggled for each save,
+        // the external storage file under .CoreDataPlayground_SUPPORT⁩/_EXTERNAL_DATA is deleted properly
+        // however, when the data blob is changed for each save, the file under .CoreDataPlayground_SUPPORT⁩/_EXTERNAL_DATA is not deleted properly
+        // uncomment the line below to toggle the stored image each time the save button is pressed.
+//        imageIndex = (imageIndex + 1) % 2
         
         return entity
     }
