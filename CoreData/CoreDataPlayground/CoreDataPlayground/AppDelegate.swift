@@ -13,11 +13,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
 
-
+    @IBOutlet weak var imageView: NSImageView!
+    var imageIndex = 0
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        
+        // update image
+//        updateDisplayImage(entity: getDataEntity())
     }
-
+    
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
@@ -58,7 +63,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let context = persistentContainer.viewContext
 
         // put data onto the scrathpad
-        let entity = updateDataEntity(getDataEntity())
+        let entity = getDataEntity()
+        updateDataEntity(entity)
+        
+        // update image
+        updateDisplayImage(entity: entity)
         
         if !context.commitEditing() {
             NSLog("\(NSStringFromClass(type(of: self))) unable to commit editing before saving")
@@ -122,6 +131,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return .terminateNow
     }
     
+    func updateDisplayImage(entity: NSManagedObject) {
+        if let data = entity.value(forKey: "image") as? Data, let image = NSImage(data: data) {
+            imageView.image = image
+        } else {
+            imageView.image = nil
+        }
+    }
+    
     func getDataEntity() -> NSManagedObject {
         // get the persistent store context
         let context = persistentContainer.viewContext
@@ -129,7 +146,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // try to fetch
         // if exist, return
         // else create new entity
-        var fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "DataEntity")
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "DataEntity")
         fetchRequest.predicate = NSPredicate(format: "id == 1234")
         fetchRequest.fetchLimit = 1
         do {
@@ -149,17 +166,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // create an instance of the entity in the context from the description
         let entity = NSManagedObject(entity: entityDescription, insertInto: context)
         
+        // set id
+        entity.setValue("1234", forKey: "id")
+        
         return entity
     }
     
     func updateDataEntity(_ entity: NSManagedObject) -> NSManagedObject {
-        // set id
-        entity.setValue("1234", forKey: "id")
-        
+
         // set image as blob
-        if let blob = NSImage(named: "SampleBackground")?.tiffRepresentation {
+        if let blob = NSImage(named: NSImage.Name(rawValue: "image\(imageIndex)"))?.tiffRepresentation {
             entity.setValue(blob, forKey: "image")
         }
+        // toggle image on each save
+        imageIndex = (imageIndex + 1) % 2
         
         return entity
     }
