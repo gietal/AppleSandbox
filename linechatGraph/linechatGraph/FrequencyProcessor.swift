@@ -14,6 +14,8 @@ class FrequencyProcessor: MessageProcessor {
     var weekday = [Int: [Int]]()
     var hour = [Int: [Int]]()
     
+    var yearMonth = [Int: [Int: [Int]]]()
+    
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     let weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     init() {
@@ -34,6 +36,12 @@ class FrequencyProcessor: MessageProcessor {
         if year[message.date.year!] == nil {
             year[message.date.year!] = [0,0]
         }
+        if yearMonth[message.date.year!] == nil {
+            yearMonth[message.date.year!] = [:]
+        }
+        if yearMonth[message.date.year!]![message.date.month!] == nil {
+            yearMonth[message.date.year!]![message.date.month!] = [0,0]
+        }
     }
     
     func process(message: MessageItem) {
@@ -43,6 +51,7 @@ class FrequencyProcessor: MessageProcessor {
         month[message.date.month!]![message.sender.rawValue] += 1
         weekday[message.date.weekday!]![message.sender.rawValue] += 1
         hour[message.date.hour!]![message.sender.rawValue] += 1
+        yearMonth[message.date.year!]![message.date.month!]![message.sender.rawValue] += 1
     }
     
     func printOutput() {
@@ -71,6 +80,19 @@ class FrequencyProcessor: MessageProcessor {
         print("hour, me, you")
         for k in hour.keys.sorted() {
             print("\(k), \(hour[k]![me]), \(hour[k]![you])")
+        }
+        print("")
+        
+        print("date-month, me, you")
+        let yearsKey = year.keys.sorted()
+        let monthsKey = month.keys.sorted()
+        for y in yearsKey {
+            for m in monthsKey {
+                if let counter = yearMonth[y]?[m] {
+                    print("\(y)-\(m), \(counter[me]), \(counter[you])")
+                }
+                
+            }
         }
         print("")
     }
