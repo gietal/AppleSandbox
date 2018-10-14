@@ -10,7 +10,7 @@ import Foundation
 class WordProcessor: MessageProcessor {
     var words = [String: [UInt]]()
     let delimiters: CharacterSet = [" ", ".", ",", "\"", "\t", "?", "!", ":", "(", ")"]
-    let topWordCount = 10
+    let topWordCount = 20
     
     func process(message: MessageItem) {
         for w in message.messageLowered.components(separatedBy: delimiters) {
