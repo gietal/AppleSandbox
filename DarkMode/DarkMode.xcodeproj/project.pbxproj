@@ -7,25 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8834945E216017CB00579EC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8834945D216017CB00579EC4 /* AppDelegate.swift */; };
-		88349461216017CB00579EC4 /* CoreDataPlayground.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8834945F216017CB00579EC4 /* CoreDataPlayground.xcdatamodeld */; };
-		88349466216017CB00579EC4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88349464216017CB00579EC4 /* MainMenu.xib */; };
-		8834946F216019CD00579EC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8834946E216019CD00579EC4 /* Assets.xcassets */; };
+		8868DFE3216D6FCD00343361 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8868DFE2216D6FCD00343361 /* AppDelegate.swift */; };
+		8868DFE5216D6FCE00343361 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8868DFE4216D6FCE00343361 /* Assets.xcassets */; };
+		8868DFE8216D6FCE00343361 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8868DFE6216D6FCE00343361 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8834945A216017CB00579EC4 /* CoreDataPlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataPlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8834945D216017CB00579EC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		88349460216017CB00579EC4 /* CoreDataPlayground.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataPlayground.xcdatamodel; sourceTree = "<group>"; };
-		88349465216017CB00579EC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		88349467216017CB00579EC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		88349468216017CB00579EC4 /* CoreDataPlayground.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoreDataPlayground.entitlements; sourceTree = "<group>"; };
-		8834946E216019CD00579EC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8868DFD5216AB9F800343361 /* CoreDataPlayground 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreDataPlayground 2.xcdatamodel"; sourceTree = "<group>"; };
+		8868DFDF216D6FCD00343361 /* DarkMode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DarkMode.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8868DFE2216D6FCD00343361 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8868DFE4216D6FCE00343361 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8868DFE7216D6FCE00343361 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		8868DFE9216D6FCE00343361 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8868DFEA216D6FCE00343361 /* DarkMode.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DarkMode.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		88349457216017CA00579EC4 /* Frameworks */ = {
+		8868DFDC216D6FCD00343361 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -35,71 +32,70 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		88349451216017CA00579EC4 = {
+		8868DFD6216D6FCD00343361 = {
 			isa = PBXGroup;
 			children = (
-				8834945C216017CB00579EC4 /* CoreDataPlayground */,
-				8834945B216017CB00579EC4 /* Products */,
+				8868DFE1216D6FCD00343361 /* DarkMode */,
+				8868DFE0216D6FCD00343361 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		8834945B216017CB00579EC4 /* Products */ = {
+		8868DFE0216D6FCD00343361 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8834945A216017CB00579EC4 /* CoreDataPlayground.app */,
+				8868DFDF216D6FCD00343361 /* DarkMode.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8834945C216017CB00579EC4 /* CoreDataPlayground */ = {
+		8868DFE1216D6FCD00343361 /* DarkMode */ = {
 			isa = PBXGroup;
 			children = (
-				8834945D216017CB00579EC4 /* AppDelegate.swift */,
-				88349464216017CB00579EC4 /* MainMenu.xib */,
-				88349467216017CB00579EC4 /* Info.plist */,
-				88349468216017CB00579EC4 /* CoreDataPlayground.entitlements */,
-				8834945F216017CB00579EC4 /* CoreDataPlayground.xcdatamodeld */,
-				8834946E216019CD00579EC4 /* Assets.xcassets */,
+				8868DFE2216D6FCD00343361 /* AppDelegate.swift */,
+				8868DFE4216D6FCE00343361 /* Assets.xcassets */,
+				8868DFE6216D6FCE00343361 /* MainMenu.xib */,
+				8868DFE9216D6FCE00343361 /* Info.plist */,
+				8868DFEA216D6FCE00343361 /* DarkMode.entitlements */,
 			);
-			path = CoreDataPlayground;
+			path = DarkMode;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		88349459216017CA00579EC4 /* CoreDataPlayground */ = {
+		8868DFDE216D6FCD00343361 /* DarkMode */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8834946B216017CB00579EC4 /* Build configuration list for PBXNativeTarget "CoreDataPlayground" */;
+			buildConfigurationList = 8868DFED216D6FCE00343361 /* Build configuration list for PBXNativeTarget "DarkMode" */;
 			buildPhases = (
-				88349456216017CA00579EC4 /* Sources */,
-				88349457216017CA00579EC4 /* Frameworks */,
-				88349458216017CA00579EC4 /* Resources */,
+				8868DFDB216D6FCD00343361 /* Sources */,
+				8868DFDC216D6FCD00343361 /* Frameworks */,
+				8868DFDD216D6FCD00343361 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = CoreDataPlayground;
-			productName = CoreDataPlayground;
-			productReference = 8834945A216017CB00579EC4 /* CoreDataPlayground.app */;
+			name = DarkMode;
+			productName = DarkMode;
+			productReference = 8868DFDF216D6FCD00343361 /* DarkMode.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		88349452216017CA00579EC4 /* Project object */ = {
+		8868DFD7216D6FCD00343361 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = gietal;
 				TargetAttributes = {
-					88349459216017CA00579EC4 = {
+					8868DFDE216D6FCD00343361 = {
 						CreatedOnToolsVersion = 10.0;
 					};
 				};
 			};
-			buildConfigurationList = 88349455216017CA00579EC4 /* Build configuration list for PBXProject "CoreDataPlayground" */;
+			buildConfigurationList = 8868DFDA216D6FCD00343361 /* Build configuration list for PBXProject "DarkMode" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -107,45 +103,44 @@
 				en,
 				Base,
 			);
-			mainGroup = 88349451216017CA00579EC4;
-			productRefGroup = 8834945B216017CB00579EC4 /* Products */;
+			mainGroup = 8868DFD6216D6FCD00343361;
+			productRefGroup = 8868DFE0216D6FCD00343361 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				88349459216017CA00579EC4 /* CoreDataPlayground */,
+				8868DFDE216D6FCD00343361 /* DarkMode */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		88349458216017CA00579EC4 /* Resources */ = {
+		8868DFDD216D6FCD00343361 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8834946F216019CD00579EC4 /* Assets.xcassets in Resources */,
-				88349466216017CB00579EC4 /* MainMenu.xib in Resources */,
+				8868DFE5216D6FCE00343361 /* Assets.xcassets in Resources */,
+				8868DFE8216D6FCE00343361 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		88349456216017CA00579EC4 /* Sources */ = {
+		8868DFDB216D6FCD00343361 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8834945E216017CB00579EC4 /* AppDelegate.swift in Sources */,
-				88349461216017CB00579EC4 /* CoreDataPlayground.xcdatamodeld in Sources */,
+				8868DFE3216D6FCD00343361 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		88349464216017CB00579EC4 /* MainMenu.xib */ = {
+		8868DFE6216D6FCE00343361 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				88349465216017CB00579EC4 /* Base */,
+				8868DFE7216D6FCE00343361 /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -153,7 +148,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		88349469216017CB00579EC4 /* Debug */ = {
+		8868DFEB216D6FCE00343361 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -214,7 +209,7 @@
 			};
 			name = Debug;
 		};
-		8834946A216017CB00579EC4 /* Release */ = {
+		8868DFEC216D6FCE00343361 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -268,80 +263,64 @@
 			};
 			name = Release;
 		};
-		8834946C216017CB00579EC4 /* Debug */ = {
+		8868DFEE216D6FCE00343361 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = CoreDataPlayground/CoreDataPlayground.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DarkMode/DarkMode.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = CoreDataPlayground/Info.plist;
+				INFOPLIST_FILE = DarkMode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.CoreDataPlayground;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.DarkMode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
-		8834946D216017CB00579EC4 /* Release */ = {
+		8868DFEF216D6FCE00343361 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = CoreDataPlayground/CoreDataPlayground.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DarkMode/DarkMode.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = CoreDataPlayground/Info.plist;
+				INFOPLIST_FILE = DarkMode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.CoreDataPlayground;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.DarkMode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		88349455216017CA00579EC4 /* Build configuration list for PBXProject "CoreDataPlayground" */ = {
+		8868DFDA216D6FCD00343361 /* Build configuration list for PBXProject "DarkMode" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				88349469216017CB00579EC4 /* Debug */,
-				8834946A216017CB00579EC4 /* Release */,
+				8868DFEB216D6FCE00343361 /* Debug */,
+				8868DFEC216D6FCE00343361 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8834946B216017CB00579EC4 /* Build configuration list for PBXNativeTarget "CoreDataPlayground" */ = {
+		8868DFED216D6FCE00343361 /* Build configuration list for PBXNativeTarget "DarkMode" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8834946C216017CB00579EC4 /* Debug */,
-				8834946D216017CB00579EC4 /* Release */,
+				8868DFEE216D6FCE00343361 /* Debug */,
+				8868DFEF216D6FCE00343361 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		8834945F216017CB00579EC4 /* CoreDataPlayground.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				8868DFD5216AB9F800343361 /* CoreDataPlayground 2.xcdatamodel */,
-				88349460216017CB00579EC4 /* CoreDataPlayground.xcdatamodel */,
-			);
-			currentVersion = 88349460216017CB00579EC4 /* CoreDataPlayground.xcdatamodel */;
-			path = CoreDataPlayground.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
-	rootObject = 88349452216017CA00579EC4 /* Project object */;
+	rootObject = 8868DFD7216D6FCD00343361 /* Project object */;
 }

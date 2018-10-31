@@ -7,25 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8834945E216017CB00579EC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8834945D216017CB00579EC4 /* AppDelegate.swift */; };
-		88349461216017CB00579EC4 /* CoreDataPlayground.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8834945F216017CB00579EC4 /* CoreDataPlayground.xcdatamodeld */; };
-		88349466216017CB00579EC4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88349464216017CB00579EC4 /* MainMenu.xib */; };
-		8834946F216019CD00579EC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8834946E216019CD00579EC4 /* Assets.xcassets */; };
+		8868DFC0216AB18800343361 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8868DFBF216AB18800343361 /* AppDelegate.swift */; };
+		8868DFC2216AB18800343361 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8868DFC1216AB18800343361 /* Assets.xcassets */; };
+		8868DFC5216AB18800343361 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8868DFC3216AB18800343361 /* MainMenu.xib */; };
+		8868DFCE216AB1BA00343361 /* generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8868DFCD216AB1BA00343361 /* generated.swift */; };
+		8868DFD1216AB38400343361 /* prebuildOutputFiles.xcfilelist in Resources */ = {isa = PBXBuildFile; fileRef = 8868DFD0216AB38400343361 /* prebuildOutputFiles.xcfilelist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8834945A216017CB00579EC4 /* CoreDataPlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataPlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8834945D216017CB00579EC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		88349460216017CB00579EC4 /* CoreDataPlayground.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataPlayground.xcdatamodel; sourceTree = "<group>"; };
-		88349465216017CB00579EC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		88349467216017CB00579EC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		88349468216017CB00579EC4 /* CoreDataPlayground.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoreDataPlayground.entitlements; sourceTree = "<group>"; };
-		8834946E216019CD00579EC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8868DFD5216AB9F800343361 /* CoreDataPlayground 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreDataPlayground 2.xcdatamodel"; sourceTree = "<group>"; };
+		8868DFBC216AB18800343361 /* OutputFile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OutputFile.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8868DFBF216AB18800343361 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8868DFC1216AB18800343361 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8868DFC4216AB18800343361 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		8868DFC6216AB18800343361 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8868DFC7216AB18800343361 /* OutputFile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OutputFile.entitlements; sourceTree = "<group>"; };
+		8868DFCD216AB1BA00343361 /* generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = generated.swift; sourceTree = "<group>"; };
+		8868DFD0216AB38400343361 /* prebuildOutputFiles.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = prebuildOutputFiles.xcfilelist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		88349457216017CA00579EC4 /* Frameworks */ = {
+		8868DFB9216AB18800343361 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -35,71 +36,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		88349451216017CA00579EC4 = {
+		8868DFB3216AB18800343361 = {
 			isa = PBXGroup;
 			children = (
-				8834945C216017CB00579EC4 /* CoreDataPlayground */,
-				8834945B216017CB00579EC4 /* Products */,
+				8868DFBE216AB18800343361 /* OutputFile */,
+				8868DFBD216AB18800343361 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		8834945B216017CB00579EC4 /* Products */ = {
+		8868DFBD216AB18800343361 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8834945A216017CB00579EC4 /* CoreDataPlayground.app */,
+				8868DFBC216AB18800343361 /* OutputFile.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8834945C216017CB00579EC4 /* CoreDataPlayground */ = {
+		8868DFBE216AB18800343361 /* OutputFile */ = {
 			isa = PBXGroup;
 			children = (
-				8834945D216017CB00579EC4 /* AppDelegate.swift */,
-				88349464216017CB00579EC4 /* MainMenu.xib */,
-				88349467216017CB00579EC4 /* Info.plist */,
-				88349468216017CB00579EC4 /* CoreDataPlayground.entitlements */,
-				8834945F216017CB00579EC4 /* CoreDataPlayground.xcdatamodeld */,
-				8834946E216019CD00579EC4 /* Assets.xcassets */,
+				8868DFBF216AB18800343361 /* AppDelegate.swift */,
+				8868DFC1216AB18800343361 /* Assets.xcassets */,
+				8868DFC3216AB18800343361 /* MainMenu.xib */,
+				8868DFC6216AB18800343361 /* Info.plist */,
+				8868DFC7216AB18800343361 /* OutputFile.entitlements */,
+				8868DFCD216AB1BA00343361 /* generated.swift */,
+				8868DFD0216AB38400343361 /* prebuildOutputFiles.xcfilelist */,
 			);
-			path = CoreDataPlayground;
+			path = OutputFile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		88349459216017CA00579EC4 /* CoreDataPlayground */ = {
+		8868DFBB216AB18800343361 /* OutputFile */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8834946B216017CB00579EC4 /* Build configuration list for PBXNativeTarget "CoreDataPlayground" */;
+			buildConfigurationList = 8868DFCA216AB18800343361 /* Build configuration list for PBXNativeTarget "OutputFile" */;
 			buildPhases = (
-				88349456216017CA00579EC4 /* Sources */,
-				88349457216017CA00579EC4 /* Frameworks */,
-				88349458216017CA00579EC4 /* Resources */,
+				8868DFCF216AB1E500343361 /* Generate File (Prebuild Phase) */,
+				8868DFB8216AB18800343361 /* Sources */,
+				8868DFB9216AB18800343361 /* Frameworks */,
+				8868DFBA216AB18800343361 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = CoreDataPlayground;
-			productName = CoreDataPlayground;
-			productReference = 8834945A216017CB00579EC4 /* CoreDataPlayground.app */;
+			name = OutputFile;
+			productName = OutputFile;
+			productReference = 8868DFBC216AB18800343361 /* OutputFile.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		88349452216017CA00579EC4 /* Project object */ = {
+		8868DFB4216AB18800343361 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = gietal;
 				TargetAttributes = {
-					88349459216017CA00579EC4 = {
+					8868DFBB216AB18800343361 = {
 						CreatedOnToolsVersion = 10.0;
 					};
 				};
 			};
-			buildConfigurationList = 88349455216017CA00579EC4 /* Build configuration list for PBXProject "CoreDataPlayground" */;
+			buildConfigurationList = 8868DFB7216AB18800343361 /* Build configuration list for PBXProject "OutputFile" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -107,45 +110,67 @@
 				en,
 				Base,
 			);
-			mainGroup = 88349451216017CA00579EC4;
-			productRefGroup = 8834945B216017CB00579EC4 /* Products */;
+			mainGroup = 8868DFB3216AB18800343361;
+			productRefGroup = 8868DFBD216AB18800343361 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				88349459216017CA00579EC4 /* CoreDataPlayground */,
+				8868DFBB216AB18800343361 /* OutputFile */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		88349458216017CA00579EC4 /* Resources */ = {
+		8868DFBA216AB18800343361 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8834946F216019CD00579EC4 /* Assets.xcassets in Resources */,
-				88349466216017CB00579EC4 /* MainMenu.xib in Resources */,
+				8868DFD1216AB38400343361 /* prebuildOutputFiles.xcfilelist in Resources */,
+				8868DFC2216AB18800343361 /* Assets.xcassets in Resources */,
+				8868DFC5216AB18800343361 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8868DFCF216AB1E500343361 /* Generate File (Prebuild Phase) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Generate File (Prebuild Phase)";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo > $SRCROOT/OutputFile/generated.swift\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		88349456216017CA00579EC4 /* Sources */ = {
+		8868DFB8216AB18800343361 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8834945E216017CB00579EC4 /* AppDelegate.swift in Sources */,
-				88349461216017CB00579EC4 /* CoreDataPlayground.xcdatamodeld in Sources */,
+				8868DFC0216AB18800343361 /* AppDelegate.swift in Sources */,
+				8868DFCE216AB1BA00343361 /* generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		88349464216017CB00579EC4 /* MainMenu.xib */ = {
+		8868DFC3216AB18800343361 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				88349465216017CB00579EC4 /* Base */,
+				8868DFC4216AB18800343361 /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -153,7 +178,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		88349469216017CB00579EC4 /* Debug */ = {
+		8868DFC8216AB18800343361 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -214,7 +239,7 @@
 			};
 			name = Debug;
 		};
-		8834946A216017CB00579EC4 /* Release */ = {
+		8868DFC9216AB18800343361 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -268,80 +293,64 @@
 			};
 			name = Release;
 		};
-		8834946C216017CB00579EC4 /* Debug */ = {
+		8868DFCB216AB18800343361 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = CoreDataPlayground/CoreDataPlayground.entitlements;
+				CODE_SIGN_ENTITLEMENTS = OutputFile/OutputFile.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = CoreDataPlayground/Info.plist;
+				INFOPLIST_FILE = OutputFile/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.CoreDataPlayground;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.OutputFile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
-		8834946D216017CB00579EC4 /* Release */ = {
+		8868DFCC216AB18800343361 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = CoreDataPlayground/CoreDataPlayground.entitlements;
+				CODE_SIGN_ENTITLEMENTS = OutputFile/OutputFile.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = CoreDataPlayground/Info.plist;
+				INFOPLIST_FILE = OutputFile/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.CoreDataPlayground;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.OutputFile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		88349455216017CA00579EC4 /* Build configuration list for PBXProject "CoreDataPlayground" */ = {
+		8868DFB7216AB18800343361 /* Build configuration list for PBXProject "OutputFile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				88349469216017CB00579EC4 /* Debug */,
-				8834946A216017CB00579EC4 /* Release */,
+				8868DFC8216AB18800343361 /* Debug */,
+				8868DFC9216AB18800343361 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8834946B216017CB00579EC4 /* Build configuration list for PBXNativeTarget "CoreDataPlayground" */ = {
+		8868DFCA216AB18800343361 /* Build configuration list for PBXNativeTarget "OutputFile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8834946C216017CB00579EC4 /* Debug */,
-				8834946D216017CB00579EC4 /* Release */,
+				8868DFCB216AB18800343361 /* Debug */,
+				8868DFCC216AB18800343361 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		8834945F216017CB00579EC4 /* CoreDataPlayground.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				8868DFD5216AB9F800343361 /* CoreDataPlayground 2.xcdatamodel */,
-				88349460216017CB00579EC4 /* CoreDataPlayground.xcdatamodel */,
-			);
-			currentVersion = 88349460216017CB00579EC4 /* CoreDataPlayground.xcdatamodel */;
-			path = CoreDataPlayground.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
-	rootObject = 88349452216017CA00579EC4 /* Project object */;
+	rootObject = 8868DFB4216AB18800343361 /* Project object */;
 }

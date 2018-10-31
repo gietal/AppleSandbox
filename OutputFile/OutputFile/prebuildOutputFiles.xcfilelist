@@ -1,0 +1,7 @@
+# simple newline separated list of your generated files name
+
+$SRCROOT/OutputFile/generated1.swift
+$SRCROOT/OutputFile/generated2.swift
+$SRCROOT/OutputFile/generated3.swift
+Path/To/Your/Generated/Files/Folder/generated.swift
+
