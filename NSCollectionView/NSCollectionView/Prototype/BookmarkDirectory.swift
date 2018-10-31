@@ -441,6 +441,7 @@ protocol BookmarkDirectorySubscriber {
             // create group
             let group = BookmarkGroup()
             group.title = "Bookmark Group \(groupIndex)"
+
             groupMap[group.id ] = group
             
             // create node
@@ -450,15 +451,15 @@ protocol BookmarkDirectorySubscriber {
             for i in 0..<count {
                 // create bookmark
                 let bookmark = Bookmark()
-                let imageFile = imageFiles[imageIndex]
+//                let imageFile = imageFiles[imageIndex]
                 bookmark.hostname = "[\(groupIndex), \(i)]"//bookmark.id
-                bookmark.image = imageFile.thumbnail
+//                bookmark.image = imageFile.thumbnail
                 bookmark.username = usernames[Int(arc4random_uniform(UInt32(usernames.count)))]
                 bookmark.gateway = gatewayNames[Int(arc4random_uniform(UInt32(gatewayNames.count)))]
                 date = date.addingTimeInterval(-60 * 60 * 48)
                 bookmark.lastConnected = arc4random_uniform(2) == 0 ? nil : date
                 bookmarkMap[bookmark.id] = bookmark
-                imageIndex = imageIndex == imageFiles.count-1 ? 0 : imageIndex + 1
+//                imageIndex = imageIndex == imageFiles.count-1 ? 0 : imageIndex + 1
                 
                 sectionNode.addChild(Node(bookmark))
             }
