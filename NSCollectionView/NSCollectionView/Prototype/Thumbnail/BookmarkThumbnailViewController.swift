@@ -120,7 +120,7 @@ class BookmarkThumbnailViewController: NSViewController {
         setupLayout()
         setupDragAndDrop()
     }
-    let flowLayout = RDCFlowLayout()
+    let flowLayout = NSCollectionViewFlowLayout()
     let thumbnailLayout = ThumbnailCollectionViewLayout()
     fileprivate func setupLayout() {
         // setup the layout
@@ -129,17 +129,19 @@ class BookmarkThumbnailViewController: NSViewController {
         flowLayout.sectionInset = NSEdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0)
         flowLayout.minimumInteritemSpacing = 20.0
         flowLayout.minimumLineSpacing = 20.0
-        flowLayout.sectionHeadersPinToVisibleBounds = true
+        flowLayout.itemSize = CGSize(width: 160, height: 140)
+//        flowLayout.sectionHeadersPinToVisibleBounds = true
         
-        flowLayout.expectedItemSize = CGSize(width: 160, height: 140)
+//        flowLayout.expectedItemSize = CGSize(width: 160, height: 140)
 //        flowLayout.estimatedItemSize = flowLayout.itemSize
-        flowLayout.itemSpacing = CGSize(width: 20, height: 20)
+//        flowLayout.itemSpacing = CGSize(width: 20, height: 20)
         
         thumbnailLayout.itemSize = CGSize(width: 160, height: 140)
         thumbnailLayout.delegate = self
         thumbnailLayout.sectionInset = flowLayout.sectionInset
         thumbnailLayout.itemSpacing = CGSize(width: 20, height: 20)
-        collectionView.collectionViewLayout = thumbnailLayout
+//        collectionView.collectionViewLayout = thumbnailLayout
+        collectionView.collectionViewLayout = flowLayout
         // 2
         view.wantsLayer = true
         collectionView.wantsLayer = true

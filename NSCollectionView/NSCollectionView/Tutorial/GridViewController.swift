@@ -28,7 +28,7 @@ class GridViewController: NSViewController {
         flowLayout.sectionInset = NSEdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0)
         flowLayout.minimumInteritemSpacing = 20.0
         flowLayout.minimumLineSpacing = 20.0
-        flowLayout.sectionHeadersPinToVisibleBounds = true
+//        flowLayout.sectionHeadersPinToVisibleBounds = true
         collectionView.collectionViewLayout = flowLayout
         // 2
         view.wantsLayer = true
