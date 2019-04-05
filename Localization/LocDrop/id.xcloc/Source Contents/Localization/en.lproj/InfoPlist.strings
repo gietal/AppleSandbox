@@ -1,0 +1,4 @@
+/* Bundle name */
+"CFBundleName" = "Localization";
+/* Copyright (human-readable) */
+"NSHumanReadableCopyright" = "Copyright © 2019 gietal. All rights reserved.";
