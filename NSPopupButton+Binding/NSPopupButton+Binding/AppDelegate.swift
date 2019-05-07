@@ -19,16 +19,9 @@ public class DebugPopupButton: NSPopUpButton {
             print("arrayController.selectionIndex: \(appDelegate.arrayController.selectionIndex)")
             print("arrayControllerSelectionIndexSet: \(appDelegate.arrayControllerSelectionIndexSet?.first)")
             print("popupButtonSelectionIndex: \(appDelegate.popupButtonSelectionIndex)")
+            print("---------------------")
         }
         super.selectItem(at: index)
-    }
-    
-    public override func selectItem(withTitle title: String) {
-        super.selectItem(withTitle: title)
-    }
-    
-    public override func selectItem(withTag tag: Int) -> Bool {
-        return super.selectItem(withTag: tag)
     }
 }
 
@@ -36,14 +29,12 @@ public class DebugPopupButton: NSPopUpButton {
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
-
     @IBOutlet weak var arrayController: NSArrayController!
-    
     @IBOutlet weak var popupButton: DebugPopupButton!
     
     @objc internal var arrayControllerSelectionIndexSet: IndexSet? {
         didSet {
-            
+            print("arrayControllerSelectionIndexSet = \(arrayControllerSelectionIndexSet?.first)")
         }
     }
     
@@ -55,6 +46,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         set {
             if let n = newValue {
                 let index = Int(n)
+                print("popupButtonSelectionIndex = \(index)")
                 arrayController.setSelectionIndexes(IndexSet(integer: index))
 //                arrayControllerSelectionIndexSet = IndexSet(integer: Int(n))
                 popupButton.selectItem(at: index)
@@ -63,16 +55,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
         popupButton.appDelegate = self
         arrayController.addObject(1)
         arrayController.addObject(2)
         arrayController.addObject(3)
-        
-    }
-
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
     }
 
     @IBAction func showSheet(_ sender: Any) {
@@ -85,11 +71,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func selectTwo(_ sender: Any) {
+        // no matter how I try to set the selected index to be index 1 programmatically here
+        // when I show a sheet, [NSValueBinder _revertDisplayValueBackToOriginalValue] would revert it
+        // to the index explicitly selected from the UI by the user
         let index = 1
         popupButton.selectItem(at: index)
         popupButtonSelectionIndex = index as NSNumber
         arrayControllerSelectionIndexSet = IndexSet(integer: index)
         arrayController.setSelectionIndex(index)
     }
+    
 }
 

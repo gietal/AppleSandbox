@@ -724,9 +724,9 @@
                         </connections>
                     </popUpButton>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wAg-Nf-VWx">
-                        <rect key="frame" x="14" y="259" width="81" height="32"/>
+                        <rect key="frame" x="14" y="255" width="199" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JZv-FB-Luk">
+                        <buttonCell key="cell" type="push" title="Select 2 programmatically" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JZv-FB-Luk">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
