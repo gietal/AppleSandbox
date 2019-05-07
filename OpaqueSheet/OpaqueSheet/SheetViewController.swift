@@ -9,6 +9,40 @@
 import Foundation
 import Cocoa
 
+class SheetView: NSView {
+    override func viewDidMoveToSuperview() {
+        guard let siblings = superview?.subviews else {
+            return
+        }
+        
+        // this will get the visual effect view added by Appkit
+        guard let vfxView = siblings.first(where: { $0 is NSVisualEffectView }) as? NSVisualEffectView else {
+            return
+        }
+        
+        // this will make it so that the visual effect view stops blending
+        // its content with the beckground
+        vfxView.blendingMode = .withinWindow
+    }
+    
+    override func viewDidMoveToWindow() {
+        guard let siblings = superview?.subviews else {
+            return
+        }
+        
+        // this will get the visual effect view added by Appkit
+        guard let vfxView = siblings.first(where: { $0 is NSVisualEffectView }) as? NSVisualEffectView else {
+            return
+        }
+        
+        // this will make it so that the visual effect view stops blending
+        // its content with the beckground
+        vfxView.blendingMode = .withinWindow
+    }
+    
+    
+}
+
 class SheetViewController: NSViewController {
     convenience init() {
         self.init(nibName: NSNib.Name(stringLiteral: "Sheet"), bundle: nil)
@@ -41,7 +75,7 @@ class SheetViewController: NSViewController {
         
         // this will make it so that the visual effect view stops blending
         // its content with the beckground
-        vfxView.blendingMode = .withinWindow
+//        vfxView.blendingMode = .withinWindow
     }
 
 }
