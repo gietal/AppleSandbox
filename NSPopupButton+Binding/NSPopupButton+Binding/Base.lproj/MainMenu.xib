@@ -737,6 +737,11 @@
                 </subviews>
             </view>
         </window>
-        <arrayController id="d2w-0G-lg8"/>
+        <arrayController id="d2w-0G-lg8">
+            <connections>
+                <binding destination="Voe-Tx-rLC" name="selectionIndexes" keyPath="arrayControllerSelectionIndexSet" id="cpn-Gz-DLz"/>
+            </connections>
+        </arrayController>
+        <userDefaultsController representsSharedInstance="YES" id="fMM-1d-5M1"/>
     </objects>
 </document>

@@ -9,7 +9,17 @@
 import Cocoa
 
 public class DebugPopupButton: NSPopUpButton {
+    
+    internal weak var appDelegate: AppDelegate!
+    
     public override func selectItem(at index: Int) {
+        if let appDelegate = appDelegate {
+            print("---- select item ----")
+            print("index: \(index)")
+            print("arrayController.selectionIndex: \(appDelegate.arrayController.selectionIndex)")
+            print("arrayControllerSelectionIndexSet: \(appDelegate.arrayControllerSelectionIndexSet?.first)")
+            print("popupButtonSelectionIndex: \(appDelegate.popupButtonSelectionIndex)")
+        }
         super.selectItem(at: index)
     }
     
@@ -44,14 +54,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         set {
             if let n = newValue {
-                arrayController.setSelectionIndexes(IndexSet(integer: Int(n)))
+                let index = Int(n)
+                arrayController.setSelectionIndexes(IndexSet(integer: index))
+//                arrayControllerSelectionIndexSet = IndexSet(integer: Int(n))
+                popupButton.selectItem(at: index)
             }
         }
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
-        
+        popupButton.appDelegate = self
         arrayController.addObject(1)
         arrayController.addObject(2)
         arrayController.addObject(3)
@@ -72,7 +85,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func selectTwo(_ sender: Any) {
-        popupButton.selectItem(at: 1)
+        let index = 1
+        popupButton.selectItem(at: index)
+        popupButtonSelectionIndex = index as NSNumber
+        arrayControllerSelectionIndexSet = IndexSet(integer: index)
+        arrayController.setSelectionIndex(index)
     }
 }
 
