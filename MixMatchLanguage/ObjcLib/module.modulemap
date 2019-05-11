@@ -1,0 +1,4 @@
+module ObjcLibModule {
+    umbrella header "ObjcLibUmbrella.h"
+    export *
+}
