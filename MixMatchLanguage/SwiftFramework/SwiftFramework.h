@@ -6,7 +6,7 @@
 //  Copyright © 2019 gietal-dev. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for SwiftFramework.
 FOUNDATION_EXPORT double SwiftFrameworkVersionNumber;

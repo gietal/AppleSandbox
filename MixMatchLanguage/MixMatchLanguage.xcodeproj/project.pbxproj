@@ -16,7 +16,6 @@
 		F1BBB29622863DAE00EC93D4 /* CppLib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1BBB29522863DAE00EC93D4 /* CppLib.cpp */; };
 		F1BBB2AF2286450300EC93D4 /* module.modulemap in CopyFiles */ = {isa = PBXBuildFile; fileRef = F1BBB2AD228644AF00EC93D4 /* module.modulemap */; };
 		F1BBB2B12286458200EC93D4 /* ObjcLibUmbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F1BBB2B02286458200EC93D4 /* ObjcLibUmbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F1BBB2B42286461100EC93D4 /* libObjcLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1BBB27422863CBB00EC93D4 /* libObjcLib.a */; };
 		F1BBB2BE2286471000EC93D4 /* SwiftFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = F1BBB2BC2286471000EC93D4 /* SwiftFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F1BBB2C12286471000EC93D4 /* SwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1BBB2BA2286471000EC93D4 /* SwiftFramework.framework */; };
 		F1BBB2C22286471000EC93D4 /* SwiftFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F1BBB2BA2286471000EC93D4 /* SwiftFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -24,10 +23,29 @@
 		F1BBB2C82286483400EC93D4 /* libObjcLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1BBB27422863CBB00EC93D4 /* libObjcLib.a */; };
 		F1BBB2CA22864A0000EC93D4 /* ObjcLibUmbrella.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F1BBB2B02286458200EC93D4 /* ObjcLibUmbrella.h */; };
 		F1BBB2CB22864C2200EC93D4 /* libCppLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1BBB28F22863DAE00EC93D4 /* libCppLib.a */; };
+		F1BBB2D22286503500EC93D4 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1BBB2D12286503500EC93D4 /* Quartz.framework */; };
+		F1BBB2D52286503500EC93D4 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BBB2D42286503500EC93D4 /* PreviewViewController.swift */; };
+		F1BBB2D82286503500EC93D4 /* PreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1BBB2D62286503500EC93D4 /* PreviewViewController.xib */; };
+		F1BBB2DD2286503500EC93D4 /* QuickLookExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F1BBB2D02286503400EC93D4 /* QuickLookExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F1BBB2E22286504F00EC93D4 /* SwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1BBB2BA2286471000EC93D4 /* SwiftFramework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		F1BBB2BF2286471000EC93D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1BBB25722863C9C00EC93D4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F1BBB2B92286471000EC93D4;
+			remoteInfo = SwiftFramework;
+		};
+		F1BBB2DB2286503500EC93D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1BBB25722863C9C00EC93D4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F1BBB2CF2286503400EC93D4;
+			remoteInfo = QuickLookExtension;
+		};
+		F1BBB2E32286505300EC93D4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F1BBB25722863C9C00EC93D4 /* Project object */;
 			proxyType = 1;
@@ -59,6 +77,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F1BBB2E12286503500EC93D4 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F1BBB2DD2286503500EC93D4 /* QuickLookExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +109,12 @@
 		F1BBB2BC2286471000EC93D4 /* SwiftFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftFramework.h; sourceTree = "<group>"; };
 		F1BBB2BD2286471000EC93D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1BBB2C62286472200EC93D4 /* SwiftFramework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFramework.swift; sourceTree = "<group>"; };
+		F1BBB2D02286503400EC93D4 /* QuickLookExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = QuickLookExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1BBB2D12286503500EC93D4 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		F1BBB2D42286503500EC93D4 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		F1BBB2D72286503500EC93D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreviewViewController.xib; sourceTree = "<group>"; };
+		F1BBB2D92286503500EC93D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1BBB2DA2286503500EC93D4 /* QuickLookExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuickLookExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +122,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1BBB2B42286461100EC93D4 /* libObjcLib.a in Frameworks */,
 				F1BBB2C12286471000EC93D4 /* SwiftFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,6 +149,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F1BBB2CD2286503400EC93D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1BBB2E22286504F00EC93D4 /* SwiftFramework.framework in Frameworks */,
+				F1BBB2D22286503500EC93D4 /* Quartz.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -125,6 +168,7 @@
 				F1BBB27522863CBB00EC93D4 /* ObjcLib */,
 				F1BBB29022863DAE00EC93D4 /* CppLib */,
 				F1BBB2BB2286471000EC93D4 /* SwiftFramework */,
+				F1BBB2D32286503500EC93D4 /* QuickLookExtension */,
 				F1BBB26022863C9C00EC93D4 /* Products */,
 				F1BBB2B2228645E000EC93D4 /* Frameworks */,
 			);
@@ -137,6 +181,7 @@
 				F1BBB27422863CBB00EC93D4 /* libObjcLib.a */,
 				F1BBB28F22863DAE00EC93D4 /* libCppLib.a */,
 				F1BBB2BA2286471000EC93D4 /* SwiftFramework.framework */,
+				F1BBB2D02286503400EC93D4 /* QuickLookExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -176,6 +221,7 @@
 		F1BBB2B2228645E000EC93D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F1BBB2D12286503500EC93D4 /* Quartz.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -188,6 +234,17 @@
 				F1BBB2C62286472200EC93D4 /* SwiftFramework.swift */,
 			);
 			path = SwiftFramework;
+			sourceTree = "<group>";
+		};
+		F1BBB2D32286503500EC93D4 /* QuickLookExtension */ = {
+			isa = PBXGroup;
+			children = (
+				F1BBB2D42286503500EC93D4 /* PreviewViewController.swift */,
+				F1BBB2D62286503500EC93D4 /* PreviewViewController.xib */,
+				F1BBB2D92286503500EC93D4 /* Info.plist */,
+				F1BBB2DA2286503500EC93D4 /* QuickLookExtension.entitlements */,
+			);
+			path = QuickLookExtension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,11 +286,13 @@
 				F1BBB25C22863C9C00EC93D4 /* Frameworks */,
 				F1BBB25D22863C9C00EC93D4 /* Resources */,
 				F1BBB2AB22863F2900EC93D4 /* Embed Frameworks */,
+				F1BBB2E12286503500EC93D4 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				F1BBB2C02286471000EC93D4 /* PBXTargetDependency */,
+				F1BBB2DC2286503500EC93D4 /* PBXTargetDependency */,
 			);
 			name = MixMatchLanguage;
 			productName = MixMatchLanguage;
@@ -293,6 +352,24 @@
 			productReference = F1BBB2BA2286471000EC93D4 /* SwiftFramework.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		F1BBB2CF2286503400EC93D4 /* QuickLookExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1BBB2DE2286503500EC93D4 /* Build configuration list for PBXNativeTarget "QuickLookExtension" */;
+			buildPhases = (
+				F1BBB2CC2286503400EC93D4 /* Sources */,
+				F1BBB2CD2286503400EC93D4 /* Frameworks */,
+				F1BBB2CE2286503400EC93D4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F1BBB2E42286505300EC93D4 /* PBXTargetDependency */,
+			);
+			name = QuickLookExtension;
+			productName = QuickLookExtension;
+			productReference = F1BBB2D02286503400EC93D4 /* QuickLookExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -316,6 +393,9 @@
 						CreatedOnToolsVersion = 10.2;
 						LastSwiftMigration = 1020;
 					};
+					F1BBB2CF2286503400EC93D4 = {
+						CreatedOnToolsVersion = 10.2;
+					};
 				};
 			};
 			buildConfigurationList = F1BBB25A22863C9C00EC93D4 /* Build configuration list for PBXProject "MixMatchLanguage" */;
@@ -335,6 +415,7 @@
 				F1BBB27322863CBB00EC93D4 /* ObjcLib */,
 				F1BBB28E22863DAE00EC93D4 /* CppLib */,
 				F1BBB2B92286471000EC93D4 /* SwiftFramework */,
+				F1BBB2CF2286503400EC93D4 /* QuickLookExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -353,6 +434,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1BBB2CE2286503400EC93D4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1BBB2D82286503500EC93D4 /* PreviewViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +480,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F1BBB2CC2286503400EC93D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1BBB2D52286503500EC93D4 /* PreviewViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -398,6 +495,16 @@
 			isa = PBXTargetDependency;
 			target = F1BBB2B92286471000EC93D4 /* SwiftFramework */;
 			targetProxy = F1BBB2BF2286471000EC93D4 /* PBXContainerItemProxy */;
+		};
+		F1BBB2DC2286503500EC93D4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F1BBB2CF2286503400EC93D4 /* QuickLookExtension */;
+			targetProxy = F1BBB2DB2286503500EC93D4 /* PBXContainerItemProxy */;
+		};
+		F1BBB2E42286505300EC93D4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F1BBB2B92286471000EC93D4 /* SwiftFramework */;
+			targetProxy = F1BBB2E32286505300EC93D4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -408,6 +515,14 @@
 				F1BBB26722863C9D00EC93D4 /* Base */,
 			);
 			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		F1BBB2D62286503500EC93D4 /* PreviewViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1BBB2D72286503500EC93D4 /* Base */,
+			);
+			name = PreviewViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -685,6 +800,48 @@
 			};
 			name = Release;
 		};
+		F1BBB2DF2286503500EC93D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CODE_SIGN_ENTITLEMENTS = QuickLookExtension/QuickLookExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DTT6RZZAQ3;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = QuickLookExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.MixMatchLanguage.QuickLookExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F1BBB2E02286503500EC93D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CODE_SIGN_ENTITLEMENTS = QuickLookExtension/QuickLookExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DTT6RZZAQ3;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = QuickLookExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.MixMatchLanguage.QuickLookExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -729,6 +886,15 @@
 			buildConfigurations = (
 				F1BBB2C42286471000EC93D4 /* Debug */,
 				F1BBB2C52286471000EC93D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1BBB2DE2286503500EC93D4 /* Build configuration list for PBXNativeTarget "QuickLookExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1BBB2DF2286503500EC93D4 /* Debug */,
+				F1BBB2E02286503500EC93D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

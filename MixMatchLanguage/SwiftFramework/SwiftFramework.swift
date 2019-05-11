@@ -30,7 +30,7 @@ public class SwiftClass {
         
     }
     
-    let objcClass = ObjcClass()
+    public let objcClass = ObjcClass()
     
     public func doStuff() {
         print("hello from swift framework")
