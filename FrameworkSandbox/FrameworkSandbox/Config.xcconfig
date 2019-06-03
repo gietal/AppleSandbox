@@ -1,0 +1,5 @@
+
+#include "ConfigCommon.xcconfig"
+
+PRODUCT_NAME = FrameworkSandbox
+PRODUCT_MODULE_NAME = FrameworkSandbox

@@ -1,0 +1,7 @@
+
+
+
+#include "ConfigCommon.xcconfig"
+
+PRODUCT_NAME = FrameworkSandboxBeta
+PRODUCT_MODULE_NAME = FrameworkSandbox

@@ -8,6 +8,7 @@
 
 import Cocoa
 import Quartz
+import SwiftFramework
 
 class PreviewViewController: NSViewController, QLPreviewingController {
     
@@ -23,6 +24,11 @@ class PreviewViewController: NSViewController, QLPreviewingController {
     public func preparePreviewOfSearchableItem(identifier: String, queryString: String?, completionHandler handler: @escaping (Error?) -> Void) {
         // Perform any setup necessary in order to prepare the view.
         
+        let url = getAppGroupApplicationSupportDirectory()
+        print("appex support dir: \(url.absoluteString)")
+        
+        let result = FileManager.default.fileExists(atPath: url.appendingPathComponent("hello.txt").path)
+        print("file exist: \(result)")
         // Call the completion handler so Quick Look knows that the preview is fully loaded.
         // Quick Look will display a loading spinner while the completion handler is not called.
         handler(nil)
