@@ -11,20 +11,22 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
-        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="DynamicSheetSize" customModuleProvider="target">
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="RequestPermission" customModuleProvider="target">
             <connections>
+                <outlet property="camAccessLabel" destination="BRk-TN-zaF" id="5Wn-X1-KHx"/>
+                <outlet property="micAccessLabel" destination="JWo-cO-oll" id="bBJ-RU-EgI"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
-                <menuItem title="DynamicSheetSize" id="1Xt-HY-uBw">
+                <menuItem title="RequestPermission" id="1Xt-HY-uBw">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="DynamicSheetSize" systemMenu="apple" id="uQy-DD-JDr">
+                    <menu key="submenu" title="RequestPermission" systemMenu="apple" id="uQy-DD-JDr">
                         <items>
-                            <menuItem title="About DynamicSheetSize" id="5kV-Vb-QxS">
+                            <menuItem title="About RequestPermission" id="5kV-Vb-QxS">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="orderFrontStandardAboutPanel:" target="-1" id="Exp-CZ-Vem"/>
@@ -38,7 +40,7 @@
                                 <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                            <menuItem title="Hide DynamicSheetSize" keyEquivalent="h" id="Olw-nP-bQN">
+                            <menuItem title="Hide RequestPermission" keyEquivalent="h" id="Olw-nP-bQN">
                                 <connections>
                                     <action selector="hide:" target="-1" id="PnN-Uc-m68"/>
                                 </connections>
@@ -56,7 +58,7 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                            <menuItem title="Quit DynamicSheetSize" keyEquivalent="q" id="4sb-4s-VLi">
+                            <menuItem title="Quit RequestPermission" keyEquivalent="q" id="4sb-4s-VLi">
                                 <connections>
                                     <action selector="terminate:" target="-1" id="Te7-pn-YzF"/>
                                 </connections>
@@ -669,7 +671,7 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                         <items>
-                            <menuItem title="DynamicSheetSize Help" keyEquivalent="?" id="FKE-Sm-Kum">
+                            <menuItem title="RequestPermission Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                 <connections>
                                     <action selector="showHelp:" target="-1" id="y7X-2Q-9no"/>
                                 </connections>
@@ -679,7 +681,7 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="DynamicSheetSize" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
+        <window title="RequestPermission" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="480" height="360"/>
@@ -688,28 +690,85 @@
                 <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z04-Md-KkZ">
-                        <rect key="frame" x="21" y="312" width="111" height="32"/>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lkn-6B-gWa">
+                        <rect key="frame" x="14" y="312" width="208" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="blank sheet" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Keo-Jj-61m">
+                        <buttonCell key="cell" type="push" title="request microphone access" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Z2x-ev-4fB">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="blankSheetButtonPressed:" target="Voe-Tx-rLC" id="LDM-C1-mnb"/>
+                            <action selector="openMic:" target="Voe-Tx-rLC" id="XAw-Ol-jpf"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BGv-iK-bcg">
-                        <rect key="frame" x="27" y="279" width="100" height="32"/>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b27-EZ-QXh">
+                        <rect key="frame" x="28" y="279" width="181" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="real sheet" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WUC-ky-qLw">
+                        <buttonCell key="cell" type="push" title="request camera access" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hqA-J9-P6J">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="realSheetButtonPressed:" target="Voe-Tx-rLC" id="8lg-OL-l3q"/>
+                            <action selector="openCamera:" target="Voe-Tx-rLC" id="bJ9-ZJ-YfI"/>
                         </connections>
                     </button>
+                    <gridView fixedFrame="YES" xPlacement="leading" yPlacement="bottom" rowAlignment="none" translatesAutoresizingMaskIntoConstraints="NO" id="juR-Iy-HWh">
+                        <rect key="frame" x="52" y="104" width="224" height="76"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <rows>
+                            <gridRow id="7Jn-0K-uti"/>
+                            <gridRow id="Wyr-FR-v1O"/>
+                            <gridRow id="yvb-G7-QA3"/>
+                        </rows>
+                        <columns>
+                            <gridColumn id="QtV-wu-Inr"/>
+                            <gridColumn width="100" id="EE5-zb-KDW"/>
+                        </columns>
+                        <gridCells>
+                            <gridCell row="7Jn-0K-uti" column="QtV-wu-Inr" id="2uO-Mk-2Re">
+                                <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aA9-19-nkW">
+                                    <rect key="frame" x="-2" y="59" width="122" height="17"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Microphone access" id="oaT-d3-Jq3">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </gridCell>
+                            <gridCell row="7Jn-0K-uti" column="EE5-zb-KDW" id="jOY-Xc-htd">
+                                <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JWo-cO-oll">
+                                    <rect key="frame" x="122" y="59" width="37" height="17"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="Idb-Xb-53g">
+                                        <font key="font" usesAppearanceFont="YES"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </gridCell>
+                            <gridCell row="Wyr-FR-v1O" column="QtV-wu-Inr" id="hoY-67-cvN">
+                                <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="evf-S1-Lfz">
+                                    <rect key="frame" x="-2" y="36" width="97" height="17"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Camera access" id="3sb-BB-vd7">
+                                        <font key="font" usesAppearanceFont="YES"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </gridCell>
+                            <gridCell row="Wyr-FR-v1O" column="EE5-zb-KDW" id="qbR-MI-UJJ">
+                                <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BRk-TN-zaF">
+                                    <rect key="frame" x="122" y="36" width="37" height="17"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="8jY-CY-BMk">
+                                        <font key="font" usesAppearanceFont="YES"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </gridCell>
+                            <gridCell row="yvb-G7-QA3" column="QtV-wu-Inr" id="KFo-mi-OeF"/>
+                            <gridCell row="yvb-G7-QA3" column="EE5-zb-KDW" id="YfF-lh-Qxx"/>
+                        </gridCells>
+                    </gridView>
                 </subviews>
             </view>
         </window>

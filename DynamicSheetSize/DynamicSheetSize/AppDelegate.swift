@@ -17,14 +17,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         
-        let sheetVC = SheetViewController()
-        window.beginSheet(SheetWindow(contentViewController: sheetVC), completionHandler: nil)
+        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
 
-
+    @IBAction func blankSheetButtonPressed(_ sender: Any) {
+        let sheetVC = SheetViewController("SheetView")
+        window.beginSheet(SheetWindow(contentViewController: sheetVC), completionHandler: nil)
+    }
+    @IBAction func realSheetButtonPressed(_ sender: Any) {
+        let sheetVC = SheetViewController("AddWorkspaceView")
+        window.beginSheet(SheetWindow(contentViewController: sheetVC), completionHandler: nil)
+    }
+    
 }
 

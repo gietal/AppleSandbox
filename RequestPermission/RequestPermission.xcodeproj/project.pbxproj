@@ -7,107 +7,107 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		88A2240B22A64B2D001E2C63 /* AddWorkspaceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88A2240922A64B2D001E2C63 /* AddWorkspaceView.xib */; };
-		F16EC9F922A5ECB70005B220 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16EC9F822A5ECB70005B220 /* AppDelegate.swift */; };
-		F16EC9FB22A5ECB70005B220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F16EC9FA22A5ECB70005B220 /* Assets.xcassets */; };
-		F16EC9FE22A5ECB70005B220 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F16EC9FC22A5ECB70005B220 /* MainMenu.xib */; };
-		F16ECA0722A5ECFD0005B220 /* SheetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F16ECA0622A5ECFD0005B220 /* SheetView.xib */; };
-		F16ECA0922A5ED080005B220 /* SheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16ECA0822A5ED080005B220 /* SheetViewController.swift */; };
-		F16ECA0B22A5ED170005B220 /* SheetWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16ECA0A22A5ED170005B220 /* SheetWindow.swift */; };
+		88A2241922BAA710001E2C63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A2241822BAA710001E2C63 /* AppDelegate.swift */; };
+		88A2241B22BAA711001E2C63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88A2241A22BAA711001E2C63 /* Assets.xcassets */; };
+		88A2241E22BAA711001E2C63 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88A2241C22BAA711001E2C63 /* MainMenu.xib */; };
+		88A2242822BAA8D7001E2C63 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88A2242722BAA8D7001E2C63 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		88A2240A22A64B2D001E2C63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AddWorkspaceView.xib; sourceTree = "<group>"; };
-		F16EC9F522A5ECB70005B220 /* DynamicSheetSize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamicSheetSize.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F16EC9F822A5ECB70005B220 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F16EC9FA22A5ECB70005B220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F16EC9FD22A5ECB70005B220 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		F16EC9FF22A5ECB70005B220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F16ECA0022A5ECB70005B220 /* DynamicSheetSize.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DynamicSheetSize.entitlements; sourceTree = "<group>"; };
-		F16ECA0622A5ECFD0005B220 /* SheetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SheetView.xib; sourceTree = "<group>"; };
-		F16ECA0822A5ED080005B220 /* SheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetViewController.swift; sourceTree = "<group>"; };
-		F16ECA0A22A5ED170005B220 /* SheetWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetWindow.swift; sourceTree = "<group>"; };
+		88A2241522BAA710001E2C63 /* RequestPermission.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RequestPermission.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		88A2241822BAA710001E2C63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		88A2241A22BAA711001E2C63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		88A2241D22BAA711001E2C63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		88A2241F22BAA711001E2C63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88A2242022BAA711001E2C63 /* RequestPermission.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RequestPermission.entitlements; sourceTree = "<group>"; };
+		88A2242722BAA8D7001E2C63 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F16EC9F222A5ECB70005B220 /* Frameworks */ = {
+		88A2241222BAA710001E2C63 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88A2242822BAA8D7001E2C63 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F16EC9EC22A5ECB70005B220 = {
+		88A2240C22BAA710001E2C63 = {
 			isa = PBXGroup;
 			children = (
-				F16EC9F722A5ECB70005B220 /* DynamicSheetSize */,
-				F16EC9F622A5ECB70005B220 /* Products */,
+				88A2241722BAA710001E2C63 /* RequestPermission */,
+				88A2241622BAA710001E2C63 /* Products */,
+				88A2242622BAA8D7001E2C63 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		F16EC9F622A5ECB70005B220 /* Products */ = {
+		88A2241622BAA710001E2C63 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F16EC9F522A5ECB70005B220 /* DynamicSheetSize.app */,
+				88A2241522BAA710001E2C63 /* RequestPermission.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F16EC9F722A5ECB70005B220 /* DynamicSheetSize */ = {
+		88A2241722BAA710001E2C63 /* RequestPermission */ = {
 			isa = PBXGroup;
 			children = (
-				88A2240922A64B2D001E2C63 /* AddWorkspaceView.xib */,
-				F16EC9F822A5ECB70005B220 /* AppDelegate.swift */,
-				F16EC9FA22A5ECB70005B220 /* Assets.xcassets */,
-				F16EC9FC22A5ECB70005B220 /* MainMenu.xib */,
-				F16EC9FF22A5ECB70005B220 /* Info.plist */,
-				F16ECA0022A5ECB70005B220 /* DynamicSheetSize.entitlements */,
-				F16ECA0622A5ECFD0005B220 /* SheetView.xib */,
-				F16ECA0822A5ED080005B220 /* SheetViewController.swift */,
-				F16ECA0A22A5ED170005B220 /* SheetWindow.swift */,
+				88A2241822BAA710001E2C63 /* AppDelegate.swift */,
+				88A2241A22BAA711001E2C63 /* Assets.xcassets */,
+				88A2241C22BAA711001E2C63 /* MainMenu.xib */,
+				88A2241F22BAA711001E2C63 /* Info.plist */,
+				88A2242022BAA711001E2C63 /* RequestPermission.entitlements */,
 			);
-			path = DynamicSheetSize;
+			path = RequestPermission;
+			sourceTree = "<group>";
+		};
+		88A2242622BAA8D7001E2C63 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88A2242722BAA8D7001E2C63 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F16EC9F422A5ECB70005B220 /* DynamicSheetSize */ = {
+		88A2241422BAA710001E2C63 /* RequestPermission */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F16ECA0322A5ECB70005B220 /* Build configuration list for PBXNativeTarget "DynamicSheetSize" */;
+			buildConfigurationList = 88A2242322BAA711001E2C63 /* Build configuration list for PBXNativeTarget "RequestPermission" */;
 			buildPhases = (
-				F16EC9F122A5ECB70005B220 /* Sources */,
-				F16EC9F222A5ECB70005B220 /* Frameworks */,
-				F16EC9F322A5ECB70005B220 /* Resources */,
+				88A2241122BAA710001E2C63 /* Sources */,
+				88A2241222BAA710001E2C63 /* Frameworks */,
+				88A2241322BAA710001E2C63 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = DynamicSheetSize;
-			productName = DynamicSheetSize;
-			productReference = F16EC9F522A5ECB70005B220 /* DynamicSheetSize.app */;
+			name = RequestPermission;
+			productName = RequestPermission;
+			productReference = 88A2241522BAA710001E2C63 /* RequestPermission.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		F16EC9ED22A5ECB70005B220 /* Project object */ = {
+		88A2240D22BAA710001E2C63 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1020;
-				ORGANIZATIONNAME = "gietal-dev";
+				ORGANIZATIONNAME = gietal;
 				TargetAttributes = {
-					F16EC9F422A5ECB70005B220 = {
+					88A2241422BAA710001E2C63 = {
 						CreatedOnToolsVersion = 10.2;
 					};
 				};
 			};
-			buildConfigurationList = F16EC9F022A5ECB70005B220 /* Build configuration list for PBXProject "DynamicSheetSize" */;
+			buildConfigurationList = 88A2241022BAA710001E2C63 /* Build configuration list for PBXProject "RequestPermission" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,56 +115,44 @@
 				en,
 				Base,
 			);
-			mainGroup = F16EC9EC22A5ECB70005B220;
-			productRefGroup = F16EC9F622A5ECB70005B220 /* Products */;
+			mainGroup = 88A2240C22BAA710001E2C63;
+			productRefGroup = 88A2241622BAA710001E2C63 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F16EC9F422A5ECB70005B220 /* DynamicSheetSize */,
+				88A2241422BAA710001E2C63 /* RequestPermission */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		F16EC9F322A5ECB70005B220 /* Resources */ = {
+		88A2241322BAA710001E2C63 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88A2240B22A64B2D001E2C63 /* AddWorkspaceView.xib in Resources */,
-				F16EC9FB22A5ECB70005B220 /* Assets.xcassets in Resources */,
-				F16EC9FE22A5ECB70005B220 /* MainMenu.xib in Resources */,
-				F16ECA0722A5ECFD0005B220 /* SheetView.xib in Resources */,
+				88A2241B22BAA711001E2C63 /* Assets.xcassets in Resources */,
+				88A2241E22BAA711001E2C63 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F16EC9F122A5ECB70005B220 /* Sources */ = {
+		88A2241122BAA710001E2C63 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F16ECA0922A5ED080005B220 /* SheetViewController.swift in Sources */,
-				F16EC9F922A5ECB70005B220 /* AppDelegate.swift in Sources */,
-				F16ECA0B22A5ED170005B220 /* SheetWindow.swift in Sources */,
+				88A2241922BAA710001E2C63 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		88A2240922A64B2D001E2C63 /* AddWorkspaceView.xib */ = {
+		88A2241C22BAA711001E2C63 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				88A2240A22A64B2D001E2C63 /* Base */,
-			);
-			name = AddWorkspaceView.xib;
-			sourceTree = "<group>";
-		};
-		F16EC9FC22A5ECB70005B220 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F16EC9FD22A5ECB70005B220 /* Base */,
+				88A2241D22BAA711001E2C63 /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -172,7 +160,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		F16ECA0122A5ECB70005B220 /* Debug */ = {
+		88A2242122BAA711001E2C63 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -233,7 +221,7 @@
 			};
 			name = Debug;
 		};
-		F16ECA0222A5ECB70005B220 /* Release */ = {
+		88A2242222BAA711001E2C63 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -287,39 +275,39 @@
 			};
 			name = Release;
 		};
-		F16ECA0422A5ECB70005B220 /* Debug */ = {
+		88A2242422BAA711001E2C63 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = DynamicSheetSize/DynamicSheetSize.entitlements;
+				CODE_SIGN_ENTITLEMENTS = RequestPermission/RequestPermission.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = DTT6RZZAQ3;
-				INFOPLIST_FILE = DynamicSheetSize/Info.plist;
+				INFOPLIST_FILE = RequestPermission/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.DynamicSheetSize;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.RequestPermission;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		F16ECA0522A5ECB70005B220 /* Release */ = {
+		88A2242522BAA711001E2C63 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = DynamicSheetSize/DynamicSheetSize.entitlements;
+				CODE_SIGN_ENTITLEMENTS = RequestPermission/RequestPermission.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = DTT6RZZAQ3;
-				INFOPLIST_FILE = DynamicSheetSize/Info.plist;
+				INFOPLIST_FILE = RequestPermission/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.DynamicSheetSize;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.RequestPermission;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -328,25 +316,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F16EC9F022A5ECB70005B220 /* Build configuration list for PBXProject "DynamicSheetSize" */ = {
+		88A2241022BAA710001E2C63 /* Build configuration list for PBXProject "RequestPermission" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F16ECA0122A5ECB70005B220 /* Debug */,
-				F16ECA0222A5ECB70005B220 /* Release */,
+				88A2242122BAA711001E2C63 /* Debug */,
+				88A2242222BAA711001E2C63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F16ECA0322A5ECB70005B220 /* Build configuration list for PBXNativeTarget "DynamicSheetSize" */ = {
+		88A2242322BAA711001E2C63 /* Build configuration list for PBXNativeTarget "RequestPermission" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F16ECA0422A5ECB70005B220 /* Debug */,
-				F16ECA0522A5ECB70005B220 /* Release */,
+				88A2242422BAA711001E2C63 /* Debug */,
+				88A2242522BAA711001E2C63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = F16EC9ED22A5ECB70005B220 /* Project object */;
+	rootObject = 88A2240D22BAA710001E2C63 /* Project object */;
 }

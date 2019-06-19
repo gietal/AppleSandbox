@@ -17,8 +17,9 @@ class SheetViewController: NSViewController {
     @IBOutlet weak var viewCHeight: NSLayoutConstraint!
     
     var originalHeights = [NSLayoutConstraint: CGFloat]()
-    convenience init() {
-        self.init(nibName: NSNib.Name("SheetView"), bundle: nil)
+    convenience init(_ xib: String) {
+//        self.init(nibName: NSNib.Name("SheetView"), bundle: nil)
+        self.init(nibName: NSNib.Name(xib), bundle: nil)
     }
     
     override func awakeFromNib() {
@@ -33,6 +34,9 @@ class SheetViewController: NSViewController {
         viewAHeight.constant = 0
         viewBHeight.constant = 0
         viewCHeight.constant = 0
+    }
+    @IBAction func closeSheet(_ sender: Any) {
+        self.view.window!.sheetParent!.endSheet(self.view.window!, returnCode: .cancel)
     }
 }
 
