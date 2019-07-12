@@ -39,7 +39,9 @@
     
     NSURL* appURL = [NSURL fileURLWithPath:appName];
     NSArray<NSString *>* args = @[];
-    NSTask* task = [NSTask launchedTaskWithExecutableURL:appURL arguments:args error:nil terminationHandler:nil];
+    NSTask* task = [NSTask launchedTaskWithExecutableURL:appURL arguments:args error:nil terminationHandler:^(NSTask *terminatedTask) {
+        NSLog(@"child process terminated with status: %d", terminatedTask.terminationStatus);
+    }];
 }
 
 @end

@@ -48,6 +48,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F155936622D93954008AB347 /* ChildProcess.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChildProcess.entitlements; sourceTree = "<group>"; };
 		F16EC9CA22A5C0580005B220 /* ChildProcess */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ChildProcess; sourceTree = BUILT_PRODUCTS_DIR; };
 		F16EC9CC22A5C0580005B220 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F16EC9D722A5C1BF0005B220 /* ParentProcess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParentProcess.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +100,7 @@
 		F16EC9CB22A5C0580005B220 /* ChildProcess */ = {
 			isa = PBXGroup;
 			children = (
+				F155936622D93954008AB347 /* ChildProcess.entitlements */,
 				F16EC9CC22A5C0580005B220 /* main.m */,
 			);
 			path = ChildProcess;
@@ -359,6 +361,7 @@
 		F16EC9CF22A5C0580005B220 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ChildProcess/ChildProcess.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DTT6RZZAQ3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -368,6 +371,7 @@
 		F16EC9D022A5C0580005B220 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ChildProcess/ChildProcess.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DTT6RZZAQ3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
