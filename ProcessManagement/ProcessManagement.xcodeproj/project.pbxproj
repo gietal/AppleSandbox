@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F155936A22D93F07008AB347 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F155936922D93F07008AB347 /* AppKit.framework */; };
+		F155936C22D93F16008AB347 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F155936B22D93F16008AB347 /* Foundation.framework */; };
+		F155936E22D93F1C008AB347 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F155936D22D93F1C008AB347 /* ApplicationServices.framework */; };
 		F16EC9CD22A5C0580005B220 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F16EC9CC22A5C0580005B220 /* main.m */; };
 		F16EC9DB22A5C1C00005B220 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F16EC9DA22A5C1C00005B220 /* AppDelegate.m */; };
 		F16EC9DD22A5C1C00005B220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F16EC9DC22A5C1C00005B220 /* Assets.xcassets */; };
 		F16EC9E022A5C1C00005B220 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F16EC9DE22A5C1C00005B220 /* MainMenu.xib */; };
 		F16EC9E322A5C1C00005B220 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F16EC9E222A5C1C00005B220 /* main.m */; };
-		F16EC9E922A5C2150005B220 /* ChildProcess in CopyFiles */ = {isa = PBXBuildFile; fileRef = F16EC9CA22A5C0580005B220 /* ChildProcess */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		F16EC9E922A5C2150005B220 /* ChildProcess in CopyFiles */ = {isa = PBXBuildFile; fileRef = F16EC9CA22A5C0580005B220 /* ChildProcess */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,10 @@
 
 /* Begin PBXFileReference section */
 		F155936622D93954008AB347 /* ChildProcess.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChildProcess.entitlements; sourceTree = "<group>"; };
+		F155936722D93A62008AB347 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F155936922D93F07008AB347 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		F155936B22D93F16008AB347 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F155936D22D93F1C008AB347 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		F16EC9CA22A5C0580005B220 /* ChildProcess */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ChildProcess; sourceTree = BUILT_PRODUCTS_DIR; };
 		F16EC9CC22A5C0580005B220 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F16EC9D722A5C1BF0005B220 /* ParentProcess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParentProcess.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +73,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F155936E22D93F1C008AB347 /* ApplicationServices.framework in Frameworks */,
+				F155936C22D93F16008AB347 /* Foundation.framework in Frameworks */,
+				F155936A22D93F07008AB347 /* AppKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,12 +89,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F155936822D93F07008AB347 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F155936D22D93F1C008AB347 /* ApplicationServices.framework */,
+				F155936B22D93F16008AB347 /* Foundation.framework */,
+				F155936922D93F07008AB347 /* AppKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F16EC9A922A5C0460005B220 = {
 			isa = PBXGroup;
 			children = (
 				F16EC9CB22A5C0580005B220 /* ChildProcess */,
 				F16EC9D822A5C1C00005B220 /* ParentProcess */,
 				F16EC9B322A5C0460005B220 /* Products */,
+				F155936822D93F07008AB347 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +121,7 @@
 		F16EC9CB22A5C0580005B220 /* ChildProcess */ = {
 			isa = PBXGroup;
 			children = (
+				F155936722D93A62008AB347 /* Info.plist */,
 				F155936622D93954008AB347 /* ChildProcess.entitlements */,
 				F16EC9CC22A5C0580005B220 /* main.m */,
 			);
@@ -173,6 +195,14 @@
 					};
 					F16EC9D622A5C1BF0005B220 = {
 						CreatedOnToolsVersion = 10.2;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -362,9 +392,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = ChildProcess/ChildProcess.entitlements;
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DTT6RZZAQ3;
+				INFOPLIST_FILE = "$(SRCROOT)/ChildProcess/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.ChildProcess;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
@@ -372,9 +406,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = ChildProcess/ChildProcess.entitlements;
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DTT6RZZAQ3;
+				INFOPLIST_FILE = "$(SRCROOT)/ChildProcess/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.ChildProcess;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -391,6 +429,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				OTHER_CODE_SIGN_FLAGS = "--deep";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.ParentProcess;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -409,6 +448,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				OTHER_CODE_SIGN_FLAGS = "--deep";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.ParentProcess;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
