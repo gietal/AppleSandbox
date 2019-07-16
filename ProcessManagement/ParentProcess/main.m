@@ -14,18 +14,20 @@ CFDataRef callback(CFMessagePortRef local, SInt32 msgid, CFDataRef data, void *i
     return NULL;
 }
 
+CFMessagePortRef gPort = nil;
+
 void create_local_port(void)
 {
-    CFStringRef port_name = CFSTR("DTT6RZZAQ.com.gietal.sandbox.group.port.server");
+    CFStringRef port_name = CFSTR("DTT6RZZAQ3.com.gietal.sandbox.group.port.server");
     CFMessagePortRef port = CFMessagePortCreateLocal(kCFAllocatorDefault, port_name, &callback, NULL, NULL);
-    return;
+    if (port != nil) {
+        NSLog(@"ParentProcess created port");
+    } else {
+        NSLog(@"ParentProcess failed to create port");
+        return;
+    }
     CFMessagePortSetDispatchQueue(port, dispatch_get_main_queue());
-}
-
-void create_remote_port(void)
-{
-    CFStringRef port_name = CFSTR("DTT6RZZAQ.com.gietal.sandbox.group.port.client");
-    CFMessagePortRef port = CFMessagePortCreateRemote(kCFAllocatorDefault, port_name);
+    gPort = port;
 }
 
 int main(int argc, const char * argv[]) {
