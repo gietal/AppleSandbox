@@ -39,6 +39,7 @@
 		88322E39243E9FE4008E5C2D /* SystemNetworkProxySwift */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SystemNetworkProxySwift; sourceTree = BUILT_PRODUCTS_DIR; };
 		88322E3B243E9FE4008E5C2D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		88322E43243FAAAD008E5C2D /* bad.pac */ = {isa = PBXFileReference; lastKnownFileType = text; path = bad.pac; sourceTree = "<group>"; };
+		88322E44243FB201008E5C2D /* empty.pac */ = {isa = PBXFileReference; lastKnownFileType = text; path = empty.pac; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +84,7 @@
 				88322E2D243E53C5008E5C2D /* main.m */,
 				88322E34243E7E74008E5C2D /* sample.pac */,
 				88322E43243FAAAD008E5C2D /* bad.pac */,
+				88322E44243FB201008E5C2D /* empty.pac */,
 			);
 			path = SystemNetworkProxy;
 			sourceTree = "<group>";

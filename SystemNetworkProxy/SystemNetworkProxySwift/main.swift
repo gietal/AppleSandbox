@@ -22,7 +22,8 @@ public class SystemNetworkProxy {
     static func getProxies(for url: URL) -> [SystemNetworkProxyConfig] {
         let proxySettings = CFNetworkCopySystemProxySettings()!.takeRetainedValue()
         let proxyArray: NSArray = CFNetworkCopyProxiesForURL(url as CFURL, proxySettings).takeRetainedValue()
-        
+        print("system wide proxy setting:")
+        print(proxyArray)
         return resolveProxies(proxies: proxyArray)
     }
     
