@@ -1,11 +1,10 @@
 function FindProxyForURL(url, host) {
-    // our local URLs from the domains below example.com don't need a proxy:
+    // example bypass
     if (shExpMatch(host, "*.example.com"))
     {
         return "DIRECT";
     }
 
-    // All other requests go through port 8080 of proxy.example.com.
-    // should that fail to respond, go directly to the WWW:
-    return "PROXY proxy.example.com:8080; DIRECT";
+    // example failover: try proxy1, then proxy2, then direct
+    return "PROXY proxy1.example.com:8080; PROXY proxy2.example.com:8080; DIRECT";
 }
