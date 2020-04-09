@@ -40,6 +40,7 @@
 		88322E3B243E9FE4008E5C2D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		88322E43243FAAAD008E5C2D /* bad.pac */ = {isa = PBXFileReference; lastKnownFileType = text; path = bad.pac; sourceTree = "<group>"; };
 		88322E44243FB201008E5C2D /* empty.pac */ = {isa = PBXFileReference; lastKnownFileType = text; path = empty.pac; sourceTree = "<group>"; };
+		88322E48243FCA19008E5C2D /* fiddler.pac */ = {isa = PBXFileReference; lastKnownFileType = text; path = fiddler.pac; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +86,7 @@
 				88322E34243E7E74008E5C2D /* sample.pac */,
 				88322E43243FAAAD008E5C2D /* bad.pac */,
 				88322E44243FB201008E5C2D /* empty.pac */,
+				88322E48243FCA19008E5C2D /* fiddler.pac */,
 			);
 			path = SystemNetworkProxy;
 			sourceTree = "<group>";
