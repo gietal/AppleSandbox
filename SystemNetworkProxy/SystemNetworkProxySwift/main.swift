@@ -22,23 +22,25 @@ public class SystemNetworkProxy {
     static func getProxies(for url: URL) -> [SystemNetworkProxyConfig] {
         let proxySettings = CFNetworkCopySystemProxySettings()!.takeRetainedValue()
         let proxyArray: NSArray = CFNetworkCopyProxiesForURL(url as CFURL, proxySettings).takeRetainedValue()
+        print("proxy settings:")
+        print(proxySettings)
         print("system wide proxy setting:")
         print(proxyArray)
-        return resolveProxies(proxies: proxyArray)
+        return resolveProxies(proxies: proxyArray, targetUrl: url)
     }
     
-    static private func resolveProxies(proxies: NSArray) -> [SystemNetworkProxyConfig] {
+    static private func resolveProxies(proxies: NSArray, targetUrl: URL) -> [SystemNetworkProxyConfig] {
         var output = [SystemNetworkProxyConfig]()
         for item in proxies {
             let proxyProp = item as! NSDictionary
-            if let configs = resolveProxy(props: proxyProp) {
+            if let configs = resolveProxy(props: proxyProp, targetUrl: targetUrl) {
                 output.append(contentsOf: configs)
             }
         }
         return output
     }
     
-    static private func resolveProxy(props: NSDictionary) -> [SystemNetworkProxyConfig]? {
+    static private func resolveProxy(props: NSDictionary, targetUrl: URL) -> [SystemNetworkProxyConfig]? {
         var anyval: Any? = props[kCFProxyTypeKey]
         if anyval == nil {
             return nil
@@ -58,7 +60,7 @@ public class SystemNetworkProxy {
             }
             let pacUrl = anyval as! URL
             
-            return resolveProxies(proxies: resolvePAC(url: pacUrl))
+            return resolveProxies(proxies: resolvePAC(url: pacUrl, targetUrl: targetUrl), targetUrl: targetUrl)
         }
         
         // skip non-http/https
@@ -98,70 +100,84 @@ public class SystemNetworkProxy {
         return [SystemNetworkProxyConfig(host: hostname, port: port, username: username, password: password)]
     }
     
-    static private func resolvePAC(url: URL) -> NSArray {
+    static private func resolvePAC(url: URL, targetUrl: URL) -> NSArray {
         var output = NSArray()
-        
-        // dont support file url
-        if url.isFileURL {
-            return output
-        }
         
         // only support valid scheme url
         if url.scheme == nil {
             return output
         }
         
-        // todo: change to promises
-        let sem = DispatchSemaphore(value: 0)
+        var fileContent = ""
         
-        // start the download
-        print("start downloading pac from \(url)")
-        URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-            print("finished downloading pacfile content:")
-            defer {
-                sem.signal()
+        // dont support file url
+        if url.isFileURL {
+            do {
+                fileContent = try String(contentsOf: url, encoding: .ascii)
+                
+            } catch {
+                print("error reading local pac file: \(error)")
             }
-            if let error = error {
-                print("error: \(error)")
-                return
-            }
+        } else {
+            // todo: change to promises
+            let sem = DispatchSemaphore(value: 0)
             
-            guard let response = response as? HTTPURLResponse else {
-                print("no response")
-                return
-            }
-            
-            if response.statusCode != 200 {
-                print("response status is not 200, but \(response.statusCode)")
-                return
-            }
-            
-            guard let data = data else {
-                print("no data")
-                return
-            }
-            
-            guard let strData = String(bytes: data, encoding: String.Encoding.ascii) else {
-                print("invalid pac file")
-                return
-            }
-            
-            print(strData)
-            
-            print("processing pac")
-            
-            var pacError: Unmanaged<CFError>?
-            guard let pacProxies: NSArray = CFNetworkCopyProxiesForAutoConfigurationScript(strData as CFString, url as CFURL, &pacError)?.takeRetainedValue() else {
-                if let err = pacError?.takeUnretainedValue() {
-                    print("error executing pac script: \(err)")
+            // start the download
+            print("start downloading pac from \(url)")
+            URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+                print("finished downloading pacfile content:")
+                defer {
+                    sem.signal()
                 }
-                return
-            }
-            output = pacProxies
-            print("finished processing pac")
-        }).resume()
+                if let error = error {
+                    print("error: \(error)")
+                    return
+                }
+                
+                guard let response = response as? HTTPURLResponse else {
+                    print("no response")
+                    return
+                }
+                
+                if response.statusCode != 200 {
+                    print("response status is not 200, but \(response.statusCode)")
+                    return
+                }
+                
+                guard let data = data else {
+                    print("no data")
+                    return
+                }
+                
+                guard let strData = String(bytes: data, encoding: String.Encoding.ascii) else {
+                    print("invalid pac file")
+                    return
+                }
+                
+                fileContent = strData
+                
+            }).resume()
+            
+            sem.wait(timeout: DispatchTime.distantFuture)
+        }
         
-        sem.wait(timeout: DispatchTime.distantFuture)
+        if fileContent.isEmpty {
+            print("file content is empty")
+            return output
+        }
+        print(fileContent)
+        print("processing pac")
+        
+        var pacError: Unmanaged<CFError>?
+        guard let pacProxies: NSArray = CFNetworkCopyProxiesForAutoConfigurationScript(fileContent as CFString, targetUrl as CFURL, &pacError)?.takeRetainedValue() else {
+            if let err = pacError?.takeUnretainedValue() {
+                print("error executing pac script: \(err)")
+            }
+            return output
+        }
+        output = pacProxies
+        print("finished processing pac")
+        
         print("pac file proxies:")
         for item in output {
             let proxyProp = item as! NSDictionary
