@@ -8,7 +8,7 @@
 import Cocoa
 
 @main
-class AppDelegate: NSObject, NSApplicationDelegate, NSTextViewDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate {
 
     public static func instance() -> AppDelegate {
         return NSApp.delegate as! AppDelegate
@@ -24,48 +24,36 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextViewDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
-        if let fieldEditor = window.fieldEditor(true, for: nil) as? NSTextView {
-//            fieldEditor.delegate = self
-        }
-//        inputTextView.delegate = self
-//        inputTextView.becomeFirstResponder()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
-
-
-    func textView(_ textView: NSTextView, shouldChangeTextIn affectedCharRange: NSRange, replacementString: String?) -> Bool {
-        print("shouldChangeTextIn range: \(affectedCharRange), replacement: \(replacementString ?? "")")
-        return true
-    }
     
-    func textShouldEndEditing(_ textObject: NSText) -> Bool {
-        print("textShouldEndEditing. current text: \(textObject.string)")
-        return true
-    }
+    // MARK: -
+    // These are the 'delegate' functions to handle UI
     
     public func clearPendingText() {
         pendingTextLabel.stringValue = ""
     }
-    public func updatePendingText(text: String, markedRange: NSRange) {
+    
+    public func updatePendingText(text: String, selectedRange: NSRange) {
         pendingTextLabel.stringValue = text
         
-        var attrString: NSMutableAttributedString = NSMutableAttributedString(attributedString: pendingTextLabel.attributedStringValue)
+        let attrString: NSMutableAttributedString = NSMutableAttributedString(attributedString: pendingTextLabel.attributedStringValue)
         
-        if markedRange.length == 0 {
+        if selectedRange.length == 0 {
             // underline everything
             attrString.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, text.count))
         } else {
             // underline normal from 0 to markedRange.start
-//            attrString.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, markedRange.location))
+//            attrString.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, selectedRange.location))
             
             // underline thick from markedRange.start to markedRange.end
-            attrString.addAttribute(.underlineStyle, value: NSUnderlineStyle.thick.rawValue, range: markedRange)
+            attrString.addAttribute(.underlineStyle, value: NSUnderlineStyle.thick.rawValue, range: selectedRange)
             
             // underline normal from markedRange.end to end
-//            let markedRangeEnd = markedRange.location + markedRange.length
+//            let markedRangeEnd = selectedRange.location + selectedRange.length
 //            attrString.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(markedRangeEnd, text.count - markedRangeEnd))
         }
         
@@ -73,14 +61,21 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextViewDelegate {
     }
     
     public func sendText(text: String) {
-//        print("send text: \(text)")
         resultTextLabel.stringValue += text
     }
 }
 
+extension NSRange {
+    static let invalid: NSRange = NSMakeRange(NSNotFound, 0)
+}
+
+// MARK: -
+// This is the main View class that will take keyboard input and handle IME
+
 class TextInputView: NSView, NSTextInputClient {
     var pendingText: String? = nil
-    var pendingMarkedRange: NSRange = NSMakeRange(NSNotFound, 0)
+    var pendingMarkedRange: NSRange = NSRange.invalid
+    var pendingSelectedRange: NSRange = NSRange.invalid
     
     private func toString(anyStr: Any) -> String? {
         if let str = anyStr as? String {
@@ -104,6 +99,8 @@ class TextInputView: NSView, NSTextInputClient {
         return NSMakeRange(lowRange, highRange - lowRange)
     }
     
+    // finished text done through IME input will go here after going through setMarkedText several times.
+    // English letters that doesn't need IME will go here directly
     func insertText(_ string: Any, replacementRange: NSRange) {
         AppDelegate.instance().clearPendingText()
         guard let insertedText = toString(anyStr: string) else {
@@ -111,11 +108,19 @@ class TextInputView: NSView, NSTextInputClient {
             return
         }
         print("insertText: \(insertedText), replacementRange: \(replacementRange)")
+        
+        // english letters goes straight here without going to setMarkedText
+        // so we need to send the insertedText, not pendingText
         pendingText = nil
-        pendingMarkedRange = NSMakeRange(NSNotFound, 0)
         AppDelegate.instance().sendText(text: insertedText)
+        
+        // reset values and notify input context of changes
+        unmarkText()
     }
     
+    // letters that needed IME will go here, even character such as é, the ´ will be sent here
+    // the typed text are in a 'pending' state, waiting for further input.
+    // once input is done, insertText will be called with the finished text
     func setMarkedText(_ string: Any, selectedRange: NSRange, replacementRange: NSRange) {
         guard let markedText = toString(anyStr: string) else {
             print("setMarkedText nil")
@@ -123,79 +128,77 @@ class TextInputView: NSView, NSTextInputClient {
         }
         print("setMarkedText: \(markedText), selectedRange: \(selectedRange), replacementRange: \(replacementRange)")
         pendingText = markedText
-        pendingMarkedRange = selectedRange
-        AppDelegate.instance().updatePendingText(text: pendingText!, markedRange: pendingMarkedRange)
+        pendingMarkedRange = NSMakeRange(0, markedText.count)
+        pendingSelectedRange = selectedRange
+        AppDelegate.instance().updatePendingText(text: pendingText!, selectedRange: selectedRange)
+        
+        // notify input context
+        inputContext!.invalidateCharacterCoordinates()
     }
     
     func unmarkText() {
-        print("unmarkText")
         if let actualText = pendingText {
             AppDelegate.instance().sendText(text: actualText)
         }
+        
+        // reset values
         pendingText = nil
-        pendingMarkedRange = NSMakeRange(NSNotFound, 0)
-        inputContext?.discardMarkedText()
+        pendingMarkedRange = NSRange.invalid
+        pendingSelectedRange = NSRange.invalid
+        
+        // notify input context
+        inputContext!.discardMarkedText()
+        inputContext!.invalidateCharacterCoordinates()
     }
     
+    // This should return the range currently selected for replacement by IME candidate window
+    // this value is simply the 'selectedRange' parameter from setMarkedText
     func selectedRange() -> NSRange {
-        if let pt = pendingText {
-            return NSMakeRange(pt.count, 0)
-        }
-        return NSMakeRange(0, 0)
+        return pendingSelectedRange
     }
     
+    // This should return the range of the currently pending text
+    // so something like: NSRange(0, length of pending text)
     func markedRange() -> NSRange {
         return pendingMarkedRange
     }
     
+    // Return if we have a pending text
     func hasMarkedText() -> Bool {
         return pendingText != nil
     }
     
     func attributedSubstring(forProposedRange range: NSRange, actualRange: NSRangePointer?) -> NSAttributedString? {
-        if pendingText == nil {
-            return nil
-        }
-        print("attributedSubstring proposedRange: \(range)")
-        let pendingTextAttrStr = AppDelegate.instance().pendingTextLabel.attributedStringValue
-        if let adjustedRange = getIntersectionRange(attrString: pendingTextAttrStr, range: range) {
-            actualRange?.pointee = adjustedRange
-            return pendingTextAttrStr.attributedSubstring(from: adjustedRange)
-        }
-        
         return nil
     }
     
     func validAttributesForMarkedText() -> [NSAttributedString.Key] {
-        return [.markedClauseSegment, .glyphInfo, .underlineStyle]
+        return []
     }
     
+    // Return the box where the IME candidate window should pop up for a given selected range of character
+    // The Rect should be on the screen coordinate
     func firstRect(forCharacterRange range: NSRange, actualRange: NSRangePointer?) -> NSRect {
-        // this gives back the
+        if range.location == NSNotFound {
+            return NSRect.zero
+        }
+        actualRange?.pointee = range
+        
         let pendingTextLabel = AppDelegate.instance().pendingTextLabel!
-        let markedTextRect = pendingTextLabel.attributedStringValue.attributedSubstring(from: range).boundingRect(with: pendingTextLabel.frame.size, options: [])
+        var markedTextRect = pendingTextLabel.frame
+        markedTextRect.origin = NSPoint(x: markedTextRect.origin.x + CGFloat(range.location) * 5.0, y: markedTextRect.origin.y)
+        markedTextRect.size = NSSize(width: 5, height: markedTextRect.height)
         let myViewRect = pendingTextLabel.convert(markedTextRect, to: self)
         let screenRect = self.window!.convertToScreen(myViewRect)
         
-        print("firstRect for range: \(range)")
+        print("firstRect for range: \(range), rect: \(screenRect)")
+//        return NSRect(x: 500, y: 500, width: 10, height: 10)
+        
         return screenRect
     }
     
-    func attributedString() -> NSAttributedString {
-        return AppDelegate.instance().pendingTextLabel.attributedStringValue
-    }
-    
-//    func baselineDeltaForCharacter(at anIndex: Int) -> CGFloat {
-//        let pendingTextLabel = AppDelegate.instance().pendingTextLabel!
-//        let originRect = pendingTextLabel.attributedStringValue.boundingRect(with: pendingTextLabel.frame.size, options: [])
-//        let indexRect = pendingTextLabel.attributedStringValue.attributedSubstring(from: NSMakeRange(anIndex, 1)).boundingRect(with: pendingTextLabel.frame.size, options: [])
-//        return CGFloat(1 * anIndex)
-//
-//    }
-    
-    
-    
     func characterIndex(for point: NSPoint) -> Int {
+        print("characterIndex for point: \(point)")
         return 0
     }
     
@@ -208,8 +211,12 @@ class TextInputView: NSView, NSTextInputClient {
         return true
     }
     
+    override func resignFirstResponder() -> Bool {
+        return true
+    }
+    
     override func keyDown(with event: NSEvent) {
-        inputContext?.handleEvent(event)
+        inputContext!.handleEvent(event)
     }
     
     override func doCommand(by selector: Selector) {
