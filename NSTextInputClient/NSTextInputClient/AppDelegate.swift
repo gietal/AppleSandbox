@@ -91,6 +91,19 @@ class TextInputView: NSView, NSTextInputClient {
         return nil
     }
     
+    private func getIntersectionRange(attrString: NSAttributedString, range: NSRange) -> NSRange? {
+        // starts outside the range
+        if range.location == NSNotFound || range.location >= attrString.length || range.location < 0 {
+            return nil
+        }
+        
+        // clip
+        let lowRange = max(range.location, 0)
+        let highRange = min(range.location + range.length, attrString.length)
+        
+        return NSMakeRange(lowRange, highRange - lowRange)
+    }
+    
     func insertText(_ string: Any, replacementRange: NSRange) {
         AppDelegate.instance().clearPendingText()
         guard let insertedText = toString(anyStr: string) else {
@@ -126,9 +139,9 @@ class TextInputView: NSView, NSTextInputClient {
     
     func selectedRange() -> NSRange {
         if let pt = pendingText {
-            return NSMakeRange(0, pt.count)
+            return NSMakeRange(pt.count, 0)
         }
-        return NSMakeRange(NSNotFound, 0)
+        return NSMakeRange(0, 0)
     }
     
     func markedRange() -> NSRange {
@@ -143,18 +156,44 @@ class TextInputView: NSView, NSTextInputClient {
         if pendingText == nil {
             return nil
         }
-        actualRange?.pointee = range
-        return NSAttributedString(string: pendingText!)
+        print("attributedSubstring proposedRange: \(range)")
+        let pendingTextAttrStr = AppDelegate.instance().pendingTextLabel.attributedStringValue
+        if let adjustedRange = getIntersectionRange(attrString: pendingTextAttrStr, range: range) {
+            actualRange?.pointee = adjustedRange
+            return pendingTextAttrStr.attributedSubstring(from: adjustedRange)
+        }
+        
+        return nil
     }
     
     func validAttributesForMarkedText() -> [NSAttributedString.Key] {
-        return []
+        return [.markedClauseSegment, .glyphInfo, .underlineStyle]
     }
     
     func firstRect(forCharacterRange range: NSRange, actualRange: NSRangePointer?) -> NSRect {
-//        NSRect(origin: CGPoint(x: 200, y: 400), size: CGSize(width: 200, height: 0))
-        return NSRect.zero
+        // this gives back the
+        let pendingTextLabel = AppDelegate.instance().pendingTextLabel!
+        let markedTextRect = pendingTextLabel.attributedStringValue.attributedSubstring(from: range).boundingRect(with: pendingTextLabel.frame.size, options: [])
+        let myViewRect = pendingTextLabel.convert(markedTextRect, to: self)
+        let screenRect = self.window!.convertToScreen(myViewRect)
+        
+        print("firstRect for range: \(range)")
+        return screenRect
     }
+    
+    func attributedString() -> NSAttributedString {
+        return AppDelegate.instance().pendingTextLabel.attributedStringValue
+    }
+    
+//    func baselineDeltaForCharacter(at anIndex: Int) -> CGFloat {
+//        let pendingTextLabel = AppDelegate.instance().pendingTextLabel!
+//        let originRect = pendingTextLabel.attributedStringValue.boundingRect(with: pendingTextLabel.frame.size, options: [])
+//        let indexRect = pendingTextLabel.attributedStringValue.attributedSubstring(from: NSMakeRange(anIndex, 1)).boundingRect(with: pendingTextLabel.frame.size, options: [])
+//        return CGFloat(1 * anIndex)
+//
+//    }
+    
+    
     
     func characterIndex(for point: NSPoint) -> Int {
         return 0

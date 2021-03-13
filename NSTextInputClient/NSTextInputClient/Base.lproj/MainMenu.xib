@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17506" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17506"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +12,7 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="NSTextInputClient" customModuleProvider="target">
             <connections>
                 <outlet property="label" destination="MoK-id-rlV" id="XI8-N4-tdb"/>
@@ -688,35 +689,16 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="580" height="488"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1792" height="1095"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2048" height="1129"/>
             <view key="contentView" id="EiT-Mj-1SZ" customClass="TextInputView" customModule="NSTextInputClient" customModuleProvider="target">
                 <rect key="frame" x="0.0" y="0.0" width="580" height="488"/>
-                <autoresizingMask key="autoresizingMask"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Qu-wi-1Fh">
-                        <rect key="frame" x="0.0" y="0.0" width="580" height="256"/>
+                        <rect key="frame" x="20" y="400" width="540" height="88"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RdE-w8-9yG">
-                                <rect key="frame" x="-2" y="240" width="31" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="IME:" id="Cj0-Nz-zfs">
-                                    <font key="font" usesAppearanceFont="YES"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="fSN-fS-saa">
-                                <rect key="frame" x="-2" y="132" width="584" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="BjS-sb-JRc"/>
-                                </constraints>
-                                <textFieldCell key="cell" selectable="YES" title="智利は" allowsEditingTextAttributes="YES" id="qDj-uS-YAS">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="i0m-p5-H7p">
-                                <rect key="frame" x="-2" y="108" width="50" height="16"/>
+                                <rect key="frame" x="-2" y="72" width="50" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Output:" id="6nL-67-l0G">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -724,12 +706,25 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="MoK-id-rlV">
-                                <rect key="frame" x="-2" y="0.0" width="584" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="Mgo-qN-cJg"/>
-                                </constraints>
+                                <rect key="frame" x="-2" y="48" width="544" height="16"/>
                                 <textFieldCell key="cell" selectable="YES" id="Ljb-3o-v0s">
                                     <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RdE-w8-9yG">
+                                <rect key="frame" x="-2" y="24" width="31" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="IME:" id="Cj0-Nz-zfs">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="fSN-fS-saa">
+                                <rect key="frame" x="-2" y="0.0" width="544" height="16"/>
+                                <textFieldCell key="cell" selectable="YES" allowsEditingTextAttributes="YES" id="qDj-uS-YAS">
+                                    <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -756,9 +751,9 @@
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="4Qu-wi-1Fh" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="3Pd-wN-3B5"/>
-                    <constraint firstAttribute="bottom" secondItem="4Qu-wi-1Fh" secondAttribute="bottom" id="79T-at-PK8"/>
-                    <constraint firstAttribute="trailing" secondItem="4Qu-wi-1Fh" secondAttribute="trailing" id="zbC-1n-Feq"/>
+                    <constraint firstItem="4Qu-wi-1Fh" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="3Pd-wN-3B5"/>
+                    <constraint firstItem="4Qu-wi-1Fh" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="ax0-bF-Erw"/>
+                    <constraint firstAttribute="trailing" secondItem="4Qu-wi-1Fh" secondAttribute="trailing" constant="20" id="zbC-1n-Feq"/>
                 </constraints>
             </view>
             <connections>
