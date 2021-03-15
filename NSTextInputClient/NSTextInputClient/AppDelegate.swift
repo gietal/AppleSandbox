@@ -38,6 +38,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     public func updatePendingText(text: String, selectedRange: NSRange) {
+        updatePendingTextUI(text: text, selectedRange: selectedRange)
+        updatePendingText2(text: text, selectedRange: selectedRange)
+    }
+    
+    public func sendText(text: String) {
+//        sendTextToOutput(text: text)
+        sendText2(text: text)
+    }
+    
+    // MARK: first implementation local window
+    public func updatePendingTextUI(text: String, selectedRange: NSRange) {
         pendingTextLabel.stringValue = text
         
         let attrString: NSMutableAttributedString = NSMutableAttributedString(attributedString: pendingTextLabel.attributedStringValue)
@@ -60,8 +71,54 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         pendingTextLabel.attributedStringValue = attrString
     }
     
-    public func sendText(text: String) {
+    public func sendTextToOutput(text: String) {
         resultTextLabel.stringValue += text
+    }
+    
+    // MARK: second implementation, output window
+    var sentPendingText: String? = nil
+    public func updatePendingText2(text: String, selectedRange: NSRange) {
+        // delete the previously selected text
+        if let sentText = sentPendingText {
+            let commonPrefix = sentText.commonPrefix(with: text, options: .literal)
+            if commonPrefix == text {
+                // do nothing, user is only changing the selected IME range
+                return
+            }
+            
+            // otherwise user changed the text with the IME
+            // so we must update the remote's text as well
+            
+            // delete up to the common prefix
+            sendDelete(count: sentText.count - commonPrefix.count)
+            
+            // then send the new text to the output, starting from the end of the common prefix
+            let sendIndex = text.index(text.startIndex, offsetBy: commonPrefix.count)
+            sendTextToOutput(text: String(text[sendIndex...]))
+            
+        } else {
+            // we haven't sent any text yet to the output, just send everything
+            sendTextToOutput(text: text)
+        }
+        
+        // update the pending text on the remote session
+        sentPendingText = text
+    }
+    
+    public func sendText2(text: String) {
+        if let sentText = sentPendingText {
+            // delete the sent text first
+            sendDelete(count: sentText.count)
+        }
+        
+        // send everything to output
+        sendTextToOutput(text: text)
+        
+        sentPendingText = nil
+    }
+    
+    public func sendDelete(count: Int) {
+        resultTextLabel.stringValue = String(resultTextLabel.stringValue.dropLast(count))
     }
 }
 
@@ -98,6 +155,10 @@ class TextInputView: NSView, NSTextInputClient {
         
         return NSMakeRange(lowRange, highRange - lowRange)
     }
+    
+//    override func insertNewline(_ sender: Any?) {
+//        print("insertNewLine")
+//    }
     
     // finished text done through IME input will go here after going through setMarkedText several times.
     // English letters that doesn't need IME will go here directly
@@ -154,7 +215,8 @@ class TextInputView: NSView, NSTextInputClient {
     // This should return the range currently selected for replacement by IME candidate window
     // this value is simply the 'selectedRange' parameter from setMarkedText
     func selectedRange() -> NSRange {
-        return pendingSelectedRange
+//        return pendingSelectedRange
+        return pendingMarkedRange
     }
     
     // This should return the range of the currently pending text
@@ -216,7 +278,16 @@ class TextInputView: NSView, NSTextInputClient {
     }
     
     override func keyDown(with event: NSEvent) {
-        inputContext!.handleEvent(event)
+//        if event.keyCode == 0x24{
+//            // enter key
+//            inputContext?.c
+//            return
+//        }
+        // is there a way to not have to double click the enter key?
+        if !inputContext!.handleEvent(event) {
+            // not handled by the IME
+            print("unhandled event \(event.keyCode)")
+        }
     }
     
     override func doCommand(by selector: Selector) {
