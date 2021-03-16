@@ -133,6 +133,11 @@ class TextInputView: NSView, NSTextInputClient {
     var pendingText: String? = nil
     var pendingMarkedRange: NSRange = NSRange.invalid
     var pendingSelectedRange: NSRange = NSRange.invalid
+    var lastIMEWindowRect = NSRect(x: 500, y: 500, width: 0, height: 0)
+    
+    var imeWindow: NSWindow? {
+        return NSApp.windows.first(where:{$0.className == "NSPanelViewBridge"})
+    }
     
     private func toString(anyStr: Any) -> String? {
         if let str = anyStr as? String {
@@ -257,6 +262,9 @@ class TextInputView: NSView, NSTextInputClient {
 //        return NSRect(x: 500, y: 500, width: 10, height: 10)
         
         return screenRect
+        
+//        print("987987 firstRect IME for range: \(range), rect: \(lastIMEWindowRect)")
+//        return NSRect(origin: lastIMEWindowRect.origin, size: NSSize(width: 0, height: 0))
     }
     
     func characterIndex(for point: NSPoint) -> Int {
@@ -283,11 +291,31 @@ class TextInputView: NSView, NSTextInputClient {
 //            inputContext?.c
 //            return
 //        }
+        
+
+//        inputContext!.invalidateCharacterCoordinates()
+//        if let imeWindow = imeWindow {
+//            // we want the position of the top left
+//            let oldFrame = lastIMEWindowRect
+//            var newFrame = imeWindow.frame
+//            if newFrame.origin.x == oldFrame.origin.x - 8 && oldFrame.origin.y == newFrame.origin.y {
+//                // assume this was due to selecting a longer text and the window expanded automatically
+//                // set the position to be the old frame
+//                newFrame.origin = oldFrame.origin
+//            } else {
+//                newFrame.origin = NSPoint(x: newFrame.origin.x, y: newFrame.origin.y + newFrame.height + 4)
+//            }
+//            lastIMEWindowRect = newFrame
+//            print("987987 updated IME window to \(lastIMEWindowRect)")
+//        }
+//        
         // is there a way to not have to double click the enter key?
         if !inputContext!.handleEvent(event) {
             // not handled by the IME
             print("unhandled event \(event.keyCode)")
         }
+        
+
     }
     
     override func doCommand(by selector: Selector) {
