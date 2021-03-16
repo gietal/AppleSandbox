@@ -156,10 +156,6 @@ class TextInputView: NSView, NSTextInputClient {
         return NSMakeRange(lowRange, highRange - lowRange)
     }
     
-//    override func insertNewline(_ sender: Any?) {
-//        print("insertNewLine")
-//    }
-    
     // finished text done through IME input will go here after going through setMarkedText several times.
     // English letters that doesn't need IME will go here directly
     func insertText(_ string: Any, replacementRange: NSRange) {
@@ -215,8 +211,7 @@ class TextInputView: NSView, NSTextInputClient {
     // This should return the range currently selected for replacement by IME candidate window
     // this value is simply the 'selectedRange' parameter from setMarkedText
     func selectedRange() -> NSRange {
-//        return pendingSelectedRange
-        return pendingMarkedRange
+        return pendingSelectedRange
     }
     
     // This should return the range of the currently pending text
@@ -278,11 +273,6 @@ class TextInputView: NSView, NSTextInputClient {
     }
     
     override func keyDown(with event: NSEvent) {
-//        if event.keyCode == 0x24{
-//            // enter key
-//            inputContext?.c
-//            return
-//        }
         // is there a way to not have to double click the enter key?
         if !inputContext!.handleEvent(event) {
             // not handled by the IME
