@@ -182,6 +182,10 @@ class TextInputView: NSView, NSTextInputClient {
         
         // reset values and notify input context of changes
         unmarkText()
+        inputContext!.invalidateCharacterCoordinates()
+        
+        // set at the end of result if exist
+        pendingSelectedRange = NSMakeRange(AppDelegate.instance().resultTextLabel.stringValue.count, 0)
     }
     
     // letters that needed IME will go here, even character such as é, the ´ will be sent here
@@ -194,8 +198,10 @@ class TextInputView: NSView, NSTextInputClient {
         }
         print("setMarkedText: \(markedText), selectedRange: \(selectedRange), replacementRange: \(replacementRange)")
         pendingText = markedText
-        pendingMarkedRange = NSMakeRange(0, markedText.count)
-        pendingSelectedRange = selectedRange
+//        pendingMarkedRange = NSMakeRange(0, markedText.count)
+//        pendingSelectedRange = selectedRange
+        pendingMarkedRange = NSMakeRange(attributedString().length, markedText.count)
+        pendingSelectedRange = NSMakeRange(pendingMarkedRange.location + selectedRange.location, selectedRange.length) // whats the loc doing??
         AppDelegate.instance().updatePendingText(text: pendingText!, selectedRange: selectedRange)
         
         // notify input context
@@ -210,23 +216,24 @@ class TextInputView: NSView, NSTextInputClient {
         // reset values
         pendingText = nil
         pendingMarkedRange = NSRange.invalid
-        pendingSelectedRange = NSRange.invalid
+//        pendingSelectedRange = NSRange.invalid
         
         // notify input context
         inputContext!.discardMarkedText()
-        inputContext!.invalidateCharacterCoordinates()
+//        inputContext!.invalidateCharacterCoordinates()
     }
     
     // This should return the range currently selected for replacement by IME candidate window
     // this value is simply the 'selectedRange' parameter from setMarkedText
     func selectedRange() -> NSRange {
-//        return pendingSelectedRange
-        return pendingMarkedRange
+        print("selectedRange: \(pendingMarkedRange)")
+        return pendingSelectedRange
     }
     
     // This should return the range of the currently pending text
     // so something like: NSRange(0, length of pending text)
     func markedRange() -> NSRange {
+        print("markedRange: \(pendingMarkedRange)")
         return pendingMarkedRange
     }
     
@@ -246,22 +253,24 @@ class TextInputView: NSView, NSTextInputClient {
     // Return the box where the IME candidate window should pop up for a given selected range of character
     // The Rect should be on the screen coordinate
     func firstRect(forCharacterRange range: NSRange, actualRange: NSRangePointer?) -> NSRect {
-        if range.location == NSNotFound {
-            return NSRect.zero
-        }
-        actualRange?.pointee = range
+//        if range.location == NSNotFound {
+//            return NSRect.zero
+//        }
+//        actualRange?.pointee = range
         
-        let pendingTextLabel = AppDelegate.instance().pendingTextLabel!
-        var markedTextRect = pendingTextLabel.frame
-        markedTextRect.origin = NSPoint(x: markedTextRect.origin.x + CGFloat(range.location) * 5.0, y: markedTextRect.origin.y)
-        markedTextRect.size = NSSize(width: 5, height: markedTextRect.height)
-        let myViewRect = pendingTextLabel.convert(markedTextRect, to: self)
-        let screenRect = self.window!.convertToScreen(myViewRect)
+//        let pendingTextLabel = AppDelegate.instance().pendingTextLabel!
+//        var markedTextRect = pendingTextLabel.frame
+//        markedTextRect.origin = NSPoint(x: markedTextRect.origin.x + CGFloat(range.location) * 5.0, y: markedTextRect.origin.y)
+//        markedTextRect.size = NSSize(width: 5, height: markedTextRect.height)
+//        let myViewRect = pendingTextLabel.convert(markedTextRect, to: self)
+//        let screenRect = self.window!.convertToScreen(myViewRect)
+//        print("firstRect for range: \(range), rect: \(screenRect)")
+//        return screenRect
         
-        print("firstRect for range: \(range), rect: \(screenRect)")
-//        return NSRect(x: 500, y: 500, width: 10, height: 10)
+
+        return NSRect(x: 500, y: 500, width: 10, height: 10)
         
-        return screenRect
+        
         
 //        print("987987 firstRect IME for range: \(range), rect: \(lastIMEWindowRect)")
 //        return NSRect(origin: lastIMEWindowRect.origin, size: NSSize(width: 0, height: 0))
@@ -308,7 +317,7 @@ class TextInputView: NSView, NSTextInputClient {
 //            lastIMEWindowRect = newFrame
 //            print("987987 updated IME window to \(lastIMEWindowRect)")
 //        }
-//        
+//
         // is there a way to not have to double click the enter key?
         if !inputContext!.handleEvent(event) {
             // not handled by the IME
@@ -320,6 +329,12 @@ class TextInputView: NSView, NSTextInputClient {
     
     override func doCommand(by selector: Selector) {
         super.doCommand(by: selector)
+    }
+    
+    func attributedString() -> NSAttributedString {
+        print("attributedString: \(AppDelegate.instance().resultTextLabel.stringValue)")
+        return NSAttributedString(string: AppDelegate.instance().resultTextLabel.stringValue)
+//        return NSAttributedString()
     }
 }
 
