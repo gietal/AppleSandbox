@@ -152,6 +152,7 @@ class TextInputView: NSView, NSTextInputClient {
         NotificationCenter.default.addObserver(self, selector: #selector(windowDidMove(_:)), name: NSWindow.didMoveNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(windowWillMove(_:)), name: NSWindow.willMoveNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(windowDidResize(_:)), name: NSWindow.didResizeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(windowWillClose(_:)), name: NSNotification.Name("NSWindowWillOrderOffScreenNotification"), object: nil)
     }
 
     @objc func windowDidOrderOnScreen(_ notification: Notification ) {
@@ -230,6 +231,16 @@ class TextInputView: NSView, NSTextInputClient {
             lastIMEWindowPos = window.frame.origin
 //            lastCaretPosition = CGPoint(x: window.frame.origin.x + windowToCaretOffset.x, y: window.frame.origin.y + windowToCaretOffset.y)
 //            windowToCaretOffset = CGPoint(x: lastCaretPosition.x - window.frame.origin.x, y: lastCaretPosition.y - window.frame.origin.y)
+        }
+    }
+    
+    @objc func windowWillClose(_ notification: Notification ) {
+        guard let window = notification.object as? NSWindow else {
+            return
+        }
+        
+        if window.className == "NSPanelViewBridge" {
+            print("987987 IME window will close. frame: \(window.frame)")
         }
     }
     
