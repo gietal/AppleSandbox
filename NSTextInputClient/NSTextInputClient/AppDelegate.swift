@@ -22,10 +22,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var pendingTextLabel: NSTextField!
     @IBOutlet weak var resultTextLabel: NSTextField!
     
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
     }
-
+    
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
@@ -126,7 +127,7 @@ extension NSRange {
     static let invalid: NSRange = NSMakeRange(NSNotFound, 0)
 }
 
-// MARK: -
+// MARK: - TexInputView implementation
 // This is the main View class that will take keyboard input and handle IME
 
 class TextInputView: NSView, NSTextInputClient {
@@ -135,8 +136,101 @@ class TextInputView: NSView, NSTextInputClient {
     var pendingSelectedRange: NSRange = NSRange.invalid
     var lastIMEWindowRect = NSRect(x: 500, y: 500, width: 0, height: 0)
     
+    var lastCaretPosition = CGPoint(x: 500, y: 500)
+    var lastIMEWindowPos = CGPoint.zero
+    var imeWindowVisible = false
+    
     var imeWindow: NSWindow? {
         return NSApp.windows.first(where:{$0.className == "NSPanelViewBridge"})
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(windowDidOrderOnScreen(_:)), name: NSNotification.Name("NSWindowDidOrderOnScreenAndFinishAnimatingNotification"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(windowDidOrderOffScreen(_:)), name: NSNotification.Name("NSWindowDidOrderOffScreenAndFinishAnimatingNotification"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(windowDidMove(_:)), name: NSWindow.didMoveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(windowWillMove(_:)), name: NSWindow.willMoveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(windowDidResize(_:)), name: NSWindow.didResizeNotification, object: nil)
+    }
+
+    @objc func windowDidOrderOnScreen(_ notification: Notification ) {
+        guard let window = notification.object as? NSWindow else {
+            return
+        }
+        
+        if window.className == "NSPanelViewBridge" {
+            imeWindowVisible = true
+            lastIMEWindowPos = window.frame.origin
+            print("987987 IME window shows up. frame: \(window.frame)")
+//            windowToCaretOffset = CGPoint(x: lastCaretPosition.x - window.frame.origin.x, y: lastCaretPosition.y - window.frame.origin.y)
+        }
+    }
+
+    @objc func windowDidOrderOffScreen(_ notification: Notification ) {
+        guard let window = notification.object as? NSWindow else {
+            return
+        }
+        
+        if window.className == "NSPanelViewBridge" {
+            imeWindowVisible = false
+            print("987987 IME window closed. frame: \(window.frame)")
+            
+        }
+    }
+
+    @objc func windowWillMove(_ notification: Notification ) {
+        guard let window = notification.object as? NSWindow else {
+            return
+        }
+        
+        if window.className == "NSPanelViewBridge" {
+//            // get how much the window moved since last time
+//            let offset = CGPoint(x: window.frame.origin.x - lastIMEWindowPos.x, y: window.frame.origin.y - lastIMEWindowPos.y)
+//
+//            // cache the new position
+//            lastIMEWindowPos = window.frame.origin
+//
+//            // offset the caret position
+            print("987987 IME window will move. frame: \(window.frame)")
+//            lastCaretPosition = CGPoint(x: window.frame.origin.x + windowToCaretOffset.x, y: window.frame.origin.y + windowToCaretOffset.y)
+//            windowToCaretOffset = CGPoint(x: lastCaretPosition.x - window.frame.origin.x, y: lastCaretPosition.y - window.frame.origin.y)
+        }
+    }
+    
+    @objc func windowDidMove(_ notification: Notification ) {
+        guard let window = notification.object as? NSWindow else {
+            return
+        }
+        
+        if window.className == "NSPanelViewBridge" {
+            
+            print("987987 IME window moved. frame: \(window.frame)")
+//            lastCaretPosition = CGPoint(x: window.frame.origin.x + windowToCaretOffset.x, y: window.frame.origin.y + windowToCaretOffset.y)
+//            windowToCaretOffset = CGPoint(x: lastCaretPosition.x - window.frame.origin.x, y: lastCaretPosition.y - window.frame.origin.y)
+            
+            // get how much the window moved since last time
+            let offset = CGPoint(x: window.frame.origin.x - lastIMEWindowPos.x, y: window.frame.origin.y - lastIMEWindowPos.y)
+            
+            // cache the new position
+            lastIMEWindowPos = window.frame.origin
+            
+            // offset the caret position
+            lastCaretPosition = CGPoint(x: lastCaretPosition.x + offset.x, y: lastCaretPosition.y + offset.y)
+        }
+    }
+    
+    @objc func windowDidResize(_ notification: Notification ) {
+        guard let window = notification.object as? NSWindow else {
+            return
+        }
+        
+        if window.className == "NSPanelViewBridge" {
+            print("987987 IME window resized. frame: \(window.frame)")
+            lastIMEWindowPos = window.frame.origin
+//            lastCaretPosition = CGPoint(x: window.frame.origin.x + windowToCaretOffset.x, y: window.frame.origin.y + windowToCaretOffset.y)
+//            windowToCaretOffset = CGPoint(x: lastCaretPosition.x - window.frame.origin.x, y: lastCaretPosition.y - window.frame.origin.y)
+        }
     }
     
     private func toString(anyStr: Any) -> String? {
@@ -267,8 +361,9 @@ class TextInputView: NSView, NSTextInputClient {
 //        print("firstRect for range: \(range), rect: \(screenRect)")
 //        return screenRect
         
-
-        return NSRect(x: 500, y: 500, width: 10, height: 10)
+        print("987987 firstRect needed. imeWindowVisible: \(imeWindowVisible)")
+        return NSRect(origin: lastCaretPosition, size: CGSize(width: 1, height: 0))
+//        return NSRect(x: 500, y: 500, width: 10, height: 10)
         
         
         
