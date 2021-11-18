@@ -34,7 +34,7 @@ open class CircularButton: NSButton {
     fileprivate var blurFilter: CIFilter?
     fileprivate var colorLayer = CALayer()
     fileprivate var blurLayer = CALayer()
-    fileprivate let additionalGrayColor = CGColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+    fileprivate let additionalGrayColor = CGColor(gray: 0.5, alpha: 0.4)
     open override func awakeFromNib() {
         // setup these props manually so you can't accidentally set it from the UI
         bezelStyle = .shadowlessSquare
@@ -51,7 +51,7 @@ open class CircularButton: NSButton {
         
         blurFilter = CIFilter(name:"CIGaussianBlur")
         blurFilter?.name = "blur"
-        blurFilter?.setValue(10, forKey: "inputRadius")
+        blurFilter?.setValue(5, forKey: "inputRadius")
         
         
         blurLayer.frame = CGRect(origin: .zero, size: bounds.size)
@@ -61,37 +61,37 @@ open class CircularButton: NSButton {
         
         colorLayer.backgroundColor = additionalGrayColor
         
-        colorLayer.compositingFilter = CIFilter(name: "CIOverlayBlendMode")!
+//        colorLayer.compositingFilter = CIFilter(name: "CIOverlayBlendMode")!
+        colorLayer.compositingFilter = CIFilter(name: "CIHardLightBlendMode")!
         
 //        layer?.addSublayer(<#T##layer: CALayer##CALayer#>)
-        layer?.sublayers = [colorLayer]
-        layer?.backgroundFilters = [blurFilter!]
+//        layer?.sublayers = [colorLayer]
+//        layer?.backgroundFilters = [blurFilter!]
+//        layer?.backgroundColor = CGColor(gray: 0.5, alpha: 0.4)
+        
+        setButtonColor(hovered: false)
     }
     
-    fileprivate func applyBlur() {
-//        layer?.borderWidth = 1
-//        layer?.borderColor = NSColor.white.cgColor
-        if let filter = blurFilter {
-            layer?.backgroundFilters = [filter]
-            layer?.setValue(10, forKeyPath: "backgroundFilters.\(filter.name).inputRadius")
-            layer?.masksToBounds = true
+    fileprivate func setButtonColor(hovered: Bool) {
+        if hovered && hoveredColor != nil {
+            // remove the color sublayer
+//            layer?.sublayers?.removeAll(where: { $0 === colorLayer })
+            layer?.backgroundColor = hoveredColor!.cgColor
+            
+        } else {
+            // reapply sublayer and blur
+//            layer?.backgroundColor = nil
+//            layer?.sublayers?.append(colorLayer)
+            layer?.backgroundFilters = [blurFilter!]
+            layer?.backgroundColor = additionalGrayColor
         }
     }
     
     open override func mouseEntered(with event: NSEvent) {
-        if let hoveredColor = hoveredColor {
-//            layer?.backgroundColor = hoveredColor.cgColor
-            colorLayer.backgroundColor = hoveredColor.cgColor
-        }
+//        setButtonColor(hovered: true)
     }
     
     open override func mouseExited(with event: NSEvent) {
-//        layer?.backgroundColor = CGColor(gray: 1, alpha: 0.5)
-//        layer?.backgroundColor = nil
-        colorLayer.backgroundColor = additionalGrayColor
-        
-        
-        // need to reapply blur after changing the background color
-//        applyBlur()
+        setButtonColor(hovered: false)
     }
 }

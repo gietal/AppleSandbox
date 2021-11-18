@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17506"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -707,75 +708,124 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="NSImageView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="1988" height="633"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1988" height="1184"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uAB-0h-VKH">
-                                <rect key="frame" x="51" y="551" width="48" height="48"/>
+                                <rect key="frame" x="51" y="1102" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="testImage" id="r7p-Fj-VKC"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="r7p-Fj-VKC">
+                                    <imageReference key="image" image="custom.trash" symbolScale="medium" renderingMode="template"/>
+                                </imageCell>
                             </imageView>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3QK-uT-eCS">
-                                <rect key="frame" x="51" y="351" width="286" height="184"/>
+                                <rect key="frame" x="51" y="902" width="286" height="184"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Screen Shot 2021-11-09 at 1.50.01 PM" id="6ef-Ws-vdP"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Screen Shot 2021-11-10 at 10.03.13 AM" id="6ef-Ws-vdP"/>
                             </imageView>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8yf-nk-NE3">
-                                <rect key="frame" x="352" y="351" width="286" height="184"/>
+                                <rect key="frame" x="352" y="902" width="286" height="184"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Screen Shot 2021-11-09 at 1.50.16 PM" id="Szp-bN-8cF"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Screen Shot 2021-11-10 at 10.02.49 AM" id="Szp-bN-8cF"/>
                             </imageView>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hE0-EF-3aD">
-                                <rect key="frame" x="658" y="351" width="286" height="184"/>
+                                <rect key="frame" x="658" y="902" width="286" height="184"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Screen Shot 2021-11-09 at 2.26.17 PM" id="pG0-gu-2vr"/>
                             </imageView>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M3s-PI-d0M">
-                                <rect key="frame" x="352" y="115" width="286" height="184"/>
+                                <rect key="frame" x="352" y="710" width="286" height="184"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Screen Shot 2021-11-09 at 1.50.25 PM" id="V8I-lM-hOd"/>
                             </imageView>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3GQ-bI-cHv">
-                                <rect key="frame" x="51" y="104" width="286" height="206"/>
+                                <rect key="frame" x="51" y="699" width="286" height="206"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Screen Shot 2021-11-09 at 2.34.56 PM" id="iEz-Dl-1mu"/>
                             </imageView>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AEC-6u-dA0" customClass="CircularButton" customModule="NSImageView" customModuleProvider="target">
-                                <rect key="frame" x="554" y="135" width="36" height="36"/>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cZT-qH-rgz">
+                                <rect key="frame" x="658" y="710" width="286" height="184"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NCP-Nm-Q6f">
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Screen Shot 2021-11-10 at 10.44.05 AM" id="QO6-Ft-FSY"/>
+                            </imageView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ahL-nk-fko">
+                                <rect key="frame" x="352" y="516" width="286" height="184"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Screen Shot 2021-11-10 at 10.04.10 AM" id="QV3-dy-0EU"/>
+                            </imageView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FXh-0s-c7x">
+                                <rect key="frame" x="51" y="505" width="286" height="206"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Screen Shot 2021-11-10 at 10.04.02 AM" id="TLU-uZ-dri"/>
+                            </imageView>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AEC-6u-dA0" customClass="CircularButton" customModule="NSImageView" customModuleProvider="target">
+                                <rect key="frame" x="554" y="730" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NCP-Nm-Q6f">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" size="25" name="RDPMDL2Assets"/>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0ix-DP-YoN" customClass="CircularButton" customModule="NSImageView" customModuleProvider="target">
+                                <rect key="frame" x="860" y="730" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSListViewTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bmV-1O-xX5">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" size="25" name="RDPMDL2Assets"/>
                                 </buttonCell>
                             </button>
                             <button verticalHuggingPriority="750" id="4C1-sP-eVI" customClass="CircularButton" customModule="NSImageView" customModuleProvider="target">
-                                <rect key="frame" x="277" y="369" width="36" height="36"/>
+                                <rect key="frame" x="261" y="920" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XrU-3Y-SKz">
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSListViewTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XrU-3Y-SKz">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" size="25" name="RDPMDL2Assets"/>
                                 </buttonCell>
                             </button>
                             <button verticalHuggingPriority="750" id="oWo-FL-3kr" customClass="CircularButton" customModule="NSImageView" customModuleProvider="target">
-                                <rect key="frame" x="583" y="376" width="36" height="36"/>
+                                <rect key="frame" x="554" y="920" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lXY-KP-eve">
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSListViewTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lXY-KP-eve">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" size="25" name="RDPMDL2Assets"/>
                                 </buttonCell>
                             </button>
                             <button verticalHuggingPriority="750" id="7NP-wi-zfc" customClass="CircularButton" customModule="NSImageView" customModuleProvider="target">
-                                <rect key="frame" x="896" y="376" width="36" height="36"/>
+                                <rect key="frame" x="896" y="927" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aWl-bk-Ecx">
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSListViewTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aWl-bk-Ecx">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" size="25" name="RDPMDL2Assets"/>
                                 </buttonCell>
                             </button>
                             <button verticalHuggingPriority="750" id="mBh-5U-DTf" customClass="CircularButton" customModule="NSImageView" customModuleProvider="target">
-                                <rect key="frame" x="245" y="135" width="36" height="36"/>
+                                <rect key="frame" x="245" y="730" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ibs-eO-Pvx">
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSListViewTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ibs-eO-Pvx">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" size="25" name="RDPMDL2Assets"/>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f48-l6-OtU" customClass="CircularButton" customModule="NSImageView" customModuleProvider="target">
+                                <rect key="frame" x="554" y="536" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSListViewTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="MD0-w9-fi6">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" size="25" name="RDPMDL2Assets"/>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" id="iUs-zZ-5tD" customClass="CircularButton" customModule="NSImageView" customModuleProvider="target">
+                                <rect key="frame" x="245" y="536" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSListViewTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Npx-Ic-KUH">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" size="25" name="RDPMDL2Assets"/>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2fE-tE-9z3">
+                                <rect key="frame" x="151" y="1116" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="custom.trash" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="Wtn-Gv-MYG">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -788,16 +838,20 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="291" y="1014.5"/>
+            <point key="canvasLocation" x="291" y="1290"/>
         </scene>
     </scenes>
     <resources>
-        <image name="NSAddTemplate" width="11" height="11"/>
-        <image name="Screen Shot 2021-11-09 at 1.50.01 PM" width="574" height="321"/>
-        <image name="Screen Shot 2021-11-09 at 1.50.16 PM" width="574" height="320"/>
+        <image name="NSListViewTemplate" width="14" height="10"/>
         <image name="Screen Shot 2021-11-09 at 1.50.25 PM" width="572" height="321"/>
         <image name="Screen Shot 2021-11-09 at 2.26.17 PM" width="578" height="323"/>
-        <image name="Screen Shot 2021-11-09 at 2.34.56 PM" width="576" height="326"/>
-        <image name="testImage" width="178" height="172"/>
+        <image name="Screen Shot 2021-11-09 at 2.34.56 PM" width="568" height="317"/>
+        <image name="Screen Shot 2021-11-10 at 10.02.49 AM" width="572" height="320"/>
+        <image name="Screen Shot 2021-11-10 at 10.03.13 AM" width="570" height="315"/>
+        <image name="Screen Shot 2021-11-10 at 10.04.02 AM" width="570" height="315"/>
+        <image name="Screen Shot 2021-11-10 at 10.04.10 AM" width="570" height="318"/>
+        <image name="Screen Shot 2021-11-10 at 10.44.05 AM" width="573" height="319"/>
+        <image name="custom.trash" width="13" height="15"/>
+        <image name="custom.trash" width="13" height="15"/>
     </resources>
 </document>
