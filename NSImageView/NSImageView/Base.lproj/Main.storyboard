@@ -715,7 +715,7 @@
                                 <rect key="frame" x="51" y="1102" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="r7p-Fj-VKC">
-                                    <imageReference key="image" image="custom.trash" symbolScale="medium" renderingMode="template"/>
+                                    <imageReference key="image" image="trash-2" symbolScale="medium" renderingMode="template"/>
                                 </imageCell>
                             </imageView>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3QK-uT-eCS">
@@ -825,7 +825,7 @@
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2fE-tE-9z3">
                                 <rect key="frame" x="151" y="1116" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="custom.trash" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="Wtn-Gv-MYG">
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="trash-2" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="Wtn-Gv-MYG">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -851,7 +851,7 @@
         <image name="Screen Shot 2021-11-10 at 10.04.02 AM" width="570" height="315"/>
         <image name="Screen Shot 2021-11-10 at 10.04.10 AM" width="570" height="318"/>
         <image name="Screen Shot 2021-11-10 at 10.44.05 AM" width="573" height="319"/>
-        <image name="custom.trash" width="13" height="15"/>
-        <image name="custom.trash" width="13" height="15"/>
+        <image name="trash-2" width="13" height="15"/>
+        <image name="trash-2" width="13" height="15"/>
     </resources>
 </document>
