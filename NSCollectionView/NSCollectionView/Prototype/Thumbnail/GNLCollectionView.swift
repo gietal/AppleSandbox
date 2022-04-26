@@ -20,4 +20,14 @@ class GNLCollectionView: NSCollectionView {
 //        return superOutput
         return .move
     }
+    
+    override func accessibilityChildren() -> [Any]? {
+        var children = super.accessibilityChildren()
+        
+        return children
+    }
+    
+    override func setAccessibilityChildren(_ accessibilityChildren: [Any]?) {
+        super.setAccessibilityChildren(accessibilityChildren)
+    }
 }

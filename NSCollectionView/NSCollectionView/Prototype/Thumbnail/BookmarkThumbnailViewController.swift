@@ -121,6 +121,7 @@ class BookmarkThumbnailViewController: NSViewController {
         setupDragAndDrop()
     }
     let flowLayout = NSCollectionViewFlowLayout()
+    let debugFlowLayout = DebugFlowLayout()
     let thumbnailLayout = ThumbnailCollectionViewLayout()
     fileprivate func setupLayout() {
         // setup the layout
@@ -136,12 +137,21 @@ class BookmarkThumbnailViewController: NSViewController {
 //        flowLayout.estimatedItemSize = flowLayout.itemSize
 //        flowLayout.itemSpacing = CGSize(width: 20, height: 20)
         
-        thumbnailLayout.itemSize = CGSize(width: 160, height: 140)
+        thumbnailLayout.originalItemSize = CGSize(width: 160, height: 140)
         thumbnailLayout.delegate = self
         thumbnailLayout.sectionInset = flowLayout.sectionInset
         thumbnailLayout.itemSpacing = CGSize(width: 20, height: 20)
-//        collectionView.collectionViewLayout = thumbnailLayout
-        collectionView.collectionViewLayout = flowLayout
+        
+        debugFlowLayout.originalItemSize = CGSize(width: 200, height: 145)
+        debugFlowLayout.itemSpacing = CGSize(width: 7, height: 7)
+        debugFlowLayout.maxEnlargingFactor = 2
+//        debugFlowLayout.
+        collectionView.delegate = self
+        
+        collectionView.collectionViewLayout = thumbnailLayout
+//        collectionView.collectionViewLayout = flowLayout
+//        collectionView.collectionViewLayout = debugFlowLayout
+        
         // 2
         view.wantsLayer = true
         collectionView.wantsLayer = true
@@ -236,6 +246,7 @@ extension BookmarkThumbnailViewController: NSCollectionViewDataSource {
             output = viewItem
         }
         
+        
         return output
     }
     
@@ -247,6 +258,11 @@ extension BookmarkThumbnailViewController: NSCollectionViewDataSource {
             let headerView = collectionView.makeSupplementaryView(ofKind: .sectionHeader, withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "BookmarkThumbnailHeaderView"), for: indexPath) as! BookmarkThumbnailHeaderView
             headerView.group = bookmarkDirectory.bookmarkGroup(for: indexPath)
             headerView.delegate = self
+            headerView.setAccessibilityRole(.group)
+//            if #available(macOS 10.13, *) {
+//                headerView.setAccessibilitySubrole(.sectionListSubrole)
+//            }
+            headerView.setAccessibilityParent(collectionView)
             view = headerView
         } else {
             // non header, make nil view
@@ -265,7 +281,7 @@ extension BookmarkThumbnailViewController: ThumbnailCollectionViewLayoutDelegate
 }
 
 extension BookmarkThumbnailViewController: NSCollectionViewDelegateFlowLayout {
-    // determine the size of the header
+//     determine the size of the header
     func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> NSSize {
         if section == 1 {
             return NSSize(width: 50, height: 100)
@@ -281,6 +297,17 @@ extension BookmarkThumbnailViewController: NSCollectionViewDelegateFlowLayout {
 //            return NSSize(width: 160.0, height: 140.0)
 //        }
 //    }
+    
+
+    
+    func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 7
+    }
+    
+    func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 7
+    }
+    
     
 }
 
