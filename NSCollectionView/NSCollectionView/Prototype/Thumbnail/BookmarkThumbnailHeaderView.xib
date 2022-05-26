@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -9,11 +10,11 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe" customClass="BookmarkThumbnailHeaderView" customModule="NSCollectionView" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="27"/>
+            <rect key="frame" x="0.0" y="0.0" width="529" height="27"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oWj-qr-pS0">
-                    <rect key="frame" x="103" y="4" width="274" height="19"/>
+                    <rect key="frame" x="95" y="4" width="274" height="19"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Bookmark Thumbnail Section Header" id="BYl-a9-bOY">
                         <font key="font" metaFont="system" size="16"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -21,7 +22,7 @@
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WBm-qE-9Mg">
-                    <rect key="frame" x="0.0" y="-4" width="81" height="32"/>
+                    <rect key="frame" x="-1" y="-3" width="75" height="32"/>
                     <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dZs-Yy-exf">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -30,19 +31,40 @@
                         <action selector="onCollapseButtonPressed:" target="c22-O7-iKe" id="EDK-rg-fLb"/>
                     </connections>
                 </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hIk-Rs-fMG">
+                    <rect key="frame" x="368" y="-3" width="75" height="32"/>
+                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="csV-YQ-dat">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="c4b-me-gRT">
+                    <rect key="frame" x="446" y="6" width="16" height="15"/>
+                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" catalog="system" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ljl-jC-6GO">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="oWj-qr-pS0" secondAttribute="bottom" constant="4" id="0fI-PE-Aid"/>
+                <constraint firstItem="hIk-Rs-fMG" firstAttribute="centerY" secondItem="oWj-qr-pS0" secondAttribute="centerY" id="1Tu-wi-ll2"/>
+                <constraint firstItem="c4b-me-gRT" firstAttribute="centerY" secondItem="hIk-Rs-fMG" secondAttribute="centerY" id="2aG-j7-MFn"/>
                 <constraint firstItem="WBm-qE-9Mg" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="69h-Nh-BgX"/>
                 <constraint firstItem="oWj-qr-pS0" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="4" id="AcC-CC-cD9"/>
                 <constraint firstItem="oWj-qr-pS0" firstAttribute="leading" secondItem="WBm-qE-9Mg" secondAttribute="trailing" constant="30" id="Lhg-B7-u5F"/>
+                <constraint firstItem="hIk-Rs-fMG" firstAttribute="leading" secondItem="oWj-qr-pS0" secondAttribute="trailing" constant="8" symbolic="YES" id="Td1-yH-Z0a"/>
                 <constraint firstItem="WBm-qE-9Mg" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="6" id="Tmb-sL-k1a"/>
+                <constraint firstItem="c4b-me-gRT" firstAttribute="leading" secondItem="hIk-Rs-fMG" secondAttribute="trailing" constant="10" id="UtX-Yq-XZs"/>
             </constraints>
             <connections>
                 <outlet property="collapseButton" destination="WBm-qE-9Mg" id="qyL-p7-RFe"/>
                 <outlet property="title" destination="oWj-qr-pS0" id="Ng9-1N-1Rq"/>
             </connections>
-            <point key="canvasLocation" x="139" y="278.5"/>
+            <point key="canvasLocation" x="163.5" y="278.5"/>
         </customView>
     </objects>
+    <resources>
+        <image name="NSAddTemplate" catalog="system" width="14" height="13"/>
+    </resources>
 </document>
