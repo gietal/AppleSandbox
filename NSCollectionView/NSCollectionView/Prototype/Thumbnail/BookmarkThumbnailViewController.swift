@@ -258,11 +258,11 @@ extension BookmarkThumbnailViewController: NSCollectionViewDataSource {
             let headerView = collectionView.makeSupplementaryView(ofKind: .sectionHeader, withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "BookmarkThumbnailHeaderView"), for: indexPath) as! BookmarkThumbnailHeaderView
             headerView.group = bookmarkDirectory.bookmarkGroup(for: indexPath)
             headerView.delegate = self
-            headerView.setAccessibilityRole(.group)
+//            headerView.setAccessibilityRole(.group)
 //            if #available(macOS 10.13, *) {
 //                headerView.setAccessibilitySubrole(.sectionListSubrole)
 //            }
-            headerView.setAccessibilityParent(collectionView)
+//            headerView.setAccessibilityParent(collectionView)
             view = headerView
         } else {
             // non header, make nil view
