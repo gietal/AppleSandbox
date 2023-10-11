@@ -13,12 +13,12 @@ protocol ThumbnailCollectionViewLayoutDelegate: class {
     func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, headerHeightForSection section: Int ) -> CGFloat
 }
 
-class ThumbnailCollectionViewLayout: NSCollectionViewLayout {
+class ThumbnailCollectionViewLayout: NSCollectionViewFlowLayout {
     
     // attributes similar to flow layout
-    open var itemSize = CGSize.zero
+    open var originalItemSize = CGSize.zero
     open var itemSpacing = CGSize.zero
-    open var sectionInset = NSEdgeInsetsZero
+//    open var sectionInset = NSEdgeInsetsZero
     open var delegate: ThumbnailCollectionViewLayoutDelegate?
     open var fillGapByEnlargingItems = true
     open var maxEnlargingFactor: CGFloat = 1.3
@@ -26,6 +26,7 @@ class ThumbnailCollectionViewLayout: NSCollectionViewLayout {
     private var indexPathToAttributeIndex = [IndexPath: Int]()
     private var contentBounds = CGRect.zero
     private var cachedAttributes = [NSCollectionViewLayoutAttributes]()
+    private var sectionIndexToAttributedIndex = [Int]()
     private var dropTargetAreas = [IndexPath: CGRect]()
     private var actualItemSize = CGSize.zero
     
@@ -42,6 +43,7 @@ class ThumbnailCollectionViewLayout: NSCollectionViewLayout {
         // reset cache
         cachedAttributes.removeAll()
         indexPathToAttributeIndex.removeAll()
+        sectionIndexToAttributedIndex.removeAll()
         dropTargetAreas.removeAll()
         contentBounds = CGRect(origin: CGPoint.zero, size: cv.bounds.size)
         
@@ -65,9 +67,9 @@ class ThumbnailCollectionViewLayout: NSCollectionViewLayout {
         let rightEdge = contentBounds.width - sectionInset.right
         
         // calculate item per row
-        var itemPerRow = (Int)((contentBounds.width - sectionInset.left - sectionInset.right) / (itemSize.width + itemSpacing.width))
+        var itemPerRow = (Int)((contentBounds.width - sectionInset.left - sectionInset.right) / (originalItemSize.width + itemSpacing.width))
         
-        if (rightEdge - (leftEdge + CGFloat(itemPerRow) * (itemSize.width + itemSpacing.width))) > itemSize.width {
+        if (rightEdge - (leftEdge + CGFloat(itemPerRow) * (originalItemSize.width + itemSpacing.width))) > originalItemSize.width {
             itemPerRow += 1
         }
         
@@ -76,7 +78,7 @@ class ThumbnailCollectionViewLayout: NSCollectionViewLayout {
         }
         
         // reset actual item size
-        actualItemSize = itemSize
+        actualItemSize = originalItemSize
         
         // determine if there's any gap
         if fillGapByEnlargingItems {
@@ -90,10 +92,10 @@ class ThumbnailCollectionViewLayout: NSCollectionViewLayout {
 //            }
             var percentMultiplierPerItem: CGFloat = 1
             if doEnlarge {
-                let itemsRowWidth = (itemSize.width * CGFloat(itemPerRow)) + (itemSpacing.width * CGFloat(itemPerRow - 1))
+                let itemsRowWidth = (originalItemSize.width * CGFloat(itemPerRow)) + (itemSpacing.width * CGFloat(itemPerRow - 1))
                 let gap: CGFloat = rightEdge - (leftEdge + itemsRowWidth)
                 let gapPerItem = (gap / CGFloat(itemPerRow))
-                percentMultiplierPerItem = min(maxEnlargingFactor, (gapPerItem / itemSize.width) + 1)
+                percentMultiplierPerItem = min(maxEnlargingFactor, (gapPerItem / originalItemSize.width) + 1)
                 
             }
             actualItemSize.width = actualItemSize.width * percentMultiplierPerItem
@@ -105,13 +107,22 @@ class ThumbnailCollectionViewLayout: NSCollectionViewLayout {
             let headerHeight = delegate.collectionView(cv, layout: self, headerHeightForSection: sectionId)
             let headerAttribute = NSCollectionViewLayoutAttributes(forSupplementaryViewOfKind: .sectionHeader, with: IndexPath(item: 0, section: sectionId))
             headerAttribute.frame = CGRect(x: 0, y: currentY, width: contentBounds.width, height: headerHeight)
+            
+            let ori = headerAttribute.frame
+//            headerAttribute.frame = CGRect(x: ori.minX - 50, y: ori.minY, width: ori.width + 100, height: ori.height - 10)
+            headerAttribute.zIndex = 10
+            headerAttribute.alpha = 1
+            headerAttribute.isHidden = false
+            
+//            headerAttribute.z
             cachedAttributes.append(headerAttribute)
+            sectionIndexToAttributedIndex.append(cachedAttributes.count-1)
             
             // advance Y
             currentY += headerHeight
             
             // add top section inset
-            currentY += sectionInset.top
+//            currentY += sectionInset.top
             
             // reset x position
             currentX = leftEdge
@@ -177,6 +188,20 @@ class ThumbnailCollectionViewLayout: NSCollectionViewLayout {
         return newBounds.size != contentBounds.size
     }
     
+    override func layoutAttributesForSupplementaryView(ofKind elementKind: NSCollectionView.SupplementaryElementKind, at indexPath: IndexPath) -> NSCollectionViewLayoutAttributes? {
+        if elementKind != .sectionHeader {
+//            return super.layoutAttributesForSupplementaryView(ofKind: elementKind, at: indexPath)
+            return nil
+        }
+        
+        // properly give the correct attribute for the section header
+        let index = sectionIndexToAttributedIndex[indexPath.section]
+        let attribute = cachedAttributes[index]
+//        let ori = attribute.frame
+//        attribute.frame = CGRect(x: ori.minX + 5, y: ori.minY + 5, width: ori.width - 10, height: ori.height - 10)
+        return attribute
+    }
+    
     override func layoutAttributesForItem(at indexPath: IndexPath) -> NSCollectionViewLayoutAttributes? {
         if let index = indexPathToAttributeIndex[indexPath] {
             return cachedAttributes[index]
@@ -229,4 +254,76 @@ class ThumbnailCollectionViewLayout: NSCollectionViewLayout {
             return rect.intersects($0.frame)
         }
     }
+}
+
+class DebugFlowLayout: NSCollectionViewFlowLayout {
+    override func layoutAttributesForSupplementaryView(ofKind elementKind: NSCollectionView.SupplementaryElementKind, at indexPath: IndexPath) -> NSCollectionViewLayoutAttributes? {
+        let attribute = super.layoutAttributesForSupplementaryView(ofKind: elementKind, at: indexPath)
+        
+        return attribute
+    }
+    
+    override func layoutAttributesForItem(at indexPath: IndexPath) -> NSCollectionViewLayoutAttributes? {
+        let attribute = super.layoutAttributesForItem(at: indexPath)
+        
+        return attribute
+    }
+    
+    override func layoutAttributesForInterItemGap(before indexPath: IndexPath) -> NSCollectionViewLayoutAttributes? {
+        let attribute = super.layoutAttributesForInterItemGap(before: indexPath)
+        
+        return attribute
+    }
+    
+    override func layoutAttributesForElements(in rect: NSRect) -> [NSCollectionViewLayoutAttributes] {
+        let attributes = super.layoutAttributesForElements(in: rect)
+        
+        return attributes
+    }
+    
+    public var originalItemSize = CGSize(width: 200, height: 145)
+    public var maxEnlargingFactor: CGFloat = 2
+    open var itemSpacing = CGSize(width: 7, height: 7)
+    private var contentBounds = CGRect.zero
+    
+    override func prepare() {
+        
+        super.prepare()
+    }
+//    override func shouldInvalidateLayout(forBoundsChange newBounds: NSRect) -> Bool {
+//        contentBounds = collectionView!.enclosingScrollView!.bounds
+//        self.minimumInteritemSpacing = itemSpacing.width
+//        self.minimumLineSpacing = itemSpacing.height
+//
+//        // calculate item per row
+//        var itemPerRow = (Int)((contentBounds.width - sectionInset.left - sectionInset.right) / (originalItemSize.width + itemSpacing.width))
+//        let rightEdge = contentBounds.width - sectionInset.right
+//        let leftEdge = sectionInset.left
+//
+//        if (rightEdge - (leftEdge + CGFloat(itemPerRow) * (originalItemSize.width + itemSpacing.width))) > originalItemSize.width {
+//            itemPerRow += 1
+//        }
+//
+//        if itemPerRow == 0 {
+//            return true
+//        }
+//
+////        if doEnlarge {
+//            let itemsRowWidth = (originalItemSize.width * CGFloat(itemPerRow)) + (itemSpacing.width * CGFloat(itemPerRow - 1))
+//            let gap: CGFloat = rightEdge - (leftEdge + itemsRowWidth)
+//            let gapPerItem = (gap / CGFloat(itemPerRow))
+//            var percentMultiplierPerItem = min(maxEnlargingFactor, (gapPerItem / originalItemSize.width) + 1)
+////        }
+//
+//
+//        originalItemSize.width = originalItemSize.width * percentMultiplierPerItem
+//
+//        // looks like Cocoa has an issue rendering non fixed-point images
+//        // we only round the height, as the artifact is very pronounced on the vertical axis
+//        originalItemSize.height = (originalItemSize.height * percentMultiplierPerItem).rounded(.toNearestOrEven)
+//
+//        print("new multiplier: \(percentMultiplierPerItem), new itemsize: \(originalItemSize)")
+//
+//        return true
+//    }
 }

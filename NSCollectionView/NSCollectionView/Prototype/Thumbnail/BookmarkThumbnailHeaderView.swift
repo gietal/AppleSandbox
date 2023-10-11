@@ -13,7 +13,7 @@ protocol BookmarkThumbnailHeaderViewDelegate: class {
     func onCollapseButtonPressed(forGroup group: BookmarkGroup)
 }
 
-class BookmarkThumbnailHeaderView: NSView {
+class BookmarkThumbnailHeaderView: NSView, NSCollectionViewSectionHeaderView {
     @IBOutlet weak var title: NSTextField!
     @IBOutlet weak var collapseButton: NSButton!
     weak var delegate: BookmarkThumbnailHeaderViewDelegate?
@@ -37,5 +37,7 @@ class BookmarkThumbnailHeaderView: NSView {
     override func awakeFromNib() {
         self.wantsLayer = true
 //        self.layer?.backgroundColor = CGColor(gray: 0.9, alpha: 1)
+        self.setAccessibilityEnabled(true)
+        self.setAccessibilityElement(true)
     }
 }
