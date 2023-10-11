@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17506"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19455"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -777,9 +777,9 @@
                             <button verticalHuggingPriority="750" id="4C1-sP-eVI" customClass="CircularButton" customModule="NSImageView" customModuleProvider="target">
                                 <rect key="frame" x="261" y="920" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSListViewTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XrU-3Y-SKz">
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="custom.trash" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XrU-3Y-SKz">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" size="25" name="RDPMDL2Assets"/>
+                                    <font key="font" metaFont="system" size="25"/>
                                 </buttonCell>
                             </button>
                             <button verticalHuggingPriority="750" id="oWo-FL-3kr" customClass="CircularButton" customModule="NSImageView" customModuleProvider="target">
@@ -822,10 +822,10 @@
                                     <font key="font" size="25" name="RDPMDL2Assets"/>
                                 </buttonCell>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2fE-tE-9z3">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2fE-tE-9z3" customClass="CircularButton" customModule="NSImageView" customModuleProvider="target">
                                 <rect key="frame" x="151" y="1116" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="custom.trash" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="Wtn-Gv-MYG">
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="custom.trash" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Wtn-Gv-MYG">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -842,7 +842,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="NSListViewTemplate" width="14" height="10"/>
+        <image name="NSListViewTemplate" width="16" height="12"/>
         <image name="Screen Shot 2021-11-09 at 1.50.25 PM" width="572" height="321"/>
         <image name="Screen Shot 2021-11-09 at 2.26.17 PM" width="578" height="323"/>
         <image name="Screen Shot 2021-11-09 at 2.34.56 PM" width="568" height="317"/>
@@ -851,7 +851,6 @@
         <image name="Screen Shot 2021-11-10 at 10.04.02 AM" width="570" height="315"/>
         <image name="Screen Shot 2021-11-10 at 10.04.10 AM" width="570" height="318"/>
         <image name="Screen Shot 2021-11-10 at 10.44.05 AM" width="573" height="319"/>
-        <image name="custom.trash" width="13" height="15"/>
         <image name="custom.trash" width="13" height="15"/>
     </resources>
 </document>
