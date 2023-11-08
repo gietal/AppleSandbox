@@ -21,21 +21,18 @@ public final class AudioToolboxInputDevice {
 
     // MARK: Private Properties
 
-    fileprivate let queue: DispatchQueue = DispatchQueue(label: "AudioToolboxInputDevice.\(UUID().uuidString)")
     fileprivate let numBackingAudioBuffers = 4
-    fileprivate let minSamplesPerSecond: UInt = 8000
-
     fileprivate var audioQueue: AudioQueueRef? = nil
     fileprivate var samplesBuffers = [AudioQueueBufferRef]()
-    fileprivate var expectedFramesPerPacket: UInt = 0
     fileprivate var counter = 0
+    
     // MARK: Public Methods
 
     public init() {
     }
     
     deinit {
-        print("987987 audio queue deinit")
+        print("AudioToolboxInputDevice deinit")
     }
 
   
@@ -62,7 +59,7 @@ public final class AudioToolboxInputDevice {
             let data = Data(bytes: UnsafePointer<UInt8>(OpaquePointer(buffer.pointee.mAudioData)), count: Int(buffer.pointee.mAudioDataByteSize))
             
             let retval = AudioQueueEnqueueBuffer(audioQueue, buffer, 0, nil)
-            print("[\(self?.counter)] audio input data \(data.count) bytes, returned \(retval)")
+            print("[\(self?.counter)] received audio input data \(data.count) bytes, returned \(retval)")
         }
 
         var status: OSStatus = 0
@@ -95,10 +92,6 @@ public final class AudioToolboxInputDevice {
         //Wait for the audio queue to stop before disposing it.
         AudioQueueStop(myAudioQueue!, true)
         AudioQueueDispose(myAudioQueue!, false)
-//        DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async {
-//            
-//        }
-        
     }
 
     // MARK: Private Methods
