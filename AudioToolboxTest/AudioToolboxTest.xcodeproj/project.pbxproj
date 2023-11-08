@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		888D047F2AFB71B000DB0BCB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 888D047E2AFB71B000DB0BCB /* AudioToolbox.framework */; };
 		88DD6B2D2AFB69E5009FC263 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DD6B2C2AFB69E5009FC263 /* AppDelegate.swift */; };
 		88DD6B2F2AFB69E7009FC263 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88DD6B2E2AFB69E7009FC263 /* Assets.xcassets */; };
 		88DD6B322AFB69E7009FC263 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88DD6B302AFB69E7009FC263 /* MainMenu.xib */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		888D047E2AFB71B000DB0BCB /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		88DD6B292AFB69E5009FC263 /* AudioToolboxTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioToolboxTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88DD6B2C2AFB69E5009FC263 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88DD6B2E2AFB69E7009FC263 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -27,17 +29,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				888D047F2AFB71B000DB0BCB /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		888D047D2AFB71B000DB0BCB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				888D047E2AFB71B000DB0BCB /* AudioToolbox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		88DD6B202AFB69E5009FC263 = {
 			isa = PBXGroup;
 			children = (
 				88DD6B2B2AFB69E5009FC263 /* AudioToolboxTest */,
 				88DD6B2A2AFB69E5009FC263 /* Products */,
+				888D047D2AFB71B000DB0BCB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -285,6 +297,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.test.AudioToolboxTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -310,6 +323,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gietal.sandbox.test.AudioToolboxTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";

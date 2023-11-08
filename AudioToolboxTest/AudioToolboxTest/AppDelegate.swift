@@ -22,15 +22,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         isRecording = !isRecording
         
         if isRecording {
-            recordButton.stringValue = "Stop"
+            recordButton.title = "Stop"
             inputDevice = AudioToolboxInputDevice()
             try? inputDevice.open()
         } else {
-            recordButton.stringValue = "Record"
+            recordButton.title = "Record"
             inputDevice.close()
             inputDevice = nil
         }
-        recordButton.needsDisplay = true
         
     }
     
