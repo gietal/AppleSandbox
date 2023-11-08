@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21701"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -55,6 +55,9 @@
                 <constraint firstAttribute="bottom" secondItem="jzJ-RJ-E14" secondAttribute="bottom" constant="5" id="ceG-sN-HEb"/>
                 <constraint firstItem="jzJ-RJ-E14" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="5" id="eje-Cj-isi"/>
             </constraints>
+            <connections>
+                <outlet property="menu" destination="p2B-3e-Zq2" id="lF7-kr-8Mx"/>
+            </connections>
             <point key="canvasLocation" x="112" y="135"/>
         </customView>
         <collectionViewItem id="w4w-0Z-s20" customClass="BookmarkThumbnailViewItem" customModule="NSCollectionView" customModuleProvider="target">
@@ -66,5 +69,19 @@
                 <outlet property="view" destination="c22-O7-iKe" id="hJE-Kt-2oW"/>
             </connections>
         </collectionViewItem>
+        <menu id="p2B-3e-Zq2">
+            <items>
+                <menuItem title="Item 1" id="gxK-Dr-W3u">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Item 2" id="71g-Ep-T6b">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Item 3" id="6A8-WJ-Dws">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="-232" y="379"/>
+        </menu>
     </objects>
 </document>
